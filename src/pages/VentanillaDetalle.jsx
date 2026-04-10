@@ -20,7 +20,7 @@ export default function VentanillaDetalle() {
 
   useEffect(() => {
     cargar();
-  }, [ot]); // ✅ dependencia correcta
+  }, [ot]);
 
   const toggle = (id) => {
     setSeleccion((prev) =>
@@ -39,15 +39,13 @@ export default function VentanillaDetalle() {
 
     setCargando(true);
 
-    // ✅ Una sola query en vez de un loop
     const { error } = await supabase
       .from("items")
       .update({ estatus: "Entregada" })
       .in("id", seleccion);
 
     if (error) {
-      alert("Error al actualizar. Intenta de nuevo.");
-      console.error(error);
+      alert("Error al actualizar.");
     } else {
       await cargar();
     }
@@ -55,8 +53,25 @@ export default function VentanillaDetalle() {
     setCargando(false);
   };
 
-  const pendientes = data.filter((r) => r.estatus === "Recibida");
-  const entregadas = data.filter((r) => r.estatus === "Entregada");
+  // Nueva función: Marcar como verificado por ventanilla
+  const verificarEnAlmacen = async (id) => {
+    const ok = window.confirm("¿Confirmas que revisaste en almacén y la pieza NO está disponible?");
+    if (!ok) return;
+
+    const { error } = await supabase
+      .from("items")
+      .update({
+        verificado_ventanilla: true,
+        fecha_verificacion_ventanilla: new Date().toISOString(),
+        comentario_almacen: null // Limpiamos el comentario
+      })
+      .eq("id", id);
+
+    if (!error) {
+      alert("✅ Verificación registrada. La pieza ahora puede pasar a compra si es necesario.");
+      cargar();
+    }
+  };
 
   const colorEstatus = (estatus) => {
     const colores = {
@@ -73,7 +88,7 @@ export default function VentanillaDetalle() {
     <div style={{ padding: "20px", color: "#e5e7eb" }}>
       <h2 style={{ marginBottom: "4px" }}>OT {ot}</h2>
       <p style={{ color: "#9ca3af", marginBottom: "20px" }}>
-        {entregadas.length}/{data.length} ítems entregados
+        {data.filter(r => r.estatus === "Entregada").length}/{data.length} ítems entregados
       </p>
 
       {data.map((r) => (
@@ -87,7 +102,9 @@ export default function VentanillaDetalle() {
             marginBottom: "8px",
             background: "#111827",
             borderRadius: "8px",
-            border: seleccion.includes(r.id) ? "1px solid #2563eb" : "1px solid #1f2937",
+            border: r.tiene_stock_almacen && !r.verificado_ventanilla 
+              ? "2px solid #f59e0b" 
+              : "1px solid #1f2937",
           }}
         >
           {r.estatus === "Recibida" && (
@@ -104,24 +121,47 @@ export default function VentanillaDetalle() {
             {r.numero_parte && r.descripcion && (
               <div style={{ color: "#9ca3af", fontSize: "13px" }}>{r.numero_parte}</div>
             )}
+
+            {/* Alerta de stock en almacén */}
+            {r.tiene_stock_almacen && !r.verificado_ventanilla && (
+              <div style={{ color: "#f59e0b", fontSize: "13px", marginTop: "4px" }}>
+                ⚠️ Existe stock en almacén - Verificar disponibilidad
+              </div>
+            )}
           </div>
 
-          <span
-            style={{
-              background: colorEstatus(r.estatus),
-              color: "#000",
-              padding: "4px 10px",
-              borderRadius: "20px",
-              fontSize: "12px",
-              fontWeight: 600,
-            }}
-          >
+          <span style={{
+            background: colorEstatus(r.estatus),
+            color: "#000",
+            padding: "4px 10px",
+            borderRadius: "20px",
+            fontSize: "12px",
+            fontWeight: 600,
+          }}>
             {r.estatus}
           </span>
+
+          {/* Checkbox de verificación por ventanilla */}
+          {r.tiene_stock_almacen && !r.verificado_ventanilla && (
+            <button
+              onClick={() => verificarEnAlmacen(r.id)}
+              style={{
+                padding: "6px 12px",
+                background: "#854d0e",
+                color: "#fff",
+                border: "none",
+                borderRadius: "6px",
+                cursor: "pointer",
+                fontSize: "12px"
+              }}
+            >
+              Verifiqué en almacén
+            </button>
+          )}
         </div>
       ))}
 
-      {pendientes.length > 0 && (
+      {data.filter(r => r.estatus === "Recibida").length > 0 && (
         <button
           onClick={entregar}
           disabled={cargando || seleccion.length === 0}

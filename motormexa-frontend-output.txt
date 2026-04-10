@@ -5,8 +5,8 @@ PROJECT EXPORT FOR LLMs
 PROJECT INFORMATION:
 --------------------------------------------------
 Project Name: motormexa-frontend
-Generated On: 2026-04-05 22:03:06 (America/Mexico_City / GMT-06:00)
-Total Files Processed: 48
+Generated On: 2026-04-10 05:30:33 (America/Mexico_City / GMT-06:00)
+Total Files Processed: 56
 Export Tool: Easy Whole Project to Single Text File for LLMs v1.1.0
 Tool Author: Jota / José Guilherme Pandolfi
 
@@ -34,40 +34,50 @@ PROJECT STRUCTURE
 │   ├── 📁 components/
 │   │   ├── 📄 BusquedaGlobal.jsx (1.79 KB)
 │   │   ├── 📄 Card.jsx (671 B)
+│   │   ├── 📄 FilaBO.jsx (6.22 KB)
+│   │   ├── 📄 FilaCompra.jsx (4.37 KB)
 │   │   ├── 📄 Filtros.jsx (1.51 KB)
 │   │   ├── 📄 GraficaEstados.jsx (704 B)
 │   │   ├── 📄 KPI.jsx (419 B)
-│   │   ├── 📄 Layout.jsx (2.84 KB)
-│   │   ├── 📄 Ranking.jsx (1.33 KB)
+│   │   ├── 📄 Layout.jsx (6.74 KB)
+│   │   ├── 📄 Ranking.jsx (1.76 KB)
+│   │   ├── 📄 SolicitarStockModal.jsx (4.84 KB)
 │   │   ├── 📄 Sucursales.jsx (1.36 KB)
 │   │   ├── 📄 TablaERP.jsx (1.11 KB)
 │   │   └── 📄 TableroPro.jsx (1.23 KB)
+│   ├── 📁 contexts/
+│   │   └── 📄 AuthContext.jsx (1.15 KB)
 │   ├── 📁 pages/
-│   │   ├── 📄 Almacen.jsx (2.29 KB)
-│   │   ├── 📄 Chatbot.jsx (2.89 KB)
-│   │   ├── 📄 Compras.jsx (1.45 KB)
-│   │   ├── 📄 ConsultaOT.jsx (1.13 KB)
-│   │   ├── 📄 Dashboard.jsx (7.9 KB)
-│   │   ├── 📄 Login.jsx (899 B)
+│   │   ├── 📄 Almacen.jsx (7.26 KB)
+│   │   ├── 📄 Captura.jsx (13.83 KB)
+│   │   ├── 📄 Chatbot.jsx (13.4 KB)
+│   │   ├── 📄 Compras.jsx (9.6 KB)
+│   │   ├── 📄 ConsultaOT.jsx (11.86 KB)
+│   │   ├── 📄 Login.jsx (6.53 KB)
+│   │   ├── 📄 MisCotizaciones.jsx (5.8 KB)
+│   │   ├── 📄 PanelAsesor.jsx (8.25 KB)
+│   │   ├── 📄 PanelGerencial.jsx (10.2 KB)
 │   │   ├── 📄 RecepcionMasiva.jsx (3.34 KB)
-│   │   ├── 📄 Refacciones.jsx (2.39 KB)
-│   │   ├── 📄 StockPedidos.jsx (988 B)
-│   │   ├── 📄 StockSolicitud.jsx (1.13 KB)
-│   │   ├── 📄 TablaERP.jsx (1.51 KB)
-│   │   ├── 📄 Ventanilla.jsx (1.33 KB)
-│   │   └── 📄 VentanillaDetalle.jsx (1.39 KB)
+│   │   ├── 📄 StockPedidos.jsx (6.82 KB)
+│   │   ├── 📄 StockSolicitud.jsx (1.93 KB)
+│   │   ├── 📄 Ventanilla.jsx (6.2 KB)
+│   │   └── 📄 VentanillaDetalle.jsx (5.2 KB)
 │   ├── 📁 services/
 │   │   ├── 📄 auth.js (326 B)
 │   │   ├── 📄 Notificaciones.js (428 B)
-│   │   └── 📄 supabase.js (416 B)
+│   │   └── 📄 supabase.js (355 B)
 │   ├── 📁 styles/
 │   │   └── 📄 theme.css (1.1 KB)
+│   ├── 📁 utils/
+│   │   └── 📄 catalogos.js (5.28 KB)
 │   ├── 📄 App.css (2.82 KB)
-│   ├── 📄 App.tsx (772 B)
+│   ├── 📄 App.tsx (2.59 KB)
 │   ├── 📄 index.css (2.03 KB)
 │   ├── 📄 main.tsx (230 B)
 │   └── 📄 type.d.ts (23 B)
-├── 📄 .gitignore (253 B)
+├── 📄 .env (291 B)
+├── 📄 .env.example (90 B)
+├── 📄 .gitignore (268 B)
 ├── 📄 eslint.config.js (616 B)
 ├── 📄 index.html (370 B)
 ├── 📄 package-lock.json (129.02 KB)
@@ -81,23 +91,24 @@ PROJECT STRUCTURE
 ================================================================================
 PROJECT STATISTICS
 ================================================================================
-Total Files: 48
-Total Directories: 7
-Text Files: 41
-Binary Files: 7
-Total Size: 306.8 KB
+Total Files: 56
+Total Directories: 9
+Text Files: 47
+Binary Files: 9
+Total Size: 416.78 KB
 
 FILE TYPES DISTRIBUTION:
 ------------------------------
-.jsx            : 23
+.jsx            : 28
 .svg            : 5
+.js             : 5
 .json           : 5
-.js             : 4
 .css            : 3
 .tsx            : 2
 .ts             : 2
+no extension    : 2
 .png            : 1
-no extension    : 1
+.example        : 1
 .html           : 1
 .md             : 1
 
@@ -263,6 +274,378 @@ export default function Card({ title, value, color }) {
     </motion.div>
   );
 }
+================================================================================
+
+
+================================================================================
+FILE: src/components/FilaBO.jsx
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 6.22 KB
+Extension: .jsx
+Language: jsx
+Location: src/components/FilaBO.jsx
+Relative Path: src/components
+Created: 2026-04-06 05:39:47 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-09 05:20:58 (America/Mexico_City / GMT-06:00)
+MD5: 814da1184e56a39052ed2319b7603ed5
+SHA256: ea0a30aeada705be0e96f40fcf684cddf2522e8af82178c0b2a739668c6a2b5b
+Encoding: UTF-8
+
+FILE CONTENT:
+----------------------------------------
+import { useState } from "react";
+import { supabase } from "../services/supabase";
+
+const estatusBOOptions = [
+  'Buscando', 
+  'Esperando confirmación', 
+  'Confirmada', 
+  'En proceso de pago', 
+  'Pagada', 
+  'En tránsito', 
+  'Llegada', 
+  'Recibida', 
+  'No disponible'
+];
+
+export default function FilaBO({ item, onActualizar, onMandarGeneral }) {
+  const [editing, setEditing] = useState(false);
+  const [guardando, setGuardando] = useState(false);
+
+  const [form, setForm] = useState({
+    estatus_bo: item.estatus_bo || 'Buscando',
+    proveedor_bo: item.proveedor_bo || '',
+    guia_envio_bo: item.guia_envio_bo || '',
+    costo_envio_bo: item.costo_envio_bo || '',
+    origen_envio_bo: item.origen_envio_bo || '',
+    fecha_tramite_pago_bo: item.fecha_tramite_pago_bo || '',
+    prioridad_bo: item.prioridad_bo || 0,
+    nota_bo: item.nota_bo || ''
+  });
+
+  const handleSave = async () => {
+    setGuardando(true);
+
+    const { error } = await supabase
+      .from("items")
+      .update({
+        estatus_bo: form.estatus_bo,
+        proveedor_bo: form.proveedor_bo,
+        guia_envio_bo: form.guia_envio_bo,
+        costo_envio_bo: form.costo_envio_bo ? parseFloat(form.costo_envio_bo) : null,
+        origen_envio_bo: form.origen_envio_bo,
+        fecha_tramite_pago_bo: form.fecha_tramite_pago_bo || null,
+        prioridad_bo: parseInt(form.prioridad_bo) || 0,
+        nota_bo: form.nota_bo,
+        es_bo: true
+      })
+      .eq("id", item.id);
+
+    setGuardando(false);
+    if (!error) {
+      setEditing(false);
+      onActualizar();
+    } else {
+      alert("Error al guardar: " + error.message);
+    }
+  };
+
+  // Resaltar prioridad alta (1-2 piezas)
+  const esPrioritaria = item.cantidad <= 2;
+  const prioridadColor = item.prioridad_bo >= 8 ? "#7f1d1d" : 
+                         item.prioridad_bo >= 5 ? "#b45309" : 
+                         esPrioritaria ? "#854d0e" : "#1f2937";
+
+  return (
+    <tr style={{
+      borderBottom: "1px solid #1f2937",
+      background: prioridadColor,
+      fontWeight: esPrioritaria ? "600" : "normal"
+    }}>
+      <td style={{ padding: "10px 8px" }}>
+        <div style={{ fontWeight: 600 }}>{item.ot}</div>
+      </td>
+      <td style={{ padding: "10px 8px" }}>{item.numero_parte}</td>
+      <td style={{ padding: "10px 8px", maxWidth: "220px" }}>{item.descripcion}</td>
+      <td style={{ padding: "10px 8px", textAlign: "center" }}>{item.cantidad}</td>
+
+      {/* Estatus BO */}
+      <td style={{ padding: "10px 8px" }}>
+        {editing ? (
+          <select 
+            value={form.estatus_bo} 
+            onChange={e => setForm({...form, estatus_bo: e.target.value})}
+            style={{ width: "100%", padding: "4px", borderRadius: "4px" }}
+          >
+            {estatusBOOptions.map(s => <option key={s} value={s}>{s}</option>)}
+          </select>
+        ) : (
+          <span style={{ fontWeight: 700, color: "#f59e0b" }}>{item.estatus_bo}</span>
+        )}
+      </td>
+
+      {/* Proveedor */}
+      <td style={{ padding: "10px 8px" }}>
+        {editing ? (
+          <input 
+            type="text" 
+            value={form.proveedor_bo} 
+            onChange={e => setForm({...form, proveedor_bo: e.target.value})} 
+            style={{ width: "100%", padding: "4px" }}
+          />
+        ) : item.proveedor_bo || '—'}
+      </td>
+
+      {/* Guía */}
+      <td style={{ padding: "10px 8px" }}>
+        {editing ? (
+          <input 
+            type="text" 
+            value={form.guia_envio_bo} 
+            onChange={e => setForm({...form, guia_envio_bo: e.target.value})} 
+            style={{ width: "100%", padding: "4px" }}
+          />
+        ) : item.guia_envio_bo || '—'}
+      </td>
+
+      {/* Costo Envío */}
+      <td style={{ padding: "10px 8px", textAlign: "right" }}>
+        {editing ? (
+          <input 
+            type="number" 
+            step="0.01" 
+            value={form.costo_envio_bo} 
+            onChange={e => setForm({...form, costo_envio_bo: e.target.value})} 
+            style={{ width: "80px", padding: "4px" }}
+          />
+        ) : item.costo_envio_bo ? `$${item.costo_envio_bo}` : '—'}
+      </td>
+
+      {/* Fecha Trámite Pago */}
+      <td style={{ padding: "10px 8px" }}>
+        {editing ? (
+          <input 
+            type="date" 
+            value={form.fecha_tramite_pago_bo || ''} 
+            onChange={e => setForm({...form, fecha_tramite_pago_bo: e.target.value})} 
+            style={{ padding: "4px" }}
+          />
+        ) : item.fecha_tramite_pago_bo || '—'}
+      </td>
+
+      {/* Prioridad */}
+      <td style={{ padding: "10px 8px", textAlign: "center", fontWeight: "bold" }}>
+        {editing ? (
+          <input 
+            type="number" 
+            min="0" 
+            max="10" 
+            value={form.prioridad_bo} 
+            onChange={e => setForm({...form, prioridad_bo: e.target.value})} 
+            style={{ width: "60px", textAlign: "center" }}
+          />
+        ) : (
+          <span style={{ color: item.prioridad_bo >= 8 ? "#ef4444" : "#fbbf24" }}>
+            {item.prioridad_bo}
+          </span>
+        )}
+      </td>
+
+      {/* Acciones */}
+      <td style={{ padding: "10px 8px" }}>
+        <div style={{ display: "flex", gap: "6px" }}>
+          <button 
+            onClick={() => editing ? handleSave() : setEditing(true)}
+            disabled={guardando}
+            style={{
+              padding: "6px 12px",
+              background: editing ? "#16a34a" : "#3b82f6",
+              color: "#fff",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              fontSize: "12px"
+            }}
+          >
+            {editing ? (guardando ? "..." : "Guardar") : "Editar"}
+          </button>
+
+          <button 
+            onClick={() => onMandarGeneral(item.id)}
+            style={{
+              padding: "6px 12px",
+              background: "#7c3aed",
+              color: "#fff",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              fontSize: "12px"
+            }}
+          >
+            → General
+          </button>
+        </div>
+      </td>
+    </tr>
+  );
+}
+================================================================================
+
+
+================================================================================
+FILE: src/components/FilaCompra.jsx
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 4.37 KB
+Extension: .jsx
+Language: jsx
+Location: src/components/FilaCompra.jsx
+Relative Path: src/components
+Created: 2026-04-06 05:39:03 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-09 06:47:06 (America/Mexico_City / GMT-06:00)
+MD5: 5c3d5465a00d0f98a5e839bb139c9320
+SHA256: a750cc508a92ca50bb266ed65c4947cd8edf7bfee8cd92cb6d6af11c0a395d48
+Encoding: ASCII
+
+FILE CONTENT:
+----------------------------------------
+// src/components/FilaCompra.jsx - Corregida con imports
+
+import { useState } from "react";
+import { supabase } from "../services/supabase";
+import {
+  COLOR_ESTATUS,
+  calcularETA,
+  formatFecha,
+  ESTATUSES_ITEM,
+} from "../utils/catalogos";
+
+function BadgeEstatus({ estatus }) {
+  const c = COLOR_ESTATUS[estatus] || { bg: "#374151", text: "#d1d5db" };
+  return (
+    <span style={{
+      background: c.bg,
+      color: c.text,
+      padding: "4px 10px",
+      borderRadius: "20px",
+      fontSize: "12px",
+      fontWeight: 700,
+    }}>
+      {estatus}
+    </span>
+  );
+}
+
+export default function FilaCompra({ item, onActualizar }) {
+  const [fechaCompra, setFechaCompra] = useState(item.fecha_compra || "");
+  const [horaCompra, setHoraCompra] = useState(item.hora_compra || "");
+  const [numPedido, setNumPedido] = useState(item.num_pedido || "");
+  const [estatus, setEstatus] = useState(item.estatus);
+  const [guardando, setGuardando] = useState(false);
+
+  const guardar = async () => {
+    setGuardando(true);
+    const nuevaEta = fechaCompra
+      ? calcularETA(item.ubicacion, item.fabricante, new Date(fechaCompra))?.toISOString()
+      : item.eta;
+
+    const { error } = await supabase
+      .from("items")
+      .update({
+        fecha_compra: fechaCompra || null,
+        hora_compra: horaCompra || null,
+        num_pedido: numPedido || null,
+        estatus,
+        eta: nuevaEta,
+      })
+      .eq("id", item.id);
+
+    setGuardando(false);
+    if (!error) onActualizar();
+  };
+
+  const diasEspera = item.created_at
+    ? Math.floor((Date.now() - new Date(item.created_at)) / 86400000)
+    : 0;
+
+  return (
+    <tr style={{
+      borderBottom: "1px solid #1f2937",
+      background: diasEspera > 3 && estatus === "Pendiente" ? "#1a0a00" : "transparent",
+    }}>
+      <td style={td}><span style={{ fontFamily: "monospace", fontSize: "12px" }}>{item.referencia || "—"}</span></td>
+      <td style={td}>
+        <div style={{ fontWeight: 600, fontSize: "13px" }}>OT {item.ot}</div>
+        <div style={{ color: "#9ca3af", fontSize: "11px" }}>{item.marca} {item.modelo}</div>
+      </td>
+      <td style={td}><span style={{ fontSize: "11px", color: "#60a5fa", fontWeight: 700 }}>{item.ubicacion}</span></td>
+      <td style={td} title={item.descripcion}>
+        <div style={{ fontSize: "12px", maxWidth: "180px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+          {item.descripcion || "—"}
+        </div>
+        {item.numero_parte && <div style={{ color: "#9ca3af", fontSize: "11px" }}>{item.numero_parte}</div>}
+      </td>
+      <td style={{ ...td, textAlign: "center" }}>{item.cantidad}</td>
+      <td style={td}><BadgeEstatus estatus={estatus} /></td>
+
+      <td style={td}>
+        <select value={estatus} onChange={e => setEstatus(e.target.value)} style={inputTd}>
+          {ESTATUSES_ITEM.map(s => <option key={s}>{s}</option>)}
+        </select>
+      </td>
+
+      <td style={td}>
+        <input type="date" value={fechaCompra} onChange={e => setFechaCompra(e.target.value)} style={{ ...inputTd, width: "130px" }} />
+      </td>
+      <td style={td}>
+        <input type="time" value={horaCompra} onChange={e => setHoraCompra(e.target.value)} style={{ ...inputTd, width: "90px" }} />
+      </td>
+      <td style={td}>
+        <input value={numPedido} onChange={e => setNumPedido(e.target.value)} placeholder="N° Pedido" style={{ ...inputTd, width: "100px" }} />
+      </td>
+
+      <td style={td}>
+        <span style={{ fontSize: "11px", color: item.eta ? "#22c55e" : "#9ca3af" }}>
+          {item.eta ? formatFecha(item.eta) : "—"}
+        </span>
+      </td>
+
+      <td style={{ ...td, textAlign: "center", color: diasEspera > 3 ? "#f87171" : "#9ca3af", fontSize: "12px" }}>
+        {diasEspera}d
+      </td>
+
+      <td style={td}>
+        <button onClick={guardar} disabled={guardando} style={btnSave}>
+          {guardando ? "..." : "💾"}
+        </button>
+      </td>
+    </tr>
+  );
+}
+
+// Estilos
+const td = { padding: "10px 8px", verticalAlign: "middle" };
+const inputTd = {
+  background: "#0f172a",
+  border: "1px solid #1f2937",
+  color: "#e5e7eb",
+  padding: "6px 8px",
+  borderRadius: "6px",
+  fontSize: "12.5px"
+};
+const btnSave = {
+  background: "#1e40af",
+  color: "#dbeafe",
+  border: "none",
+  padding: "6px 12px",
+  borderRadius: "6px",
+  cursor: "pointer"
+};
 ================================================================================
 
 
@@ -447,115 +830,194 @@ FILE: src/components/Layout.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 2.84 KB
+Size: 6.74 KB
 Extension: .jsx
 Language: jsx
 Location: src/components/Layout.jsx
 Relative Path: src/components
-Created: 2026-04-04 22:38:07 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-05 21:47:18 (America/Mexico_City / GMT-06:00)
-MD5: 9e877fc590eef91af46d27459ecfdaa2
-SHA256: 4a8bce539af1f4f2bad37d01159b3f2dcfb5d46421e287a4a321dcd811537f15
+Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-10 04:21:33 (America/Mexico_City / GMT-06:00)
+MD5: 8e8a0df13214928189685b0d4c6fdc07
+SHA256: 7019e4b3bd90faf58a84f8a46dd2f9804dd89e73d2c25cb5cc935483f8dd434d
 Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
+// src/components/Layout.jsx
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/logo.svg"; // ajusta nombre si es diferente
+import { useAuth } from "../contexts/AuthContext";
+import BusquedaGlobal from "./BusquedaGlobal";
+
+const MENU_POR_ROL = {
+  asesor: [
+    { path: "/captura",          label: "📦 Captura" },
+    { path: "/mi-panel",         label: "👤 Mi Panel" },
+    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },   // ← AÑADIDO
+    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
+    { path: "/stock-solicitud",  label: "📋 Solicitar Stock" },    // Mantengo por si aún se usa
+    { path: "/chat",             label: "🤖 Asistente" },
+  ],
+  comprador: [
+    { path: "/compras",        label: "🛒 Compras" },
+    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
+    { path: "/chat",           label: "🤖 Asistente" },
+  ],
+  almacen: [
+    { path: "/almacen",        label: "🏭 Almacén / Recepción" },
+    { path: "/stock-pedidos",  label: "📋 Stock Pedidos" },
+    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
+    { path: "/chat",           label: "🤖 Asistente" },
+  ],
+  ventanilla: [
+    { path: "/ventanilla",     label: "🪟 Ventanilla" },
+    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
+    { path: "/chat",           label: "🤖 Asistente" },
+  ],
+  gerente: [
+    { path: "/gerencial",      label: "📊 Panel Gerencial" },
+    { path: "/captura",        label: "📦 Captura" },
+    { path: "/compras",        label: "🛒 Compras" },
+    { path: "/ventanilla",     label: "🪟 Ventanilla" },
+    { path: "/almacen",        label: "🏭 Almacén / Recepción" },
+    { path: "/stock-pedidos",  label: "📋 Stock Pedidos" },
+    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
+    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },   // ← AÑADIDO
+    { path: "/chat",           label: "🤖 Asistente" },
+  ],
+  gerente_sucursal: [
+    { path: "/gerencial",      label: "📊 Mi Sucursal" },
+    { path: "/captura",        label: "📦 Captura" },
+    { path: "/ventanilla",     label: "🪟 Ventanilla" },
+    { path: "/almacen",        label: "🏭 Almacén / Recepción" },
+    { path: "/stock-pedidos",  label: "📋 Stock Pedidos" },
+    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
+    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },   // ← AÑADIDO
+    { path: "/chat",           label: "🤖 Asistente" },
+  ],
+  admin: [
+    { path: "/gerencial",      label: "📊 Panel Gerencial" },
+    { path: "/captura",        label: "📦 Captura" },
+    { path: "/compras",        label: "🛒 Compras" },
+    { path: "/ventanilla",     label: "🪟 Ventanilla" },
+    { path: "/almacen",        label: "🏭 Almacén / Recepción" },
+    { path: "/stock-pedidos",  label: "📋 Stock Pedidos" },
+    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
+    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },   // ← AÑADIDO
+    { path: "/chat",           label: "🤖 Asistente" },
+  ],
+};
+
+const MENU_DEFAULT = [
+  { path: "/captura",     label: "📦 Captura" },
+  { path: "/consulta-ot", label: "🔍 Consulta OT" },
+  { path: "/chat",        label: "🤖 Asistente" },
+];
 
 export default function Layout({ children }) {
   const location = useLocation();
+  const { user, logout } = useAuth();
 
-  const menu = [
-    { path: "/", label: "Refacciones" },
-    { path: "/almacen", label: "Almacén" },
-    { path: "/ventanilla", label: "Ventanilla" },
-    { path: "/dashboard", label: "Dashboard" },
-    { path: "/chat", label: "Chat" },
-  ];
+  const menu = MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
 
   return (
     <div style={{ display: "flex", height: "100vh", background: "#0f172a" }}>
-      
       {/* SIDEBAR */}
-      <aside
-        style={{
-          width: "240px",
-          background: "#020617",
-          padding: "20px",
-          borderRight: "1px solid #1f2937",
-        }}
-      >
-        {/* LOGO */}
-        <div style={{ marginBottom: "20px", textAlign: "center" }}>
-          <img
-            src={logo}
-            alt="Motormexa"
-            style={{
-              width: "140px",
-              objectFit: "contain",
-              marginBottom: "10px",
-            }}
-          />
-          <div style={{ color: "#9ca3af", fontSize: "12px" }}>
-            Sistema de Refacciones
-          </div>
+      <aside style={{
+        width: "215px",
+        background: "#020617",
+        padding: "16px 10px",
+        borderRight: "1px solid #1f2937",
+        display: "flex",
+        flexDirection: "column",
+        flexShrink: 0,
+      }}>
+        <div style={{ textAlign: "center", marginBottom: "20px" }}>
+          <div style={{ fontSize: "18px", fontWeight: 800, color: "#e5e7eb" }}>Motormexa</div>
+          <div style={{ color: "#4b5563", fontSize: "10px" }}>Sistema de Refacciones</div>
         </div>
 
-        <nav style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-          {menu.map((m) => (
-            <Link
-              key={m.path}
-              to={m.path}
+        {user?.sucursal_id && (
+          <div style={{
+            background: "#0f172a",
+            border: "1px solid #1f2937",
+            borderRadius: "6px",
+            padding: "6px 10px",
+            marginBottom: "14px",
+            textAlign: "center"
+          }}>
+            <div style={{ color: "#60a5fa", fontSize: "11px", fontWeight: 600 }}>
+              {user.sucursal_id.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase())}
+            </div>
+          </div>
+        )}
+
+        <nav style={{ display: "flex", flexDirection: "column", gap: "3px", flex: 1 }}>
+          {menu.map(m => {
+            const activo = location.pathname === m.path || location.pathname.startsWith(m.path);
+            return (
+              <Link
+                key={m.path}
+                to={m.path}
+                style={{
+                  padding: "9px 10px",
+                  borderRadius: "8px",
+                  textDecoration: "none",
+                  fontSize: "13px",
+                  color: activo ? "#fff" : "#9ca3af",
+                  background: activo ? "#1d4ed8" : "transparent",
+                  fontWeight: activo ? 600 : 400,
+                }}
+              >
+                {m.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {user && (
+          <div style={{ borderTop: "1px solid #1f2937", paddingTop: "12px", marginTop: "12px" }}>
+            <div style={{ color: "#e5e7eb", fontSize: "12px", fontWeight: 600 }}>
+              {user.nombre || user.email}
+            </div>
+            <div style={{ color: "#4b5563", fontSize: "10px" }}>{user.rol}</div>
+            
+            <button
+              onClick={logout}
               style={{
-                padding: "10px",
-                borderRadius: "8px",
-                textDecoration: "none",
-                color:
-                  location.pathname === m.path ? "#fff" : "#9ca3af",
-                background:
-                  location.pathname === m.path
-                    ? "#1d4ed8"
-                    : "transparent",
+                width: "100%",
+                background: "transparent",
+                border: "1px solid #1f2937",
+                color: "#6b7280",
+                padding: "6px",
+                borderRadius: "6px",
+                cursor: "pointer",
+                fontSize: "11px",
+                marginTop: "8px"
               }}
             >
-              {m.label}
-            </Link>
-          ))}
-        </nav>
+              Cerrar sesión
+            </button>
+          </div>
+        )}
       </aside>
 
-      {/* MAIN */}
-      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-        
-        {/* HEADER */}
-        <header
-          style={{
-            height: "60px",
-            background: "#020617",
-            borderBottom: "1px solid #1f2937",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "0 20px",
-          }}
-        >
-          <span style={{ color: "#e5e7eb" }}>Sistema de Refacciones</span>
-
-          <input
-            placeholder="Buscar..."
-            style={{
-              padding: "6px",
-              borderRadius: "6px",
-              border: "1px solid #1f2937",
-              background: "#111827",
-              color: "#fff",
-            }}
-          />
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+        <header style={{
+          height: "52px",
+          background: "#020617",
+          borderBottom: "1px solid #1f2937",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "0 20px"
+        }}>
+          <span style={{ color: "#4b5563", fontSize: "12px" }}>
+            {menu.find(m => location.pathname === m.path || location.pathname.startsWith(m.path))?.label || ""}
+          </span>
+          <BusquedaGlobal />
         </header>
 
-        {/* CONTENT */}
-        <main style={{ padding: "20px", overflow: "auto" }}>
+        <main style={{ flex: 1, overflowY: "auto" }}>
           {children}
         </main>
       </div>
@@ -571,15 +1033,15 @@ FILE: src/components/Ranking.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 1.33 KB
+Size: 1.76 KB
 Extension: .jsx
 Language: jsx
 Location: src/components/Ranking.jsx
 Relative Path: src/components
-Created: 2026-04-05 21:22:21 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-05 21:23:26 (America/Mexico_City / GMT-06:00)
-MD5: a846c30e0525a075869692465ce2bcdd
-SHA256: 86e0bbbe13b7bfa8152b0ebb05719ef29a641c91533e36b0c037511856449196
+Created: 2026-04-06 04:31:50 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-05 22:36:18 (America/Mexico_City / GMT-06:00)
+MD5: c3622ce3975adaf4193dd29855f0cdde
+SHA256: 42916752f69e39d0c6078043d297da09cf4d299944cd51b8e4c1e031df783ccb
 Encoding: UTF-8
 
 FILE CONTENT:
@@ -592,22 +1054,28 @@ export default function Ranking() {
 
   const cargar = async () => {
     const { data } = await supabase.rpc("ranking_asesores");
-    setData || ([]);
+    setData(data || []); // ✅ Bug corregido: antes decía `setData || ([])` que nunca ejecutaba
   };
 
   useEffect(() => {
     cargar();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div style={{
-      background: "#111827",
-      padding: "20px",
-      borderRadius: "12px",
-      border: "1px solid #1f2937",
-      color: "#e5e7eb",
-    }}>
+    <div
+      style={{
+        background: "#111827",
+        padding: "20px",
+        borderRadius: "12px",
+        border: "1px solid #1f2937",
+        color: "#e5e7eb",
+      }}
+    >
       <h3>🏆 Ranking Asesores</h3>
+
+      {data.length === 0 && (
+        <p style={{ color: "#9ca3af" }}>Sin datos disponibles</p>
+      )}
 
       {data.map((r, i) => {
         const porcentaje = r.total
@@ -615,19 +1083,28 @@ export default function Ranking() {
           : 0;
 
         return (
-          <div key={i} style={{ marginTop: "10px" }}>
-            <div>#{i + 1} - {r.asesor_id}</div>
+          <div key={r.asesor_id || i} style={{ marginTop: "10px" }}>
+            <div>
+              #{i + 1} — {r.asesor_id}
+            </div>
 
-            <div style={{
-              height: "6px",
-              background: "#1f2937",
-              borderRadius: "4px",
-            }}>
-              <div style={{
-                width: `${porcentaje}%`,
-                background: "#22c55e",
-                height: "100%",
-              }} />
+            <div
+              style={{
+                height: "6px",
+                background: "#1f2937",
+                borderRadius: "4px",
+                marginTop: "4px",
+              }}
+            >
+              <div
+                style={{
+                  width: `${porcentaje}%`,
+                  background: "#22c55e",
+                  height: "100%",
+                  borderRadius: "4px",
+                  transition: "width 0.4s",
+                }}
+              />
             </div>
 
             <small style={{ color: "#9ca3af" }}>
@@ -636,6 +1113,154 @@ export default function Ranking() {
           </div>
         );
       })}
+    </div>
+  );
+}
+
+================================================================================
+
+
+================================================================================
+FILE: src/components/SolicitarStockModal.jsx
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 4.84 KB
+Extension: .jsx
+Language: jsx
+Location: src/components/SolicitarStockModal.jsx
+Relative Path: src/components
+Created: 2026-04-06 06:37:36 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-06 06:57:55 (America/Mexico_City / GMT-06:00)
+MD5: 0fb6012834ada1b00f56c5f83f15e964
+SHA256: 7384c5c279583b58e626412a956188993045bf1ba63efcf51069af5d319e1e49
+Encoding: UTF-8
+
+FILE CONTENT:
+----------------------------------------
+// src/components/SolicitarStockModal.jsx
+import { useState } from "react";
+import { supabase } from "../services/supabase";
+
+export default function SolicitarStockModal({ onClose, user }) {
+  const [filas, setFilas] = useState(
+    Array.from({ length: 12 }, () => ({ numero_parte: "", cantidad: 1 }))
+  );
+  const [enviando, setEnviando] = useState(false);
+
+  const actualizarFila = (index, campo, valor) => {
+    setFilas(prev => prev.map((f, i) => i === index ? { ...f, [campo]: valor } : f));
+  };
+
+  const agregarFila = () => {
+    setFilas(prev => [...prev, { numero_parte: "", cantidad: 1 }]);
+  };
+
+  const enviarSolicitud = async () => {
+    const filasValidas = filas.filter(f => f.numero_parte.trim() !== "");
+    if (filasValidas.length === 0) return alert("Debes ingresar al menos un número de parte");
+
+    setEnviando(true);
+
+    const pedidos = filasValidas.map(f => ({
+      numero_parte: f.numero_parte.trim().toUpperCase(),
+      descripcion: "Solicitud manual desde Ventanilla",
+      cantidad: parseInt(f.cantidad) || 1,
+      sucursal_id: user.sucursal_id,
+      estatus: "Pendiente",
+      solicitado_por: user.nombre || user.email,
+      ot_origen: "STOCK",
+    }));
+
+    const { error } = await supabase.from("stock_pedidos").insert(pedidos);
+
+    setEnviando(false);
+
+    if (!error) {
+      alert(`✅ ${pedidos.length} pedido(s) de stock enviados correctamente`);
+      onClose();
+    } else {
+      alert("Error al enviar los pedidos");
+      console.error(error);
+    }
+  };
+
+  return (
+    <div style={{
+      position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+      background: "rgba(0,0,0,0.85)", zIndex: 1000,
+      display: "flex", alignItems: "center", justifyContent: "center"
+    }}>
+      <div style={{ 
+        background: "#1e2937", padding: "25px", borderRadius: "12px", 
+        width: "92%", maxWidth: "920px", maxHeight: "92vh", overflowY: "auto"
+      }}>
+        <h3>Solicitud Independiente de Stock</h3>
+        <p style={{ color: "#9ca3af", marginBottom: "20px" }}>
+          Ingresa los números de parte que necesitas comprar (sin estar ligado a una OT)
+        </p>
+
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <thead>
+            <tr style={{ background: "#0f172a" }}>
+              <th style={{ padding: "12px" }}>Número de Parte</th>
+              <th style={{ padding: "12px" }}>Cantidad</th>
+              <th style={{ padding: "12px", width: "80px" }}></th>
+            </tr>
+          </thead>
+          <tbody>
+            {filas.map((fila, index) => (
+              <tr key={index}>
+                <td style={{ padding: "8px" }}>
+                  <input
+                    value={fila.numero_parte}
+                    onChange={(e) => actualizarFila(index, "numero_parte", e.target.value)}
+                    placeholder="Ej: ABC12345"
+                    style={{ width: "100%", padding: "10px", background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", borderRadius: "6px" }}
+                  />
+                </td>
+                <td style={{ padding: "8px" }}>
+                  <input
+                    type="number"
+                    min="1"
+                    value={fila.cantidad}
+                    onChange={(e) => actualizarFila(index, "cantidad", e.target.value)}
+                    style={{ width: "100%", padding: "10px", background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", borderRadius: "6px" }}
+                  />
+                </td>
+                <td style={{ padding: "8px" }}>
+                  <button 
+                    onClick={() => setFilas(prev => prev.filter((_, i) => i !== index))}
+                    style={{ color: "#ef4444", background: "none", border: "none", cursor: "pointer" }}
+                  >
+                    ✕
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div style={{ marginTop: "20px", display: "flex", gap: "12px", justifyContent: "flex-end" }}>
+          <button onClick={agregarFila} style={{ padding: "10px 20px", background: "#334155", color: "white", border: "none", borderRadius: "8px" }}>
+            + Agregar fila
+          </button>
+          <button 
+            onClick={enviarSolicitud} 
+            disabled={enviando}
+            style={{ padding: "10px 28px", background: "#16a34a", color: "white", border: "none", borderRadius: "8px", fontWeight: "600" }}
+          >
+            {enviando ? "Enviando..." : "Enviar Solicitudes"}
+          </button>
+          <button 
+            onClick={onClose} 
+            style={{ padding: "10px 24px", background: "#ef4444", color: "white", border: "none", borderRadius: "8px" }}
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
@@ -854,111 +1479,652 @@ export default function TablePro({ data }) {
 
 
 ================================================================================
+FILE: src/contexts/AuthContext.jsx
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 1.15 KB
+Extension: .jsx
+Language: jsx
+Location: src/contexts/AuthContext.jsx
+Relative Path: src/contexts
+Created: 2026-04-06 04:31:50 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-06 03:40:15 (America/Mexico_City / GMT-06:00)
+MD5: b79fe0793c5013565af25f26eb9021a3
+SHA256: 02f33f0ad03e01431694991dd9ba83227991385e1a966a774e638f87a9f6a406
+Encoding: ASCII
+
+FILE CONTENT:
+----------------------------------------
+import { createContext, useContext, useEffect, useState } from "react";
+import { supabase } from "../services/supabase";
+
+const AuthContext = createContext(null);
+
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
+  const [cargando, setCargando] = useState(true);
+
+  const cargarUsuario = async () => {
+    const { data: { user: authUser } } = await supabase.auth.getUser();
+
+    if (!authUser) {
+      setUser(null);
+      setCargando(false);
+      return;
+    }
+
+    const { data } = await supabase
+      .from("usuarios")
+      .select("*")
+      .eq("auth_id", authUser.id)
+      .single();
+
+    setUser(data || null);
+    setCargando(false);
+  };
+
+  useEffect(() => {
+    cargarUsuario();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+      cargarUsuario();
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const logout = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+  };
+
+  return (
+    <AuthContext.Provider value={{ user, cargando, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export function useAuth() {
+  return useContext(AuthContext);
+}
+
+================================================================================
+
+
+================================================================================
 FILE: src/pages/Almacen.jsx
 ================================================================================
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 2.29 KB
+Size: 7.26 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/Almacen.jsx
 Relative Path: src/pages
 Created: 2026-04-04 04:16:09 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-05 20:30:18 (America/Mexico_City / GMT-06:00)
-MD5: 623bf4cf76cd88b79a3844b72ad5a5fd
-SHA256: 6f46124262a7375ca4696cd3a939be9697e0ce5f8f710b4b23b5f0ca7d2bd0b0
+Modified: 2026-04-10 03:24:20 (America/Mexico_City / GMT-06:00)
+MD5: ccbe9db9edb7350612d50d541457fc92
+SHA256: ad7775bdf5f2ae6e0ab498064df5cb6d1a024a67c7e7b9575493eeeaddd8ef47
 Encoding: ASCII
 
 FILE CONTENT:
 ----------------------------------------
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { supabase } from "../services/supabase";
-import TablaERP from "../components/TablaERP";
-import Filtros from "../components/Filtros";
+import { useAuth } from "../contexts/AuthContext";
 import * as XLSX from "xlsx";
 
 export default function Almacen() {
+  const { user } = useAuth();
+  const [tabActivo, setTabActivo] = useState("recepcion"); // "recepcion" | "inventario" | "pedidos"
   const [data, setData] = useState([]);
   const [seleccionados, setSeleccionados] = useState([]);
-  const [filtros, setFiltros] = useState({});
-  const [pagina, setPagina] = useState(0);
-  const limite = 20;
+  const [cargando, setCargando] = useState(false);
 
-  const cargar = async () => {
-    let query = supabase.from("items").select("*");
+  const esAdmin = user?.rol?.toLowerCase() === "admin";
 
-    if (filtros.estatus)
-      query = query.eq("estatus", filtros.estatus);
-
-    if (filtros.ot)
-      query = query.ilike("ot", `%${filtros.ot}%`);
-
-    if (filtros.numero_parte)
-      query = query.ilike("numero_parte", `%${filtros.numero_parte}%`);
-
-    const { data } = await query
-      .range(pagina * limite, (pagina + 1) * limite - 1)
+  const cargarItems = useCallback(async () => {
+    setCargando(true);
+    let query = supabase
+      .from("items")
+      .select("*")
       .order("created_at", { ascending: false });
 
+    if (!esAdmin && user?.sucursal_id) {
+      query = query.eq("sucursal_id", user.sucursal_id);
+    }
+
+    const { data } = await query;
     setData(data || []);
-  };
+    setCargando(false);
+  }, [user, esAdmin]);
 
   useEffect(() => {
-    cargar();
-  }, [filtros, pagina]);
+    cargarItems();
+  }, [cargarItems]);
 
-  const toggle = (id) => {
-    setSeleccionados((prev) =>
-      prev.includes(id)
-        ? prev.filter((i) => i !== id)
-        : [...prev, id]
+  // ==================== RECEPCIÓN MASIVA ====================
+  const toggleSeleccion = (id) => {
+    setSeleccionados(prev => 
+      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
     );
   };
 
   const recibirMasivo = async () => {
-    if (!window.confirm("¿Recibir seleccionados?")) return;
+    if (seleccionados.length === 0) return alert("Selecciona al menos una pieza");
+    if (!confirm(`¿Marcar ${seleccionados.length} piezas como Recibidas?`)) return;
 
-    await supabase
+    const { error } = await supabase
       .from("items")
-      .update({ estatus: "Recibida" })
+      .update({ 
+        estatus: "Recibida", 
+        fecha_recepcion: new Date().toISOString() 
+      })
       .in("id", seleccionados);
 
-    setSeleccionados([]);
-    cargar();
+    if (!error) {
+      alert("✅ Recepción confirmada");
+      setSeleccionados([]);
+      cargarItems();
+    }
   };
 
-  // 📊 EXPORTAR EXCEL
-  const exportar = () => {
-    const ws = XLSX.utils.json_to_sheet(data);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Almacen");
-    XLSX.writeFile(wb, "almacen.xlsx");
+  // ==================== CARGA CSV INVENTARIO ====================
+  const subirInventarioCSV = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = async (event) => {
+      try {
+        const workbook = XLSX.read(event.target.result, { type: 'array' });
+        const jsonData = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
+
+        let procesados = 0;
+
+        for (const row of jsonData) {
+          if (!row.numero_parte) continue;
+
+          await supabase
+            .from("items")
+            .update({
+              stock_fisico: parseInt(row.cantidad_stock) || 0,
+              clasificacion: row.clasificacion,
+              tiene_stock_almacen: (parseInt(row.cantidad_stock) || 0) > 0,
+              comentario_almacen: (parseInt(row.cantidad_stock) || 0) > 0 ? "Verificar disponibilidad en almacén" : null
+            })
+            .eq("numero_parte", row.numero_parte?.toString().trim().toUpperCase());
+
+          procesados++;
+        }
+
+        alert(`✅ ${procesados} piezas actualizadas desde inventario`);
+        cargarItems();
+      } catch (err) {
+        alert("Error al procesar CSV: " + err.message);
+      }
+    };
+    reader.readAsArrayBuffer(file);
   };
 
   return (
-    <div>
-      <h2>Almacén</h2>
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
+      <h2>🏭 Almacén</h2>
 
-      <Filtros onFiltrar={setFiltros} />
+      {/* Tabs */}
+      <div style={{ display: "flex", gap: "10px", marginBottom: "20px", borderBottom: "2px solid #334155", paddingBottom: "10px" }}>
+        <button onClick={() => setTabActivo("recepcion")} 
+          style={{ padding: "12px 20px", background: tabActivo === "recepcion" ? "#16a34a" : "#1f2937", color: "white", borderRadius: "8px" }}>
+          📦 Recepción Masiva
+        </button>
+        <button onClick={() => setTabActivo("inventario")} 
+          style={{ padding: "12px 20px", background: tabActivo === "inventario" ? "#2563eb" : "#1f2937", color: "white", borderRadius: "8px" }}>
+          📤 Cargar Inventario (CSV)
+        </button>
+        <button onClick={() => setTabActivo("pedidos")} 
+          style={{ padding: "12px 20px", background: tabActivo === "pedidos" ? "#eab308" : "#1f2937", color: "white", borderRadius: "8px" }}>
+          📋 Pedidos de Stock
+        </button>
+      </div>
 
-      <button onClick={recibirMasivo}>Recibir seleccionados</button>
-      <button onClick={exportar}>Exportar Excel</button>
+      {/* ====================== RECEPCIÓN MASIVA ====================== */}
+      {tabActivo === "recepcion" && (
+        <div>
+          <button onClick={recibirMasivo} style={{ marginBottom: "15px", padding: "12px 24px", background: "#16a34a", color: "white", border: "none", borderRadius: "8px" }}>
+            ✅ Recibir Seleccionados ({seleccionados.length})
+          </button>
 
-      <TablaERP
-        data={data}
-        seleccionados={seleccionados}
-        toggle={toggle}
-      />
+          <div style={{ overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr style={{ background: "#0f172a" }}>
+                  <th style={{ padding: "12px" }}>✓</th>
+                  <th style={{ padding: "12px" }}>OT</th>
+                  <th style={{ padding: "12px" }}>Número de Parte</th>
+                  <th style={{ padding: "12px" }}>Descripción</th>
+                  <th style={{ padding: "12px" }}>Cantidad</th>
+                  <th style={{ padding: "12px" }}>Estatus</th>
+                  <th style={{ padding: "12px" }}>Fecha Recepción</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map(item => (
+                  <tr key={item.id} style={{ borderBottom: "1px solid #1f2937" }}>
+                    <td style={{ padding: "12px" }}>
+                      <input type="checkbox" checked={seleccionados.includes(item.id)} onChange={() => toggleSeleccion(item.id)} />
+                    </td>
+                    <td><strong>{item.ot}</strong></td>
+                    <td>{item.numero_parte}</td>
+                    <td>{item.descripcion}</td>
+                    <td>{item.cantidad}</td>
+                    <td>{item.estatus}</td>
+                    <td>{item.fecha_recepcion ? new Date(item.fecha_recepcion).toLocaleDateString("es-MX") : "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
-      <div style={{ marginTop: "10px" }}>
-        <button onClick={() => setPagina(pagina - 1)}>⬅</button>
-        <span> Página {pagina + 1} </span>
-        <button onClick={() => setPagina(pagina + 1)}>➡</button>
+      {/* ====================== CARGA INVENTARIO CSV ====================== */}
+      {tabActivo === "inventario" && (
+        <div style={{ padding: "40px", textAlign: "center", background: "#111827", borderRadius: "12px" }}>
+          <h3>📤 Cargar Inventario Actual</h3>
+          <p style={{ color: "#9ca3af", marginBottom: "20px" }}>
+            Columnas recomendadas: numero_parte, cantidad_stock, clasificacion
+          </p>
+          <label style={{ 
+            padding: "20px 40px", 
+            background: "#166534", 
+            color: "white", 
+            borderRadius: "12px", 
+            cursor: "pointer",
+            display: "inline-block"
+          }}>
+            Seleccionar Archivo CSV
+            <input type="file" accept=".csv" onChange={subirInventarioCSV} style={{ display: "none" }} />
+          </label>
+        </div>
+      )}
+
+      {/* ====================== PEDIDOS DE STOCK ====================== */}
+      {tabActivo === "pedidos" && (
+        <div>
+          <p style={{ color: "#9ca3af" }}>Aquí se mostrarán los pedidos de stock (pendiente de integrar StockPedidos.jsx)</p>
+          {/* Puedes importar y mostrar <StockPedidos /> aquí si quieres */}
+        </div>
+      )}
+    </div>
+  );
+}
+================================================================================
+
+
+================================================================================
+FILE: src/pages/Captura.jsx
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 13.83 KB
+Extension: .jsx
+Language: jsx
+Location: src/pages/Captura.jsx
+Relative Path: src/pages
+Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-10 04:07:03 (America/Mexico_City / GMT-06:00)
+MD5: 41b5ca21467a2df23b9f7eebe1c9a469
+SHA256: f3cda637830db5596b75830fb0559af3eb032cd73f3807fa4715f8984c8bff1b
+Encoding: ASCII
+
+FILE CONTENT:
+----------------------------------------
+import { useState, useEffect } from "react";
+import { supabase } from "../services/supabase";
+import { useAuth } from "../contexts/AuthContext";
+import {
+  SUCURSALES, FABRICANTE_POR_MARCA, MODELOS_POR_MARCA,
+  TIPOS_ORDEN, UBICACIONES, HORARIOS_CORTE, calcularETA, formatFecha, generarReferencia,
+} from "../utils/catalogos";
+
+const ANIOS = Array.from({ length: 12 }, (_, i) => 2025 - i);
+
+function FilaRefaccion({ index, fila, onChange, onRemove, permitEUA, fabricante }) {
+  const ubicacionesDisponibles = UBICACIONES.filter(u => {
+    if (u === "EUA" && (!permitEUA || fabricante !== "Stellantis")) return false;
+    return true;
+  });
+
+  const eta = fila.ubicacion && fila.fecha_compra_est
+    ? formatFecha(calcularETA(fila.ubicacion, fabricante))
+    : null;
+
+  return (
+    <tr style={{ borderBottom: "1px solid #1f2937" }}>
+      <td style={tdStyle}>
+        <select value={fila.ubicacion} onChange={e => onChange(index, "ubicacion", e.target.value)} style={inputSmall}>
+          <option value="">Ubic.</option>
+          {ubicacionesDisponibles.map(u => <option key={u}>{u}</option>)}
+        </select>
+      </td>
+      <td style={tdStyle}>
+        <input
+          placeholder="Descripción"
+          value={fila.descripcion}
+          onChange={e => onChange(index, "descripcion", e.target.value)}
+          style={{ ...inputSmall, width: "200px" }}
+        />
+      </td>
+      <td style={tdStyle}>
+        <input
+          placeholder="N° Parte"
+          value={fila.numero_parte}
+          onChange={e => onChange(index, "numero_parte", e.target.value)}
+          style={inputSmall}
+        />
+      </td>
+      <td style={tdStyle}>
+        <input
+          type="number" min={1}
+          value={fila.cantidad}
+          onChange={e => onChange(index, "cantidad", parseInt(e.target.value) || 1)}
+          style={{ ...inputSmall, width: "60px" }}
+        />
+      </td>
+      <td style={{ ...tdStyle, color: "#9ca3af", fontSize: "11px", whiteSpace: "nowrap" }}>
+        {fila.ubicacion ? formatFecha(calcularETA(fila.ubicacion, fabricante)) : "—"}
+      </td>
+      <td style={tdStyle}>
+        <button onClick={() => onRemove(index)} style={btnDanger}>✕</button>
+      </td>
+    </tr>
+  );
+}
+
+export default function Captura() {
+  const { user } = useAuth();
+  const sucursalId = user?.sucursal_id;
+  const sucursalCfg = SUCURSALES[sucursalId] || SUCURSALES["taller_vallarta"];
+  const esMayoreo = sucursalId === "mayoreo_menudeo";
+
+  // ── Encabezado ──
+  const [ot, setOt] = useState("");
+  const [tipoOrden, setTipoOrden] = useState("Público");
+  const [marca, setMarca] = useState("");
+  const [modelo, setModelo] = useState("");
+  const [modeloOtro, setModeloOtro] = useState("");
+  const [anio, setAnio] = useState("");
+  const [vin, setVin] = useState("");
+  const [km, setKm] = useState("");
+  const [vehiculoEstatus, setVehiculoEstatus] = useState("En taller");
+  // Mayoreo extra
+  const [tipoCotizacion, setTipoCotizacion] = useState("Menudeo");
+  const [folioCotizacion, setFolioCotizacion] = useState("");
+  const [siniestro, setSiniestro] = useState("");
+  const [clienteAseguradora, setClienteAseguradora] = useState("");
+
+  // ── Filas refacciones ──
+  const [filas, setFilas] = useState([{ ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
+  const [guardando, setGuardando] = useState(false);
+  const [exito, setExito] = useState(false);
+
+  const fabricante = FABRICANTE_POR_MARCA[marca] || "";
+  const modelosDisponibles = marca ? MODELOS_POR_MARCA[marca] || [] : [];
+
+  // Marcas disponibles según sucursal
+  const marcasDisponibles = sucursalCfg.fabricantes
+    .flatMap(f => Object.entries(FABRICANTE_POR_MARCA)
+      .filter(([, fab]) => fab === f)
+      .map(([m]) => m));
+
+  const corte = HORARIOS_CORTE[fabricante];
+
+  const handleFila = (i, campo, val) => {
+    setFilas(prev => prev.map((f, idx) => idx === i ? { ...f, [campo]: val } : f));
+  };
+
+  const agregarFila = () => {
+    setFilas(prev => [...prev, { ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
+  };
+
+  const quitarFila = (i) => {
+    setFilas(prev => prev.filter((_, idx) => idx !== i));
+  };
+
+  const guardar = async () => {
+    if (!ot) { alert("La OT es obligatoria"); return; }
+    if (!marca) { alert("Selecciona una marca"); return; }
+    if (filas.some(f => !f.descripcion && !f.numero_parte)) {
+      alert("Todas las filas deben tener descripción o número de parte");
+      return;
+    }
+    if (esMayoreo && !folioCotizacion) { alert("El folio de cotización es obligatorio"); return; }
+
+    setGuardando(true);
+
+    const modeloFinal = modelo === "Otro" ? modeloOtro : modelo;
+    const ref = generarReferencia(sucursalId, ot, user?.nombre);
+
+    const items = filas.map(f => ({
+      ot,
+      tipo_orden: esMayoreo ? tipoCotizacion : tipoOrden,
+      fabricante,
+      marca,
+      modelo: modeloFinal,
+      anio: anio || null,
+      vin: vin || null,
+      km: km || null,
+      vehiculo_estatus: vehiculoEstatus,
+      ubicacion: f.ubicacion,
+      descripcion: f.descripcion,
+      numero_parte: f.numero_parte || null,
+      cantidad: f.cantidad,
+      estatus: "Pendiente",
+      asesor_id: user?.id,
+      sucursal_id: sucursalId,
+      referencia: ref,
+      folio_cotizacion: esMayoreo ? folioCotizacion : null,
+      tipo_cotizacion: esMayoreo ? tipoCotizacion : null,
+      siniestro: esMayoreo && tipoCotizacion === "Aseguradora" ? siniestro : null,
+      cliente_aseguradora: esMayoreo ? clienteAseguradora : null,
+      eta: calcularETA(f.ubicacion, fabricante)?.toISOString() || null,
+    }));
+
+    const { error } = await supabase.from("items").insert(items);
+
+    setGuardando(false);
+
+    if (error) {
+      console.error(error);
+      alert("Error al guardar. Revisa la consola.");
+      return;
+    }
+
+    setExito(true);
+    // Reset
+    setOt(""); setMarca(""); setModelo(""); setModeloOtro(""); setAnio(""); setVin(""); setKm("");
+    setFolioCotizacion(""); setSiniestro(""); setClienteAseguradora("");
+    setFilas([{ ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
+    setTimeout(() => setExito(false), 3000);
+  };
+
+  return (
+    <div style={{ padding: "20px", color: "#e5e7eb", maxWidth: "1000px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+        <div>
+          <h2 style={{ margin: 0 }}>📦 Captura de Refacciones</h2>
+          <p style={{ color: "#9ca3af", margin: "4px 0 0", fontSize: "13px" }}>
+            {sucursalCfg.nombre}
+            {fabricante && <span style={{ marginLeft: "10px", color: "#60a5fa" }}>· {fabricante}</span>}
+            {corte && <span style={{ marginLeft: "10px", color: "#facc15" }}>· Corte {corte}</span>}
+          </p>
+        </div>
+        {exito && (
+          <div style={{ background: "#166534", color: "#bbf7d0", padding: "10px 16px", borderRadius: "8px" }}>
+            ✅ Guardado correctamente
+          </div>
+        )}
+      </div>
+
+      {/* ── ENCABEZADO ── */}
+      <div style={seccionStyle}>
+        <h3 style={seccionTitle}>Encabezado</h3>
+
+        <div style={gridDos}>
+          {esMayoreo ? (
+            <>
+              <Campo label="Folio Cotización *">
+                <input value={folioCotizacion} onChange={e => setFolioCotizacion(e.target.value)} style={inputStyle} placeholder="FOL-001" />
+              </Campo>
+              <Campo label="Tipo de Cotización *">
+                <select value={tipoCotizacion} onChange={e => setTipoCotizacion(e.target.value)} style={inputStyle}>
+                  {["Aseguradora", "Mayoreo", "Menudeo"].map(t => <option key={t}>{t}</option>)}
+                </select>
+              </Campo>
+              {tipoCotizacion === "Aseguradora" && (
+                <Campo label="N° Siniestro *">
+                  <input value={siniestro} onChange={e => setSiniestro(e.target.value)} style={inputStyle} />
+                </Campo>
+              )}
+              <Campo label="Cliente / Aseguradora">
+                <input value={clienteAseguradora} onChange={e => setClienteAseguradora(e.target.value)} style={inputStyle} />
+              </Campo>
+            </>
+          ) : (
+            <>
+              <Campo label="OT *">
+                <input value={ot} onChange={e => setOt(e.target.value)} style={inputStyle} placeholder="12345" />
+              </Campo>
+              <Campo label="Tipo de Orden">
+                <select value={tipoOrden} onChange={e => setTipoOrden(e.target.value)} style={inputStyle}>
+                  {TIPOS_ORDEN.map(t => <option key={t}>{t}</option>)}
+                </select>
+              </Campo>
+            </>
+          )}
+
+          <Campo label="Marca *">
+            <select value={marca} onChange={e => { setMarca(e.target.value); setModelo(""); }} style={inputStyle}>
+              <option value="">Selecciona...</option>
+              {marcasDisponibles.map(m => <option key={m}>{m}</option>)}
+              <option value="Otra">Otra marca</option>
+            </select>
+          </Campo>
+
+          {marca && marca !== "Otra" && (
+            <Campo label="Modelo">
+              <select value={modelo} onChange={e => setModelo(e.target.value)} style={inputStyle}>
+                <option value="">Selecciona...</option>
+                {modelosDisponibles.map(m => <option key={m}>{m}</option>)}
+              </select>
+            </Campo>
+          )}
+
+          {(marca === "Otra" || modelo === "Otro") && (
+            <Campo label="Especifica modelo">
+              <input value={modeloOtro} onChange={e => setModeloOtro(e.target.value)} style={inputStyle} />
+            </Campo>
+          )}
+
+          {!esMayoreo && (
+            <>
+              <Campo label="Año">
+                <select value={anio} onChange={e => setAnio(e.target.value)} style={inputStyle}>
+                  <option value="">—</option>
+                  {ANIOS.map(a => <option key={a}>{a}</option>)}
+                </select>
+              </Campo>
+              <Campo label="VIN">
+                <input value={vin} onChange={e => setVin(e.target.value.toUpperCase())} style={inputStyle} maxLength={17} placeholder="17 caracteres" />
+              </Campo>
+              <Campo label="KM">
+                <input type="number" value={km} onChange={e => setKm(e.target.value)} style={inputStyle} />
+              </Campo>
+              <Campo label="Estatus del vehículo">
+                <select value={vehiculoEstatus} onChange={e => setVehiculoEstatus(e.target.value)} style={inputStyle}>
+                  <option>En taller</option>
+                  <option>En circulación</option>
+                </select>
+              </Campo>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* ── TABLA DE REFACCIONES ── */}
+      <div style={seccionStyle}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+          <h3 style={{ ...seccionTitle, margin: 0 }}>Lista de Refacciones</h3>
+          <button onClick={agregarFila} style={btnPrimary}>+ Agregar fila</button>
+        </div>
+
+        <div style={{ overflowX: "auto" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead>
+              <tr style={{ background: "#0f172a", color: "#9ca3af", fontSize: "12px" }}>
+                <th style={thStyle}>Ubicación</th>
+                <th style={thStyle}>Descripción</th>
+                <th style={thStyle}>N° Parte</th>
+                <th style={thStyle}>Cant.</th>
+                <th style={thStyle}>ETA estimado</th>
+                <th style={thStyle}></th>
+              </tr>
+            </thead>
+            <tbody>
+              {filas.map((f, i) => (
+                <FilaRefaccion
+                  key={i} index={i} fila={f}
+                  onChange={handleFila} onRemove={quitarFila}
+                  permitEUA={sucursalCfg.permitEUA}
+                  fabricante={fabricante}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div style={{ marginTop: "16px", display: "flex", gap: "12px", justifyContent: "flex-end" }}>
+          <span style={{ color: "#9ca3af", fontSize: "13px", alignSelf: "center" }}>
+            {filas.length} ítem{filas.length !== 1 ? "s" : ""}
+          </span>
+          <button onClick={guardar} disabled={guardando} style={btnGuardar}>
+            {guardando ? "Guardando..." : "💾 Guardar orden"}
+          </button>
+        </div>
       </div>
     </div>
   );
 }
+
+function Campo({ label, children }) {
+  return (
+    <div>
+      <label style={{ display: "block", color: "#9ca3af", fontSize: "12px", marginBottom: "4px" }}>{label}</label>
+      {children}
+    </div>
+  );
+}
+
+// ── Estilos ──
+const seccionStyle = {
+  background: "#111827", border: "1px solid #1f2937",
+  borderRadius: "12px", padding: "20px", marginBottom: "20px",
+};
+const seccionTitle = { color: "#e5e7eb", fontSize: "14px", fontWeight: 700, marginBottom: "16px", marginTop: 0 };
+const gridDos = { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "14px" };
+const inputStyle = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 10px", borderRadius: "8px", width: "100%", boxSizing: "border-box", fontSize: "13px" };
+const inputSmall = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "6px 8px", borderRadius: "6px", fontSize: "13px" };
+const thStyle = { padding: "8px 10px", textAlign: "left", fontWeight: 600, borderBottom: "1px solid #1f2937" };
+const tdStyle = { padding: "8px 6px" };
+const btnPrimary = { background: "#2563eb", color: "#fff", border: "none", padding: "8px 16px", borderRadius: "8px", cursor: "pointer", fontSize: "13px", fontWeight: 600 };
+const btnDanger = { background: "#7f1d1d", color: "#fca5a5", border: "none", padding: "4px 8px", borderRadius: "6px", cursor: "pointer" };
+const btnGuardar = { background: "#16a34a", color: "#fff", border: "none", padding: "10px 24px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px" };
+
 ================================================================================
 
 
@@ -968,138 +2134,312 @@ FILE: src/pages/Chatbot.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 2.89 KB
+Size: 13.4 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/Chatbot.jsx
 Relative Path: src/pages
-Created: 2026-04-04 22:06:27 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-04 22:15:41 (America/Mexico_City / GMT-06:00)
-MD5: 39440de96f5b216a7ff4920ec65de475
-SHA256: 29d685ba121f65003592b02328f257c3300b5242b376717a00330b6cc41bd1b0
-Encoding: UTF-8
+Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-06 00:06:29 (America/Mexico_City / GMT-06:00)
+MD5: c85280d3c5d8850f3d90bf3b13c689fb
+SHA256: 1c96b05fec602428d3f96a64ff7bdd5ea2e9040511e76682916927c5353e6140
+Encoding: ASCII
 
 FILE CONTENT:
 ----------------------------------------
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { supabase } from "../services/supabase";
-import { escucharCambios } from "../services/notificaciones";
-import { getUserData } from "../services/auth";
+import { useAuth } from "../contexts/AuthContext";
+import { calcularETA, formatFecha, HORARIOS_CORTE } from "../utils/catalogos";
 
-export default function Chatbot() {
-  const [mensaje, setMensaje] = useState("");
-  const [chat, setChat] = useState([]);
+function detectarIntencion(texto) {
+  const t = texto.toLowerCase().trim();
 
-  // 🔔 NOTIFICACIONES
-  useEffect(() => {
-    getUserData().then((user) => {
-      escucharCambios(user.id, (item) => {
-        setChat((prev) => [
-          ...prev,
-          {
-            tipo: "bot",
-            texto: `🔔 ${item.numero_parte} → ${item.estatus}`,
-          },
-        ]);
-      });
-    });
-  }, []);
+  const matchOT = t.match(/\bot\s*[:#]?\s*(\w+)/i) || t.match(/orden\s*[:#]?\s*(\w+)/i);
+  if (matchOT) return { tipo: "consulta_ot", ot: matchOT[1].toUpperCase() };
 
-  const enviar = async () => {
-    if (!mensaje) return;
+  if (/pendiente/i.test(t)) return { tipo: "listar_estatus", estatus: "Pendiente" };
+  if (/comprada/i.test(t)) return { tipo: "listar_estatus", estatus: "Comprada" };
+  if (/recibida/i.test(t)) return { tipo: "listar_estatus", estatus: "Recibida" };
+  if (/entregada/i.test(t)) return { tipo: "listar_estatus", estatus: "Entregada" };
+  if (/incorrecta/i.test(t)) return { tipo: "listar_estatus", estatus: "Incorrecta" };
+  if (/no.comprada/i.test(t)) return { tipo: "listar_estatus", estatus: "No comprada" };
+  if (/vencida/i.test(t)) return { tipo: "listar_estatus", estatus: "Vencida" };
 
-    const texto = mensaje.toUpperCase().trim();
+  if (/resumen|kpi|estad[ií]stica|cu[áa]nto|total|hoy|dashboard/i.test(t)) return { tipo: "resumen" };
+  if (/stock|pedido|solicitud/i.test(t)) return { tipo: "stock" };
+  if (/alerta|urgente|retrasad/i.test(t)) return { tipo: "alertas" };
+  if (/eta|tiempo|llegada|cu[áa]ndo.llega/i.test(t)) return { tipo: "eta_info" };
+  if (/corte|hora.corte|stellantis|mitsubishi|peugeot/i.test(t)) return { tipo: "horarios_corte" };
+  if (/stellantis/i.test(t)) return { tipo: "por_fabricante", fabricante: "Stellantis" };
+  if (/mitsubishi/i.test(t)) return { tipo: "por_fabricante", fabricante: "Mitsubishi" };
+  if (/peugeot/i.test(t)) return { tipo: "por_fabricante", fabricante: "Peugeot" };
 
-    setChat((prev) => [...prev, { tipo: "user", texto }]);
+  const matchParte = t.match(/parte\s*[:#]?\s*(\w+)/i) || t.match(/numero\s*[:#]?\s*(\w+)/i);
+  if (matchParte) return { tipo: "buscar_parte", numero_parte: matchParte[1].toUpperCase() };
 
-    const { data } = await supabase.rpc("buscar_chat", {
-      p_texto: texto,
-    });
+  if (/ayuda|qu[eé].puedes|help|comandos/i.test(t)) return { tipo: "ayuda" };
 
-    if (!data || data.length === 0) {
-      setChat((prev) => [
-        ...prev,
-        { tipo: "bot", texto: "❌ Sin resultados" },
-      ]);
-      setMensaje("");
-      return;
+  return { tipo: "desconocido" };
+}
+
+async function ejecutar(intencion, user) {
+  switch (intencion.tipo) {
+
+    case "consulta_ot": {
+      const { data } = await supabase.from("items").select("*")
+        .or(`ot.eq.${intencion.ot},folio_cotizacion.eq.${intencion.ot}`)
+        .order("created_at");
+      if (!data || data.length === 0)
+        return `❌ No encontré refacciones para **${intencion.ot}**.`;
+
+      const entregadas = data.filter(r => r.estatus === "Entregada").length;
+      const estatusOT = entregadas === data.length ? "✅ Completa" : entregadas > 0 ? "🔄 Parcial" : "🟡 Pendiente";
+
+      return `📋 OT **${intencion.ot}** — ${estatusOT} (${entregadas}/${data.length})\n\n` +
+        data.map(r =>
+          `• ${r.descripcion || r.numero_parte} [${r.ubicacion}] → **${r.estatus}**` +
+          (r.eta ? `\n  ETA: ${formatFecha(r.eta)}` : "")
+        ).join("\n");
     }
 
-    // 🔥 AGRUPAR POR OT
-    const agrupado = {};
+    case "listar_estatus": {
+      let q = supabase.from("items").select("ot, descripcion, ubicacion, estatus, eta, created_at, fabricante")
+        .eq("estatus", intencion.estatus)
+        .order("created_at", { ascending: false })
+        .limit(10);
+      if (user?.rol === "asesor") q = q.eq("asesor_id", user.id);
+      if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
+        q = q.eq("sucursal_id", user.sucursal_id);
 
-    data.forEach((r) => {
-      if (!agrupado[r.ot]) agrupado[r.ot] = [];
-      agrupado[r.ot].push(r);
-    });
+      const { data } = await q;
+      if (!data || data.length === 0)
+        return `✅ No hay refacciones con estatus **${intencion.estatus}** en este momento.`;
 
-    let respuesta = "";
+      const emojis = { Pendiente: "🟡", Comprada: "🔵", Recibida: "🟢", Entregada: "✅", Incorrecta: "🔴", "No comprada": "⚫", Vencida: "🟣" };
+      return `${emojis[intencion.estatus] || "📦"} **${intencion.estatus}** — ${data.length} más recientes\n\n` +
+        data.map(r => `• OT ${r.ot} — ${r.descripcion?.substring(0, 40) || "sin desc."} [${r.ubicacion}]${r.eta ? ` · ETA ${formatFecha(r.eta)}` : ""}`).join("\n");
+    }
 
-    Object.entries(agrupado).forEach(([ot, items]) => {
-      respuesta += `\n📦 OT ${ot}\n`;
+    case "resumen": {
+      let q = supabase.from("items").select("estatus, fabricante");
+      if (user?.rol === "asesor") q = q.eq("asesor_id", user.id);
+      if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal") q = q.eq("sucursal_id", user.sucursal_id);
 
-      items.forEach((i) => {
-        respuesta += `- ${i.numero_parte} → ${i.estatus}\n`;
+      const { data } = await q;
+      if (!data) return "No pude obtener el resumen.";
+      const c = (e) => data.filter(r => r.estatus === e).length;
+      const total = data.length;
+      const ent = c("Entregada");
+      const pct = total ? ((ent / total) * 100).toFixed(1) : 0;
+
+      const fabCount = { Stellantis: 0, Mitsubishi: 0, Peugeot: 0 };
+      data.forEach(r => { if (fabCount[r.fabricante] !== undefined) fabCount[r.fabricante]++; });
+
+      return `📊 **Resumen actual**
+
+🟡 Pendientes: **${c("Pendiente")}**
+🔵 Compradas: **${c("Comprada")}**
+🟢 Recibidas: **${c("Recibida")}**
+✅ Entregadas: **${ent}**
+🔴 Incorrectas: **${c("Incorrecta")}**
+⚫ No compradas: **${c("No comprada")}**
+
+Total: **${total}** | Cumplimiento: **${pct}%**
+
+**Por fabricante:**
+• Stellantis: ${fabCount.Stellantis}
+• Mitsubishi: ${fabCount.Mitsubishi}
+• Peugeot: ${fabCount.Peugeot}`;
+    }
+
+    case "por_fabricante": {
+      const { data } = await supabase.from("items").select("ot, estatus, descripcion, ubicacion")
+        .eq("fabricante", intencion.fabricante)
+        .in("estatus", ["Pendiente", "Comprada"])
+        .limit(15);
+      if (!data || data.length === 0)
+        return `✅ No hay piezas pendientes de **${intencion.fabricante}**.`;
+      return `🏭 **${intencion.fabricante}** — pendientes/compradas\n\n` +
+        data.map(r => `• OT ${r.ot} — ${r.descripcion?.substring(0, 40)} [${r.ubicacion}] → ${r.estatus}`).join("\n");
+    }
+
+    case "horarios_corte": {
+      const ahora = new Date();
+      const horaActual = ahora.getHours() * 60 + ahora.getMinutes();
+      const lineas = Object.entries(HORARIOS_CORTE).map(([fab, hora]) => {
+        const [h, m] = hora.split(":").map(Number);
+        const minCorte = h * 60 + m;
+        const diff = minCorte - horaActual;
+        const estado = diff > 0 ? `faltan ${diff} min` : "⚠️ PASADO";
+        return `• **${fab}**: ${hora} (${estado})`;
       });
+      return `⏰ **Horarios de corte hoy**\n\n${lineas.join("\n")}`;
+    }
+
+    case "eta_info": {
+      return `📦 **ETAs por ubicación:**
+
+• **MX** → 1 día hábil (llega mar/mié/vie/sáb)
+• **EUA** → 14 días hábiles (solo Stellantis)
+• **BO** → 45 días hábiles
+
+Los días de llegada de mercancía son: martes, miércoles, viernes y sábado.
+
+Ejemplo: Si compras hoy ${new Date().toLocaleDateString("es-MX")}, una pieza MX llegaría el **${formatFecha(calcularETA("MX", "Stellantis"))}**.`;
+    }
+
+    case "stock": {
+      const { data } = await supabase.from("stock_pedidos").select("*").eq("estatus", "Pendiente").limit(10);
+      if (!data || data.length === 0) return "📦 No hay pedidos de stock pendientes.";
+      return `📦 **Stock pendiente** (${data.length})\n\n` +
+        data.map(p => `• ${p.numero_parte} — cant: ${p.cantidad}`).join("\n");
+    }
+
+    case "alertas": {
+      const hace3dias = new Date(Date.now() - 3 * 86400000).toISOString();
+      const { data } = await supabase.from("items").select("ot, descripcion, created_at, fabricante")
+        .eq("estatus", "Pendiente").lt("created_at", hace3dias).order("created_at").limit(10);
+      if (!data || data.length === 0) return "✅ Sin alertas de retraso activas.";
+      return `🚨 **Pendientes con más de 3 días** (${data.length})\n\n` +
+        data.map(r => {
+          const dias = Math.floor((Date.now() - new Date(r.created_at)) / 86400000);
+          return `• OT ${r.ot} — ${r.descripcion?.substring(0, 35)} — **${dias} días** [${r.fabricante}]`;
+        }).join("\n");
+    }
+
+    case "buscar_parte": {
+      const { data } = await supabase.from("items").select("ot, estatus, descripcion, ubicacion")
+        .ilike("numero_parte", `%${intencion.numero_parte}%`).limit(10);
+      if (!data || data.length === 0) return `❌ Sin resultados para **${intencion.numero_parte}**.`;
+      return `🔍 **${intencion.numero_parte}**\n\n` +
+        data.map(r => `• OT ${r.ot} — ${r.estatus} — ${r.descripcion || ""} [${r.ubicacion}]`).join("\n");
+    }
+
+    case "ayuda":
+      return `🤖 **Comandos disponibles**
+
+• **OT 12345** — ver refacciones de una OT
+• **Pendientes / Compradas / Recibidas** — listar por estatus
+• **Stellantis / Mitsubishi / Peugeot** — ver pendientes por fabricante
+• **Resumen** — KPIs generales
+• **Alertas** — piezas con retraso
+• **Stock** — pedidos de stock
+• **ETA** — tiempos de entrega por ubicación
+• **Corte** — horarios de corte de pedidos
+• **Parte ABC123** — buscar por número de parte`;
+
+    default:
+      return `No entendí. Escribe **ayuda** para ver los comandos disponibles.`;
+  }
+}
+
+function Mensaje({ msg }) {
+  const esBot = msg.rol === "bot";
+  const renderTexto = (texto) =>
+    texto.split("\n").map((linea, i) => {
+      const partes = linea.split(/\*\*(.+?)\*\*/g);
+      return (
+        <div key={i} style={{ minHeight: "4px" }}>
+          {partes.map((p, j) => j % 2 === 1 ? <strong key={j}>{p}</strong> : p)}
+        </div>
+      );
     });
-
-    setChat((prev) => [
-      ...prev,
-      { tipo: "bot", texto: respuesta },
-    ]);
-
-    setMensaje("");
-  };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>🤖 Chat Asesor PRO</h2>
-
-      <div
-        style={{
-          height: "400px",
-          overflow: "auto",
-          border: "1px solid #ccc",
-          padding: "10px",
-          marginBottom: "10px",
-        }}
-      >
-        {chat.map((c, i) => (
-          <div
-            key={i}
-            style={{
-              textAlign: c.tipo === "user" ? "right" : "left",
-              marginBottom: "8px",
-            }}
-          >
-            <span
-              style={{
-                background:
-                  c.tipo === "user" ? "#2563eb" : "#e5e7eb",
-                color: c.tipo === "user" ? "#fff" : "#000",
-                padding: "6px 10px",
-                borderRadius: "8px",
-                display: "inline-block",
-                whiteSpace: "pre-line",
-              }}
-            >
-              {c.texto}
-            </span>
-          </div>
-        ))}
+    <div style={{ display: "flex", justifyContent: esBot ? "flex-start" : "flex-end", marginBottom: "12px" }}>
+      {esBot && (
+        <div style={{
+          width: "30px", height: "30px", borderRadius: "50%", background: "#2563eb",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontSize: "15px", marginRight: "8px", flexShrink: 0,
+        }}>🤖</div>
+      )}
+      <div style={{
+        maxWidth: "78%", padding: "10px 14px",
+        borderRadius: esBot ? "4px 16px 16px 16px" : "16px 4px 16px 16px",
+        background: esBot ? "#111827" : "#1d4ed8",
+        color: "#e5e7eb", border: esBot ? "1px solid #1f2937" : "none",
+        fontSize: "13px", lineHeight: "1.7",
+      }}>
+        {msg.cargando ? <span style={{ color: "#9ca3af" }}>Consultando...</span> : renderTexto(msg.texto)}
       </div>
-
-      <input
-        value={mensaje}
-        onChange={(e) => setMensaje(e.target.value)}
-        placeholder="Buscar OT, parte o descripción..."
-        style={{ width: "70%", marginRight: "10px" }}
-      />
-
-      <button onClick={enviar}>Enviar</button>
     </div>
   );
 }
+
+export default function Chatbot() {
+  const { user } = useAuth();
+  const [mensajes, setMensajes] = useState([{
+    id: 0, rol: "bot",
+    texto: `¡Hola${user?.nombre ? `, ${user.nombre}` : ""}! 👋\n\nSoy el asistente de Motormexa. Escribe **ayuda** o prueba:\n• "OT 1234"\n• "Pendientes"\n• "Stellantis"\n• "Corte"`,
+  }]);
+  const [input, setInput] = useState("");
+  const [procesando, setProcesando] = useState(false);
+  const bottomRef = useRef(null);
+
+  useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }); }, [mensajes]);
+
+  const enviar = async () => {
+    const texto = input.trim();
+    if (!texto || procesando) return;
+    const idU = Date.now(), idB = idU + 1;
+    setMensajes(prev => [...prev,
+      { id: idU, rol: "usuario", texto },
+      { id: idB, rol: "bot", texto: "", cargando: true },
+    ]);
+    setInput(""); setProcesando(true);
+    const respuesta = await ejecutar(detectarIntencion(texto), user);
+    setMensajes(prev => prev.map(m => m.id === idB ? { ...m, texto: respuesta, cargando: false } : m));
+    setProcesando(false);
+  };
+
+  const sugerencias = ["Resumen", "Pendientes", "Corte", "Alertas", "ETA", "Ayuda"];
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", height: "calc(100vh - 100px)", maxWidth: "700px", margin: "0 auto" }}>
+      <div style={{ padding: "14px 20px", background: "#111827", borderRadius: "12px 12px 0 0", borderBottom: "1px solid #1f2937", display: "flex", alignItems: "center", gap: "12px" }}>
+        <div style={{ fontSize: "22px" }}>🤖</div>
+        <div>
+          <div style={{ color: "#e5e7eb", fontWeight: 600 }}>Asistente Motormexa</div>
+          <div style={{ color: "#22c55e", fontSize: "11px" }}>● En línea · Supabase conectado</div>
+        </div>
+      </div>
+
+      <div style={{ flex: 1, overflowY: "auto", padding: "16px", background: "#0f172a", display: "flex", flexDirection: "column" }}>
+        {mensajes.map(m => <Mensaje key={m.id} msg={m} />)}
+        <div ref={bottomRef} />
+      </div>
+
+      <div style={{ display: "flex", gap: "6px", padding: "6px 14px", background: "#0f172a", flexWrap: "wrap" }}>
+        {sugerencias.map(s => (
+          <button key={s} onClick={() => setInput(s)} style={{
+            background: "#111827", border: "1px solid #1f2937", color: "#9ca3af",
+            padding: "3px 10px", borderRadius: "20px", fontSize: "11px", cursor: "pointer",
+          }}>{s}</button>
+        ))}
+      </div>
+
+      <div style={{ display: "flex", gap: "10px", padding: "10px 14px", background: "#111827", borderRadius: "0 0 12px 12px", borderTop: "1px solid #1f2937" }}>
+        <input
+          value={input} onChange={e => setInput(e.target.value)}
+          onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); enviar(); } }}
+          placeholder="Escribe tu consulta... (Enter para enviar)"
+          disabled={procesando}
+          style={{ flex: 1, background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "9px 12px", borderRadius: "8px", fontSize: "13px", outline: "none" }}
+        />
+        <button onClick={enviar} disabled={procesando || !input.trim()} style={{
+          background: procesando || !input.trim() ? "#1f2937" : "#2563eb",
+          color: "#fff", border: "none", padding: "9px 18px", borderRadius: "8px",
+          cursor: procesando || !input.trim() ? "not-allowed" : "pointer", fontWeight: 700, fontSize: "13px",
+        }}>
+          {procesando ? "..." : "Enviar"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 ================================================================================
 
 
@@ -1109,80 +2449,296 @@ FILE: src/pages/Compras.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 1.45 KB
+Size: 9.6 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/Compras.jsx
 Relative Path: src/pages
-Created: 2026-04-04 04:08:56 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-04 05:16:10 (America/Mexico_City / GMT-06:00)
-MD5: dcc05a4aa6fb7d858da8b9dff1841e49
-SHA256: 503706a3474a4477ff3a0c03ff2b864baca2a1606c34ffcfb8ceac6fe4eb85ae
+Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-10 04:27:23 (America/Mexico_City / GMT-06:00)
+MD5: bb01de1d697dbc8c7aca7aea9a0fbbd7
+SHA256: 7f3b5701f3a76566ec212e0f4771bc2b4ac9d63998d63bedb23e2d48d5e29a59
 Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
-import { useEffect, useState } from "react";
+// src/pages/Compras.jsx - Versión Final Mejorada (Agrupado por Sucursal)
+import { useEffect, useState, useCallback } from "react";
 import { supabase } from "../services/supabase";
+import { useAuth } from "../contexts/AuthContext";
+import {
+  HORARIOS_CORTE,
+  ESTATUSES_ITEM,
+} from "../utils/catalogos";
+import FilaCompra from "../components/FilaCompra";
+import FilaBO from "../components/FilaBO";
+
+const FABRICANTES = ["Stellantis", "Mitsubishi", "Peugeot"];
 
 export default function Compras() {
-  const [refacciones, setRefacciones] = useState([]);
+  const { user } = useAuth();
+  const [activeTab, setActiveTab] = useState("normal"); // "normal" | "bo"
+  const [fabricanteActivo, setFabricanteActivo] = useState("Stellantis");
 
-  const obtenerRefacciones = async () => {
-    const { data } = await supabase
+  const [dataNormal, setDataNormal] = useState({});
+  const [dataBO, setDataBO] = useState({});
+
+  const [cargando, setCargando] = useState(true);
+  const [filtroEstatus, setFiltroEstatus] = useState("");
+  const [busqueda, setBusqueda] = useState("");
+
+  const esAdmin = user?.rol?.toLowerCase() === "admin";
+
+  const cargar = useCallback(async () => {
+    setCargando(true);
+
+    let q = supabase
       .from("items")
-      .select("*")
-      .eq("estatus", "Pendiente")
-      .order("created_at", { ascending: false });
+      .select("*, sucursal_id, sucursal_nombre, verificado_ventanilla, comentario_almacen")
+      .order("created_at", { ascending: true });
 
-    setRefacciones(data || []);
-  };
+    if (!esAdmin && user?.sucursal_id) {
+      q = q.eq("sucursal_id", user.sucursal_id);
+    }
+    if (filtroEstatus) {
+      q = q.eq("estatus", filtroEstatus);
+    }
 
-  const marcarComprada = async (id) => {
-    await supabase
-      .from("items")
-      .update({ estatus: "Comprada" })
-      .eq("id", id);
+    const { data: rows } = await q;
 
-    obtenerRefacciones();
-  };
+    const normal = {};
+    const bo = {};
+
+    rows?.forEach(r => {
+      const esBO = r.es_bo === true || r.estatus_bo || r.estatus === "BO";
+      const target = esBO ? bo : normal;
+      const fab = r.fabricante || "Otros";
+
+      if (!target[fab]) target[fab] = [];
+      target[fab].push(r);
+    });
+
+    setDataNormal(normal);
+    setDataBO(bo);
+    setCargando(false);
+  }, [filtroEstatus, user, esAdmin]);
 
   useEffect(() => {
-    obtenerRefacciones();
-  }, []);
+    cargar();
+  }, [cargar]);
+
+  // Realtime updates
+  useEffect(() => {
+    const channel = supabase.channel(`compras-realtime`)
+      .on("postgres_changes", { 
+        event: "*", 
+        schema: "public", 
+        table: "items" 
+      }, cargar)
+      .subscribe();
+
+    return () => supabase.removeChannel(channel);
+  }, [cargar]);
+
+  const itemsActuales = activeTab === "normal" ? dataNormal : dataBO;
+  const itemsFabricante = itemsActuales[fabricanteActivo] || [];
+
+  // Agrupar por Sucursal
+  const agruparPorSucursal = (items) => {
+    const grupos = {};
+    items.forEach(item => {
+      const sucursal = item.sucursal_nombre || item.sucursal_id || "Sin Sucursal";
+      if (!grupos[sucursal]) grupos[sucursal] = [];
+      grupos[sucursal].push(item);
+    });
+    return grupos;
+  };
+
+  const grupos = agruparPorSucursal(itemsFabricante);
+
+  // Filtrar por búsqueda
+  const gruposFiltrados = Object.fromEntries(
+    Object.entries(grupos).map(([sucursal, items]) => [
+      sucursal,
+      items.filter(item => {
+        if (!busqueda) return true;
+        const term = busqueda.toLowerCase();
+        return (
+          item.ot?.toLowerCase().includes(term) ||
+          item.descripcion?.toLowerCase().includes(term) ||
+          item.numero_parte?.toLowerCase().includes(term)
+        );
+      })
+    ]).filter(([_, items]) => items.length > 0)
+  );
 
   return (
-    <div>
-      <h2>Panel de Compras</h2>
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+        <h2>🛒 Panel de Compras</h2>
+        <div style={{ color: "#9ca3af" }}>
+          {new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" })}
+        </div>
+      </div>
 
-      <table border="1">
-        <thead>
-          <tr>
-            <th>OT</th>
-            <th>Refacción</th>
-            <th>Ubicación</th>
-            <th>Estatus</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
+      {/* Tabs de Fabricante */}
+      <div style={{ display: "flex", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
+        {FABRICANTES.map(f => (
+          <button
+            key={f}
+            onClick={() => setFabricanteActivo(f)}
+            style={{
+              padding: "10px 24px",
+              borderRadius: "8px",
+              border: "none",
+              background: fabricanteActivo === f ? "#2563eb" : "#1f2937",
+              color: fabricanteActivo === f ? "#fff" : "#9ca3af",
+              fontWeight: 600,
+              cursor: "pointer"
+            }}
+          >
+            {f}
+          </button>
+        ))}
+      </div>
 
-        <tbody>
-          {refacciones.map((r) => (
-            <tr key={r.id}>
-              <td>{r.ot}</td>
-              <td>{r.descripcion}</td>
-              <td>{r.ubicacion}</td>
-              <td>{r.estatus}</td>
+      {/* Tabs Normal / BO */}
+      <div style={{ display: "flex", borderBottom: "2px solid #334155", marginBottom: "24px" }}>
+        <button 
+          onClick={() => setActiveTab("normal")}
+          style={{
+            padding: "12px 28px",
+            fontWeight: "600",
+            borderBottom: activeTab === "normal" ? "4px solid #3b82f6" : "none",
+            color: activeTab === "normal" ? "#3b82f6" : "#9ca3af"
+          }}
+        >
+          Compras Normales
+        </button>
+        <button 
+          onClick={() => setActiveTab("bo")}
+          style={{
+            padding: "12px 28px",
+            fontWeight: "600",
+            borderBottom: activeTab === "bo" ? "4px solid #f59e0b" : "none",
+            color: activeTab === "bo" ? "#f59e0b" : "#9ca3af"
+          }}
+        >
+          Back Order (BO)
+        </button>
+      </div>
 
-              <td>
-                <button onClick={() => marcarComprada(r.id)}>
-                  Marcar como Comprada
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {/* Filtros */}
+      <div style={{ display: "flex", gap: "12px", marginBottom: "20px" }}>
+        <input
+          placeholder="Buscar OT, parte o descripción..."
+          value={busqueda}
+          onChange={e => setBusqueda(e.target.value)}
+          style={{
+            flex: 1,
+            padding: "10px 14px",
+            background: "#111827",
+            border: "1px solid #1f2937",
+            color: "#e5e7eb",
+            borderRadius: "8px",
+            fontSize: "14px"
+          }}
+        />
+        <select 
+          value={filtroEstatus} 
+          onChange={e => setFiltroEstatus(e.target.value)}
+          style={{
+            padding: "10px 14px",
+            background: "#111827",
+            border: "1px solid #1f2937",
+            color: "#e5e7eb",
+            borderRadius: "8px"
+          }}
+        >
+          <option value="">Todos los estatus</option>
+          {ESTATUSES_ITEM.map(s => <option key={s}>{s}</option>)}
+        </select>
+      </div>
+
+      {/* Contenido: Agrupado por Sucursal */}
+      {Object.keys(gruposFiltrados).length === 0 ? (
+        <div style={{ textAlign: "center", padding: "80px", color: "#9ca3af" }}>
+          No hay piezas para mostrar con los filtros actuales.
+        </div>
+      ) : (
+        Object.entries(gruposFiltrados).map(([sucursal, items]) => (
+          <div key={sucursal} style={{ marginBottom: "32px" }}>
+            <h3 style={{ 
+              color: activeTab === "bo" ? "#f59e0b" : "#60a5fa",
+              borderBottom: "2px solid #334155",
+              paddingBottom: "10px",
+              marginBottom: "16px",
+              fontSize: "18px"
+            }}>
+              📍 {sucursal}
+              <span style={{ marginLeft: "12px", fontSize: "15px", color: "#9ca3af" }}>
+                ({items.length} piezas)
+              </span>
+            </h3>
+
+            <div style={{ overflowX: "auto", background: "#111827", borderRadius: "12px", border: "1px solid #1f2937" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                <thead>
+                  <tr style={{ background: "#0f172a", color: "#9ca3af" }}>
+                    {activeTab === "normal" ? (
+                      <>
+                        <th style={{ padding: "12px" }}>Referencia</th>
+                        <th style={{ padding: "12px" }}>OT</th>
+                        <th style={{ padding: "12px" }}>Ubicación</th>
+                        <th style={{ padding: "12px" }}>Descripción</th>
+                        <th style={{ padding: "12px" }}>Cant.</th>
+                        <th style={{ padding: "12px" }}>Estatus</th>
+                        <th style={{ padding: "12px" }}>Fecha Compra</th>
+                        <th style={{ padding: "12px" }}>N° Pedido</th>
+                        <th style={{ padding: "12px" }}>Acción</th>
+                      </>
+                    ) : (
+                      <>
+                        <th style={{ padding: "12px" }}>OT</th>
+                        <th style={{ padding: "12px" }}>Parte</th>
+                        <th style={{ padding: "12px" }}>Descripción</th>
+                        <th style={{ padding: "12px" }}>Cant</th>
+                        <th style={{ padding: "12px" }}>Estatus BO</th>
+                        <th style={{ padding: "12px" }}>Proveedor</th>
+                        <th style={{ padding: "12px" }}>Guía</th>
+                        <th style={{ padding: "12px" }}>Prioridad</th>
+                        <th style={{ padding: "12px" }}>Acciones</th>
+                      </>
+                    )}
+                  </tr>
+                </thead>
+                <tbody>
+                  {items.map(item => 
+                    activeTab === "normal" ? (
+                      <FilaCompra key={item.id} item={item} onActualizar={cargar} />
+                    ) : (
+                      <FilaBO 
+                        key={item.id} 
+                        item={item} 
+                        onActualizar={cargar}
+                        onMandarGeneral={async (id) => {
+                          if (!confirm("¿Mover esta pieza a Compras Normales?")) return;
+                          await supabase.from("items").update({ 
+                            estatus: "Pendiente", 
+                            es_bo: false, 
+                            estatus_bo: null 
+                          }).eq("id", id);
+                          cargar();
+                        }}
+                      />
+                    )
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ))
+      )}
     </div>
   );
 }
@@ -1195,392 +2751,396 @@ FILE: src/pages/ConsultaOT.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 1.13 KB
+Size: 11.86 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/ConsultaOT.jsx
 Relative Path: src/pages
-Created: 2026-04-04 05:58:39 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-04 05:59:06 (America/Mexico_City / GMT-06:00)
-MD5: 45c45479d8d535c8241c5ae1676fa808
-SHA256: 8aa81f1942010b92d985e614af989619d574cfadea3e0dc18640aaa417c0e7ff
-Encoding: UTF-8
-
-FILE CONTENT:
-----------------------------------------
-import { useState } from "react";
-import { supabase } from "../services/supabase";
-
-export default function ConsultaOT() {
-  const [ot, setOt] = useState("");
-  const [resultado, setResultado] = useState("");
-
-  const consultarOT = async () => {
-    const { data } = await supabase
-      .from("items")
-      .select("descripcion, estatus")
-      .eq("ot", ot);
-
-    if (!data || data.length === 0) {
-      setResultado("No se encontraron refacciones para esta OT");
-      return;
-    }
-
-    let texto = `OT ${ot}\nRefacciones:\n`;
-
-    data.forEach((r) => {
-      texto += `- ${r.descripcion} → ${r.estatus}\n`;
-    });
-
-    setResultado(texto);
-  };
-
-  const copiar = () => {
-    navigator.clipboard.writeText(resultado);
-    alert("Copiado para WhatsApp");
-  };
-
-  return (
-    <div>
-      <h2>Consulta de OT</h2>
-
-      <input
-        placeholder="Ingresa OT"
-        value={ot}
-        onChange={(e) => setOt(e.target.value)}
-      />
-
-      <button onClick={consultarOT}>Consultar</button>
-
-      <pre>{resultado}</pre>
-
-      {resultado && <button onClick={copiar}>Copiar</button>}
-    </div>
-  );
-}
-================================================================================
-
-
-================================================================================
-FILE: src/pages/Dashboard.jsx
-================================================================================
-
-FILE INFORMATION:
-----------------------------------------
-Size: 7.9 KB
-Extension: .jsx
-Language: jsx
-Location: src/pages/Dashboard.jsx
-Relative Path: src/pages
-Created: 2026-04-04 05:17:55 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-05 21:45:33 (America/Mexico_City / GMT-06:00)
-MD5: 896e042b81d03306dfb596dc4d9337b5
-SHA256: 31032e69cd1e05e7a96acd02604a639da1a0924a429729309ecd46ac7c486a4f
+Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-06 04:31:01 (America/Mexico_City / GMT-06:00)
+MD5: a2d2e838e97f5a58f6e01561ea82684c
+SHA256: 563d4705aa93a62335abdc5041e4fc20e629d126b27e411e344e9f2a23e3bc50
 Encoding: ASCII
 
 FILE CONTENT:
 ----------------------------------------
-import { useEffect, useState } from "react";
+// src/pages/ConsultaOT.jsx
+import { useState, useEffect } from "react";
 import { supabase } from "../services/supabase";
-import { getUserData } from "../services/auth";
+import { useAuth } from "../contexts/AuthContext";
+import { COLOR_ESTATUS, formatFecha } from "../utils/catalogos";
+import { Link } from "react-router-dom";
 
-/* UI */
-const grid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-  gap: "15px",
-  marginTop: "20px",
-};
-
-function Card({ title, value, color = "#111827" }) {
+function Badge({ estatus }) {
+  const c = COLOR_ESTATUS[estatus] || { bg: "#374151", text: "#d1d5db" };
   return (
-    <div
+    <span
       style={{
-        background: color,
-        padding: "20px",
-        borderRadius: "12px",
-        color: "#e5e7eb",
-        border: "1px solid #1f2937",
+        background: c.bg,
+        color: c.text,
+        padding: "4px 12px",
+        borderRadius: "20px",
+        fontSize: "12px",
+        fontWeight: 700,
       }}
     >
-      <div style={{ color: "#9ca3af" }}>{title}</div>
-      <h2>{value}</h2>
-    </div>
+      {estatus}
+    </span>
   );
 }
 
-function Section({ title, children }) {
-  return (
-    <div style={{ marginTop: "30px" }}>
-      <h2 style={{ color: "#e5e7eb" }}>{title}</h2>
-      {children}
-    </div>
-  );
-}
+export default function ConsultaOT() {
+  const { user } = useAuth();
+  const [modo, setModo] = useState("buscar"); // "buscar" | "listado"
+  const [filtroEstado, setFiltroEstado] = useState("todas"); // "todas" | "incompletas" | "completas"
 
-function Bar({ label, value }) {
-  return (
-    <div style={{ marginBottom: "10px" }}>
-      <div style={{ color: "#e5e7eb" }}>{label}</div>
-      <div style={{ background: "#1f2937", height: "10px", borderRadius: "5px" }}>
-        <div
-          style={{
-            width: value + "%",
-            background: "#22c55e",
-            height: "100%",
-          }}
-        />
-      </div>
-      <small style={{ color: "#9ca3af" }}>{value}%</small>
-    </div>
-  );
-}
+  const [query, setQuery] = useState("");
+  const [resultado, setResultado] = useState(null);
+  const [misOTs, setMisOTs] = useState([]);
+  const [cargando, setCargando] = useState(false);
+  const [copiado, setCopiado] = useState(false);
 
-const alertBox = {
-  background: "#7f1d1d",
-  color: "#fee2e2",
-  padding: "10px",
-  marginBottom: "10px",
-  borderRadius: "8px",
-};
+  // Cargar todas las OTs del asesor
+  const cargarMisOTs = async () => {
+    if (!user?.id) return;
 
-export default function Dashboard() {
-  const [user, setUser] = useState(null);
-  const [filtroMes, setFiltroMes] = useState("");
-  const [alertas, setAlertas] = useState([]);
-
-  const [kpis, setKpis] = useState({
-    pendientes: 0,
-    compradas: 0,
-    recibidas: 0,
-    entregadas: 0,
-    incorrectas: 0,
-    tiempoPromedio: 0,
-    cumplimiento: 0,
-    totalParciales: 0,
-    totalCerradas: 0,
-    pendientesEntrega: 0,
-    rankingSucursales: [],
-    rankingAsesores: [],
-    stockPendiente: 0,
-  });
-
-  useEffect(() => {
-    getUserData().then(setUser);
-  }, []);
-
-  const obtenerDatos = async () => {
-    if (!user) return;
-
-    let query = supabase
+    setCargando(true);
+    const { data, error } = await supabase
       .from("items")
       .select(`
-        estatus,
-        ot,
-        created_at,
-        fecha_pendiente,
-        fecha_recibida,
-        sucursal:sucursales(nombre),
-        asesor:usuarios(nombre),
-        sucursal_id,
-        asesor_id
-      `);
+        ot, 
+        estatus, 
+        created_at, 
+        fecha_compra,
+        fabricante, 
+        marca, 
+        modelo
+      `)
+      .eq("asesor_id", user.id)
+      .order("created_at", { ascending: false });
 
-    if (filtroMes) {
-      query = query
-        .gte("created_at", `${filtroMes}-01`)
-        .lte("created_at", `${filtroMes}-31`);
+    if (error) {
+      console.error("Error al cargar OTs:", error);
+      setCargando(false);
+      return;
     }
 
-    // 🔥 FILTRO POR ROL
-    if (user.rol === "asesor") {
-      query = query.eq("asesor_id", user.id);
-    }
-
-    if (user.rol === "ventanilla" || user.rol === "gerente") {
-      query = query.eq("sucursal_id", user.sucursal_id);
-    }
-
-    const { data } = await query;
-    if (!data) return;
-
-    let pendientes = 0,
-      compradas = 0,
-      recibidas = 0,
-      entregadas = 0,
-      incorrectas = 0;
-
-    let totalTiempo = 0,
-      conteoTiempo = 0;
-
-    let pendientesEntrega = 0;
-
-    let sucursalMap = {},
-      asesorMap = {},
-      otMap = {};
-
-    data.forEach((r) => {
-      const sucursalNombre = r.sucursal?.nombre || "Sin sucursal";
-      const asesorNombre = r.asesor?.nombre || "Sin asesor";
-
-      if (r.estatus === "Pendiente") pendientes++;
-      if (r.estatus === "Comprada") compradas++;
-      if (r.estatus === "Recibida") recibidas++;
-      if (r.estatus === "Entregada") entregadas++;
-      if (r.estatus === "Incorrecta") incorrectas++;
-
-      if (r.estatus === "Recibida") pendientesEntrega++;
-
-      if (r.fecha_pendiente && r.fecha_recibida) {
-        const dias =
-          (new Date(r.fecha_recibida) - new Date(r.fecha_pendiente)) /
-          (1000 * 60 * 60 * 24);
-
-        totalTiempo += dias;
-        conteoTiempo++;
+    // Agrupar por OT
+    const agrupadas = {};
+    data.forEach((item) => {
+      if (!agrupadas[item.ot]) {
+        agrupadas[item.ot] = {
+          ot: item.ot,
+          created_at: item.created_at,
+          fecha_compra: item.fecha_compra,
+          fabricante: item.fabricante,
+          marca: item.marca,
+          modelo: item.modelo,
+          items: [],
+        };
       }
-
-      if (!sucursalMap[sucursalNombre])
-        sucursalMap[sucursalNombre] = { recibidas: 0, entregadas: 0 };
-
-      if (r.estatus === "Recibida") sucursalMap[sucursalNombre].recibidas++;
-      if (r.estatus === "Entregada") sucursalMap[sucursalNombre].entregadas++;
-
-      if (!asesorMap[asesorNombre])
-        asesorMap[asesorNombre] = { recibidas: 0, entregadas: 0 };
-
-      if (r.estatus === "Recibida") asesorMap[asesorNombre].recibidas++;
-      if (r.estatus === "Entregada") asesorMap[asesorNombre].entregadas++;
-
-      if (!otMap[r.ot]) otMap[r.ot] = [];
-      otMap[r.ot].push(r.estatus);
+      agrupadas[item.ot].items.push(item);
     });
 
-    const tiempoPromedio = conteoTiempo
-      ? (totalTiempo / conteoTiempo).toFixed(2)
-      : 0;
+    let lista = Object.values(agrupadas).map((grupo) => {
+      const total = grupo.items.length;
+      const entregadas = grupo.items.filter((i) => i.estatus === "Entregada").length;
 
-    const cumplimiento = recibidas
-      ? ((entregadas / recibidas) * 100).toFixed(1)
-      : 0;
+      let estado = "Pendiente";
+      if (entregadas === total) estado = "Completa";
+      else if (entregadas > 0) estado = "Parcial";
 
-    let totalParciales = 0,
-      totalCerradas = 0;
-
-    Object.values(otMap).forEach((estatuses) => {
-      const total = estatuses.length;
-      const entregadasOT = estatuses.filter((e) => e === "Entregada").length;
-
-      if (entregadasOT === total) totalCerradas++;
-      else totalParciales++;
+      return {
+        ...grupo,
+        total,
+        entregadas,
+        estado,
+      };
     });
 
-    const rankingSucursales = Object.entries(sucursalMap)
-      .map(([id, v]) => ({
-        id,
-        porcentaje: v.recibidas
-          ? ((v.entregadas / v.recibidas) * 100).toFixed(1)
-          : 0,
-      }))
-      .sort((a, b) => b.porcentaje - a.porcentaje);
+    // Aplicar filtro
+    if (filtroEstado === "incompletas") {
+      lista = lista.filter((ot) => ot.estado !== "Completa");
+    } else if (filtroEstado === "completas") {
+      lista = lista.filter((ot) => ot.estado === "Completa");
+    }
 
-    const rankingAsesores = Object.entries(asesorMap)
-      .map(([id, v]) => ({
-        id,
-        porcentaje: v.recibidas
-          ? ((v.entregadas / v.recibidas) * 100).toFixed(1)
-          : 0,
-      }))
-      .sort((a, b) => b.porcentaje - a.porcentaje);
-
-    setKpis({
-      pendientes,
-      compradas,
-      recibidas,
-      entregadas,
-      incorrectas,
-      tiempoPromedio,
-      cumplimiento,
-      totalParciales,
-      totalCerradas,
-      pendientesEntrega,
-      rankingSucursales,
-      rankingAsesores,
-      stockPendiente: kpis.stockPendiente,
-    });
+    setMisOTs(lista);
+    setCargando(false);
   };
 
-  const obtenerStock = async () => {
-    const { count } = await supabase
-      .from("stock_pedidos")
-      .select("*", { count: "exact", head: true })
-      .eq("estatus", "Pendiente");
+  // Buscar OT específica
+  const consultar = async () => {
+    const q = query.trim().toUpperCase();
+    if (!q) return;
 
-    setKpis((prev) => ({
-      ...prev,
-      stockPendiente: count || 0,
-    }));
+    setCargando(true);
+    setResultado(null);
+
+    const { data } = await supabase
+      .from("items")
+      .select("*")
+      .or(`ot.eq.${q},folio_cotizacion.eq.${q}`)
+      .order("created_at", { ascending: true });
+
+    setCargando(false);
+
+    if (!data || data.length === 0) {
+      setResultado({ vacia: true, ot: q });
+      return;
+    }
+
+    const entregadas = data.filter((r) => r.estatus === "Entregada").length;
+    const recibidas = data.filter((r) => r.estatus === "Recibida").length;
+
+    let estatusOT = "Pendiente";
+    if (entregadas === data.length) estatusOT = "Completa";
+    else if (entregadas > 0 || recibidas > 0) estatusOT = "Parcial";
+
+    setResultado({ items: data, ot: q, entregadas, recibidas, estatusOT });
   };
 
-  const obtenerAlertas = async () => {
-    const { data } = await supabase.from("alertas").select("*");
-    setAlertas(data || []);
+  const copiar = () => {
+    if (!resultado?.items) return;
+    const texto = resultado.items
+      .map((r) => `${r.ot} | ${r.descripcion || r.numero_parte} | ${r.estatus} | ETA: ${formatFecha(r.eta)}`)
+      .join("\n");
+    navigator.clipboard.writeText(texto);
+    setCopiado(true);
+    setTimeout(() => setCopiado(false), 2000);
   };
 
+  // Recargar listado cuando cambie modo o filtro
   useEffect(() => {
-    obtenerDatos();
-    obtenerStock();
-    obtenerAlertas();
-  }, [filtroMes, user]);
+    if (modo === "listado") {
+      cargarMisOTs();
+    }
+  }, [modo, filtroEstado]);
 
   return (
-    <div style={{ padding: "20px", background: "#020617" }}>
-      <h1 style={{ color: "#e5e7eb" }}>📊 Dashboard</h1>
+    <div style={{ padding: "20px", color: "#e5e7eb", maxWidth: "1100px" }}>
+      <h2 style={{ marginBottom: "20px" }}>🔍 Consulta de OT</h2>
 
-      <input
-        type="month"
-        value={filtroMes}
-        onChange={(e) => setFiltroMes(e.target.value)}
-      />
+      {/* Selector de modo */}
+      <div style={{ marginBottom: "20px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
+        <button
+          onClick={() => setModo("buscar")}
+          style={{
+            padding: "10px 20px",
+            background: modo === "buscar" ? "#2563eb" : "#1f2937",
+            color: "#fff",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontWeight: modo === "buscar" ? 600 : 400,
+          }}
+        >
+          Buscar OT específica
+        </button>
 
-      <div style={grid}>
-        <Card title="Pendientes" value={kpis.pendientes} />
-        <Card title="Compradas" value={kpis.compradas} />
-        <Card title="Recibidas" value={kpis.recibidas} />
-        <Card title="Entregadas" value={kpis.entregadas} />
-        <Card title="Incorrectas" value={kpis.incorrectas} />
+        <button
+          onClick={() => setModo("listado")}
+          style={{
+            padding: "10px 20px",
+            background: modo === "listado" ? "#2563eb" : "#1f2937",
+            color: "#fff",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontWeight: modo === "listado" ? 600 : 400,
+          }}
+        >
+          Ver mis OTs
+        </button>
       </div>
 
-      <div style={grid}>
-        <Card title="Tiempo Promedio" value={kpis.tiempoPromedio} />
-        <Card title="% Cumplimiento" value={kpis.cumplimiento + "%"} />
-        <Card title="Órdenes Parciales" value={kpis.totalParciales} />
-        <Card title="Órdenes Cerradas" value={kpis.totalCerradas} />
-        <Card title="Stock Pendiente" value={kpis.stockPendiente} />
-      </div>
-
-      <Section title="Ranking Sucursales">
-        {kpis.rankingSucursales.map((s) => (
-          <Bar key={s.id} label={s.id} value={s.porcentaje} />
-        ))}
-      </Section>
-
-      <Section title="Ranking Asesores">
-        {kpis.rankingAsesores.map((a) => (
-          <Bar key={a.id} label={a.id} value={a.porcentaje} />
-        ))}
-      </Section>
-
-      <Section title="🚨 Alertas">
-        {alertas.map((a) => (
-          <div key={a.id} style={alertBox}>
-            {a.tipo} - OT {a.ot} ({a.dias} días)
+      {/* ====================== MODO BÚSQUEDA ESPECÍFICA ====================== */}
+      {modo === "buscar" && (
+        <div>
+          <div style={{ display: "flex", gap: "10px", marginBottom: "24px" }}>
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && consultar()}
+              placeholder="Ingresa OT o Folio de Cotización"
+              style={{
+                flex: 1,
+                background: "#111827",
+                border: "1px solid #1f2937",
+                color: "#e5e7eb",
+                padding: "12px 16px",
+                borderRadius: "8px",
+                fontSize: "15px",
+              }}
+            />
+            <button
+              onClick={consultar}
+              disabled={cargando}
+              style={{
+                background: "#2563eb",
+                color: "#fff",
+                border: "none",
+                padding: "12px 28px",
+                borderRadius: "8px",
+                cursor: "pointer",
+                fontWeight: 700,
+              }}
+            >
+              {cargando ? "Buscando..." : "Consultar"}
+            </button>
           </div>
-        ))}
-      </Section>
+
+          {resultado?.vacia && (
+            <div style={{ color: "#9ca3af", textAlign: "center", padding: "60px" }}>
+              ❌ No se encontraron refacciones para <strong>{resultado.ot}</strong>
+            </div>
+          )}
+
+          {resultado?.items && (
+            <div>
+              <div style={{ background: "#111827", border: "1px solid #1f2937", borderRadius: "12px", padding: "16px 20px", marginBottom: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div>
+                  <div style={{ fontSize: "18px", fontWeight: 700 }}>OT {resultado.ot}</div>
+                  <div style={{ color: "#9ca3af" }}>
+                    {resultado.items[0]?.marca} {resultado.items[0]?.modelo}
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                  <span>{resultado.entregadas}/{resultado.items.length} entregadas</span>
+                  <Badge estatus={resultado.estatusOT} />
+                  <button onClick={copiar} style={btnCopiar}>
+                    {copiado ? "✅ Copiado" : "📋 Copiar"}
+                  </button>
+                </div>
+              </div>
+
+              {resultado.items.map((r) => (
+                <div key={r.id} style={itemStyle}>
+                  <div style={{ flex: 1 }}>
+                    <div>{r.descripcion || r.numero_parte}</div>
+                    {r.numero_parte && <div style={{ color: "#6b7280", fontSize: "13px" }}>{r.numero_parte}</div>}
+                  </div>
+                  <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                    <span style={{ color: "#60a5fa" }}>{r.ubicacion}</span>
+                    {r.eta && <span>ETA {formatFecha(r.eta)}</span>}
+                    <Badge estatus={r.estatus} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ====================== MODO LISTADO DE MIS OTs ====================== */}
+      {modo === "listado" && (
+        <div>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+            <h3>Mis Órdenes de Trabajo</h3>
+
+            <select
+              value={filtroEstado}
+              onChange={(e) => setFiltroEstado(e.target.value)}
+              style={{
+                background: "#1f2937",
+                color: "#e5e7eb",
+                border: "1px solid #374151",
+                padding: "8px 12px",
+                borderRadius: "8px",
+              }}
+            >
+              <option value="todas">Todas las OTs</option>
+              <option value="incompletas">Solo Incompletas</option>
+              <option value="completas">Solo Completas</option>
+            </select>
+          </div>
+
+          {cargando ? (
+            <p style={{ color: "#9ca3af" }}>Cargando tus órdenes...</p>
+          ) : misOTs.length === 0 ? (
+            <p style={{ color: "#9ca3af" }}>No tienes órdenes registradas aún.</p>
+          ) : (
+            misOTs.map((ot) => (
+              <div key={ot.ot} style={cardStyle}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                  <div>
+                    <div style={{ fontSize: "17px", fontWeight: 700 }}>
+                      OT {ot.ot}
+                    </div>
+                    <div style={{ color: "#9ca3af", fontSize: "14px" }}>
+                      {ot.marca} {ot.modelo}
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: "8px" }}>
+                    <Badge estatus={ot.estado} />
+                    <Link
+                      to={`/ventanilla/${ot.ot}`}
+                      style={{
+                        background: "#1e40af",
+                        color: "#fff",
+                        padding: "6px 12px",
+                        borderRadius: "6px",
+                        textDecoration: "none",
+                        fontSize: "13px",
+                      }}
+                    >
+                      Ver detalle →
+                    </Link>
+                  </div>
+                </div>
+
+                <div style={{ marginTop: "14px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px", fontSize: "13.5px" }}>
+                  <div>
+                    <strong>Fecha de Captura:</strong><br />
+                    {formatFecha(ot.created_at)}
+                  </div>
+                  <div>
+                    <strong>Fecha de Compra:</strong><br />
+                    {ot.fecha_compra ? formatFecha(ot.fecha_compra) : "—"}
+                  </div>
+                  <div>
+                    <strong>Progreso:</strong><br />
+                    {ot.entregadas} / {ot.total} entregadas
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 }
+
+// Estilos
+const cardStyle = {
+  background: "#111827",
+  border: "1px solid #1f2937",
+  borderRadius: "12px",
+  padding: "18px",
+  marginBottom: "14px",
+};
+
+const itemStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "12px",
+  padding: "12px 16px",
+  background: "#111827",
+  border: "1px solid #1f2937",
+  borderRadius: "8px",
+  marginBottom: "8px",
+};
+
+const btnCopiar = {
+  background: "#1f2937",
+  color: "#9ca3af",
+  border: "none",
+  padding: "6px 14px",
+  borderRadius: "6px",
+  cursor: "pointer",
+  fontSize: "13px",
+};
 ================================================================================
 
 
@@ -1590,15 +3150,15 @@ FILE: src/pages/Login.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 899 B
+Size: 6.53 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/Login.jsx
 Relative Path: src/pages
 Created: 2026-04-04 07:56:23 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-04 08:05:00 (America/Mexico_City / GMT-06:00)
-MD5: 279f17d4f8cf27ef29afa1509967e3ed
-SHA256: bc7a53c386165052967abab0ae574085fc3b7360366fbbfea0af9ec117bff310
+Modified: 2026-04-10 04:18:19 (America/Mexico_City / GMT-06:00)
+MD5: d36e4c10191a18c835c4c7785a9ff797
+SHA256: d630c9675977b5630cf57938b5872ea20c0ab8fa90ca645f8deab5d32043b406
 Encoding: UTF-8
 
 FILE CONTENT:
@@ -1609,43 +3169,888 @@ import { supabase } from "../services/supabase";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [mensaje, setMensaje] = useState("");
+  const [resetMode, setResetMode] = useState(false);
+  const [resetEmail, setResetEmail] = useState("");
 
-  const login = async () => {
+  // ====================== LOGIN ======================
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      setMensaje("Por favor completa todos los campos");
+      return;
+    }
+
+    setLoading(true);
+    setMensaje("");
+
     const { error } = await supabase.auth.signInWithPassword({
-      email,
+      email: email.trim(),
       password,
     });
 
     if (error) {
-      alert("Credenciales incorrectas");
+      setMensaje("Credenciales incorrectas. Verifica tu correo y contraseña.");
     } else {
+      // Recargar para que AuthContext detecte el usuario
       window.location.reload();
     }
+    setLoading(false);
+  };
+
+  // ====================== RESET PASSWORD ======================
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+    if (!resetEmail) {
+      setMensaje("Ingresa tu correo electrónico");
+      return;
+    }
+
+    setLoading(true);
+    setMensaje("");
+
+    const { error } = await supabase.auth.resetPasswordForEmail(resetEmail.trim(), {
+      redirectTo: `${window.location.origin}/login`,
+    });
+
+    if (error) {
+      setMensaje("No se pudo enviar el correo. Inténtalo nuevamente.");
+    } else {
+      setMensaje("✅ Se ha enviado un enlace de recuperación a tu correo electrónico.");
+      setTimeout(() => {
+        setResetMode(false);
+        setResetEmail("");
+        setMensaje("");
+      }, 4500);
+    }
+    setLoading(false);
   };
 
   return (
-    <div style={{ padding: "40px" }}>
-      <h2>Login</h2>
+    <div style={{
+      minHeight: "100vh",
+      background: "#0f172a",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "20px",
+      fontFamily: "system-ui, sans-serif"
+    }}>
+      <div style={{
+        background: "#1e2937",
+        padding: "48px 40px",
+        borderRadius: "16px",
+        width: "100%",
+        maxWidth: "420px",
+        border: "1px solid #334155",
+        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.4)"
+      }}>
+        {/* Logo / Título */}
+        <div style={{ textAlign: "center", marginBottom: "32px" }}>
+          <div style={{ fontSize: "32px", fontWeight: 800, color: "#e5e7eb", marginBottom: "4px" }}>
+            Motormexa
+          </div>
+          <div style={{ color: "#64748b", fontSize: "15px" }}>
+            Sistema de Refacciones
+          </div>
+        </div>
 
-      <input
-        placeholder="Correo"
-        onChange={(e) => setEmail(e.target.value)}
-      />
+        {!resetMode ? (
+          /* ====================== FORMULARIO LOGIN ====================== */
+          <form onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={inputStyle}
+              required
+            />
 
-      <br />
+            <input
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={inputStyle}
+              required
+            />
 
-      <input
-        type="password"
-        placeholder="Contraseña"
-        onChange={(e) => setPassword(e.target.value)}
-      />
+            {mensaje && (
+              <p style={{
+                color: mensaje.includes("✅") ? "#4ade80" : "#f87171",
+                textAlign: "center",
+                margin: "12px 0",
+                fontSize: "14px"
+              }}>
+                {mensaje}
+              </p>
+            )}
 
-      <br />
+            <button 
+              type="submit" 
+              disabled={loading}
+              style={btnPrimary}
+            >
+              {loading ? "Ingresando..." : "Iniciar Sesión"}
+            </button>
 
-      <button onClick={login}>Ingresar</button>
+            <p 
+              onClick={() => setResetMode(true)}
+              style={{
+                textAlign: "center",
+                color: "#60a5fa",
+                cursor: "pointer",
+                marginTop: "24px",
+                fontSize: "14.5px"
+              }}
+            >
+              ¿Olvidaste tu contraseña?
+            </p>
+          </form>
+        ) : (
+          /* ====================== FORMULARIO RESET ====================== */
+          <form onSubmit={handleResetPassword}>
+            <h3 style={{ color: "#e5e7eb", textAlign: "center", marginBottom: "24px" }}>
+              Recuperar Contraseña
+            </h3>
+
+            <input
+              type="email"
+              placeholder="Ingresa tu correo electrónico"
+              value={resetEmail}
+              onChange={(e) => setResetEmail(e.target.value)}
+              style={inputStyle}
+              required
+            />
+
+            {mensaje && (
+              <p style={{
+                color: mensaje.includes("✅") ? "#4ade80" : "#f87171",
+                textAlign: "center",
+                margin: "16px 0",
+                fontSize: "14px"
+              }}>
+                {mensaje}
+              </p>
+            )}
+
+            <button 
+              type="submit" 
+              disabled={loading}
+              style={btnPrimary}
+            >
+              {loading ? "Enviando enlace..." : "Enviar enlace de recuperación"}
+            </button>
+
+            <p 
+              onClick={() => {
+                setResetMode(false);
+                setMensaje("");
+                setResetEmail("");
+              }}
+              style={{
+                textAlign: "center",
+                color: "#94a3b8",
+                cursor: "pointer",
+                marginTop: "20px",
+                fontSize: "14px"
+              }}
+            >
+              ← Volver al inicio de sesión
+            </p>
+          </form>
+        )}
+      </div>
     </div>
   );
 }
+
+/* ==================== ESTILOS ==================== */
+const inputStyle = {
+  width: "100%",
+  padding: "14px 16px",
+  marginBottom: "16px",
+  backgroundColor: "#0f172a",
+  border: "1px solid #334155",
+  borderRadius: "8px",
+  color: "#e5e7eb",
+  fontSize: "15px",
+  outline: "none",
+};
+
+const btnPrimary = {
+  width: "100%",
+  padding: "14px",
+  backgroundColor: "#2563eb",
+  color: "#ffffff",
+  border: "none",
+  borderRadius: "8px",
+  fontSize: "16px",
+  fontWeight: "600",
+  cursor: "pointer",
+  marginTop: "8px",
+  transition: "background-color 0.2s",
+};
+
+btnPrimary[':hover'] = {
+  backgroundColor: "#1d4ed8"
+};
+================================================================================
+
+
+================================================================================
+FILE: src/pages/MisCotizaciones.jsx
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 5.8 KB
+Extension: .jsx
+Language: jsx
+Location: src/pages/MisCotizaciones.jsx
+Relative Path: src/pages
+Created: 2026-04-10 03:54:59 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-10 04:19:36 (America/Mexico_City / GMT-06:00)
+MD5: 0c8d21dc07b84de19bfa09fa2fe215c4
+SHA256: 79733999eefab3ae93189fcb9c53515a16d2a34a66ddf84aa2c2bf0dc37b4484
+Encoding: UTF-8
+
+FILE CONTENT:
+----------------------------------------
+// src/pages/MisCotizaciones.jsx
+import { useEffect, useState } from "react";
+import { supabase } from "../services/supabase";
+import { useAuth } from "../contexts/AuthContext";
+
+export default function MisCotizaciones() {
+  const { user } = useAuth();
+  const [cotizaciones, setCotizaciones] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [filtro, setFiltro] = useState("todas"); // todas | pendientes | liberadas
+
+  const cargar = async () => {
+    if (!user?.id) return;
+
+    setCargando(true);
+    let query = supabase
+      .from("items")
+      .select("*")
+      .eq("es_cotizacion", true)
+      .eq("asesor_id", user.id)
+      .order("created_at", { ascending: false });
+
+    const { data } = await query;
+    setCotizaciones(data || []);
+    setCargando(false);
+  };
+
+  useEffect(() => {
+    cargar();
+  }, [user]);
+
+  const liberarACOmpras = async (id) => {
+    if (!confirm("¿Liberar esta pieza a Compras?")) return;
+
+    const { error } = await supabase
+      .from("items")
+      .update({ 
+        estatus: "Pendiente", 
+        es_cotizacion: false,
+        fecha_liberacion: new Date().toISOString()
+      })
+      .eq("id", id);
+
+    if (!error) {
+      alert("✅ Pieza liberada correctamente a Compras");
+      cargar();
+    } else {
+      alert("Error al liberar la pieza");
+    }
+  };
+
+  const cotizacionesFiltradas = cotizaciones.filter(c => {
+    if (filtro === "todas") return true;
+    if (filtro === "pendientes") return c.estatus !== "Pendiente";
+    if (filtro === "liberadas") return c.estatus === "Pendiente";
+    return true;
+  });
+
+  return (
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+        <h2>📋 Mis Cotizaciones</h2>
+        
+        <select 
+          value={filtro} 
+          onChange={(e) => setFiltro(e.target.value)}
+          style={{
+            padding: "8px 12px",
+            background: "#0f172a",
+            border: "1px solid #1f2937",
+            color: "#e5e7eb",
+            borderRadius: "8px"
+          }}
+        >
+          <option value="todas">Todas</option>
+          <option value="pendientes">Pendientes de liberar</option>
+          <option value="liberadas">Ya liberadas a compras</option>
+        </select>
+      </div>
+
+      {cargando ? (
+        <p style={{ color: "#9ca3af", textAlign: "center", padding: "60px" }}>Cargando cotizaciones...</p>
+      ) : cotizacionesFiltradas.length === 0 ? (
+        <p style={{ color: "#9ca3af", textAlign: "center", padding: "60px" }}>No tienes cotizaciones registradas</p>
+      ) : (
+        <div style={{ overflowX: "auto", background: "#111827", borderRadius: "12px", border: "1px solid #1f2937" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead>
+              <tr style={{ background: "#0f172a", color: "#9ca3af" }}>
+                <th style={{ padding: "14px 12px", textAlign: "left" }}>Folio Cotización</th>
+                <th style={{ padding: "14px 12px", textAlign: "left" }}>Marca / Modelo</th>
+                <th style={{ padding: "14px 12px", textAlign: "left" }}>Número de Parte</th>
+                <th style={{ padding: "14px 12px", textAlign: "left" }}>Descripción</th>
+                <th style={{ padding: "14px 12px", textAlign: "center" }}>Cantidad</th>
+                <th style={{ padding: "14px 12px", textAlign: "center" }}>Estatus</th>
+                <th style={{ padding: "14px 12px" }}>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cotizacionesFiltradas.map((c) => (
+                <tr key={c.id} style={{ borderBottom: "1px solid #1f2937" }}>
+                  <td style={{ padding: "14px 12px" }}>{c.folio_cotizacion || "—"}</td>
+                  <td style={{ padding: "14px 12px" }}>
+                    {c.marca} {c.modelo}
+                  </td>
+                  <td style={{ padding: "14px 12px" }}>{c.numero_parte}</td>
+                  <td style={{ padding: "14px 12px" }}>{c.descripcion}</td>
+                  <td style={{ padding: "14px 12px", textAlign: "center", fontWeight: 600 }}>
+                    {c.cantidad}
+                  </td>
+                  <td style={{ padding: "14px 12px", textAlign: "center" }}>
+                    <span style={{
+                      padding: "6px 14px",
+                      borderRadius: "20px",
+                      fontSize: "13px",
+                      background: c.estatus === "Pendiente" ? "#854d0e" : "#166534",
+                      color: c.estatus === "Pendiente" ? "#fcd34d" : "#86efac"
+                    }}>
+                      {c.estatus || "Cotización"}
+                    </span>
+                  </td>
+                  <td style={{ padding: "14px 12px" }}>
+                    {c.estatus !== "Pendiente" && (
+                      <button
+                        onClick={() => liberarACOmpras(c.id)}
+                        style={{
+                          background: "#2563eb",
+                          color: "white",
+                          border: "none",
+                          padding: "8px 16px",
+                          borderRadius: "6px",
+                          cursor: "pointer",
+                          fontSize: "13px"
+                        }}
+                      >
+                        Liberar a Compras
+                      </button>
+                    )}
+                    {c.estatus === "Pendiente" && (
+                      <span style={{ color: "#9ca3af", fontSize: "13px" }}>Ya liberada</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
+================================================================================
+
+
+================================================================================
+FILE: src/pages/PanelAsesor.jsx
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 8.25 KB
+Extension: .jsx
+Language: jsx
+Location: src/pages/PanelAsesor.jsx
+Relative Path: src/pages
+Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-06 00:06:07 (America/Mexico_City / GMT-06:00)
+MD5: 536b69a465901516f153d0cf2edfe886
+SHA256: f525775dcdc12f1390a336e28bb49416ae2b8b48e7ef4e444485438567a02b87
+Encoding: ASCII
+
+FILE CONTENT:
+----------------------------------------
+import { useEffect, useState, useRef } from "react";
+import { supabase } from "../services/supabase";
+import { useAuth } from "../contexts/AuthContext";
+import { COLOR_ESTATUS, diasTranscurridos, formatFecha } from "../utils/catalogos";
+
+function Badge({ estatus }) {
+  const c = COLOR_ESTATUS[estatus] || { bg: "#374151", text: "#d1d5db" };
+  return (
+    <span style={{ background: c.bg, color: c.text, padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: 700 }}>
+      {estatus}
+    </span>
+  );
+}
+
+export default function PanelAsesor() {
+  const { user } = useAuth();
+  const [items, setItems] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [notificaciones, setNotificaciones] = useState([]);
+  const [filtroEstatus, setFiltroEstatus] = useState("");
+  const audioRef = useRef(null);
+
+  const cargar = async () => {
+    if (!user) return;
+    setCargando(true);
+    let q = supabase.from("items").select("*").eq("asesor_id", user.id)
+      .order("created_at", { ascending: false });
+    if (filtroEstatus) q = q.eq("estatus", filtroEstatus);
+    const { data } = await q;
+    setItems(data || []);
+    setCargando(false);
+  };
+
+  useEffect(() => { cargar(); }, [user, filtroEstatus]); // eslint-disable-line
+
+  // Realtime: notificación cuando llega una pieza del asesor
+  useEffect(() => {
+    if (!user) return;
+    const channel = supabase.channel("asesor-notifs")
+      .on("postgres_changes", {
+        event: "UPDATE", schema: "public", table: "items",
+        filter: `asesor_id=eq.${user.id}`,
+      }, (payload) => {
+        const nuevo = payload.new;
+        if (nuevo.estatus === "Recibida") {
+          const msg = `📦 Llegó: ${nuevo.descripcion || nuevo.numero_parte} (OT ${nuevo.ot})`;
+          setNotificaciones(prev => [msg, ...prev.slice(0, 4)]);
+          // Intentar notificación del browser
+          if (Notification.permission === "granted") {
+            new Notification("Motormexa — Refacción recibida", { body: msg });
+          }
+        }
+        cargar();
+      })
+      .subscribe();
+
+    // Solicitar permiso de notificaciones
+    if (Notification.permission === "default") {
+      Notification.requestPermission();
+    }
+
+    return () => supabase.removeChannel(channel);
+  }, [user]); // eslint-disable-line
+
+  // Agrupar por OT
+  const otMap = {};
+  items.forEach(r => {
+    if (!otMap[r.ot]) otMap[r.ot] = [];
+    otMap[r.ot].push(r);
+  });
+
+  const calcEstatus = (estatuses) => {
+    if (estatuses.every(e => e === "Entregada")) return "Completa";
+    if (estatuses.some(e => e === "Entregada" || e === "Recibida")) return "Parcial";
+    return "Pendiente";
+  };
+
+  const totalItems = items.length;
+  const recibidas = items.filter(r => r.estatus === "Recibida").length;
+  const pendientes = items.filter(r => r.estatus === "Pendiente").length;
+  const entregadas = items.filter(r => r.estatus === "Entregada").length;
+
+  return (
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
+      <div style={{ marginBottom: "20px" }}>
+        <h2 style={{ margin: 0 }}>👤 Mi Panel</h2>
+        <p style={{ color: "#9ca3af", fontSize: "13px", margin: "4px 0 0" }}>
+          {user?.nombre} · {user?.sucursal_id}
+        </p>
+      </div>
+
+      {/* Notificaciones en tiempo real */}
+      {notificaciones.length > 0 && (
+        <div style={{ marginBottom: "16px" }}>
+          {notificaciones.map((n, i) => (
+            <div key={i} style={{
+              background: "#052e16", border: "1px solid #166534", color: "#bbf7d0",
+              padding: "10px 14px", borderRadius: "8px", marginBottom: "6px", fontSize: "13px",
+            }}>
+              {n}
+            </div>
+          ))}
+          <button onClick={() => setNotificaciones([])}
+            style={{ background: "none", border: "none", color: "#6b7280", cursor: "pointer", fontSize: "11px" }}>
+            Limpiar notificaciones
+          </button>
+        </div>
+      )}
+
+      {/* KPIs personales */}
+      <div style={{ display: "flex", gap: "12px", marginBottom: "20px", flexWrap: "wrap" }}>
+        {[
+          { label: "Total", val: totalItems, color: "#e5e7eb" },
+          { label: "Pendientes", val: pendientes, color: "#facc15" },
+          { label: "Recibidas", val: recibidas, color: "#4ade80" },
+          { label: "Entregadas", val: entregadas, color: "#22c55e" },
+        ].map(k => (
+          <div key={k.label} style={{ background: "#111827", border: "1px solid #1f2937", borderRadius: "8px", padding: "12px 20px", textAlign: "center", minWidth: "90px" }}>
+            <div style={{ color: k.color, fontSize: "22px", fontWeight: 700 }}>{k.val}</div>
+            <div style={{ color: "#9ca3af", fontSize: "11px" }}>{k.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Filtro */}
+      <div style={{ marginBottom: "14px" }}>
+        <select value={filtroEstatus} onChange={e => setFiltroEstatus(e.target.value)}
+          style={{ background: "#111827", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 12px", borderRadius: "8px" }}>
+          <option value="">Todos los estatus</option>
+          {["Pendiente", "Comprada", "Recibida", "Entregada", "Incorrecta", "No comprada", "Vencida"].map(s =>
+            <option key={s}>{s}</option>
+          )}
+        </select>
+      </div>
+
+      {/* OTs agrupadas */}
+      {cargando ? (
+        <p style={{ color: "#9ca3af" }}>Cargando...</p>
+      ) : Object.keys(otMap).length === 0 ? (
+        <p style={{ color: "#9ca3af" }}>No hay refacciones registradas.</p>
+      ) : (
+        Object.entries(otMap).map(([ot, piezas]) => {
+          const estatusOT = calcEstatus(piezas.map(p => p.estatus));
+          const diasAbierta = diasTranscurridos(piezas[0]?.created_at);
+          return (
+            <div key={ot} style={{ background: "#111827", border: "1px solid #1f2937", borderRadius: "12px", marginBottom: "12px", overflow: "hidden" }}>
+              <div style={{
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+                padding: "12px 16px",
+                background: estatusOT === "Completa" ? "#052e16" : "#0f172a",
+                borderBottom: "1px solid #1f2937",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                  <span style={{ fontWeight: 700, fontSize: "15px" }}>OT {ot}</span>
+                  <span style={{ color: "#9ca3af", fontSize: "12px" }}>{piezas[0]?.marca} {piezas[0]?.modelo}</span>
+                  <span style={{ color: "#6b7280", fontSize: "11px" }}>{piezas.length} pza{piezas.length !== 1 ? "s" : ""}</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <span style={{ color: diasAbierta > 7 ? "#f87171" : "#9ca3af", fontSize: "12px" }}>{diasAbierta}d</span>
+                  <span style={{
+                    padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: 700,
+                    background: estatusOT === "Completa" ? "#166534" : estatusOT === "Parcial" ? "#1e40af" : "#7f1d1d",
+                    color: "#fff",
+                  }}>{estatusOT}</span>
+                </div>
+              </div>
+
+              <div style={{ padding: "4px 0" }}>
+                {piezas.map(p => (
+                  <div key={p.id} style={{
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    padding: "8px 16px", borderBottom: "1px solid #0f172a",
+                  }}>
+                    <div style={{ flex: 1 }}>
+                      <span style={{ fontSize: "13px" }}>{p.descripcion || p.numero_parte}</span>
+                      {p.numero_parte && p.descripcion && (
+                        <span style={{ color: "#6b7280", fontSize: "11px", marginLeft: "8px" }}>{p.numero_parte}</span>
+                      )}
+                      <span style={{ color: "#4b5563", fontSize: "11px", marginLeft: "8px" }}>[{p.ubicacion}]</span>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      {p.eta && <span style={{ color: "#60a5fa", fontSize: "11px" }}>ETA {formatFecha(p.eta)}</span>}
+                      <Badge estatus={p.estatus} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      )}
+    </div>
+  );
+}
+
+================================================================================
+
+
+================================================================================
+FILE: src/pages/PanelGerencial.jsx
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 10.2 KB
+Extension: .jsx
+Language: jsx
+Location: src/pages/PanelGerencial.jsx
+Relative Path: src/pages
+Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-06 00:05:50 (America/Mexico_City / GMT-06:00)
+MD5: d50dd91e5de7498eddff99997dee0f4e
+SHA256: 54a34ba93a45443dbfff0ac8129da80c4e13d69fa008331955e7d0c74ce961a5
+Encoding: ASCII
+
+FILE CONTENT:
+----------------------------------------
+import { useEffect, useState, useCallback } from "react";
+import { supabase } from "../services/supabase";
+import { useAuth } from "../contexts/AuthContext";
+import { COLOR_ESTATUS, diasTranscurridos, formatFecha } from "../utils/catalogos";
+
+function KPICard({ title, value, sub, color = "#e5e7eb" }) {
+  return (
+    <div style={{ background: "#111827", border: "1px solid #1f2937", borderRadius: "12px", padding: "18px 20px" }}>
+      <div style={{ color: "#9ca3af", fontSize: "12px", marginBottom: "6px" }}>{title}</div>
+      <div style={{ color, fontSize: "26px", fontWeight: 700 }}>{value}</div>
+      {sub && <div style={{ color: "#6b7280", fontSize: "11px", marginTop: "4px" }}>{sub}</div>}
+    </div>
+  );
+}
+
+function BarraProgreso({ label, valor, total, color = "#2563eb" }) {
+  const pct = total > 0 ? ((valor / total) * 100).toFixed(1) : 0;
+  return (
+    <div style={{ marginBottom: "10px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "3px" }}>
+        <span style={{ color: "#e5e7eb", fontSize: "13px" }}>{label}</span>
+        <span style={{ color: "#9ca3af", fontSize: "12px" }}>{valor}/{total} ({pct}%)</span>
+      </div>
+      <div style={{ background: "#1f2937", height: "8px", borderRadius: "4px" }}>
+        <div style={{ width: `${pct}%`, background: color, height: "100%", borderRadius: "4px", transition: "width 0.4s" }} />
+      </div>
+    </div>
+  );
+}
+
+export default function PanelGerencial() {
+  const { user } = useAuth();
+  const [datos, setDatos] = useState(null);
+  const [filtroMes, setFiltroMes] = useState("");
+  const [filtroSucursal, setFiltroSucursal] = useState("");
+  const [cargando, setCargando] = useState(true);
+
+  const calcular = useCallback(async () => {
+    setCargando(true);
+
+    let q = supabase.from("items").select(`
+      id, estatus, ot, fabricante, marca, ubicacion,
+      sucursal_id, asesor_id, created_at, fecha_compra,
+      eta, num_pedido, cantidad,
+      asesor:usuarios(nombre), sucursal:sucursales(nombre)
+    `);
+
+    if (filtroMes) {
+      q = q.gte("created_at", `${filtroMes}-01`).lte("created_at", `${filtroMes}-31`);
+    }
+    if (filtroSucursal) q = q.eq("sucursal_id", filtroSucursal);
+
+    // Filtrar por rol
+    if (user?.rol === "asesor") q = q.eq("asesor_id", user.id);
+    if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
+      q = q.eq("sucursal_id", user.sucursal_id);
+
+    const { data: rows } = await q;
+    if (!rows) { setCargando(false); return; }
+
+    // Conteos base
+    const contar = (e) => rows.filter(r => r.estatus === e).length;
+    const total = rows.length;
+    const entregadas = contar("Entregada");
+    const recibidas = contar("Recibida");
+    const pendientes = contar("Pendiente");
+    const compradas = contar("Comprada");
+    const incorrectas = contar("Incorrecta");
+    const noCompradas = contar("No comprada");
+    const vencidas = contar("Vencida");
+
+    // Tiempo promedio captura → compra
+    let sumTiempo = 0, cntTiempo = 0;
+    rows.forEach(r => {
+      if (r.fecha_compra && r.created_at) {
+        const dias = (new Date(r.fecha_compra) - new Date(r.created_at)) / 86400000;
+        if (dias >= 0) { sumTiempo += dias; cntTiempo++; }
+      }
+    });
+    const tiempoPromedio = cntTiempo ? (sumTiempo / cntTiempo).toFixed(1) : "—";
+
+    // Cumplimiento
+    const cumplimiento = recibidas + entregadas > 0
+      ? ((entregadas / (recibidas + entregadas)) * 100).toFixed(1) : 0;
+
+    // Alertas: pendientes > 3 días sin comprar
+    const alertasPendientes = rows
+      .filter(r => r.estatus === "Pendiente" && diasTranscurridos(r.created_at) > 3)
+      .sort((a, b) => diasTranscurridos(b.created_at) - diasTranscurridos(a.created_at))
+      .slice(0, 15);
+
+    // Ranking por sucursal
+    const sucursalMap = {};
+    rows.forEach(r => {
+      const s = r.sucursal?.nombre || r.sucursal_id || "Sin sucursal";
+      if (!sucursalMap[s]) sucursalMap[s] = { total: 0, entregadas: 0 };
+      sucursalMap[s].total++;
+      if (r.estatus === "Entregada") sucursalMap[s].entregadas++;
+    });
+    const rankingSucursales = Object.entries(sucursalMap)
+      .map(([n, v]) => ({ nombre: n, ...v }))
+      .sort((a, b) => b.entregadas - a.entregadas);
+
+    // Ranking por asesor
+    const asesorMap = {};
+    rows.forEach(r => {
+      const a = r.asesor?.nombre || r.asesor_id || "Sin asesor";
+      if (!asesorMap[a]) asesorMap[a] = { total: 0, entregadas: 0 };
+      asesorMap[a].total++;
+      if (r.estatus === "Entregada") asesorMap[a].entregadas++;
+    });
+    const rankingAsesores = Object.entries(asesorMap)
+      .map(([n, v]) => ({ nombre: n, ...v }))
+      .sort((a, b) => b.entregadas - a.entregadas)
+      .slice(0, 10);
+
+    // Por fabricante
+    const fabMap = { Stellantis: 0, Mitsubishi: 0, Peugeot: 0, Otro: 0 };
+    rows.forEach(r => {
+      if (fabMap[r.fabricante] !== undefined) fabMap[r.fabricante]++;
+      else fabMap.Otro++;
+    });
+
+    // OTs con estatus
+    const otMap = {};
+    rows.forEach(r => {
+      if (!otMap[r.ot]) otMap[r.ot] = [];
+      otMap[r.ot].push(r.estatus);
+    });
+    let otCompletas = 0, otParciales = 0;
+    Object.values(otMap).forEach(estatuses => {
+      const todas = estatuses.length;
+      const ent = estatuses.filter(e => e === "Entregada").length;
+      if (ent === todas) otCompletas++;
+      else otParciales++;
+    });
+
+    setDatos({
+      total, entregadas, recibidas, pendientes, compradas,
+      incorrectas, noCompradas, vencidas,
+      tiempoPromedio, cumplimiento,
+      alertasPendientes, rankingSucursales, rankingAsesores,
+      fabMap, otCompletas, otParciales,
+    });
+    setCargando(false);
+  }, [filtroMes, filtroSucursal, user]);
+
+  useEffect(() => { calcular(); }, [calcular]);
+
+  if (cargando) return <div style={{ padding: "40px", color: "#9ca3af", textAlign: "center" }}>Cargando panel...</div>;
+  if (!datos) return null;
+
+  return (
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px", marginBottom: "20px" }}>
+        <h2 style={{ margin: 0 }}>📊 Panel Gerencial</h2>
+        <div style={{ display: "flex", gap: "10px" }}>
+          <input type="month" value={filtroMes} onChange={e => setFiltroMes(e.target.value)}
+            style={inputF} title="Filtrar por mes" />
+          <button onClick={calcular} style={btnRef}>🔄</button>
+        </div>
+      </div>
+
+      {/* KPIs Principales */}
+      <div style={grid4}>
+        <KPICard title="Total ítems" value={datos.total} />
+        <KPICard title="Pendientes" value={datos.pendientes} color="#facc15" />
+        <KPICard title="Compradas" value={datos.compradas} color="#60a5fa" />
+        <KPICard title="Recibidas" value={datos.recibidas} color="#4ade80" />
+        <KPICard title="Entregadas" value={datos.entregadas} color="#22c55e" />
+        <KPICard title="Incorrectas" value={datos.incorrectas} color="#f87171" />
+        <KPICard title="No compradas" value={datos.noCompradas} color="#9ca3af" />
+        <KPICard title="Vencidas" value={datos.vencidas} color="#c084fc" />
+      </div>
+
+      {/* Métricas */}
+      <div style={{ ...grid4, marginTop: "16px" }}>
+        <KPICard title="Tiempo prom. captura→compra" value={`${datos.tiempoPromedio} días`} color="#60a5fa" />
+        <KPICard title="% Cumplimiento entrega" value={`${datos.cumplimiento}%`} color="#4ade80" />
+        <KPICard title="OTs completas" value={datos.otCompletas} color="#22c55e" />
+        <KPICard title="OTs parciales" value={datos.otParciales} color="#facc15" />
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginTop: "20px" }}>
+
+        {/* Ranking sucursales */}
+        <div style={card}>
+          <h3 style={cardTitle}>🏢 Sucursales</h3>
+          {datos.rankingSucursales.map(s => (
+            <BarraProgreso key={s.nombre} label={s.nombre} valor={s.entregadas} total={s.total} color="#2563eb" />
+          ))}
+        </div>
+
+        {/* Ranking asesores */}
+        <div style={card}>
+          <h3 style={cardTitle}>👤 Top Asesores</h3>
+          {datos.rankingAsesores.map((a, i) => (
+            <BarraProgreso key={a.nombre} label={`#${i + 1} ${a.nombre}`} valor={a.entregadas} total={a.total} color="#16a34a" />
+          ))}
+        </div>
+
+        {/* Por fabricante */}
+        <div style={card}>
+          <h3 style={cardTitle}>🏭 Por Fabricante</h3>
+          {Object.entries(datos.fabMap).map(([fab, cnt]) => (
+            <BarraProgreso key={fab} label={fab} valor={cnt} total={datos.total} color="#7c3aed" />
+          ))}
+        </div>
+
+        {/* Alertas de retraso */}
+        <div style={card}>
+          <h3 style={{ ...cardTitle, color: "#f87171" }}>🚨 Pendientes con retraso (+3 días)</h3>
+          {datos.alertasPendientes.length === 0 && (
+            <p style={{ color: "#9ca3af", fontSize: "13px" }}>Sin alertas activas ✅</p>
+          )}
+          {datos.alertasPendientes.map(r => (
+            <div key={r.id} style={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
+              padding: "8px 10px", background: "#1a0a00", borderRadius: "8px",
+              marginBottom: "6px", border: "1px solid #7f1d1d",
+            }}>
+              <div>
+                <span style={{ fontWeight: 700, color: "#fca5a5", fontSize: "13px" }}>OT {r.ot}</span>
+                <span style={{ color: "#9ca3af", fontSize: "11px", marginLeft: "8px" }}>{r.descripcion?.substring(0, 30)}</span>
+              </div>
+              <span style={{ color: "#f87171", fontSize: "12px", fontWeight: 700 }}>
+                {diasTranscurridos(r.created_at)}d
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const grid4 = { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: "12px" };
+const card = { background: "#111827", border: "1px solid #1f2937", borderRadius: "12px", padding: "20px" };
+const cardTitle = { color: "#e5e7eb", fontSize: "14px", fontWeight: 700, marginTop: 0, marginBottom: "16px" };
+const inputF = { background: "#111827", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 12px", borderRadius: "8px", fontSize: "13px" };
+const btnRef = { background: "#111827", color: "#9ca3af", border: "1px solid #1f2937", padding: "8px 12px", borderRadius: "8px", cursor: "pointer" };
+
 ================================================================================
 
 
@@ -1821,194 +4226,182 @@ export default function RecepcionMasiva() {
 
 
 ================================================================================
-FILE: src/pages/Refacciones.jsx
-================================================================================
-
-FILE INFORMATION:
-----------------------------------------
-Size: 2.39 KB
-Extension: .jsx
-Language: jsx
-Location: src/pages/Refacciones.jsx
-Relative Path: src/pages
-Created: 2026-04-04 03:48:54 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-04 07:54:45 (America/Mexico_City / GMT-06:00)
-MD5: d185a30a633fb11928b0a78d161e6f2c
-SHA256: b2bd204292224dbdbf8bc1fd47851827fe2b43229035da05abbc40eb22d962ae
-Encoding: UTF-8
-
-FILE CONTENT:
-----------------------------------------
-import { useEffect, useState } from "react";
-import { supabase } from "../services/supabase";
-import { getUserData } from "../services/auth";
-
-export default function Refacciones() {
-  const [user, setUser] = useState(null);
-
-  const [refacciones, setRefacciones] = useState([]);
-  const [descripcion, setDescripcion] = useState("");
-  const [ot, setOt] = useState("");
-  const [ubicacion, setUbicacion] = useState("MX");
-
-  // 🔥 obtener usuario
-  useEffect(() => {
-    getUserData().then(setUser);
-  }, []);
-
-  // 🔥 obtener refacciones
-  const obtenerRefacciones = async () => {
-    const { data } = await supabase
-      .from("items")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    setRefacciones(data || []);
-  };
-
-  // 🔥 crear refacción (CORRECTO)
-  const crearRefaccion = async () => {
-    if (!ot) {
-      alert("La OT es obligatoria");
-      return;
-    }
-
-    if (!user) {
-      alert("Usuario no cargado");
-      return;
-    }
-
-    const { error } = await supabase.from("items").insert([
-      {
-        ot,
-        descripcion,
-        cantidad: 1,
-        ubicacion,
-        fabricante: "Stellantis",
-
-        estatus: "Pendiente",
-
-        asesor_id: user.id,            // 🔥 CLAVE
-        sucursal_id: user.sucursal_id // 🔥 CLAVE
-      },
-    ]);
-
-    if (error) {
-      console.error(error);
-      alert("Error al guardar");
-      return;
-    }
-
-    setDescripcion("");
-    obtenerRefacciones();
-  };
-
-  useEffect(() => {
-    obtenerRefacciones();
-  }, []);
-
-  return (
-    <div>
-      <h2>Captura de Refacciones</h2>
-
-      <input
-        placeholder="OT (obligatorio)"
-        value={ot}
-        onChange={(e) => setOt(e.target.value)}
-      />
-
-      <input
-        placeholder="Descripción"
-        value={descripcion}
-        onChange={(e) => setDescripcion(e.target.value)}
-      />
-
-      <select value={ubicacion} onChange={(e) => setUbicacion(e.target.value)}>
-        <option value="MX">MX</option>
-        <option value="EUA">EUA</option>
-        <option value="BO">BO</option>
-      </select>
-
-      <button onClick={crearRefaccion}>Agregar</button>
-
-      <hr />
-
-      <h3>Listado</h3>
-
-      <ul>
-        {refacciones.map((r) => (
-          <li key={r.id}>
-            {r.ot} - {r.descripcion} | {r.estatus}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-================================================================================
-
-
-================================================================================
 FILE: src/pages/StockPedidos.jsx
 ================================================================================
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 988 B
+Size: 6.82 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/StockPedidos.jsx
 Relative Path: src/pages
 Created: 2026-04-04 18:43:25 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-04 18:44:04 (America/Mexico_City / GMT-06:00)
-MD5: 866e8713a17342eca908a3b43e3b9237
-SHA256: 748472777aa301e8264535e87d60fc6e83b03f37355d91d20ea76ba007505db0
+Modified: 2026-04-06 06:38:30 (America/Mexico_City / GMT-06:00)
+MD5: 11959526f7037fe70438ba9712bbef86
+SHA256: c03e76e1831916697b93a1d35fedc192103064e588ddaa24b2d0fa645ff6f480
 Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
+// src/pages/StockPedidos.jsx - Versión Mejorada para Almacén
 import { useEffect, useState } from "react";
 import { supabase } from "../services/supabase";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function StockPedidos() {
-  const [data, setData] = useState([]);
+  const { user } = useAuth();
+  const [pedidos, setPedidos] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [filtroEstatus, setFiltroEstatus] = useState("");
+
+  const esAdmin = user?.rol?.toLowerCase() === "admin";
 
   const cargar = async () => {
-    const { data } = await supabase
+    setCargando(true);
+    let query = supabase
       .from("stock_pedidos")
       .select("*")
-      .eq("estatus", "Pendiente")
       .order("created_at", { ascending: false });
 
-    setData(data || []);
+    // Filtro por sucursal (solo si no es admin)
+    if (!esAdmin && user?.sucursal_id) {
+      query = query.eq("sucursal_id", user.sucursal_id);
+    }
+
+    if (filtroEstatus) {
+      query = query.eq("estatus", filtroEstatus);
+    }
+
+    const { data } = await query;
+    setPedidos(data || []);
+    setCargando(false);
   };
 
   useEffect(() => {
     cargar();
-  }, []);
+  }, [filtroEstatus]);
 
-  const surtir = async (id) => {
-    const ok = window.confirm("¿Marcar como surtido?");
-    if (!ok) return;
+  const actualizarEstatus = async (id, nuevoEstatus) => {
+    if (!window.confirm(`¿Cambiar el estatus a "${nuevoEstatus}"?`)) return;
 
-    await supabase
+    const { error } = await supabase
       .from("stock_pedidos")
-      .update({ estatus: "Surtido" })
+      .update({ 
+        estatus: nuevoEstatus,
+        fecha_actualizacion: new Date().toISOString()
+      })
       .eq("id", id);
 
-    cargar();
+    if (!error) {
+      alert(`✅ Estatus actualizado a ${nuevoEstatus}`);
+      cargar();
+    } else {
+      alert("Error al actualizar el estatus");
+    }
   };
 
   return (
-    <div>
-      <h2>Pedidos de Stock</h2>
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+        <h2>📋 Gestión de Pedidos de Stock</h2>
+        
+        <select 
+          value={filtroEstatus} 
+          onChange={(e) => setFiltroEstatus(e.target.value)}
+          style={{ padding: "8px 12px", background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", borderRadius: "8px" }}
+        >
+          <option value="">Todos los estatus</option>
+          <option value="Pendiente">Pendiente</option>
+          <option value="Surtido">Surtido</option>
+          <option value="No hay stock">No hay stock</option>
+          <option value="En compras">En compras</option>
+        </select>
+      </div>
 
-      {data.map((p) => (
-        <div key={p.id}>
-          {p.numero_parte} | {p.cantidad}
-          <button onClick={() => surtir(p.id)}>Surtir</button>
+      {cargando ? (
+        <div style={{ textAlign: "center", padding: "100px", color: "#9ca3af" }}>Cargando pedidos de stock...</div>
+      ) : pedidos.length === 0 ? (
+        <div style={{ textAlign: "center", padding: "100px", color: "#9ca3af" }}>No hay pedidos de stock en este momento</div>
+      ) : (
+        <div style={{ overflowX: "auto", background: "#111827", borderRadius: "12px", border: "1px solid #1f2937" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+            <thead>
+              <tr style={{ background: "#0f172a", color: "#9ca3af" }}>
+                <th style={{ padding: "12px 10px", textAlign: "left" }}>Tipo</th>
+                <th style={{ padding: "12px 10px", textAlign: "left" }}>OT Origen</th>
+                <th style={{ padding: "12px 10px", textAlign: "left" }}>Número de Parte</th>
+                <th style={{ padding: "12px 10px", textAlign: "left" }}>Descripción</th>
+                <th style={{ padding: "12px 10px" }}>Cantidad</th>
+                <th style={{ padding: "12px 10px", textAlign: "left" }}>Sucursal</th>
+                <th style={{ padding: "12px 10px", textAlign: "left" }}>Solicitado por</th>
+                <th style={{ padding: "12px 10px" }}>Estatus</th>
+                <th style={{ padding: "12px 10px" }}>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pedidos.map((p) => (
+                <tr key={p.id} style={{ borderBottom: "1px solid #1f2937" }}>
+                  <td style={{ padding: "12px 10px" }}>
+                    {p.ot_origen === "STOCK" ? (
+                      <span style={{ color: "#eab308", fontWeight: "bold" }}>STOCK</span>
+                    ) : (
+                      <span style={{ color: "#60a5fa" }}>OT</span>
+                    )}
+                  </td>
+                  <td style={{ padding: "12px 10px" }}>{p.ot_origen}</td>
+                  <td style={{ padding: "12px 10px" }}>{p.numero_parte}</td>
+                  <td>{p.descripcion || "—"}</td>
+                  <td style={{ textAlign: "center", fontWeight: "600" }}>{p.cantidad}</td>
+                  <td>{p.sucursal_id}</td>
+                  <td>{p.solicitado_por}</td>
+                  <td>
+                    <span style={{
+                      padding: "6px 12px",
+                      borderRadius: "9999px",
+                      fontSize: "13px",
+                      background: 
+                        p.estatus === "Pendiente" ? "#854d0e" :
+                        p.estatus === "Surtido" ? "#166534" :
+                        p.estatus === "No hay stock" ? "#991b1b" : "#334155",
+                      color: 
+                        p.estatus === "Pendiente" ? "#fcd34d" :
+                        p.estatus === "Surtido" ? "#86efac" :
+                        p.estatus === "No hay stock" ? "#fecaca" : "#e5e7eb"
+                    }}>
+                      {p.estatus}
+                    </span>
+                  </td>
+                  <td style={{ padding: "12px 10px" }}>
+                    {p.estatus === "Pendiente" && (
+                      <div style={{ display: "flex", gap: "6px" }}>
+                        <button 
+                          onClick={() => actualizarEstatus(p.id, "Surtido")}
+                          style={{ background: "#16a34a", color: "white", border: "none", padding: "6px 12px", borderRadius: "6px", fontSize: "13px" }}
+                        >
+                          Surtido
+                        </button>
+                        <button 
+                          onClick={() => actualizarEstatus(p.id, "No hay stock")}
+                          style={{ background: "#ef4444", color: "white", border: "none", padding: "6px 12px", borderRadius: "6px", fontSize: "13px" }}
+                        >
+                          No hay stock
+                        </button>
+                        <button 
+                          onClick={() => actualizarEstatus(p.id, "En compras")}
+                          style={{ background: "#2563eb", color: "white", border: "none", padding: "6px 12px", borderRadius: "6px", fontSize: "13px" }}
+                        >
+                          En compras
+                        </button>
+                      </div>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      ))}
+      )}
     </div>
   );
 }
@@ -2021,36 +4414,35 @@ FILE: src/pages/StockSolicitud.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 1.13 KB
+Size: 1.93 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/StockSolicitud.jsx
 Relative Path: src/pages
-Created: 2026-04-04 18:42:22 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-04 18:43:09 (America/Mexico_City / GMT-06:00)
-MD5: c9d9311c69a7863f2ab1a9cc218455cc
-SHA256: a25d22641b80d49acb9d6d04861cdb2cc556b408a538e05c65ed3cc38d995d69
+Created: 2026-04-06 04:31:50 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-05 22:35:56 (America/Mexico_City / GMT-06:00)
+MD5: 7f143334e9ba1ba1f0ad9fad44bfd436
+SHA256: a6e178919b336f45e7f9a9e19d6c353e845e1fe9aba9932f7d970b2bd89baf20
 Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { supabase } from "../services/supabase";
-import { getUserData } from "../services/auth";
+import { useAuth } from "../contexts/AuthContext"; // ✅ AuthContext
 
 export default function StockSolicitud() {
-  const [user, setUser] = useState(null);
+  const { user } = useAuth();
   const [parte, setParte] = useState("");
   const [cantidad, setCantidad] = useState(1);
-
-  useEffect(() => {
-    getUserData().then(setUser);
-  }, []);
+  const [guardando, setGuardando] = useState(false);
 
   const solicitar = async () => {
     if (!parte || !user) return;
 
-    await supabase.from("stock_pedidos").insert([
+    setGuardando(true);
+
+    const { error } = await supabase.from("stock_pedidos").insert([
       {
         numero_parte: parte,
         cantidad,
@@ -2059,109 +4451,68 @@ export default function StockSolicitud() {
       },
     ]);
 
-    alert("Pedido generado");
+    setGuardando(false);
+
+    if (error) {
+      alert("Error al generar el pedido");
+      return;
+    }
+
+    alert("Pedido generado correctamente");
     setParte("");
     setCantidad(1);
   };
 
   return (
-    <div>
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
       <h2>Solicitud de Stock</h2>
 
-      <input
-        placeholder="Número de parte"
-        value={parte}
-        onChange={(e) => setParte(e.target.value)}
-      />
+      <div style={{ display: "flex", gap: "10px", marginTop: "16px" }}>
+        <input
+          placeholder="Número de parte"
+          value={parte}
+          onChange={(e) => setParte(e.target.value)}
+          style={inputStyle}
+        />
 
-      <input
-        type="number"
-        value={cantidad}
-        onChange={(e) => setCantidad(parseInt(e.target.value))}
-      />
+        <input
+          type="number"
+          min={1}
+          value={cantidad}
+          onChange={(e) => setCantidad(parseInt(e.target.value) || 1)}
+          style={{ ...inputStyle, width: "80px" }}
+        />
 
-      <button onClick={solicitar}>Solicitar</button>
+        <button
+          onClick={solicitar}
+          disabled={guardando || !parte}
+          style={btnStyle}
+        >
+          {guardando ? "Guardando..." : "Solicitar"}
+        </button>
+      </div>
     </div>
   );
 }
-================================================================================
 
+const inputStyle = {
+  background: "#111827",
+  border: "1px solid #1f2937",
+  color: "#e5e7eb",
+  padding: "8px 12px",
+  borderRadius: "8px",
+};
 
-================================================================================
-FILE: src/pages/TablaERP.jsx
-================================================================================
+const btnStyle = {
+  background: "#2563eb",
+  color: "#fff",
+  border: "none",
+  padding: "8px 20px",
+  borderRadius: "8px",
+  cursor: "pointer",
+  fontWeight: 600,
+};
 
-FILE INFORMATION:
-----------------------------------------
-Size: 1.51 KB
-Extension: .jsx
-Language: jsx
-Location: src/pages/TablaERP.jsx
-Relative Path: src/pages
-Created: 2026-04-04 21:59:07 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-05 20:29:46 (America/Mexico_City / GMT-06:00)
-MD5: 7ccafc97de3d1ab27a47aa06960b9ac9
-SHA256: f6e09cdfcd8161c41bec1e923c80813dbc9f227749d981fff93ff931629adb1b
-Encoding: UTF-8
-
-FILE CONTENT:
-----------------------------------------
-import React from "react";
-
-export default function TablaERP({ data, seleccionados, toggle }) {
-  const color = (estatus) => {
-    if (estatus === "Pendiente") return "#facc15";
-    if (estatus === "Comprada") return "#3b82f6";
-    if (estatus === "Recibida") return "#22c55e";
-    if (estatus === "Entregada") return "#16a34a";
-    if (estatus === "Incorrecta") return "#ef4444";
-    return "#e5e7eb";
-  };
-
-  return (
-    <table style={{ width: "100%", borderCollapse: "collapse" }}>
-      <thead>
-        <tr style={{ background: "#111", color: "#fff" }}>
-          <th></th>
-          <th>OT</th>
-          <th>Parte</th>
-          <th>Descripción</th>
-          <th>Estatus</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        {data.map((r) => (
-          <tr key={r.id} style={{ borderBottom: "1px solid #ddd" }}>
-            <td>
-              <input
-                type="checkbox"
-                checked={seleccionados.includes(r.id)}
-                onChange={() => toggle(r.id)}
-              />
-            </td>
-
-            <td>{r.ot}</td>
-            <td>{r.numero_parte}</td>
-            <td>{r.descripcion}</td>
-
-            <td>
-              <span
-                style={{
-                  background: color(r.estatus),
-                  padding: "5px 10px",
-                  borderRadius: "6px",
-                }}
-              >
-                {r.estatus}
-              </span>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-}
 ================================================================================
 
 
@@ -2171,75 +4522,187 @@ FILE: src/pages/Ventanilla.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 1.33 KB
+Size: 6.2 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/Ventanilla.jsx
 Relative Path: src/pages
 Created: 2026-04-04 16:55:41 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-05 20:28:52 (America/Mexico_City / GMT-06:00)
-MD5: 7007d9b520089b8b823b460bd6994a39
-SHA256: f2c3e1309616361d76bccb7c17a01b1544e630c55b5909a4d22eddd549df66d4
-Encoding: ASCII
+Modified: 2026-04-06 06:57:16 (America/Mexico_City / GMT-06:00)
+MD5: f25d61b99e8ee523704ac7fbc0c78dbc
+SHA256: 2a96f5a8c9ec813ad08f4ebcb90a04bf8fca162e80b793ba60970b58bfb72720
+Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
+// src/pages/Ventanilla.jsx - Versión Final
 import { useEffect, useState } from "react";
 import { supabase } from "../services/supabase";
-import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 import Filtros from "../components/Filtros";
+import SolicitarStockModal from "../components/SolicitarStockModal";
 
 export default function Ventanilla() {
-  const [data, setData] = useState([]);
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const [ordenes, setOrdenes] = useState([]);
+  const [cargando, setCargando] = useState(true);
   const [filtros, setFiltros] = useState({});
+  const [showStockModal, setShowStockModal] = useState(false);
 
-  const cargar = async () => {
-    let query = supabase.from("items").select("*");
+  const esAdmin = user?.rol?.toLowerCase() === "admin";
 
-    if (filtros.estatus)
-      query = query.eq("estatus", filtros.estatus);
+  const cargarOrdenes = async () => {
+    setCargando(true);
 
-    if (filtros.ot)
-      query = query.ilike("ot", `%${filtros.ot}%`);
+    let query = supabase
+      .from("items")
+      .select("id, ot, estatus, sucursal_id, numero_parte, descripcion, cantidad")
+      .order("ot");
 
-    const { data } = await query;
+    if (!esAdmin && user?.sucursal_id) {
+      query = query.eq("sucursal_id", user.sucursal_id);
+    }
 
-    setData(data || []);
+    const { data: items } = await query;
+
+    const grupos = {};
+
+    items.forEach(item => {
+      if (!grupos[item.ot]) {
+        grupos[item.ot] = {
+          ot: item.ot,
+          sucursal_id: item.sucursal_id,
+          total: 0,
+          entregadas: 0,
+          pendientes: 0,
+        };
+      }
+      grupos[item.ot].total++;
+      if (item.estatus === "Entregada") grupos[item.ot].entregadas++;
+      else grupos[item.ot].pendientes++;
+    });
+
+    let ordenesProcesadas = Object.values(grupos).map(orden => ({
+      ...orden,
+      estatusGeneral: orden.entregadas === orden.total ? "Completa" 
+                       : orden.entregadas > 0 ? "Parcial" 
+                       : "Pendiente",
+      faltan: orden.pendientes
+    }));
+
+    if (filtros.estatus) {
+      ordenesProcesadas = ordenesProcesadas.filter(o => o.estatusGeneral === filtros.estatus);
+    }
+    if (filtros.ot) {
+      ordenesProcesadas = ordenesProcesadas.filter(o => 
+        o.ot.toLowerCase().includes(filtros.ot.toLowerCase())
+      );
+    }
+
+    setOrdenes(ordenesProcesadas);
+    setCargando(false);
   };
 
   useEffect(() => {
-    cargar();
+    cargarOrdenes();
   }, [filtros]);
 
-  const agrupar = () => {
-    const map = {};
-
-    data.forEach((r) => {
-      if (!map[r.ot]) map[r.ot] = [];
-      map[r.ot].push(r.estatus);
-    });
-
-    return Object.entries(map).map(([ot, estatuses]) => ({
-      ot,
-      total: estatuses.length,
-      entregadas: estatuses.filter(e => e === "Entregada").length
-    }));
-  };
-
-  const ots = agrupar();
-
   return (
-    <div>
-      <h2>Ventanilla</h2>
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+        <div>
+          <h2>🪟 Ventanilla de Entregas</h2>
+          <p style={{ color: "#9ca3af" }}>Resumen por orden • Entrega de refacciones al cliente</p>
+        </div>
+
+        <button 
+          onClick={() => setShowStockModal(true)}
+          style={{ 
+            background: "#d97706", 
+            color: "white", 
+            border: "none", 
+            padding: "12px 28px", 
+            borderRadius: "8px", 
+            fontSize: "15px", 
+            fontWeight: "600",
+            cursor: "pointer"
+          }}
+        >
+          + Solicitar Stock Independiente
+        </button>
+      </div>
 
       <Filtros onFiltrar={setFiltros} />
 
-      {ots.map(o => (
-        <div key={o.ot}>
-          <b>{o.ot}</b> → {o.entregadas}/{o.total}
-          <Link to={`/ventanilla/${o.ot}`}> Abrir</Link>
+      {cargando ? (
+        <div style={{ textAlign: "center", padding: "100px", color: "#9ca3af" }}>Cargando órdenes...</div>
+      ) : ordenes.length === 0 ? (
+        <div style={{ textAlign: "center", padding: "80px", color: "#9ca3af" }}>No se encontraron órdenes</div>
+      ) : (
+        <div style={{ overflowX: "auto", background: "#111827", borderRadius: "12px", border: "1px solid #1f2937" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead>
+              <tr style={{ background: "#0f172a", color: "#9ca3af" }}>
+                <th style={{ padding: "12px 8px", textAlign: "left" }}>OT</th>
+                <th style={{ padding: "12px 8px", textAlign: "left" }}>Sucursal</th>
+                <th style={{ padding: "12px 8px" }}>Total Piezas</th>
+                <th style={{ padding: "12px 8px" }}>Entregadas</th>
+                <th style={{ padding: "12px 8px" }}>Pendientes</th>
+                <th style={{ padding: "12px 8px" }}>Estatus</th>
+                <th style={{ padding: "12px 8px" }}>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ordenes.map((orden) => (
+                <tr key={orden.ot} style={{ borderBottom: "1px solid #1f2937" }}>
+                  <td style={{ padding: "12px 8px" }}><strong>{orden.ot}</strong></td>
+                  <td>{orden.sucursal_id}</td>
+                  <td style={{ textAlign: "center" }}>{orden.total}</td>
+                  <td style={{ textAlign: "center", color: "#4ade80" }}>{orden.entregadas}</td>
+                  <td style={{ textAlign: "center", color: "#facc15" }}>{orden.faltan}</td>
+                  <td>
+                    <span style={{
+                      padding: "8px 16px",
+                      borderRadius: "9999px",
+                      background: orden.estatusGeneral === "Completa" ? "#166534" :
+                                  orden.estatusGeneral === "Parcial" ? "#b45309" : "#854d0e",
+                      color: orden.estatusGeneral === "Completa" ? "#86efac" :
+                             orden.estatusGeneral === "Parcial" ? "#fcd34d" : "#fef08c"
+                    }}>
+                      {orden.estatusGeneral}
+                    </span>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => navigate(`/ventanilla/${orden.ot}`)}
+                      style={{
+                        background: "#2563eb",
+                        color: "white",
+                        border: "none",
+                        padding: "10px 20px",
+                        borderRadius: "8px",
+                        cursor: "pointer"
+                      }}
+                    >
+                      Ver y Entregar →
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      ))}
+      )}
+
+      {/* Modal de Solicitar Stock Independiente */}
+      {showStockModal && (
+        <SolicitarStockModal 
+          onClose={() => setShowStockModal(false)} 
+          user={user} 
+        />
+      )}
     </div>
   );
 }
@@ -2252,16 +4715,16 @@ FILE: src/pages/VentanillaDetalle.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 1.39 KB
+Size: 5.2 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/VentanillaDetalle.jsx
 Relative Path: src/pages
-Created: 2026-04-04 16:56:39 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-04 17:04:12 (America/Mexico_City / GMT-06:00)
-MD5: 7cce08f9740eadbf5070b8768b806af6
-SHA256: c9b90005f8ad63d0ca5f8917ddd17496c1b74f439c080a8259c3256cdc5ca953
-Encoding: ASCII
+Created: 2026-04-06 04:31:50 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-09 06:20:33 (America/Mexico_City / GMT-06:00)
+MD5: f92f4962cbc614dafb10f3dfd51bfdb3
+SHA256: 6682bea33f00c1bbeebd9bd65ace44828fac0fc5e99f685d9bc5a86ab0575117
+Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
@@ -2273,6 +4736,7 @@ export default function VentanillaDetalle() {
   const { ot } = useParams();
   const [data, setData] = useState([]);
   const [seleccion, setSeleccion] = useState([]);
+  const [cargando, setCargando] = useState(false);
 
   const cargar = async () => {
     const { data } = await supabase
@@ -2281,54 +4745,170 @@ export default function VentanillaDetalle() {
       .eq("ot", ot);
 
     setData(data || []);
+    setSeleccion([]);
   };
 
   useEffect(() => {
     cargar();
-  }, []);
+  }, [ot]);
 
   const toggle = (id) => {
-    setSeleccion(prev =>
-      prev.includes(id)
-        ? prev.filter(i => i !== id)
-        : [...prev, id]
+    setSeleccion((prev) =>
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
     );
   };
 
   const entregar = async () => {
-    const ok = window.confirm("Confirmar entrega");
-
-    if (!ok) return;
-
-    for (let id of seleccion) {
-      await supabase
-        .from("items")
-        .update({ estatus: "Entregada" })
-        .eq("id", id);
+    if (seleccion.length === 0) {
+      alert("Selecciona al menos un ítem");
+      return;
     }
 
-    setSeleccion([]);
-    cargar();
+    const ok = window.confirm(`¿Confirmar entrega de ${seleccion.length} ítem(s)?`);
+    if (!ok) return;
+
+    setCargando(true);
+
+    const { error } = await supabase
+      .from("items")
+      .update({ estatus: "Entregada" })
+      .in("id", seleccion);
+
+    if (error) {
+      alert("Error al actualizar.");
+    } else {
+      await cargar();
+    }
+
+    setCargando(false);
+  };
+
+  // Nueva función: Marcar como verificado por ventanilla
+  const verificarEnAlmacen = async (id) => {
+    const ok = window.confirm("¿Confirmas que revisaste en almacén y la pieza NO está disponible?");
+    if (!ok) return;
+
+    const { error } = await supabase
+      .from("items")
+      .update({
+        verificado_ventanilla: true,
+        fecha_verificacion_ventanilla: new Date().toISOString(),
+        comentario_almacen: null // Limpiamos el comentario
+      })
+      .eq("id", id);
+
+    if (!error) {
+      alert("✅ Verificación registrada. La pieza ahora puede pasar a compra si es necesario.");
+      cargar();
+    }
+  };
+
+  const colorEstatus = (estatus) => {
+    const colores = {
+      Pendiente: "#facc15",
+      Comprada: "#3b82f6",
+      Recibida: "#22c55e",
+      Entregada: "#16a34a",
+      Incorrecta: "#ef4444",
+    };
+    return colores[estatus] || "#9ca3af";
   };
 
   return (
-    <div>
-      <h2>OT {ot}</h2>
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
+      <h2 style={{ marginBottom: "4px" }}>OT {ot}</h2>
+      <p style={{ color: "#9ca3af", marginBottom: "20px" }}>
+        {data.filter(r => r.estatus === "Entregada").length}/{data.length} ítems entregados
+      </p>
 
-      {data.map(r => (
-        <div key={r.id}>
-          {r.descripcion} | {r.estatus}
-
+      {data.map((r) => (
+        <div
+          key={r.id}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+            padding: "12px",
+            marginBottom: "8px",
+            background: "#111827",
+            borderRadius: "8px",
+            border: r.tiene_stock_almacen && !r.verificado_ventanilla 
+              ? "2px solid #f59e0b" 
+              : "1px solid #1f2937",
+          }}
+        >
           {r.estatus === "Recibida" && (
             <input
               type="checkbox"
+              checked={seleccion.includes(r.id)}
               onChange={() => toggle(r.id)}
+              style={{ width: "18px", height: "18px", cursor: "pointer" }}
             />
+          )}
+
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: 500 }}>{r.descripcion || r.numero_parte}</div>
+            {r.numero_parte && r.descripcion && (
+              <div style={{ color: "#9ca3af", fontSize: "13px" }}>{r.numero_parte}</div>
+            )}
+
+            {/* Alerta de stock en almacén */}
+            {r.tiene_stock_almacen && !r.verificado_ventanilla && (
+              <div style={{ color: "#f59e0b", fontSize: "13px", marginTop: "4px" }}>
+                ⚠️ Existe stock en almacén - Verificar disponibilidad
+              </div>
+            )}
+          </div>
+
+          <span style={{
+            background: colorEstatus(r.estatus),
+            color: "#000",
+            padding: "4px 10px",
+            borderRadius: "20px",
+            fontSize: "12px",
+            fontWeight: 600,
+          }}>
+            {r.estatus}
+          </span>
+
+          {/* Checkbox de verificación por ventanilla */}
+          {r.tiene_stock_almacen && !r.verificado_ventanilla && (
+            <button
+              onClick={() => verificarEnAlmacen(r.id)}
+              style={{
+                padding: "6px 12px",
+                background: "#854d0e",
+                color: "#fff",
+                border: "none",
+                borderRadius: "6px",
+                cursor: "pointer",
+                fontSize: "12px"
+              }}
+            >
+              Verifiqué en almacén
+            </button>
           )}
         </div>
       ))}
 
-      <button onClick={entregar}>Confirmar entrega</button>
+      {data.filter(r => r.estatus === "Recibida").length > 0 && (
+        <button
+          onClick={entregar}
+          disabled={cargando || seleccion.length === 0}
+          style={{
+            marginTop: "16px",
+            padding: "12px 24px",
+            background: seleccion.length > 0 ? "#2563eb" : "#1f2937",
+            color: "#fff",
+            border: "none",
+            borderRadius: "8px",
+            cursor: seleccion.length > 0 ? "pointer" : "not-allowed",
+            fontWeight: 600,
+          }}
+        >
+          {cargando ? "Procesando..." : `Confirmar entrega (${seleccion.length})`}
+        </button>
+      )}
     </div>
   );
 }
@@ -2422,25 +5002,30 @@ FILE: src/services/supabase.js
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 416 B
+Size: 355 B
 Extension: .js
 Language: javascript
 Location: src/services/supabase.js
 Relative Path: src/services
-Created: 2026-04-04 03:49:53 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-04 03:52:57 (America/Mexico_City / GMT-06:00)
-MD5: 9848eb376bf967a4805796998dc52e20
-SHA256: 11df61aa2385c5f278fcf78f1d442b97bcaeb41e7660764bdae75c108d13d0c7
+Created: 2026-04-06 04:31:50 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-05 22:35:05 (America/Mexico_City / GMT-06:00)
+MD5: 3a760a6d2bb878ea8984a75c16a40c5e
+SHA256: 35aa406528bd34a7b3e548cb9c225aff18b9eed79c33e1b7189d513025cc49a1
 Encoding: ASCII
 
 FILE CONTENT:
 ----------------------------------------
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = 'https://rsdtupinibwwkuenxiah.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJzZHR1cGluaWJ3d2t1ZW54aWFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ3MzY2ODAsImV4cCI6MjA5MDMxMjY4MH0.QbDP9hyujZcCpJKcB75OCA4k4boolPT_DQfZlPpqXiw'
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+if (!supabaseUrl || !supabaseKey) {
+  throw new Error('Faltan variables de entorno de Supabase. Revisa tu archivo .env')
+}
 
 export const supabase = createClient(supabaseUrl, supabaseKey)
+
 ================================================================================
 
 
@@ -2530,6 +5115,164 @@ body {
   display: grid;
   gap: 16px;
 }
+================================================================================
+
+
+================================================================================
+FILE: src/utils/catalogos.js
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 5.28 KB
+Extension: .js
+Language: javascript
+Location: src/utils/catalogos.js
+Relative Path: src/utils
+Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-06 00:04:15 (America/Mexico_City / GMT-06:00)
+MD5: 4f5e7edbf65c491d33a44e9e83745d01
+SHA256: daf8cb2cf40333d0ffd16a242a581e117b238777210fd5ef469761504ed402ce
+Encoding: UTF-8
+
+FILE CONTENT:
+----------------------------------------
+// ─────────────────────────────────────────────────────────────
+// CATÁLOGOS MAESTROS DEL SISTEMA MOTORMEXA
+// ─────────────────────────────────────────────────────────────
+
+export const SUCURSALES = {
+  taller_vallarta:   { nombre: "Taller Vallarta",    fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  taller_acueducto:  { nombre: "Taller Acueducto",   fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  taller_country:    { nombre: "Taller Country",     fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  taller_camino_real:{ nombre: "Taller Camino Real", fabricantes: ["Mitsubishi"],                          permitEUA: false },
+  bodyshop:          { nombre: "BodyShop",           fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  mayoreo_menudeo:   { nombre: "Mayoreo/Menudeo",    fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+};
+
+export const FABRICANTE_POR_MARCA = {
+  Ram:        "Stellantis",
+  Jeep:       "Stellantis",
+  Chrysler:   "Stellantis",
+  Dodge:      "Stellantis",
+  Fiat:       "Stellantis",
+  Mitsubishi: "Mitsubishi",
+  Peugeot:    "Peugeot",
+};
+
+export const MARCAS_POR_FABRICANTE = {
+  Stellantis: ["Ram", "Jeep", "Chrysler", "Dodge", "Fiat"],
+  Mitsubishi: ["Mitsubishi"],
+  Peugeot:    ["Peugeot"],
+};
+
+export const MODELOS_POR_MARCA = {
+  Ram: ["700", "1200", "1500 Mild-Hybrid", "1500 TRX/RHO", "2500", "4000", "Promaster/Rapid", "Otro"],
+  Jeep: ["Renegade", "Compass", "Cherokee", "Grand Cherokee", "Wrangler JL", "Wrangler JT", "Wagoneer/Grand Wagoneer", "Patriot", "Liberty", "Otro"],
+  Fiat: ["Mobi", "Uno", "Argo", "Pulse", "Fastback", "500/500L/500x", "Ducato", "Abarth", "Otro"],
+  Dodge: ["Attitude", "New Attitude", "Neon", "Journey", "New Journey", "Durango", "Charger", "Challenger", "Otro"],
+  Chrysler: ["Pacifica", "300/300C", "200", "Town & Country", "Otro"],
+  Peugeot: ["208", "301", "2008", "3008", "5008", "Landtrek", "Partner", "Rifter", "Manager", "Otro"],
+  Mitsubishi: ["Mirage", "Xpander/Xpander Cross", "Outlander PHEV", "Outlander Sport", "Outlander", "Montero Sport", "L200 Gasolina", "L200 Diesel", "ASX/Eclipse Cross", "Otro"],
+};
+
+export const ESTATUSES_ITEM = ["Pendiente", "Comprada", "No comprada", "Recibida", "Entregada", "Incorrecta", "Vencida"];
+
+export const ESTATUSES_OT = ["Completa", "Parcial", "Facturada", "Cancelada"];
+
+export const TIPOS_ORDEN = ["Público", "Garantía", "Interna"];
+
+export const TIPOS_COTIZACION = ["Aseguradora", "Mayoreo", "Menudeo"];
+
+export const UBICACIONES = ["MX", "EUA", "BO"];
+
+export const HORARIOS_CORTE = {
+  Stellantis: "12:00",
+  Mitsubishi:  "11:00",
+  Peugeot:     "12:00",
+};
+
+// Días hábiles en que llega mercancía (0=dom, 1=lun, ... 6=sab)
+const DIAS_LLEGADA = [2, 3, 5, 6]; // martes, miércoles, viernes, sábado
+
+function esDiaLlegada(fecha) {
+  return DIAS_LLEGADA.includes(fecha.getDay());
+}
+
+function siguienteDiaLlegada(desde) {
+  const d = new Date(desde);
+  d.setDate(d.getDate() + 1);
+  while (!esDiaLlegada(d)) {
+    d.setDate(d.getDate() + 1);
+  }
+  return d;
+}
+
+function addDiasHabiles(desde, dias) {
+  let d = new Date(desde);
+  let conteo = 0;
+  while (conteo < dias) {
+    d.setDate(d.getDate() + 1);
+    const dow = d.getDay();
+    if (dow !== 0 && dow !== 1) conteo++; // lunes y domingo no cuentan
+  }
+  return d;
+}
+
+export function calcularETA(ubicacion, fabricante, fechaCompra = new Date()) {
+  const base = new Date(fechaCompra);
+
+  if (ubicacion === "MX") {
+    // 1 día hábil → siguiente día de llegada
+    const unDia = addDiasHabiles(base, 1);
+    // si ese día no es de llegada, al siguiente que sí lo sea
+    return esDiaLlegada(unDia) ? unDia : siguienteDiaLlegada(unDia);
+  }
+
+  if (ubicacion === "EUA") {
+    const catorce = addDiasHabiles(base, 14);
+    return esDiaLlegada(catorce) ? catorce : siguienteDiaLlegada(catorce);
+  }
+
+  if (ubicacion === "BO") {
+    const cuarentayCinco = addDiasHabiles(base, 45);
+    return esDiaLlegada(cuarentayCinco) ? cuarentayCinco : siguienteDiaLlegada(cuarentayCinco);
+  }
+
+  return null;
+}
+
+export function formatFecha(fecha) {
+  if (!fecha) return "—";
+  return new Date(fecha).toLocaleDateString("es-MX", {
+    weekday: "short", day: "2-digit", month: "short", year: "numeric",
+  });
+}
+
+export function diasTranscurridos(fecha) {
+  if (!fecha) return 0;
+  return Math.floor((Date.now() - new Date(fecha)) / 86400000);
+}
+
+export function generarReferencia(sucursalId, ot, asesorNombre) {
+  if (sucursalId === "bodyshop") return `BO-${ot}`;
+  if (sucursalId === "mayoreo_menudeo") {
+    const nombre = (asesorNombre || "").replace(/\s+/g, "").substring(0, 8).toUpperCase();
+    return nombre;
+  }
+  return `TA-${ot}`;
+}
+
+export const COLOR_ESTATUS = {
+  Pendiente:     { bg: "#854d0e", text: "#fef9c3" },
+  Comprada:      { bg: "#1e40af", text: "#dbeafe" },
+  "No comprada": { bg: "#374151", text: "#d1d5db" },
+  Recibida:      { bg: "#166534", text: "#dcfce7" },
+  Entregada:     { bg: "#14532d", text: "#bbf7d0" },
+  Incorrecta:    { bg: "#7f1d1d", text: "#fee2e2" },
+  Vencida:       { bg: "#581c87", text: "#f3e8ff" },
+};
+
 ================================================================================
 
 
@@ -2746,41 +5489,103 @@ FILE: src/App.tsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 772 B
+Size: 2.59 KB
 Extension: .tsx
 Language: typescript
 Location: src/App.tsx
 Relative Path: src
-Created: 2026-04-04 03:46:08 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-05 21:01:23 (America/Mexico_City / GMT-06:00)
-MD5: 892e4bcc15a52fcf236b38449c0473c2
-SHA256: c092a479d43be8ca805d412ff4459f5174d42ae8ff15b7dec9e8f0e904a57f71
+Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-10 04:19:21 (America/Mexico_City / GMT-06:00)
+MD5: b51af77ef60fc2166543ad084b1ead06
+SHA256: fef47959a4e293eaab3f8ae6f824c090016f517743a449f11b442e02ef432197
 Encoding: ASCII
 
 FILE CONTENT:
 ----------------------------------------
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// src/App.tsx
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import Layout from "./components/Layout";
 
-import Refacciones from "./pages/Refacciones";
-import Almacen from "./pages/Almacen";
+// Pages
+import Login from "./pages/Login";
+import Captura from "./pages/Captura";
+import Compras from "./pages/Compras";
+import PanelAsesor from "./pages/PanelAsesor";
+import PanelGerencial from "./pages/PanelGerencial";
 import Ventanilla from "./pages/Ventanilla";
-import Dashboard from "./pages/Dashboard";
+import VentanillaDetalle from "./pages/VentanillaDetalle";
+import ConsultaOT from "./pages/ConsultaOT";
+import StockPedidos from "./pages/StockPedidos";
+import Almacen from "./pages/Almacen";
 import Chatbot from "./pages/Chatbot";
+import MisCotizaciones from "./pages/MisCotizaciones";
+
+function RutasProtegidas() {
+  const { user, cargando } = useAuth();
+
+  if (cargando) {
+    return (
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        background: "#0f172a",
+        color: "#9ca3af",
+        fontSize: "17px"
+      }}>
+        Cargando sistema...
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return (
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Captura />} />
+        <Route path="/captura" element={<Captura />} />
+        <Route path="/mi-panel" element={<PanelAsesor />} />
+        <Route path="/mis-cotizaciones" element={<MisCotizaciones />} />
+        <Route path="/compras" element={<Compras />} />
+        <Route path="/gerencial" element={<PanelGerencial />} />
+        <Route path="/ventanilla" element={<Ventanilla />} />
+        <Route path="/ventanilla/:ot" element={<VentanillaDetalle />} />
+        <Route path="/consulta-ot" element={<ConsultaOT />} />
+        <Route path="/stock-pedidos" element={<StockPedidos />} />
+        <Route path="/almacen" element={<Almacen />} />
+        <Route path="/chat" element={<Chatbot />} />
+
+        {/* Redirecciones por rol (opcional pero recomendado) */}
+        <Route path="/recepcion-masiva" element={<Almacen />} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Layout>
+  );
+}
+
+function LoginGuard() {
+  const { user, cargando } = useAuth();
+  if (cargando) return null;
+  if (user) return <Navigate to="/" replace />;
+  return <Login />;
+}
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Layout>
+    <AuthProvider>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Refacciones />} />
-          <Route path="/almacen" element={<Almacen />} />
-          <Route path="/ventanilla" element={<Ventanilla />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/chat" element={<Chatbot />} />
+          <Route path="/login" element={<LoginGuard />} />
+          <Route path="/*" element={<RutasProtegidas />} />
         </Routes>
-      </Layout>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 ================================================================================
@@ -3066,7 +5871,7 @@ Language: json
 Location: package-lock.json
 Relative Path: root
 Created: 2026-04-04 03:46:32 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-05 21:10:11 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-06 03:48:23 (America/Mexico_City / GMT-06:00)
 MD5: 9d78517bff251dae106324a06fe242e9
 SHA256: 10b0d1d60c5d736cdf53a9c1f2ee87eede1cb46dc8d1f14c8d9bba5d5de7feaf
 Encoding: ASCII
@@ -7139,4 +9944,6 @@ export default defineConfig({
 ================================================================================
 BINARY/EXCLUDED FILES (not included in text content)
 ================================================================================
+- .env
+- .env.example
 - .gitignore
