@@ -5,7 +5,7 @@ PROJECT EXPORT FOR LLMs
 PROJECT INFORMATION:
 --------------------------------------------------
 Project Name: motormexa-frontend
-Generated On: 2026-04-10 05:30:33 (America/Mexico_City / GMT-06:00)
+Generated On: 2026-04-10 06:01:51 (America/Mexico_City / GMT-06:00)
 Total Files Processed: 56
 Export Tool: Easy Whole Project to Single Text File for LLMs v1.1.0
 Tool Author: Jota / José Guilherme Pandolfi
@@ -48,7 +48,7 @@ PROJECT STRUCTURE
 │   ├── 📁 contexts/
 │   │   └── 📄 AuthContext.jsx (1.15 KB)
 │   ├── 📁 pages/
-│   │   ├── 📄 Almacen.jsx (7.26 KB)
+│   │   ├── 📄 Almacen.jsx (19.77 KB)
 │   │   ├── 📄 Captura.jsx (13.83 KB)
 │   │   ├── 📄 Chatbot.jsx (13.4 KB)
 │   │   ├── 📄 Compras.jsx (9.6 KB)
@@ -57,7 +57,7 @@ PROJECT STRUCTURE
 │   │   ├── 📄 MisCotizaciones.jsx (5.8 KB)
 │   │   ├── 📄 PanelAsesor.jsx (8.25 KB)
 │   │   ├── 📄 PanelGerencial.jsx (10.2 KB)
-│   │   ├── 📄 RecepcionMasiva.jsx (3.34 KB)
+│   │   ├── 📄 RecepcionMasiva.jsx (14.08 KB)
 │   │   ├── 📄 StockPedidos.jsx (6.82 KB)
 │   │   ├── 📄 StockSolicitud.jsx (1.93 KB)
 │   │   ├── 📄 Ventanilla.jsx (6.2 KB)
@@ -95,7 +95,7 @@ Total Files: 56
 Total Directories: 9
 Text Files: 47
 Binary Files: 9
-Total Size: 416.78 KB
+Total Size: 440.03 KB
 
 FILE TYPES DISTRIBUTION:
 ------------------------------
@@ -1560,46 +1560,248 @@ FILE: src/pages/Almacen.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 7.26 KB
+Size: 19.77 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/Almacen.jsx
 Relative Path: src/pages
-Created: 2026-04-04 04:16:09 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-10 03:24:20 (America/Mexico_City / GMT-06:00)
-MD5: ccbe9db9edb7350612d50d541457fc92
-SHA256: ad7775bdf5f2ae6e0ab498064df5cb6d1a024a67c7e7b9575493eeeaddd8ef47
-Encoding: ASCII
+Created: 2026-04-10 11:47:32 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-10 06:01:50 (America/Mexico_City / GMT-06:00)
+MD5: 42457f9a1440cbc1af85c8f1ae9313bc
+SHA256: b30b53dddfbc0c33f808836b36b577ce6f0acebf39d206d01d27c7e10fa0ba73
+Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
 import { useEffect, useState, useCallback } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
+import { SUCURSALES } from "../utils/catalogos";
+import StockPedidos from "./StockPedidos";
 import * as XLSX from "xlsx";
 
+// ─── Paleta por fabricante ────────────────────────────────────────────────────
+const COLORES_FABRICANTE = {
+  Stellantis: {
+    header: "#0f2847",
+    border: "#1d4ed8",
+    badge: "#1d4ed8",
+    badgeText: "#bfdbfe",
+    rowAlt: "#0c1f3a",
+  },
+  Mitsubishi: {
+    header: "#0a2818",
+    border: "#15803d",
+    badge: "#15803d",
+    badgeText: "#bbf7d0",
+    rowAlt: "#091f14",
+  },
+  Peugeot: {
+    header: "#2a0f1e",
+    border: "#be185d",
+    badge: "#be185d",
+    badgeText: "#fbcfe8",
+    rowAlt: "#200c17",
+  },
+};
+
+const COLOR_DEFAULT = {
+  header: "#1e293b",
+  border: "#334155",
+  badge: "#334155",
+  badgeText: "#e2e8f0",
+  rowAlt: "#111827",
+};
+
+// ─── Componente: bloque de recepción por fabricante ──────────────────────────
+function BloqueRecepcion({ fabricante, sucursalNombre, items, seleccionados, onToggle }) {
+  const col = COLORES_FABRICANTE[fabricante] || COLOR_DEFAULT;
+  const ids = items.map((i) => i.id);
+  const todosSeleccionados = ids.length > 0 && ids.every((id) => seleccionados.includes(id));
+
+  const toggleTodos = () => {
+    if (todosSeleccionados) {
+      onToggle(ids, false);
+    } else {
+      onToggle(ids, true);
+    }
+  };
+
+  return (
+    <div
+      style={{
+        marginBottom: "28px",
+        border: `1px solid ${col.border}`,
+        borderRadius: "12px",
+        overflow: "hidden",
+      }}
+    >
+      {/* Header del bloque */}
+      <div
+        style={{
+          background: col.header,
+          padding: "12px 18px",
+          display: "flex",
+          alignItems: "center",
+          gap: "12px",
+          borderBottom: `1px solid ${col.border}`,
+        }}
+      >
+        <span
+          style={{
+            background: col.badge,
+            color: col.badgeText,
+            padding: "4px 14px",
+            borderRadius: "9999px",
+            fontWeight: 700,
+            fontSize: "13px",
+          }}
+        >
+          {fabricante}
+        </span>
+        <span style={{ color: "#94a3b8", fontSize: "13px" }}>
+          {sucursalNombre}
+        </span>
+        <span style={{ color: "#64748b", fontSize: "12px" }}>
+          · {items.length} pieza{items.length !== 1 ? "s" : ""}
+        </span>
+
+        <button
+          onClick={toggleTodos}
+          style={{
+            marginLeft: "auto",
+            background: todosSeleccionados ? "#374151" : col.badge,
+            color: col.badgeText,
+            border: "none",
+            padding: "5px 14px",
+            borderRadius: "6px",
+            cursor: "pointer",
+            fontSize: "12px",
+            fontWeight: 600,
+          }}
+        >
+          {todosSeleccionados ? "Quitar todos" : "Seleccionar todos"}
+        </button>
+      </div>
+
+      {/* Tabla */}
+      <div style={{ overflowX: "auto" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
+          <thead>
+            <tr style={{ background: "#0f172a", color: "#64748b" }}>
+              <th style={{ padding: "10px 14px", width: "40px" }}>✓</th>
+              <th style={{ padding: "10px 14px", textAlign: "left" }}>OT</th>
+              <th style={{ padding: "10px 14px", textAlign: "left" }}>Número de Parte</th>
+              <th style={{ padding: "10px 14px", textAlign: "left" }}>Descripción</th>
+              <th style={{ padding: "10px 14px", textAlign: "center" }}>Cant.</th>
+              <th style={{ padding: "10px 14px", textAlign: "left" }}>Estatus</th>
+              <th style={{ padding: "10px 14px", textAlign: "left" }}>Fecha Recepción</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.map((item, idx) => {
+              const seleccionado = seleccionados.includes(item.id);
+              return (
+                <tr
+                  key={item.id}
+                  style={{
+                    background: seleccionado
+                      ? col.rowAlt
+                      : idx % 2 === 0
+                      ? "#111827"
+                      : "#0f172a",
+                    borderBottom: "1px solid #1f2937",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => onToggle([item.id], !seleccionado)}
+                >
+                  <td style={{ padding: "10px 14px", textAlign: "center" }}>
+                    <input
+                      type="checkbox"
+                      checked={seleccionado}
+                      onChange={() => {}} // controlado por el onClick del tr
+                      style={{ accentColor: col.badge, width: "16px", height: "16px" }}
+                    />
+                  </td>
+                  <td style={{ padding: "10px 14px", fontWeight: 700, color: "#e2e8f0" }}>
+                    {item.ot}
+                  </td>
+                  <td style={{ padding: "10px 14px", color: "#cbd5e1", fontFamily: "monospace" }}>
+                    {item.numero_parte}
+                  </td>
+                  <td style={{ padding: "10px 14px", color: "#94a3b8" }}>
+                    {item.descripcion || "—"}
+                  </td>
+                  <td style={{ padding: "10px 14px", textAlign: "center", fontWeight: 600, color: "#e2e8f0" }}>
+                    {item.cantidad}
+                  </td>
+                  <td style={{ padding: "10px 14px" }}>
+                    <span
+                      style={{
+                        padding: "3px 10px",
+                        borderRadius: "9999px",
+                        fontSize: "11px",
+                        fontWeight: 600,
+                        background: item.estatus === "Comprada" ? "#1e3a5f" : "#422006",
+                        color: item.estatus === "Comprada" ? "#93c5fd" : "#fcd34d",
+                      }}
+                    >
+                      {item.estatus}
+                    </span>
+                  </td>
+                  <td style={{ padding: "10px 14px", color: "#64748b", fontSize: "12px" }}>
+                    {item.fecha_recepcion
+                      ? new Date(item.fecha_recepcion).toLocaleDateString("es-MX")
+                      : "—"}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// ─── Componente principal ─────────────────────────────────────────────────────
 export default function Almacen() {
   const { user } = useAuth();
-  const [tabActivo, setTabActivo] = useState("recepcion"); // "recepcion" | "inventario" | "pedidos"
+  const [tabActivo, setTabActivo] = useState("recepcion");
   const [data, setData] = useState([]);
   const [seleccionados, setSeleccionados] = useState([]);
   const [cargando, setCargando] = useState(false);
+  const [filtroSucursal, setFiltroSucursal] = useState("todas");
+  const [confirmando, setConfirmando] = useState(false);
 
-  const esAdmin = user?.rol?.toLowerCase() === "admin";
+  const esAdmin =
+    user?.rol?.toLowerCase() === "admin" ||
+    user?.rol?.toLowerCase() === "gerente";
 
+  // ─── Cargar ítems pendientes de recepción ───────────────────────────────
   const cargarItems = useCallback(async () => {
     setCargando(true);
+
     let query = supabase
       .from("items")
       .select("*")
+      .in("estatus", ["Pendiente", "Comprada"]) // ✅ BUG FIX: solo piezas pendientes de recibir
+      .order("fabricante", { ascending: true })
       .order("created_at", { ascending: false });
 
     if (!esAdmin && user?.sucursal_id) {
       query = query.eq("sucursal_id", user.sucursal_id);
     }
 
-    const { data } = await query;
-    setData(data || []);
+    const { data: rows, error } = await query;
+
+    if (error) {
+      console.error("Error cargando items:", error);
+      setData([]);
+    } else {
+      setData(rows || []);
+    }
+
     setCargando(false);
   }, [user, esAdmin]);
 
@@ -1607,33 +1809,66 @@ export default function Almacen() {
     cargarItems();
   }, [cargarItems]);
 
-  // ==================== RECEPCIÓN MASIVA ====================
-  const toggleSeleccion = (id) => {
-    setSeleccionados(prev => 
-      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
-    );
+  // ─── Agrupar por sucursal → fabricante ──────────────────────────────────
+  const datosFiltrados =
+    filtroSucursal === "todas"
+      ? data
+      : data.filter((i) => i.sucursal_id === filtroSucursal);
+
+  // Estructura: { [sucursal_id]: { [fabricante]: [items] } }
+  const agrupado = datosFiltrados.reduce((acc, item) => {
+    const suc = item.sucursal_id || "sin_sucursal";
+    const fab = item.fabricante || "Sin fabricante";
+    if (!acc[suc]) acc[suc] = {};
+    if (!acc[suc][fab]) acc[suc][fab] = [];
+    acc[suc][fab].push(item);
+    return acc;
+  }, {});
+
+  // ─── Toggle selección (acepta array de ids y estado deseado) ────────────
+  const handleToggle = (ids, seleccionar) => {
+    setSeleccionados((prev) => {
+      if (seleccionar) {
+        // Agregar los que no estén ya
+        const nuevos = ids.filter((id) => !prev.includes(id));
+        return [...prev, ...nuevos];
+      } else {
+        // Quitar los que estén
+        return prev.filter((id) => !ids.includes(id));
+      }
+    });
   };
 
+  // ─── Recepción masiva ────────────────────────────────────────────────────
   const recibirMasivo = async () => {
-    if (seleccionados.length === 0) return alert("Selecciona al menos una pieza");
-    if (!confirm(`¿Marcar ${seleccionados.length} piezas como Recibidas?`)) return;
+    if (seleccionados.length === 0) {
+      alert("Selecciona al menos una pieza");
+      return;
+    }
+    if (!window.confirm(`¿Marcar ${seleccionados.length} pieza(s) como Recibidas?`)) return;
+
+    setConfirmando(true);
 
     const { error } = await supabase
       .from("items")
-      .update({ 
-        estatus: "Recibida", 
-        fecha_recepcion: new Date().toISOString() 
+      .update({
+        estatus: "Recibida",
+        fecha_recepcion: new Date().toISOString(),
       })
       .in("id", seleccionados);
 
+    setConfirmando(false);
+
     if (!error) {
-      alert("✅ Recepción confirmada");
+      alert(`✅ ${seleccionados.length} pieza(s) recibidas correctamente`);
       setSeleccionados([]);
       cargarItems();
+    } else {
+      alert("❌ Error al confirmar recepción: " + error.message);
     }
   };
 
-  // ==================== CARGA CSV INVENTARIO ====================
+  // ─── Carga CSV inventario ────────────────────────────────────────────────
   const subirInventarioCSV = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -1641,127 +1876,286 @@ export default function Almacen() {
     const reader = new FileReader();
     reader.onload = async (event) => {
       try {
-        const workbook = XLSX.read(event.target.result, { type: 'array' });
-        const jsonData = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
+        const workbook = XLSX.read(event.target.result, { type: "array" });
+        const jsonData = XLSX.utils.sheet_to_json(
+          workbook.Sheets[workbook.SheetNames[0]]
+        );
 
         let procesados = 0;
 
         for (const row of jsonData) {
           if (!row.numero_parte) continue;
 
+          const cantStock = parseInt(row.cantidad_stock) || 0;
+
           await supabase
             .from("items")
             .update({
-              stock_fisico: parseInt(row.cantidad_stock) || 0,
+              stock_fisico: cantStock,
               clasificacion: row.clasificacion,
-              tiene_stock_almacen: (parseInt(row.cantidad_stock) || 0) > 0,
-              comentario_almacen: (parseInt(row.cantidad_stock) || 0) > 0 ? "Verificar disponibilidad en almacén" : null
+              tiene_stock_almacen: cantStock > 0,
+              comentario_almacen:
+                cantStock > 0 ? "Verificar disponibilidad en almacén" : null,
             })
-            .eq("numero_parte", row.numero_parte?.toString().trim().toUpperCase());
+            .eq(
+              "numero_parte",
+              row.numero_parte?.toString().trim().toUpperCase()
+            );
 
           procesados++;
         }
 
         alert(`✅ ${procesados} piezas actualizadas desde inventario`);
+        // Limpiar el input para permitir subir el mismo archivo de nuevo
+        e.target.value = "";
         cargarItems();
       } catch (err) {
-        alert("Error al procesar CSV: " + err.message);
+        alert("Error al procesar el archivo: " + err.message);
       }
     };
     reader.readAsArrayBuffer(file);
   };
 
-  return (
-    <div style={{ padding: "20px", color: "#e5e7eb" }}>
-      <h2>🏭 Almacén</h2>
+  // ─── Sucursales disponibles para el filtro ───────────────────────────────
+  const sucursalesEnData = [
+    ...new Set(data.map((i) => i.sucursal_id).filter(Boolean)),
+  ];
 
-      {/* Tabs */}
-      <div style={{ display: "flex", gap: "10px", marginBottom: "20px", borderBottom: "2px solid #334155", paddingBottom: "10px" }}>
-        <button onClick={() => setTabActivo("recepcion")} 
-          style={{ padding: "12px 20px", background: tabActivo === "recepcion" ? "#16a34a" : "#1f2937", color: "white", borderRadius: "8px" }}>
-          📦 Recepción Masiva
-        </button>
-        <button onClick={() => setTabActivo("inventario")} 
-          style={{ padding: "12px 20px", background: tabActivo === "inventario" ? "#2563eb" : "#1f2937", color: "white", borderRadius: "8px" }}>
-          📤 Cargar Inventario (CSV)
-        </button>
-        <button onClick={() => setTabActivo("pedidos")} 
-          style={{ padding: "12px 20px", background: tabActivo === "pedidos" ? "#eab308" : "#1f2937", color: "white", borderRadius: "8px" }}>
-          📋 Pedidos de Stock
-        </button>
+  // ─── Render ──────────────────────────────────────────────────────────────
+  return (
+    <div style={{ padding: "24px", color: "#e5e7eb", minHeight: "100%" }}>
+      <h2 style={{ margin: "0 0 20px", color: "#f1f5f9", fontSize: "20px" }}>
+        🏭 Almacén
+      </h2>
+
+      {/* ── Tabs ── */}
+      <div
+        style={{
+          display: "flex",
+          gap: "8px",
+          marginBottom: "24px",
+          borderBottom: "2px solid #1f2937",
+          paddingBottom: "12px",
+        }}
+      >
+        {[
+          { key: "recepcion", label: "📦 Recepción Masiva", color: "#16a34a" },
+          { key: "inventario", label: "📤 Cargar Inventario (CSV)", color: "#2563eb" },
+          { key: "pedidos", label: "📋 Pedidos de Stock", color: "#d97706" },
+        ].map(({ key, label, color }) => (
+          <button
+            key={key}
+            onClick={() => setTabActivo(key)}
+            style={{
+              padding: "10px 20px",
+              background: tabActivo === key ? color : "#1f2937",
+              color: "white",
+              border: "none",
+              borderRadius: "8px",
+              cursor: "pointer",
+              fontWeight: tabActivo === key ? 700 : 400,
+              fontSize: "13px",
+              transition: "background 0.15s",
+            }}
+          >
+            {label}
+          </button>
+        ))}
       </div>
 
-      {/* ====================== RECEPCIÓN MASIVA ====================== */}
+      {/* ══════════════════ RECEPCIÓN MASIVA ══════════════════ */}
       {tabActivo === "recepcion" && (
         <div>
-          <button onClick={recibirMasivo} style={{ marginBottom: "15px", padding: "12px 24px", background: "#16a34a", color: "white", border: "none", borderRadius: "8px" }}>
-            ✅ Recibir Seleccionados ({seleccionados.length})
-          </button>
+          {/* Barra de acciones */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "16px",
+              marginBottom: "20px",
+              flexWrap: "wrap",
+            }}
+          >
+            <button
+              onClick={recibirMasivo}
+              disabled={seleccionados.length === 0 || confirmando}
+              style={{
+                padding: "11px 24px",
+                background:
+                  seleccionados.length === 0 ? "#374151" : "#16a34a",
+                color: "white",
+                border: "none",
+                borderRadius: "8px",
+                cursor:
+                  seleccionados.length === 0 ? "not-allowed" : "pointer",
+                fontWeight: 700,
+                fontSize: "14px",
+                opacity: confirmando ? 0.7 : 1,
+              }}
+            >
+              {confirmando
+                ? "Confirmando..."
+                : `✅ Recibir Seleccionados (${seleccionados.length})`}
+            </button>
 
-          <div style={{ overflowX: "auto" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse" }}>
-              <thead>
-                <tr style={{ background: "#0f172a" }}>
-                  <th style={{ padding: "12px" }}>✓</th>
-                  <th style={{ padding: "12px" }}>OT</th>
-                  <th style={{ padding: "12px" }}>Número de Parte</th>
-                  <th style={{ padding: "12px" }}>Descripción</th>
-                  <th style={{ padding: "12px" }}>Cantidad</th>
-                  <th style={{ padding: "12px" }}>Estatus</th>
-                  <th style={{ padding: "12px" }}>Fecha Recepción</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map(item => (
-                  <tr key={item.id} style={{ borderBottom: "1px solid #1f2937" }}>
-                    <td style={{ padding: "12px" }}>
-                      <input type="checkbox" checked={seleccionados.includes(item.id)} onChange={() => toggleSeleccion(item.id)} />
-                    </td>
-                    <td><strong>{item.ot}</strong></td>
-                    <td>{item.numero_parte}</td>
-                    <td>{item.descripcion}</td>
-                    <td>{item.cantidad}</td>
-                    <td>{item.estatus}</td>
-                    <td>{item.fecha_recepcion ? new Date(item.fecha_recepcion).toLocaleDateString("es-MX") : "—"}</td>
-                  </tr>
+            {/* Filtro por sucursal — solo visible para admin/gerente */}
+            {esAdmin && sucursalesEnData.length > 1 && (
+              <select
+                value={filtroSucursal}
+                onChange={(e) => {
+                  setFiltroSucursal(e.target.value);
+                  setSeleccionados([]); // limpiar selección al cambiar filtro
+                }}
+                style={{
+                  padding: "9px 14px",
+                  background: "#0f172a",
+                  border: "1px solid #334155",
+                  color: "#e2e8f0",
+                  borderRadius: "8px",
+                  fontSize: "13px",
+                  cursor: "pointer",
+                }}
+              >
+                <option value="todas">Todas las sucursales</option>
+                {sucursalesEnData.map((suc) => (
+                  <option key={suc} value={suc}>
+                    {SUCURSALES[suc]?.nombre || suc}
+                  </option>
                 ))}
-              </tbody>
-            </table>
+              </select>
+            )}
+
+            <span style={{ color: "#64748b", fontSize: "12px", marginLeft: "auto" }}>
+              {datosFiltrados.length} pieza(s) pendientes
+            </span>
           </div>
+
+          {/* Contenido */}
+          {cargando ? (
+            <div
+              style={{
+                textAlign: "center",
+                padding: "80px",
+                color: "#4b5563",
+                fontSize: "15px",
+              }}
+            >
+              Cargando piezas...
+            </div>
+          ) : datosFiltrados.length === 0 ? (
+            <div
+              style={{
+                textAlign: "center",
+                padding: "80px",
+                color: "#4b5563",
+                fontSize: "15px",
+                background: "#111827",
+                borderRadius: "12px",
+                border: "1px solid #1f2937",
+              }}
+            >
+              ✅ No hay piezas pendientes de recepción
+            </div>
+          ) : (
+            // Iterar por sucursal → por fabricante
+            Object.entries(agrupado).map(([sucId, porFabricante]) => (
+              <div key={sucId}>
+                {/* Título de sucursal — solo si hay más de una */}
+                {(esAdmin && sucursalesEnData.length > 1) ||
+                filtroSucursal === "todas" ? (
+                  <div
+                    style={{
+                      fontSize: "11px",
+                      fontWeight: 700,
+                      letterSpacing: "1px",
+                      color: "#475569",
+                      textTransform: "uppercase",
+                      marginBottom: "10px",
+                      marginTop: "8px",
+                    }}
+                  >
+                    📍 {SUCURSALES[sucId]?.nombre || sucId}
+                  </div>
+                ) : null}
+
+                {/* Bloques por fabricante dentro de la sucursal */}
+                {Object.entries(porFabricante).map(([fabricante, items]) => (
+                  <BloqueRecepcion
+                    key={`${sucId}-${fabricante}`}
+                    fabricante={fabricante}
+                    sucursalNombre={SUCURSALES[sucId]?.nombre || sucId}
+                    items={items}
+                    seleccionados={seleccionados}
+                    onToggle={handleToggle}
+                  />
+                ))}
+              </div>
+            ))
+          )}
         </div>
       )}
 
-      {/* ====================== CARGA INVENTARIO CSV ====================== */}
+      {/* ══════════════════ CARGA INVENTARIO CSV ══════════════════ */}
       {tabActivo === "inventario" && (
-        <div style={{ padding: "40px", textAlign: "center", background: "#111827", borderRadius: "12px" }}>
-          <h3>📤 Cargar Inventario Actual</h3>
-          <p style={{ color: "#9ca3af", marginBottom: "20px" }}>
-            Columnas recomendadas: numero_parte, cantidad_stock, clasificacion
+        <div
+          style={{
+            padding: "50px 40px",
+            textAlign: "center",
+            background: "#111827",
+            borderRadius: "12px",
+            border: "1px solid #1f2937",
+          }}
+        >
+          <div style={{ fontSize: "40px", marginBottom: "16px" }}>📤</div>
+          <h3 style={{ color: "#e2e8f0", marginBottom: "10px" }}>
+            Cargar Inventario Actual
+          </h3>
+          <p style={{ color: "#6b7280", marginBottom: "28px", fontSize: "14px" }}>
+            Columnas requeridas:{" "}
+            <code
+              style={{
+                background: "#0f172a",
+                padding: "2px 8px",
+                borderRadius: "4px",
+                color: "#94a3b8",
+              }}
+            >
+              numero_parte, cantidad_stock, clasificacion
+            </code>
           </p>
-          <label style={{ 
-            padding: "20px 40px", 
-            background: "#166534", 
-            color: "white", 
-            borderRadius: "12px", 
-            cursor: "pointer",
-            display: "inline-block"
-          }}>
-            Seleccionar Archivo CSV
-            <input type="file" accept=".csv" onChange={subirInventarioCSV} style={{ display: "none" }} />
+          <label
+            style={{
+              padding: "14px 36px",
+              background: "#166534",
+              color: "white",
+              borderRadius: "10px",
+              cursor: "pointer",
+              display: "inline-block",
+              fontWeight: 600,
+              fontSize: "14px",
+              transition: "background 0.15s",
+            }}
+          >
+            Seleccionar Archivo CSV / Excel
+            <input
+              type="file"
+              accept=".csv,.xlsx,.xls"
+              onChange={subirInventarioCSV}
+              style={{ display: "none" }}
+            />
           </label>
         </div>
       )}
 
-      {/* ====================== PEDIDOS DE STOCK ====================== */}
+      {/* ══════════════════ PEDIDOS DE STOCK ══════════════════ */}
       {tabActivo === "pedidos" && (
-        <div>
-          <p style={{ color: "#9ca3af" }}>Aquí se mostrarán los pedidos de stock (pendiente de integrar StockPedidos.jsx)</p>
-          {/* Puedes importar y mostrar <StockPedidos /> aquí si quieres */}
-        </div>
+        // ✅ BUG FIX: StockPedidos integrado correctamente
+        <StockPedidos />
       )}
     </div>
   );
 }
+
 ================================================================================
 
 
@@ -4060,168 +4454,366 @@ FILE: src/pages/RecepcionMasiva.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 3.34 KB
+Size: 14.08 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/RecepcionMasiva.jsx
 Relative Path: src/pages
-Created: 2026-04-04 18:00:07 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-04 18:00:44 (America/Mexico_City / GMT-06:00)
-MD5: c45cf89394901596a5cd81bf27cf1c73
-SHA256: 34fe2604d681de28fc2a4bc0177dceec5f6ae991e2256d79cbb055bd7f403d90
+Created: 2026-04-10 06:00:35 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-10 06:01:03 (America/Mexico_City / GMT-06:00)
+MD5: 42b1cbba953bf3a929a1a8e96f5efaba
+SHA256: ace1395f846435f21b59a009ab8a23814aeb574303c877961da4f0df729a02fd
 Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
 import { useState } from "react";
 import { supabase } from "../services/supabase";
+import { useAuth } from "../contexts/AuthContext";
+import { SUCURSALES } from "../utils/catalogos";
+
+// ─── Paleta por fabricante ────────────────────────────────────────────────────
+const COLORES = {
+  Stellantis: { badge: "#1d4ed8", badgeText: "#bfdbfe", border: "#1d4ed840" },
+  Mitsubishi: { badge: "#15803d", badgeText: "#bbf7d0", border: "#15803d40" },
+  Peugeot:    { badge: "#be185d", badgeText: "#fbcfe8", border: "#be185d40" },
+};
+const COLOR_DEFAULT = { badge: "#334155", badgeText: "#e2e8f0", border: "#33415540" };
 
 export default function RecepcionMasiva() {
-  const [parte, setParte] = useState("");
-  const [cantidad, setCantidad] = useState(1);
-  const [lista, setLista] = useState([]);
+  const { user } = useAuth();
+  const [parte, setParte]             = useState("");
+  const [cantidad, setCantidad]       = useState(1);
+  const [lista, setLista]             = useState([]);
+  const [buscando, setBuscando]       = useState(false);
+  const [confirmando, setConfirmando] = useState(false);
 
-  // 🔍 Buscar OTs pendientes por parte
+  // ─── Buscar OTs pendientes por número de parte ──────────────────────────
   const buscarOTs = async (numero_parte) => {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("items")
-      .select("*")
+      .select("id, ot, numero_parte, descripcion, fabricante, sucursal_id")
       .eq("numero_parte", numero_parte)
       .in("estatus", ["Pendiente", "Comprada"]);
-
+    if (error) { console.error("Error buscando OTs:", error); return []; }
     return data || [];
   };
 
-  // ➕ agregar a lista
+  // ─── Agregar pieza a la lista ────────────────────────────────────────────
   const agregar = async () => {
-    if (!parte) return;
+    const parteNorm = parte.trim().toUpperCase();
+    if (!parteNorm) return;
 
-    // 🔁 duplicado
-    const existente = lista.find(l => l.parte === parte);
-
+    // Duplicado: sumar sin mutar el objeto original
+    const existente = lista.find((l) => l.parte === parteNorm);
     if (existente) {
       const extra = prompt("Ya escaneado. ¿Cuántas piezas más?");
-      if (!extra) return;
-
-      existente.cantidad += parseInt(extra);
-      setLista([...lista]);
+      const extraNum = parseInt(extra);
+      // ✅ BUG FIX: validar NaN
+      if (!extra || isNaN(extraNum) || extraNum <= 0) return;
+      // ✅ BUG FIX: no mutar el objeto — spread en nuevo array
+      setLista((prev) =>
+        prev.map((l) =>
+          l.parte === parteNorm ? { ...l, cantidad: l.cantidad + extraNum } : l
+        )
+      );
+      setParte("");
       return;
     }
 
-    // 🔀 buscar OTs
-    const ots = await buscarOTs(parte);
+    setBuscando(true);
+    const ots = await buscarOTs(parteNorm);
+    setBuscando(false);
 
     let otSeleccionada = null;
+    let fabricante     = null;
+    let sucursalId     = null;
+    let descripcion    = null;
 
-    if (ots.length > 1) {
-      const opciones = ots.map(o => o.ot).join(", ");
-      otSeleccionada = prompt(
-        `Varias OT para esta pieza: ${opciones}\nEscribe la OT`
+    if (ots.length === 0) {
+      const continuar = window.confirm(
+        `No se encontraron OTs pendientes para "${parteNorm}".\n¿Agregar de todas formas como stock libre?`
       );
+      if (!continuar) return;
+
     } else if (ots.length === 1) {
       otSeleccionada = ots[0].ot;
+      fabricante     = ots[0].fabricante;
+      sucursalId     = ots[0].sucursal_id;
+      descripcion    = ots[0].descripcion;
+
+    } else {
+      const opciones = ots
+        .map((o, i) => `${i + 1}. OT: ${o.ot}  |  ${SUCURSALES[o.sucursal_id]?.nombre || o.sucursal_id || "—"}`)
+        .join("\n");
+      const respuesta = prompt(`Varias OTs para "${parteNorm}":\n${opciones}\n\nEscribe la OT exacta:`);
+      const encontrada = ots.find((o) => o.ot === respuesta?.trim());
+      if (encontrada) {
+        otSeleccionada = encontrada.ot;
+        fabricante     = encontrada.fabricante;
+        sucursalId     = encontrada.sucursal_id;
+        descripcion    = encontrada.descripcion;
+      } else {
+        otSeleccionada = respuesta?.trim() || null;
+      }
     }
 
-    setLista([
-      ...lista,
-      {
-        parte,
-        cantidad,
-        ot: otSeleccionada,
-      },
+    setLista((prev) => [
+      ...prev,
+      { parte: parteNorm, cantidad, ot: otSeleccionada, fabricante: fabricante || "—", sucursal_id: sucursalId || null, descripcion: descripcion || null },
     ]);
-
     setParte("");
     setCantidad(1);
   };
 
-  // ✅ confirmar recepción
+  // ─── Quitar ítem ─────────────────────────────────────────────────────────
+  const quitar = (index) => setLista((prev) => prev.filter((_, i) => i !== index));
+
+  // ─── Confirmar recepción ─────────────────────────────────────────────────
   const confirmar = async () => {
-    const ok = window.confirm("¿Confirmar recepción?");
-    if (!ok) return;
+    if (lista.length === 0) return;
+    if (!window.confirm(`¿Confirmar recepción de ${lista.length} pieza(s)?`)) return;
 
-    for (let item of lista) {
-      const { data } = await supabase
-        .from("items")
-        .select("*")
-        .eq("numero_parte", item.parte)
-        .eq("ot", item.ot)
-        .in("estatus", ["Pendiente", "Comprada"]);
+    setConfirmando(true);
+    let errores = 0;
 
-      let restantes = item.cantidad;
-
-      for (let r of data) {
-        if (restantes <= 0) break;
-
-        await supabase
+    for (const item of lista) {
+      if (item.ot) {
+        const { data: rows, error } = await supabase
           .from("items")
-          .update({ estatus: "Recibida" })
-          .eq("id", r.id);
+          .select("id")
+          .eq("numero_parte", item.parte)
+          .eq("ot", item.ot)
+          .in("estatus", ["Pendiente", "Comprada"]);
 
-        restantes--;
-      }
+        if (error) { errores++; continue; }
 
-      // 📦 sobrante → stock
-      if (restantes > 0) {
-        await supabase.from("stock").insert([
-          {
-            numero_parte: item.parte,
-            cantidad: restantes,
-          },
-        ]);
+        // ✅ BUG FIX: rows puede ser null
+        const itemsOT = rows || [];
+        let restantes = item.cantidad;
+
+        for (const r of itemsOT) {
+          if (restantes <= 0) break;
+          await supabase
+            .from("items")
+            .update({ estatus: "Recibida", fecha_recepcion: new Date().toISOString() })
+            .eq("id", r.id);
+          restantes--;
+        }
+
+        // Sobrante → stock (solo columnas que existen en la tabla)
+        if (restantes > 0) {
+          await supabase.from("stock").insert([{ numero_parte: item.parte, cantidad: restantes }]);
+        }
+      } else {
+        // Sin OT → directo a stock
+        await supabase.from("stock").insert([{ numero_parte: item.parte, cantidad: item.cantidad }]);
       }
     }
 
-    alert("Recepción completada");
+    setConfirmando(false);
+    if (errores > 0) {
+      alert(`⚠️ Completado con ${errores} error(es). Revisa la consola.`);
+    } else {
+      alert("✅ Recepción completada correctamente");
+    }
     setLista([]);
   };
 
+  // ─── Agrupar lista por fabricante → sucursal ─────────────────────────────
+  const agrupado = lista.reduce((acc, item, idx) => {
+    const fab = item.fabricante || "Sin fabricante";
+    const suc = item.sucursal_id || "sin_sucursal";
+    if (!acc[fab]) acc[fab] = {};
+    if (!acc[fab][suc]) acc[fab][suc] = [];
+    acc[fab][suc].push({ ...item, _index: idx });
+    return acc;
+  }, {});
+
+  // ─── Render ──────────────────────────────────────────────────────────────
   return (
-    <div>
-      <h2>Recepción Masiva</h2>
+    <div style={{ padding: "24px", color: "#e5e7eb" }}>
+      <h2 style={{ margin: "0 0 24px", color: "#f1f5f9", fontSize: "20px" }}>
+        📦 Recepción Masiva
+      </h2>
 
-      {/* INPUT */}
-      <input
-        placeholder="Número de parte"
-        value={parte}
-        onChange={(e) => setParte(e.target.value)}
-      />
+      {/* ── Formulario escaneo ── */}
+      <div style={{
+        display: "flex", gap: "12px", marginBottom: "28px",
+        background: "#111827", padding: "18px", borderRadius: "12px",
+        border: "1px solid #1f2937", flexWrap: "wrap", alignItems: "flex-end",
+      }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <label style={{ color: "#6b7280", fontSize: "11px", fontWeight: 600, letterSpacing: "0.5px" }}>
+            NÚMERO DE PARTE
+          </label>
+          <input
+            placeholder="Escanear o escribir..."
+            value={parte}
+            onChange={(e) => setParte(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && agregar()}
+            autoFocus
+            style={{
+              padding: "10px 14px", background: "#0f172a",
+              border: "1px solid #334155", color: "#e2e8f0",
+              borderRadius: "8px", fontSize: "14px", width: "240px", fontFamily: "monospace",
+            }}
+          />
+        </div>
 
-      <input
-        type="number"
-        value={cantidad}
-        onChange={(e) => setCantidad(parseInt(e.target.value))}
-      />
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <label style={{ color: "#6b7280", fontSize: "11px", fontWeight: 600, letterSpacing: "0.5px" }}>
+            CANTIDAD
+          </label>
+          <input
+            type="number" min={1} value={cantidad}
+            onChange={(e) => {
+              const val = parseInt(e.target.value);
+              setCantidad(isNaN(val) || val < 1 ? 1 : val);
+            }}
+            style={{
+              padding: "10px 14px", background: "#0f172a",
+              border: "1px solid #334155", color: "#e2e8f0",
+              borderRadius: "8px", fontSize: "14px", width: "80px", textAlign: "center",
+            }}
+          />
+        </div>
 
-      <button onClick={agregar}>Agregar</button>
+        <button
+          onClick={agregar}
+          disabled={!parte.trim() || buscando}
+          style={{
+            padding: "10px 22px", alignSelf: "flex-end",
+            background: parte.trim() && !buscando ? "#1d4ed8" : "#374151",
+            color: "white", border: "none", borderRadius: "8px",
+            cursor: parte.trim() && !buscando ? "pointer" : "not-allowed",
+            fontWeight: 700, fontSize: "14px",
+          }}
+        >
+          {buscando ? "Buscando..." : "＋ Agregar"}
+        </button>
 
-      <hr />
+        {lista.length > 0 && (
+          <button
+            onClick={confirmar}
+            disabled={confirmando}
+            style={{
+              padding: "10px 22px", alignSelf: "flex-end", marginLeft: "auto",
+              background: "#16a34a", color: "white", border: "none",
+              borderRadius: "8px", cursor: "pointer", fontWeight: 700,
+              fontSize: "14px", opacity: confirmando ? 0.7 : 1,
+            }}
+          >
+            {confirmando ? "Procesando..." : `✅ Confirmar recepción (${lista.length})`}
+          </button>
+        )}
+      </div>
 
-      {/* TABLA */}
-      <table border="1">
-        <thead>
-          <tr>
-            <th>Parte</th>
-            <th>Cantidad</th>
-            <th>OT</th>
-          </tr>
-        </thead>
+      {/* ── Lista vacía ── */}
+      {lista.length === 0 && (
+        <div style={{
+          textAlign: "center", padding: "70px", color: "#374151",
+          background: "#111827", borderRadius: "12px",
+          border: "1px dashed #1f2937", fontSize: "14px",
+        }}>
+          Escanea o escribe un número de parte para comenzar
+        </div>
+      )}
 
-        <tbody>
-          {lista.map((l, i) => (
-            <tr key={i}>
-              <td>{l.parte}</td>
-              <td>{l.cantidad}</td>
-              <td>{l.ot}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {/* ── Lista agrupada por fabricante → sucursal ── */}
+      {Object.entries(agrupado).map(([fabricante, porSucursal]) => {
+        const col = COLORES[fabricante] || COLOR_DEFAULT;
+        const totalFab = Object.values(porSucursal).flat().length;
 
-      <button onClick={confirmar}>Confirmar recepción</button>
+        return (
+          <div key={fabricante} style={{
+            marginBottom: "24px",
+            border: `1px solid ${col.border}`,
+            borderRadius: "12px", overflow: "hidden",
+          }}>
+            {/* Header fabricante */}
+            <div style={{
+              background: col.badge + "22", padding: "11px 18px",
+              display: "flex", alignItems: "center", gap: "12px",
+              borderBottom: `1px solid ${col.border}`,
+            }}>
+              <span style={{
+                background: col.badge, color: col.badgeText,
+                padding: "4px 14px", borderRadius: "9999px",
+                fontWeight: 700, fontSize: "13px",
+              }}>
+                {fabricante}
+              </span>
+              <span style={{ color: "#64748b", fontSize: "12px" }}>
+                {totalFab} pieza{totalFab !== 1 ? "s" : ""} en lista
+              </span>
+            </div>
+
+            {/* Sub-bloques por sucursal */}
+            {Object.entries(porSucursal).map(([sucId, items]) => (
+              <div key={sucId}>
+                <div style={{
+                  background: "#0f172a", padding: "6px 18px",
+                  fontSize: "11px", color: "#475569",
+                  fontWeight: 700, letterSpacing: "0.8px",
+                  textTransform: "uppercase", borderBottom: "1px solid #1f2937",
+                }}>
+                  📍 {SUCURSALES[sucId]?.nombre || sucId}
+                </div>
+
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
+                  <thead>
+                    <tr style={{ background: "#0a0f1a", color: "#64748b" }}>
+                      <th style={{ padding: "9px 14px", textAlign: "left" }}>Número de Parte</th>
+                      <th style={{ padding: "9px 14px", textAlign: "left" }}>Descripción</th>
+                      <th style={{ padding: "9px 14px", textAlign: "center" }}>Cant.</th>
+                      <th style={{ padding: "9px 14px", textAlign: "left" }}>OT</th>
+                      <th style={{ padding: "9px 14px", textAlign: "center", width: "48px" }}>✕</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {items.map((item, idx) => (
+                      <tr key={item._index} style={{
+                        borderBottom: "1px solid #1f2937",
+                        background: idx % 2 === 0 ? "#111827" : "#0f172a",
+                      }}>
+                        <td style={{ padding: "9px 14px", fontFamily: "monospace", color: "#e2e8f0", fontWeight: 600 }}>
+                          {item.parte}
+                        </td>
+                        <td style={{ padding: "9px 14px", color: "#94a3b8" }}>
+                          {item.descripcion || "—"}
+                        </td>
+                        <td style={{ padding: "9px 14px", textAlign: "center", fontWeight: 700, color: "#f1f5f9" }}>
+                          {item.cantidad}
+                        </td>
+                        <td style={{ padding: "9px 14px", color: item.ot ? "#60a5fa" : "#4b5563" }}>
+                          {item.ot || <span style={{ fontStyle: "italic", color: "#4b5563" }}>Sin OT — stock libre</span>}
+                        </td>
+                        <td style={{ padding: "9px 14px", textAlign: "center" }}>
+                          <button
+                            onClick={() => quitar(item._index)}
+                            style={{
+                              background: "transparent", border: "none",
+                              color: "#ef4444", cursor: "pointer",
+                              fontSize: "16px", lineHeight: 1, padding: "2px 6px",
+                            }}
+                          >
+                            ✕
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 }
+
 ================================================================================
 
 
