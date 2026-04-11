@@ -29,9 +29,13 @@ export default function Login() {
       setMensaje("Credenciales incorrectas. Verifica tu correo y contraseña.");
     } else {
       // Recargar para que AuthContext detecte el usuario
-      window.location.reload();
-    }
-    setLoading(false);
+     import { useNavigate } from "react-router-dom";
+
+     const navigate = useNavigate();
+
+     // después del login exitoso
+     navigate("/captura"); 
+         setLoading(false);
   };
 
   // ====================== RESET PASSWORD ======================

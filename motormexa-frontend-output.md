@@ -3,7 +3,7 @@
 ## 📊 Project Information
 
 - **Project Name**: `motormexa-frontend`
-- **Generated On**: 2026-04-11 05:39:54 (America/Mexico_City / GMT-06:00)
+- **Generated On**: 2026-04-11 05:48:39 (America/Mexico_City / GMT-06:00)
 - **Total Files Processed**: 60
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
@@ -52,7 +52,7 @@
 │   │   ├── 📄 Chatbot.jsx (13.4 KB)
 │   │   ├── 📄 Compras.jsx (9.6 KB)
 │   │   ├── 📄 ConsultaOT.jsx (11.86 KB)
-│   │   ├── 📄 Login.jsx (6.53 KB)
+│   │   ├── 📄 Login.jsx (6.65 KB)
 │   │   ├── 📄 MisCotizaciones.jsx (5.8 KB)
 │   │   ├── 📄 PanelAsesor.jsx (8.25 KB)
 │   │   ├── 📄 PanelGerencial.jsx (10.2 KB)
@@ -87,7 +87,7 @@
 ├── 📄 tsconfig.app.json (732 B)
 ├── 📄 tsconfig.json (119 B)
 ├── 📄 tsconfig.node.json (653 B)
-├── 📄 vercel.json (90 B)
+├── 📄 vercel.json (102 B)
 └── 📄 vite.config.ts (161 B)
 ```
 
@@ -157,7 +157,7 @@
 | Total Directories | 9 |
 | Text Files | 51 |
 | Binary Files | 9 |
-| Total Size | 388.88 KB |
+| Total Size | 389.01 KB |
 
 ### 📄 File Types Distribution
 
@@ -3385,15 +3385,15 @@ const btnCopiar = {
 ### <a id="📄-src-pages-login-jsx"></a>📄 `src/pages/Login.jsx`
 
 **File Info:**
-- **Size**: 6.53 KB
+- **Size**: 6.65 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/Login.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-04 07:56:23 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-10 04:18:19 (America/Mexico_City / GMT-06:00)
-- **MD5**: `d36e4c10191a18c835c4c7785a9ff797`
-- **SHA256**: `d630c9675977b5630cf57938b5872ea20c0ab8fa90ca645f8deab5d32043b406`
+- **Modified**: 2026-04-11 05:48:38 (America/Mexico_City / GMT-06:00)
+- **MD5**: `587ac3dd452fa792870e6bbb640cdb55`
+- **SHA256**: `21c1353468083de471548cb5daa1b1ff583f2dcd9c1e46dd6969eea3a5b569fc`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -3430,9 +3430,13 @@ export default function Login() {
       setMensaje("Credenciales incorrectas. Verifica tu correo y contraseña.");
     } else {
       // Recargar para que AuthContext detecte el usuario
-      window.location.reload();
-    }
-    setLoading(false);
+     import { useNavigate } from "react-router-dom";
+
+     const navigate = useNavigate();
+
+     // después del login exitoso
+     navigate("/captura"); 
+         setLoading(false);
   };
 
   // ====================== RESET PASSWORD ======================
@@ -10507,25 +10511,25 @@ export default defineConfig([
 ### <a id="📄-vercel-json"></a>📄 `vercel.json`
 
 **File Info:**
-- **Size**: 90 B
+- **Size**: 102 B
 - **Extension**: `.json`
 - **Language**: `json`
 - **Location**: `vercel.json`
 - **Relative Path**: `root`
 - **Created**: 2026-04-11 05:39:16 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-11 05:39:53 (America/Mexico_City / GMT-06:00)
-- **MD5**: `bd59cc2c5730e54196e8b92f29e3554f`
-- **SHA256**: `af5b7b55ae1cd58ffb711717bd39f12a8074de31f8ce18b2de3ac23b10f38086`
+- **Modified**: 2026-04-11 05:43:48 (America/Mexico_City / GMT-06:00)
+- **MD5**: `854af7689869f456e2e4bee84a1b2946`
+- **SHA256**: `14b95599e5dca449bd7efdf5cf240c91dca33418b6beb8e0f4bb0774ecf64e44`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ```json
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
