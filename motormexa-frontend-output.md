@@ -3,7 +3,7 @@
 ## 📊 Project Information
 
 - **Project Name**: `motormexa-frontend`
-- **Generated On**: 2026-04-11 16:45:37 (America/Mexico_City / GMT-06:00)
+- **Generated On**: 2026-04-11 16:52:49 (America/Mexico_City / GMT-06:00)
 - **Total Files Processed**: 60
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
@@ -45,7 +45,7 @@
 │   │   ├── 📄 TablaERP.jsx (1.11 KB)
 │   │   └── 📄 TableroPro.jsx (1.23 KB)
 │   ├── 📁 contexts/
-│   │   └── 📄 AuthContext.jsx (1.63 KB)
+│   │   └── 📄 AuthContext.jsx (1.34 KB)
 │   ├── 📁 pages/
 │   │   ├── 📄 Almacen.jsx (11.02 KB)
 │   │   ├── 📄 Captura.jsx (13.83 KB)
@@ -157,7 +157,7 @@
 | Total Directories | 9 |
 | Text Files | 51 |
 | Binary Files | 9 |
-| Total Size | 388.96 KB |
+| Total Size | 388.68 KB |
 
 ### 📄 File Types Distribution
 
@@ -1582,16 +1582,16 @@ export default function TablePro({ data }) {
 ### <a id="📄-src-contexts-authcontext-jsx"></a>📄 `src/contexts/AuthContext.jsx`
 
 **File Info:**
-- **Size**: 1.63 KB
+- **Size**: 1.34 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/contexts/AuthContext.jsx`
 - **Relative Path**: `src/contexts`
 - **Created**: 2026-04-06 04:31:50 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-11 04:48:49 (America/Mexico_City / GMT-06:00)
-- **MD5**: `7f5cb5ae17cde869cdfffe8522c3ba9b`
-- **SHA256**: `7e7b6be22a39ec9652a3536a84acfc2ed31239ca1c64d687c696591c475bc540`
-- **Encoding**: UTF-8
+- **Modified**: 2026-04-11 16:52:49 (America/Mexico_City / GMT-06:00)
+- **MD5**: `656d8149f42bd9092f0164e93686f615`
+- **SHA256**: `7cab5661627f78b8a54c6b1c6557557f1f2bb50c5057b7e976ab89e1f03499cc`
+- **Encoding**: ASCII
 
 **File code content:**
 
@@ -1600,14 +1600,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "../services/supabase";
 
 const AuthContext = createContext(null);
-
-// 🔥 MAPEO REAL TEMPORAL
-const SUCURSALES = {
-  "001f2a80-af33-4d6b-898f-e411da049efb": "Taller Vallarta",
-  "acueducto": "Acueducto",
-  "camino_real": "Camino Real",
-  "mayoreo_menudeo": "Mayoreo"
-};
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -1634,16 +1626,12 @@ export function AuthProvider({ children }) {
       return;
     }
 
-    // 🔥 FIX REAL
-    const userFinal = {
+    setUser({
       ...data,
       nombre: data.nombre || data.email,
-      sucursal_nombre:
-        SUCURSALES[data.sucursal_id] ||
-        "Sucursal asignada"
-    };
+      sucursal_nombre: data.sucursal_nombre || "Sucursal",
+    });
 
-    setUser(userFinal);
     setCargando(false);
   };
 
