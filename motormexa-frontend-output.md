@@ -3,8 +3,8 @@
 ## 📊 Project Information
 
 - **Project Name**: `motormexa-frontend`
-- **Generated On**: 2026-04-11 05:06:29 (America/Mexico_City / GMT-06:00)
-- **Total Files Processed**: 59
+- **Generated On**: 2026-04-11 05:39:54 (America/Mexico_City / GMT-06:00)
+- **Total Files Processed**: 60
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
 
@@ -87,6 +87,7 @@
 ├── 📄 tsconfig.app.json (732 B)
 ├── 📄 tsconfig.json (119 B)
 ├── 📄 tsconfig.node.json (653 B)
+├── 📄 vercel.json (90 B)
 └── 📄 vite.config.ts (161 B)
 ```
 
@@ -143,6 +144,7 @@
 - [📄 tsconfig.app.json](#📄-tsconfig-app-json)
 - [📄 tsconfig.json](#📄-tsconfig-json)
 - [📄 tsconfig.node.json](#📄-tsconfig-node-json)
+- [📄 vercel.json](#📄-vercel-json)
 - [📄 vite.config.ts](#📄-vite-config-ts)
 
 ---
@@ -151,19 +153,19 @@
 
 | Metric | Count |
 |--------|-------|
-| Total Files | 59 |
+| Total Files | 60 |
 | Total Directories | 9 |
-| Text Files | 50 |
+| Text Files | 51 |
 | Binary Files | 9 |
-| Total Size | 388.79 KB |
+| Total Size | 388.88 KB |
 
 ### 📄 File Types Distribution
 
 | Extension | Count |
 |-----------|-------|
 | `.jsx` | 29 |
+| `.json` | 6 |
 | `.js` | 5 |
-| `.json` | 5 |
 | `.svg` | 4 |
 | `.css` | 3 |
 | `.ts` | 3 |
@@ -10498,6 +10500,35 @@ export default defineConfig([
   "include": ["vite.config.ts"]
 }
 
+```
+
+---
+
+### <a id="📄-vercel-json"></a>📄 `vercel.json`
+
+**File Info:**
+- **Size**: 90 B
+- **Extension**: `.json`
+- **Language**: `json`
+- **Location**: `vercel.json`
+- **Relative Path**: `root`
+- **Created**: 2026-04-11 05:39:16 (America/Mexico_City / GMT-06:00)
+- **Modified**: 2026-04-11 05:39:53 (America/Mexico_City / GMT-06:00)
+- **MD5**: `bd59cc2c5730e54196e8b92f29e3554f`
+- **SHA256**: `af5b7b55ae1cd58ffb711717bd39f12a8074de31f8ce18b2de3ac23b10f38086`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```json
+{
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
 ```
 
 ---
