@@ -12,7 +12,8 @@ export default function VentanillaDetalle() {
     const { data } = await supabase
       .from("items")
       .select("*")
-      .eq("ot", ot);
+      .eq("ot", ot)
+      .eq("sucursal_id", user?.sucursal_id);
 
     setData(data || []);
     setSeleccion([]);

@@ -3,6 +3,14 @@ import { supabase } from "../services/supabase";
 
 const AuthContext = createContext(null);
 
+// 🔥 MAPEO REAL TEMPORAL
+const SUCURSALES = {
+  "001f2a80-af33-4d6b-898f-e411da049efb": "Taller Vallarta",
+  "acueducto": "Acueducto",
+  "camino_real": "Camino Real",
+  "mayoreo_menudeo": "Mayoreo"
+};
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [cargando, setCargando] = useState(true);
@@ -22,7 +30,22 @@ export function AuthProvider({ children }) {
       .eq("auth_id", authUser.id)
       .single();
 
-    setUser(data || null);
+    if (!data) {
+      setUser(null);
+      setCargando(false);
+      return;
+    }
+
+    // 🔥 FIX REAL
+    const userFinal = {
+      ...data,
+      nombre: data.nombre || data.email,
+      sucursal_nombre:
+        SUCURSALES[data.sucursal_id] ||
+        "Sucursal asignada"
+    };
+
+    setUser(userFinal);
     setCargando(false);
   };
 

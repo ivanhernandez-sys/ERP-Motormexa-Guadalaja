@@ -1,7 +1,7 @@
 // src/App.tsx
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider, useAuth } from "./contexts/AuthContext";
-import Layout from "./components/Layout";
+import { AuthProvider, useAuth } from "./contexts/AuthContext.jsx";
+import Layout from "./components/Layout.jsx";
 
 // Pages
 import Login from "./pages/Login";

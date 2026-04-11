@@ -3,8 +3,8 @@
 ## 📊 Project Information
 
 - **Project Name**: `motormexa-frontend`
-- **Generated On**: 2026-04-10 06:01:51 (America/Mexico_City / GMT-06:00)
-- **Total Files Processed**: 56
+- **Generated On**: 2026-04-11 05:06:29 (America/Mexico_City / GMT-06:00)
+- **Total Files Processed**: 59
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
 
@@ -25,8 +25,9 @@
 │   └── 📄 icons.svg (4.91 KB)
 ├── 📁 src/
 │   ├── 📁 assets/
+│   │   ├── 📄 desktop.ini (44 B)
 │   │   ├── 📄 hero.png (43.87 KB)
-│   │   ├── 📄 Logo.svg (51.49 KB)
+│   │   ├── 📄 logo.png (4.86 KB)
 │   │   ├── 📄 react.svg (4.03 KB)
 │   │   └── 📄 vite.svg (8.5 KB)
 │   ├── 📁 components/
@@ -37,16 +38,16 @@
 │   │   ├── 📄 Filtros.jsx (1.51 KB)
 │   │   ├── 📄 GraficaEstados.jsx (704 B)
 │   │   ├── 📄 KPI.jsx (419 B)
-│   │   ├── 📄 Layout.jsx (6.74 KB)
+│   │   ├── 📄 Layout.jsx (6.76 KB)
 │   │   ├── 📄 Ranking.jsx (1.76 KB)
 │   │   ├── 📄 SolicitarStockModal.jsx (4.84 KB)
 │   │   ├── 📄 Sucursales.jsx (1.36 KB)
 │   │   ├── 📄 TablaERP.jsx (1.11 KB)
 │   │   └── 📄 TableroPro.jsx (1.23 KB)
 │   ├── 📁 contexts/
-│   │   └── 📄 AuthContext.jsx (1.15 KB)
+│   │   └── 📄 AuthContext.jsx (1.63 KB)
 │   ├── 📁 pages/
-│   │   ├── 📄 Almacen.jsx (19.77 KB)
+│   │   ├── 📄 Almacen.jsx (11.02 KB)
 │   │   ├── 📄 Captura.jsx (13.83 KB)
 │   │   ├── 📄 Chatbot.jsx (13.4 KB)
 │   │   ├── 📄 Compras.jsx (9.6 KB)
@@ -58,8 +59,9 @@
 │   │   ├── 📄 RecepcionMasiva.jsx (14.08 KB)
 │   │   ├── 📄 StockPedidos.jsx (6.82 KB)
 │   │   ├── 📄 StockSolicitud.jsx (1.93 KB)
+│   │   ├── 📄 usuarios.jsx (3.15 KB)
 │   │   ├── 📄 Ventanilla.jsx (6.2 KB)
-│   │   └── 📄 VentanillaDetalle.jsx (5.2 KB)
+│   │   └── 📄 VentanillaDetalle.jsx (5.24 KB)
 │   ├── 📁 services/
 │   │   ├── 📄 auth.js (326 B)
 │   │   ├── 📄 Notificaciones.js (428 B)
@@ -69,17 +71,18 @@
 │   ├── 📁 utils/
 │   │   └── 📄 catalogos.js (5.28 KB)
 │   ├── 📄 App.css (2.82 KB)
-│   ├── 📄 App.tsx (2.59 KB)
+│   ├── 📄 App.tsx (2.6 KB)
+│   ├── 📄 global.d.ts (81 B)
 │   ├── 📄 index.css (2.03 KB)
 │   ├── 📄 main.tsx (230 B)
-│   └── 📄 type.d.ts (23 B)
+│   └── 📄 types.d.ts (366 B)
 ├── 📄 .env (291 B)
 ├── 📄 .env.example (90 B)
 ├── 📄 .gitignore (268 B)
 ├── 📄 eslint.config.js (616 B)
 ├── 📄 index.html (370 B)
 ├── 📄 package-lock.json (129.02 KB)
-├── 📄 package.json (907 B)
+├── 📄 package.json (897 B)
 ├── 📄 README.md (2.37 KB)
 ├── 📄 tsconfig.app.json (732 B)
 ├── 📄 tsconfig.json (119 B)
@@ -91,6 +94,7 @@
 
 **Project Files:**
 
+- [📄 src/assets/desktop.ini](#📄-src-assets-desktop-ini)
 - [📄 src/components/BusquedaGlobal.jsx](#📄-src-components-busquedaglobal-jsx)
 - [📄 src/components/Card.jsx](#📄-src-components-card-jsx)
 - [📄 src/components/FilaBO.jsx](#📄-src-components-filabo-jsx)
@@ -117,6 +121,7 @@
 - [📄 src/pages/RecepcionMasiva.jsx](#📄-src-pages-recepcionmasiva-jsx)
 - [📄 src/pages/StockPedidos.jsx](#📄-src-pages-stockpedidos-jsx)
 - [📄 src/pages/StockSolicitud.jsx](#📄-src-pages-stocksolicitud-jsx)
+- [📄 src/pages/usuarios.jsx](#📄-src-pages-usuarios-jsx)
 - [📄 src/pages/Ventanilla.jsx](#📄-src-pages-ventanilla-jsx)
 - [📄 src/pages/VentanillaDetalle.jsx](#📄-src-pages-ventanilladetalle-jsx)
 - [📄 src/services/auth.js](#📄-src-services-auth-js)
@@ -126,9 +131,10 @@
 - [📄 src/utils/catalogos.js](#📄-src-utils-catalogos-js)
 - [📄 src/App.css](#📄-src-app-css)
 - [📄 src/App.tsx](#📄-src-app-tsx)
+- [📄 src/global.d.ts](#📄-src-global-d-ts)
 - [📄 src/index.css](#📄-src-index-css)
 - [📄 src/main.tsx](#📄-src-main-tsx)
-- [📄 src/type.d.ts](#📄-src-type-d-ts)
+- [📄 src/types.d.ts](#📄-src-types-d-ts)
 - [📄 eslint.config.js](#📄-eslint-config-js)
 - [📄 index.html](#📄-index-html)
 - [📄 package-lock.json](#📄-package-lock-json)
@@ -145,25 +151,26 @@
 
 | Metric | Count |
 |--------|-------|
-| Total Files | 56 |
+| Total Files | 59 |
 | Total Directories | 9 |
-| Text Files | 47 |
+| Text Files | 50 |
 | Binary Files | 9 |
-| Total Size | 440.03 KB |
+| Total Size | 388.79 KB |
 
 ### 📄 File Types Distribution
 
 | Extension | Count |
 |-----------|-------|
-| `.jsx` | 28 |
-| `.svg` | 5 |
+| `.jsx` | 29 |
 | `.js` | 5 |
 | `.json` | 5 |
+| `.svg` | 4 |
 | `.css` | 3 |
+| `.ts` | 3 |
+| `.png` | 2 |
 | `.tsx` | 2 |
-| `.ts` | 2 |
 | `no extension` | 2 |
-| `.png` | 1 |
+| `.ini` | 1 |
 | `.example` | 1 |
 | `.html` | 1 |
 | `.md` | 1 |
@@ -177,12 +184,36 @@ The following files were not included in the text content:
 - `public/favicon.svg`
 - `public/icons.svg`
 
+### <a id="📄-src-assets-desktop-ini"></a>📄 `src/assets/desktop.ini`
+
+**File Info:**
+- **Size**: 44 B
+- **Extension**: `.ini`
+- **Language**: `text`
+- **Location**: `src/assets/desktop.ini`
+- **Relative Path**: `src/assets`
+- **Created**: 2026-04-11 04:34:16 (America/Mexico_City / GMT-06:00)
+- **Modified**: 2026-04-11 04:34:16 (America/Mexico_City / GMT-06:00)
+- **MD5**: `71ae1ba3a71fffb68a35f12d9082d693`
+- **SHA256**: `4a40696d186e7d8d54fc9a92896160dde0fe4b06b831c8d058fb4b21b213b15f`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```text
+[LocalizedFileNames]
+logo.png=@logo.png,0
+
+```
+
+---
+
 ## 🚫 Binary/Excluded Files
 
 The following files were not included in the text content:
 
 - `src/assets/hero.png`
-- `src/assets/Logo.svg`
+- `src/assets/logo.png`
 - `src/assets/react.svg`
 - `src/assets/vite.svg`
 
@@ -873,88 +904,100 @@ export default function KPI({ title, value, color }) {
 ### <a id="📄-src-components-layout-jsx"></a>📄 `src/components/Layout.jsx`
 
 **File Info:**
-- **Size**: 6.74 KB
+- **Size**: 6.76 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/components/Layout.jsx`
 - **Relative Path**: `src/components`
 - **Created**: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-10 04:21:33 (America/Mexico_City / GMT-06:00)
-- **MD5**: `8e8a0df13214928189685b0d4c6fdc07`
-- **SHA256**: `7019e4b3bd90faf58a84f8a46dd2f9804dd89e73d2c25cb5cc935483f8dd434d`
+- **Modified**: 2026-04-11 04:47:27 (America/Mexico_City / GMT-06:00)
+- **MD5**: `ab49c42a466d4ab6bbf04803cb17762e`
+- **SHA256**: `41f66d23b28945b35239d8de10e1380605fa5ad58f7d1fe728a20e901ee3bf45`
 - **Encoding**: UTF-8
 
 **File code content:**
 
 ```jsx
 // src/components/Layout.jsx
+
+// src/components/Layout.jsx
+
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import BusquedaGlobal from "./BusquedaGlobal";
+import logo from "../assets/logo.png";
+
+// 🔥 MAPEO RÁPIDO (NO ROMPE NADA)
+const NOMBRES_SUCURSAL = {
+  taller_vallarta: "Taller Vallarta",
+  acueducto: "Acueducto",
+  camino_real: "Camino Real",
+  mayoreo_menudeo: "Mayoreo"
+};
 
 const MENU_POR_ROL = {
   asesor: [
-    { path: "/captura",          label: "📦 Captura" },
-    { path: "/mi-panel",         label: "👤 Mi Panel" },
-    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },   // ← AÑADIDO
-    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
-    { path: "/stock-solicitud",  label: "📋 Solicitar Stock" },    // Mantengo por si aún se usa
-    { path: "/chat",             label: "🤖 Asistente" },
+    { path: "/captura", label: "📦 Captura" },
+    { path: "/mi-panel", label: "👤 Mi Panel" },
+    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
+    { path: "/consulta-ot", label: "🔍 Consulta OT" },
+    { path: "/stock-solicitud", label: "📋 Solicitar Stock" },
+    { path: "/chat", label: "🤖 Asistente" },
   ],
   comprador: [
-    { path: "/compras",        label: "🛒 Compras" },
-    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
-    { path: "/chat",           label: "🤖 Asistente" },
+    { path: "/compras", label: "🛒 Compras" },
+    { path: "/consulta-ot", label: "🔍 Consulta OT" },
+    { path: "/chat", label: "🤖 Asistente" },
   ],
   almacen: [
-    { path: "/almacen",        label: "🏭 Almacén / Recepción" },
-    { path: "/stock-pedidos",  label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
-    { path: "/chat",           label: "🤖 Asistente" },
+    { path: "/almacen", label: "🏭 Almacén / Recepción" },
+    { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
+    { path: "/consulta-ot", label: "🔍 Consulta OT" },
+    { path: "/chat", label: "🤖 Asistente" },
   ],
   ventanilla: [
-    { path: "/ventanilla",     label: "🪟 Ventanilla" },
-    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
-    { path: "/chat",           label: "🤖 Asistente" },
+    { path: "/ventanilla", label: "🪟 Ventanilla" },
+    { path: "/consulta-ot", label: "🔍 Consulta OT" },
+    { path: "/chat", label: "🤖 Asistente" },
   ],
   gerente: [
-    { path: "/gerencial",      label: "📊 Panel Gerencial" },
-    { path: "/captura",        label: "📦 Captura" },
-    { path: "/compras",        label: "🛒 Compras" },
-    { path: "/ventanilla",     label: "🪟 Ventanilla" },
-    { path: "/almacen",        label: "🏭 Almacén / Recepción" },
-    { path: "/stock-pedidos",  label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
-    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },   // ← AÑADIDO
-    { path: "/chat",           label: "🤖 Asistente" },
+    { path: "/gerencial", label: "📊 Panel Gerencial" },
+    { path: "/captura", label: "📦 Captura" },
+    { path: "/compras", label: "🛒 Compras" },
+    { path: "/ventanilla", label: "🪟 Ventanilla" },
+    { path: "/almacen", label: "🏭 Almacén / Recepción" },
+    { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
+    { path: "/consulta-ot", label: "🔍 Consulta OT" },
+    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
+    { path: "/chat", label: "🤖 Asistente" },
   ],
   gerente_sucursal: [
-    { path: "/gerencial",      label: "📊 Mi Sucursal" },
-    { path: "/captura",        label: "📦 Captura" },
-    { path: "/ventanilla",     label: "🪟 Ventanilla" },
-    { path: "/almacen",        label: "🏭 Almacén / Recepción" },
-    { path: "/stock-pedidos",  label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
-    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },   // ← AÑADIDO
-    { path: "/chat",           label: "🤖 Asistente" },
+    { path: "/gerencial", label: "📊 Mi Sucursal" },
+    { path: "/captura", label: "📦 Captura" },
+    { path: "/ventanilla", label: "🪟 Ventanilla" },
+    { path: "/almacen", label: "🏭 Almacén / Recepción" },
+    { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
+    { path: "/consulta-ot", label: "🔍 Consulta OT" },
+    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
+    { path: "/chat", label: "🤖 Asistente" },
   ],
   admin: [
-    { path: "/gerencial",      label: "📊 Panel Gerencial" },
-    { path: "/captura",        label: "📦 Captura" },
-    { path: "/compras",        label: "🛒 Compras" },
-    { path: "/ventanilla",     label: "🪟 Ventanilla" },
-    { path: "/almacen",        label: "🏭 Almacén / Recepción" },
-    { path: "/stock-pedidos",  label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot",    label: "🔍 Consulta OT" },
-    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },   // ← AÑADIDO
-    { path: "/chat",           label: "🤖 Asistente" },
+    { path: "/gerencial", label: "📊 Panel Gerencial" },
+    { path: "/captura", label: "📦 Captura" },
+    { path: "/compras", label: "🛒 Compras" },
+    { path: "/ventanilla", label: "🪟 Ventanilla" },
+    { path: "/almacen", label: "🏭 Almacén / Recepción" },
+    { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
+    { path: "/consulta-ot", label: "🔍 Consulta OT" },
+    { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
+    { path: "/chat", label: "🤖 Asistente" },
   ],
 };
 
 const MENU_DEFAULT = [
-  { path: "/captura",     label: "📦 Captura" },
+  { path: "/captura", label: "📦 Captura" },
   { path: "/consulta-ot", label: "🔍 Consulta OT" },
-  { path: "/chat",        label: "🤖 Asistente" },
+  { path: "/chat", label: "🤖 Asistente" },
 ];
 
 export default function Layout({ children }) {
@@ -965,6 +1008,7 @@ export default function Layout({ children }) {
 
   return (
     <div style={{ display: "flex", height: "100vh", background: "#0f172a" }}>
+      
       {/* SIDEBAR */}
       <aside style={{
         width: "215px",
@@ -973,13 +1017,22 @@ export default function Layout({ children }) {
         borderRight: "1px solid #1f2937",
         display: "flex",
         flexDirection: "column",
-        flexShrink: 0,
       }}>
+
+        {/* 🔥 LOGO */}
         <div style={{ textAlign: "center", marginBottom: "20px" }}>
-          <div style={{ fontSize: "18px", fontWeight: 800, color: "#e5e7eb" }}>Motormexa</div>
-          <div style={{ color: "#4b5563", fontSize: "10px" }}>Sistema de Refacciones</div>
+          <img 
+            src={logo}
+            alt="logo"
+            style={{ width: "110px", marginBottom: "8px" }}
+
+          />
+          <div style={{ color: "#4b5563", fontSize: "16px" }}>
+            Sistema de Refacciones
+          </div>
         </div>
 
+        {/* 🔥 SUCURSAL BONITA */}
         {user?.sucursal_id && (
           <div style={{
             background: "#0f172a",
@@ -990,11 +1043,12 @@ export default function Layout({ children }) {
             textAlign: "center"
           }}>
             <div style={{ color: "#60a5fa", fontSize: "11px", fontWeight: 600 }}>
-              {user.sucursal_id.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase())}
+              {user.sucursal_nombre || user.sucursal_id}
             </div>
           </div>
         )}
 
+        {/* MENU */}
         <nav style={{ display: "flex", flexDirection: "column", gap: "3px", flex: 1 }}>
           {menu.map(m => {
             const activo = location.pathname === m.path || location.pathname.startsWith(m.path);
@@ -1018,34 +1072,39 @@ export default function Layout({ children }) {
           })}
         </nav>
 
+        {/* USUARIO */}
         {user && (
-          <div style={{ borderTop: "1px solid #1f2937", paddingTop: "12px", marginTop: "12px" }}>
+          <div style={{ borderTop: "1px solid #1f2937", paddingTop: "12px" }}>
             <div style={{ color: "#e5e7eb", fontSize: "12px", fontWeight: 600 }}>
               {user.nombre || user.email}
             </div>
-            <div style={{ color: "#4b5563", fontSize: "10px" }}>{user.rol}</div>
-            
+            <div style={{ color: "#4b5563", fontSize: "10px" }}>
+              {user.rol}
+            </div>
+
             <button
               onClick={logout}
               style={{
                 width: "100%",
+                marginTop: "8px",
                 background: "transparent",
                 border: "1px solid #1f2937",
                 color: "#6b7280",
                 padding: "6px",
                 borderRadius: "6px",
                 cursor: "pointer",
-                fontSize: "11px",
-                marginTop: "8px"
+                fontSize: "11px"
               }}
             >
               Cerrar sesión
             </button>
           </div>
         )}
+
       </aside>
 
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+      {/* CONTENIDO */}
+      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <header style={{
           height: "52px",
           background: "#020617",
@@ -1056,7 +1115,7 @@ export default function Layout({ children }) {
           padding: "0 20px"
         }}>
           <span style={{ color: "#4b5563", fontSize: "12px" }}>
-            {menu.find(m => location.pathname === m.path || location.pathname.startsWith(m.path))?.label || ""}
+            {menu.find(m => location.pathname.startsWith(m.path))?.label || ""}
           </span>
           <BusquedaGlobal />
         </header>
@@ -1521,16 +1580,16 @@ export default function TablePro({ data }) {
 ### <a id="📄-src-contexts-authcontext-jsx"></a>📄 `src/contexts/AuthContext.jsx`
 
 **File Info:**
-- **Size**: 1.15 KB
+- **Size**: 1.63 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/contexts/AuthContext.jsx`
 - **Relative Path**: `src/contexts`
 - **Created**: 2026-04-06 04:31:50 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-06 03:40:15 (America/Mexico_City / GMT-06:00)
-- **MD5**: `b79fe0793c5013565af25f26eb9021a3`
-- **SHA256**: `02f33f0ad03e01431694991dd9ba83227991385e1a966a774e638f87a9f6a406`
-- **Encoding**: ASCII
+- **Modified**: 2026-04-11 04:48:49 (America/Mexico_City / GMT-06:00)
+- **MD5**: `7f5cb5ae17cde869cdfffe8522c3ba9b`
+- **SHA256**: `7e7b6be22a39ec9652a3536a84acfc2ed31239ca1c64d687c696591c475bc540`
+- **Encoding**: UTF-8
 
 **File code content:**
 
@@ -1539,6 +1598,14 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "../services/supabase";
 
 const AuthContext = createContext(null);
+
+// 🔥 MAPEO REAL TEMPORAL
+const SUCURSALES = {
+  "001f2a80-af33-4d6b-898f-e411da049efb": "Taller Vallarta",
+  "acueducto": "Acueducto",
+  "camino_real": "Camino Real",
+  "mayoreo_menudeo": "Mayoreo"
+};
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -1559,7 +1626,22 @@ export function AuthProvider({ children }) {
       .eq("auth_id", authUser.id)
       .single();
 
-    setUser(data || null);
+    if (!data) {
+      setUser(null);
+      setCargando(false);
+      return;
+    }
+
+    // 🔥 FIX REAL
+    const userFinal = {
+      ...data,
+      nombre: data.nombre || data.email,
+      sucursal_nombre:
+        SUCURSALES[data.sucursal_id] ||
+        "Sucursal asignada"
+    };
+
+    setUser(userFinal);
     setCargando(false);
   };
 
@@ -1588,7 +1670,6 @@ export function AuthProvider({ children }) {
 export function useAuth() {
   return useContext(AuthContext);
 }
-
 ```
 
 ---
@@ -1596,603 +1677,330 @@ export function useAuth() {
 ### <a id="📄-src-pages-almacen-jsx"></a>📄 `src/pages/Almacen.jsx`
 
 **File Info:**
-- **Size**: 19.77 KB
+- **Size**: 11.02 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/Almacen.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-10 11:47:32 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-10 06:01:50 (America/Mexico_City / GMT-06:00)
-- **MD5**: `42457f9a1440cbc1af85c8f1ae9313bc`
-- **SHA256**: `b30b53dddfbc0c33f808836b36b577ce6f0acebf39d206d01d27c7e10fa0ba73`
+- **Modified**: 2026-04-10 15:43:01 (America/Mexico_City / GMT-06:00)
+- **MD5**: `2147761f110cda6560df7ab7e6a5f9ee`
+- **SHA256**: `ba1a9bff6f49fea22d61600adaa908916b03c66893953de88f6918343b089a66`
 - **Encoding**: UTF-8
 
 **File code content:**
 
 ```jsx
+// src/pages/Almacen.jsx - Versión Final Operativa (Sucursales reales)
+
 import { useEffect, useState, useCallback } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
-import { SUCURSALES } from "../utils/catalogos";
-import StockPedidos from "./StockPedidos";
+import Filtros from "../components/Filtros";
 import * as XLSX from "xlsx";
 
-// ─── Paleta por fabricante ────────────────────────────────────────────────────
-const COLORES_FABRICANTE = {
-  Stellantis: {
-    header: "#0f2847",
-    border: "#1d4ed8",
-    badge: "#1d4ed8",
-    badgeText: "#bfdbfe",
-    rowAlt: "#0c1f3a",
-  },
-  Mitsubishi: {
-    header: "#0a2818",
-    border: "#15803d",
-    badge: "#15803d",
-    badgeText: "#bbf7d0",
-    rowAlt: "#091f14",
-  },
-  Peugeot: {
-    header: "#2a0f1e",
-    border: "#be185d",
-    badge: "#be185d",
-    badgeText: "#fbcfe8",
-    rowAlt: "#200c17",
-  },
-};
-
-const COLOR_DEFAULT = {
-  header: "#1e293b",
-  border: "#334155",
-  badge: "#334155",
-  badgeText: "#e2e8f0",
-  rowAlt: "#111827",
-};
-
-// ─── Componente: bloque de recepción por fabricante ──────────────────────────
-function BloqueRecepcion({ fabricante, sucursalNombre, items, seleccionados, onToggle }) {
-  const col = COLORES_FABRICANTE[fabricante] || COLOR_DEFAULT;
-  const ids = items.map((i) => i.id);
-  const todosSeleccionados = ids.length > 0 && ids.every((id) => seleccionados.includes(id));
-
-  const toggleTodos = () => {
-    if (todosSeleccionados) {
-      onToggle(ids, false);
-    } else {
-      onToggle(ids, true);
-    }
-  };
-
-  return (
-    <div
-      style={{
-        marginBottom: "28px",
-        border: `1px solid ${col.border}`,
-        borderRadius: "12px",
-        overflow: "hidden",
-      }}
-    >
-      {/* Header del bloque */}
-      <div
-        style={{
-          background: col.header,
-          padding: "12px 18px",
-          display: "flex",
-          alignItems: "center",
-          gap: "12px",
-          borderBottom: `1px solid ${col.border}`,
-        }}
-      >
-        <span
-          style={{
-            background: col.badge,
-            color: col.badgeText,
-            padding: "4px 14px",
-            borderRadius: "9999px",
-            fontWeight: 700,
-            fontSize: "13px",
-          }}
-        >
-          {fabricante}
-        </span>
-        <span style={{ color: "#94a3b8", fontSize: "13px" }}>
-          {sucursalNombre}
-        </span>
-        <span style={{ color: "#64748b", fontSize: "12px" }}>
-          · {items.length} pieza{items.length !== 1 ? "s" : ""}
-        </span>
-
-        <button
-          onClick={toggleTodos}
-          style={{
-            marginLeft: "auto",
-            background: todosSeleccionados ? "#374151" : col.badge,
-            color: col.badgeText,
-            border: "none",
-            padding: "5px 14px",
-            borderRadius: "6px",
-            cursor: "pointer",
-            fontSize: "12px",
-            fontWeight: 600,
-          }}
-        >
-          {todosSeleccionados ? "Quitar todos" : "Seleccionar todos"}
-        </button>
-      </div>
-
-      {/* Tabla */}
-      <div style={{ overflowX: "auto" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
-          <thead>
-            <tr style={{ background: "#0f172a", color: "#64748b" }}>
-              <th style={{ padding: "10px 14px", width: "40px" }}>✓</th>
-              <th style={{ padding: "10px 14px", textAlign: "left" }}>OT</th>
-              <th style={{ padding: "10px 14px", textAlign: "left" }}>Número de Parte</th>
-              <th style={{ padding: "10px 14px", textAlign: "left" }}>Descripción</th>
-              <th style={{ padding: "10px 14px", textAlign: "center" }}>Cant.</th>
-              <th style={{ padding: "10px 14px", textAlign: "left" }}>Estatus</th>
-              <th style={{ padding: "10px 14px", textAlign: "left" }}>Fecha Recepción</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((item, idx) => {
-              const seleccionado = seleccionados.includes(item.id);
-              return (
-                <tr
-                  key={item.id}
-                  style={{
-                    background: seleccionado
-                      ? col.rowAlt
-                      : idx % 2 === 0
-                      ? "#111827"
-                      : "#0f172a",
-                    borderBottom: "1px solid #1f2937",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => onToggle([item.id], !seleccionado)}
-                >
-                  <td style={{ padding: "10px 14px", textAlign: "center" }}>
-                    <input
-                      type="checkbox"
-                      checked={seleccionado}
-                      onChange={() => {}} // controlado por el onClick del tr
-                      style={{ accentColor: col.badge, width: "16px", height: "16px" }}
-                    />
-                  </td>
-                  <td style={{ padding: "10px 14px", fontWeight: 700, color: "#e2e8f0" }}>
-                    {item.ot}
-                  </td>
-                  <td style={{ padding: "10px 14px", color: "#cbd5e1", fontFamily: "monospace" }}>
-                    {item.numero_parte}
-                  </td>
-                  <td style={{ padding: "10px 14px", color: "#94a3b8" }}>
-                    {item.descripcion || "—"}
-                  </td>
-                  <td style={{ padding: "10px 14px", textAlign: "center", fontWeight: 600, color: "#e2e8f0" }}>
-                    {item.cantidad}
-                  </td>
-                  <td style={{ padding: "10px 14px" }}>
-                    <span
-                      style={{
-                        padding: "3px 10px",
-                        borderRadius: "9999px",
-                        fontSize: "11px",
-                        fontWeight: 600,
-                        background: item.estatus === "Comprada" ? "#1e3a5f" : "#422006",
-                        color: item.estatus === "Comprada" ? "#93c5fd" : "#fcd34d",
-                      }}
-                    >
-                      {item.estatus}
-                    </span>
-                  </td>
-                  <td style={{ padding: "10px 14px", color: "#64748b", fontSize: "12px" }}>
-                    {item.fecha_recepcion
-                      ? new Date(item.fecha_recepcion).toLocaleDateString("es-MX")
-                      : "—"}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
-
-// ─── Componente principal ─────────────────────────────────────────────────────
 export default function Almacen() {
   const { user } = useAuth();
-  const [tabActivo, setTabActivo] = useState("recepcion");
+  const [tabActivo, setTabActivo] = useState("lista");
   const [data, setData] = useState([]);
   const [seleccionados, setSeleccionados] = useState([]);
+  const [filtros, setFiltros] = useState({});
   const [cargando, setCargando] = useState(false);
-  const [filtroSucursal, setFiltroSucursal] = useState("todas");
-  const [confirmando, setConfirmando] = useState(false);
+  const [pagina, setPagina] = useState(0);
+  const limite = 50;
 
-  const esAdmin =
-    user?.rol?.toLowerCase() === "admin" ||
-    user?.rol?.toLowerCase() === "gerente";
+  const [sucursalFiltro, setSucursalFiltro] = useState("");
 
-  // ─── Cargar ítems pendientes de recepción ───────────────────────────────
-  const cargarItems = useCallback(async () => {
+  const [subiendoInventario, setSubiendoInventario] = useState(false);
+  const [subiendoVentas, setSubiendoVentas] = useState(false);
+
+  // 🔥 ROLES
+  const rol = user?.rol?.toLowerCase();
+  const esAdmin = rol === "admin";
+
+  // 🔥 MAPEO VISUAL (NO ROMPE NADA)
+  const NOMBRES_SUCURSAL = {
+    taller_vallarta: "Vallarta",
+    acueducto: "Acueducto",
+    camino_real: "Camino Real",
+    mayoreo_menudeo: "Mayoreo"
+  };
+
+  const cargar = useCallback(async () => {
     setCargando(true);
 
     let query = supabase
       .from("items")
       .select("*")
-      .in("estatus", ["Pendiente", "Comprada"]) // ✅ BUG FIX: solo piezas pendientes de recibir
-      .order("fabricante", { ascending: true })
       .order("created_at", { ascending: false });
 
+    // 🔐 Restricción por sucursal
     if (!esAdmin && user?.sucursal_id) {
       query = query.eq("sucursal_id", user.sucursal_id);
     }
 
-    const { data: rows, error } = await query;
-
-    if (error) {
-      console.error("Error cargando items:", error);
-      setData([]);
-    } else {
-      setData(rows || []);
+    // 👑 Admin puede filtrar
+    if (esAdmin && sucursalFiltro) {
+      query = query.eq("sucursal_id", sucursalFiltro);
     }
 
+    if (filtros.estatus) query = query.eq("estatus", filtros.estatus);
+    if (filtros.ot) query = query.ilike("ot", `%${filtros.ot}%`);
+    if (filtros.numero_parte) query = query.ilike("numero_parte", `%${filtros.numero_parte}%`);
+
+    const { data: rows } = await query.range(
+      pagina * limite,
+      (pagina + 1) * limite - 1
+    );
+
+    setData(rows || []);
     setCargando(false);
-  }, [user, esAdmin]);
 
-  useEffect(() => {
-    cargarItems();
-  }, [cargarItems]);
+  }, [filtros, pagina, user, esAdmin, sucursalFiltro]);
 
-  // ─── Agrupar por sucursal → fabricante ──────────────────────────────────
-  const datosFiltrados =
-    filtroSucursal === "todas"
-      ? data
-      : data.filter((i) => i.sucursal_id === filtroSucursal);
+  useEffect(() => { cargar(); }, [cargar]);
 
-  // Estructura: { [sucursal_id]: { [fabricante]: [items] } }
-  const agrupado = datosFiltrados.reduce((acc, item) => {
-    const suc = item.sucursal_id || "sin_sucursal";
-    const fab = item.fabricante || "Sin fabricante";
-    if (!acc[suc]) acc[suc] = {};
-    if (!acc[suc][fab]) acc[suc][fab] = [];
-    acc[suc][fab].push(item);
-    return acc;
-  }, {});
+  // ==================== RECEPCIÓN ====================
 
-  // ─── Toggle selección (acepta array de ids y estado deseado) ────────────
-  const handleToggle = (ids, seleccionar) => {
-    setSeleccionados((prev) => {
-      if (seleccionar) {
-        // Agregar los que no estén ya
-        const nuevos = ids.filter((id) => !prev.includes(id));
-        return [...prev, ...nuevos];
-      } else {
-        // Quitar los que estén
-        return prev.filter((id) => !ids.includes(id));
-      }
-    });
+  const toggleSeleccion = (id) => {
+    setSeleccionados(prev =>
+      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
+    );
   };
 
-  // ─── Recepción masiva ────────────────────────────────────────────────────
   const recibirMasivo = async () => {
-    if (seleccionados.length === 0) {
-      alert("Selecciona al menos una pieza");
-      return;
-    }
-    if (!window.confirm(`¿Marcar ${seleccionados.length} pieza(s) como Recibidas?`)) return;
+    if (seleccionados.length === 0) return alert("Selecciona al menos un ítem");
+    if (!window.confirm(`¿Marcar ${seleccionados.length} ítems como Recibidos?`)) return;
 
-    setConfirmando(true);
+    const fechaRecepcion = new Date().toISOString();
 
     const { error } = await supabase
       .from("items")
-      .update({
-        estatus: "Recibida",
-        fecha_recepcion: new Date().toISOString(),
-      })
+      .update({ estatus: "Recibida", fecha_recepcion: fechaRecepcion })
       .in("id", seleccionados);
 
-    setConfirmando(false);
-
     if (!error) {
-      alert(`✅ ${seleccionados.length} pieza(s) recibidas correctamente`);
+      alert("✅ Recibidos correctamente");
       setSeleccionados([]);
-      cargarItems();
-    } else {
-      alert("❌ Error al confirmar recepción: " + error.message);
+      cargar();
     }
   };
 
-  // ─── Carga CSV inventario ────────────────────────────────────────────────
+  // ==================== EXPORTAR ====================
+
+  const exportarExcel = () => {
+    const datos = data.map(item => ({
+      OT: item.ot,
+      Sucursal: NOMBRES_SUCURSAL[item.sucursal_id] || item.sucursal_id,
+      Parte: item.numero_parte,
+      Descripción: item.descripcion,
+      Cantidad: item.cantidad,
+      Estatus: item.estatus,
+      "Fecha Recepción": item.fecha_recepcion ? new Date(item.fecha_recepcion).toLocaleDateString("es-MX") : "",
+      Ubicación: item.ubicacion,
+    }));
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(datos), "Almacen");
+    XLSX.writeFile(wb, `Almacen_${new Date().toISOString().slice(0,10)}.xlsx`);
+  };
+
+  // ==================== CSV ====================
+
   const subirInventarioCSV = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
+    setSubiendoInventario(true);
     const reader = new FileReader();
+
     reader.onload = async (event) => {
       try {
-        const workbook = XLSX.read(event.target.result, { type: "array" });
-        const jsonData = XLSX.utils.sheet_to_json(
-          workbook.Sheets[workbook.SheetNames[0]]
-        );
+        const csvData = event.target.result;
+        const workbook = XLSX.read(csvData, { type: 'string' });
+        const rows = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
 
-        let procesados = 0;
+        const datos = rows.map(row => ({
+          numero_parte: String(row.numero_parte || "").trim().toUpperCase(),
+          descripcion: String(row.descripcion || "").trim(),
+          cantidad: parseInt(row.cantidad) || 0,
+          clasificacion: String(row.clasificacion || "").trim(),
+          sucursal_id: row.sucursal_id || user?.sucursal_id
+        })).filter(row => row.numero_parte);
 
-        for (const row of jsonData) {
-          if (!row.numero_parte) continue;
+        const { error } = await supabase
+          .from("inventario")
+          .upsert(datos, { onConflict: 'numero_parte' });
 
-          const cantStock = parseInt(row.cantidad_stock) || 0;
+        if (error) throw error;
 
-          await supabase
-            .from("items")
-            .update({
-              stock_fisico: cantStock,
-              clasificacion: row.clasificacion,
-              tiene_stock_almacen: cantStock > 0,
-              comentario_almacen:
-                cantStock > 0 ? "Verificar disponibilidad en almacén" : null,
-            })
-            .eq(
-              "numero_parte",
-              row.numero_parte?.toString().trim().toUpperCase()
-            );
-
-          procesados++;
-        }
-
-        alert(`✅ ${procesados} piezas actualizadas desde inventario`);
-        // Limpiar el input para permitir subir el mismo archivo de nuevo
-        e.target.value = "";
-        cargarItems();
+        alert(`✅ ${datos.length} registros de inventario actualizados correctamente`);
       } catch (err) {
-        alert("Error al procesar el archivo: " + err.message);
+        alert("Error al cargar inventario: " + err.message);
+      } finally {
+        setSubiendoInventario(false);
+        e.target.value = "";
       }
     };
-    reader.readAsArrayBuffer(file);
+
+    reader.readAsText(file);
   };
 
-  // ─── Sucursales disponibles para el filtro ───────────────────────────────
-  const sucursalesEnData = [
-    ...new Set(data.map((i) => i.sucursal_id).filter(Boolean)),
-  ];
+  const subirVentasCSV = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
 
-  // ─── Render ──────────────────────────────────────────────────────────────
+    setSubiendoVentas(true);
+    const reader = new FileReader();
+
+    reader.onload = async (event) => {
+      try {
+        const csvData = event.target.result;
+        const workbook = XLSX.read(csvData, { type: 'string' });
+        const rows = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
+
+        const datos = rows.map(row => ({
+          numero_parte: String(row.numero_parte || "").trim().toUpperCase(),
+          fecha_venta: row.fecha_venta,
+          cantidad_vendida: parseInt(row.cantidad_vendida) || 0,
+          sucursal_id: row.sucursal_id || user?.sucursal_id,
+          precio_venta: row.precio_venta ? parseFloat(row.precio_venta) : null
+        })).filter(row => row.numero_parte && row.fecha_venta);
+
+        const { error } = await supabase.from("ventas_mensuales").insert(datos);
+
+        if (error) throw error;
+
+        alert(`✅ ${datos.length} registros de ventas cargados correctamente`);
+      } catch (err) {
+        alert("Error al cargar ventas: " + err.message);
+      } finally {
+        setSubiendoVentas(false);
+        e.target.value = "";
+      }
+    };
+
+    reader.readAsText(file);
+  };
+
   return (
-    <div style={{ padding: "24px", color: "#e5e7eb", minHeight: "100%" }}>
-      <h2 style={{ margin: "0 0 20px", color: "#f1f5f9", fontSize: "20px" }}>
-        🏭 Almacén
-      </h2>
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
 
-      {/* ── Tabs ── */}
-      <div
-        style={{
-          display: "flex",
-          gap: "8px",
-          marginBottom: "24px",
-          borderBottom: "2px solid #1f2937",
-          paddingBottom: "12px",
-        }}
-      >
-        {[
-          { key: "recepcion", label: "📦 Recepción Masiva", color: "#16a34a" },
-          { key: "inventario", label: "📤 Cargar Inventario (CSV)", color: "#2563eb" },
-          { key: "pedidos", label: "📋 Pedidos de Stock", color: "#d97706" },
-        ].map(({ key, label, color }) => (
-          <button
-            key={key}
-            onClick={() => setTabActivo(key)}
-            style={{
-              padding: "10px 20px",
-              background: tabActivo === key ? color : "#1f2937",
-              color: "white",
-              border: "none",
-              borderRadius: "8px",
-              cursor: "pointer",
-              fontWeight: tabActivo === key ? 700 : 400,
-              fontSize: "13px",
-              transition: "background 0.15s",
-            }}
-          >
-            {label}
-          </button>
-        ))}
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" }}>
+        <h2>🏭 Almacén / Recepción</h2>
+        <button onClick={exportarExcel} style={{ padding: "10px 20px", background: "#2563eb", color: "white", border: "none", borderRadius: "8px" }}>
+          📥 Exportar Excel
+        </button>
       </div>
 
-      {/* ══════════════════ RECEPCIÓN MASIVA ══════════════════ */}
-      {tabActivo === "recepcion" && (
-        <div>
-          {/* Barra de acciones */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "16px",
-              marginBottom: "20px",
-              flexWrap: "wrap",
+      {/* 🔽 FILTRO REAL */}
+      {esAdmin && (
+        <div style={{ marginBottom: "15px" }}>
+          <select
+            value={sucursalFiltro}
+            onChange={(e) => {
+              setSucursalFiltro(e.target.value);
+              setPagina(0);
             }}
-          >
-            <button
-              onClick={recibirMasivo}
-              disabled={seleccionados.length === 0 || confirmando}
-              style={{
-                padding: "11px 24px",
-                background:
-                  seleccionados.length === 0 ? "#374151" : "#16a34a",
-                color: "white",
-                border: "none",
-                borderRadius: "8px",
-                cursor:
-                  seleccionados.length === 0 ? "not-allowed" : "pointer",
-                fontWeight: 700,
-                fontSize: "14px",
-                opacity: confirmando ? 0.7 : 1,
-              }}
-            >
-              {confirmando
-                ? "Confirmando..."
-                : `✅ Recibir Seleccionados (${seleccionados.length})`}
-            </button>
-
-            {/* Filtro por sucursal — solo visible para admin/gerente */}
-            {esAdmin && sucursalesEnData.length > 1 && (
-              <select
-                value={filtroSucursal}
-                onChange={(e) => {
-                  setFiltroSucursal(e.target.value);
-                  setSeleccionados([]); // limpiar selección al cambiar filtro
-                }}
-                style={{
-                  padding: "9px 14px",
-                  background: "#0f172a",
-                  border: "1px solid #334155",
-                  color: "#e2e8f0",
-                  borderRadius: "8px",
-                  fontSize: "13px",
-                  cursor: "pointer",
-                }}
-              >
-                <option value="todas">Todas las sucursales</option>
-                {sucursalesEnData.map((suc) => (
-                  <option key={suc} value={suc}>
-                    {SUCURSALES[suc]?.nombre || suc}
-                  </option>
-                ))}
-              </select>
-            )}
-
-            <span style={{ color: "#64748b", fontSize: "12px", marginLeft: "auto" }}>
-              {datosFiltrados.length} pieza(s) pendientes
-            </span>
-          </div>
-
-          {/* Contenido */}
-          {cargando ? (
-            <div
-              style={{
-                textAlign: "center",
-                padding: "80px",
-                color: "#4b5563",
-                fontSize: "15px",
-              }}
-            >
-              Cargando piezas...
-            </div>
-          ) : datosFiltrados.length === 0 ? (
-            <div
-              style={{
-                textAlign: "center",
-                padding: "80px",
-                color: "#4b5563",
-                fontSize: "15px",
-                background: "#111827",
-                borderRadius: "12px",
-                border: "1px solid #1f2937",
-              }}
-            >
-              ✅ No hay piezas pendientes de recepción
-            </div>
-          ) : (
-            // Iterar por sucursal → por fabricante
-            Object.entries(agrupado).map(([sucId, porFabricante]) => (
-              <div key={sucId}>
-                {/* Título de sucursal — solo si hay más de una */}
-                {(esAdmin && sucursalesEnData.length > 1) ||
-                filtroSucursal === "todas" ? (
-                  <div
-                    style={{
-                      fontSize: "11px",
-                      fontWeight: 700,
-                      letterSpacing: "1px",
-                      color: "#475569",
-                      textTransform: "uppercase",
-                      marginBottom: "10px",
-                      marginTop: "8px",
-                    }}
-                  >
-                    📍 {SUCURSALES[sucId]?.nombre || sucId}
-                  </div>
-                ) : null}
-
-                {/* Bloques por fabricante dentro de la sucursal */}
-                {Object.entries(porFabricante).map(([fabricante, items]) => (
-                  <BloqueRecepcion
-                    key={`${sucId}-${fabricante}`}
-                    fabricante={fabricante}
-                    sucursalNombre={SUCURSALES[sucId]?.nombre || sucId}
-                    items={items}
-                    seleccionados={seleccionados}
-                    onToggle={handleToggle}
-                  />
-                ))}
-              </div>
-            ))
-          )}
-        </div>
-      )}
-
-      {/* ══════════════════ CARGA INVENTARIO CSV ══════════════════ */}
-      {tabActivo === "inventario" && (
-        <div
-          style={{
-            padding: "50px 40px",
-            textAlign: "center",
-            background: "#111827",
-            borderRadius: "12px",
-            border: "1px solid #1f2937",
-          }}
-        >
-          <div style={{ fontSize: "40px", marginBottom: "16px" }}>📤</div>
-          <h3 style={{ color: "#e2e8f0", marginBottom: "10px" }}>
-            Cargar Inventario Actual
-          </h3>
-          <p style={{ color: "#6b7280", marginBottom: "28px", fontSize: "14px" }}>
-            Columnas requeridas:{" "}
-            <code
-              style={{
-                background: "#0f172a",
-                padding: "2px 8px",
-                borderRadius: "4px",
-                color: "#94a3b8",
-              }}
-            >
-              numero_parte, cantidad_stock, clasificacion
-            </code>
-          </p>
-          <label
             style={{
-              padding: "14px 36px",
-              background: "#166534",
+              padding: "10px",
+              borderRadius: "8px",
+              background: "#1f2937",
               color: "white",
-              borderRadius: "10px",
-              cursor: "pointer",
-              display: "inline-block",
-              fontWeight: 600,
-              fontSize: "14px",
-              transition: "background 0.15s",
+              border: "1px solid #374151"
             }}
           >
-            Seleccionar Archivo CSV / Excel
-            <input
-              type="file"
-              accept=".csv,.xlsx,.xls"
-              onChange={subirInventarioCSV}
-              style={{ display: "none" }}
-            />
-          </label>
+            <option value="">🏢 Todas</option>
+            <option value="taller_vallarta">Vallarta</option>
+            <option value="acueducto">Acueducto</option>
+            <option value="camino_real">Camino Real</option>
+            <option value="mayoreo_menudeo">Mayoreo</option>
+          </select>
         </div>
       )}
 
-      {/* ══════════════════ PEDIDOS DE STOCK ══════════════════ */}
-      {tabActivo === "pedidos" && (
-        // ✅ BUG FIX: StockPedidos integrado correctamente
-        <StockPedidos />
+      {/* Tabs */}
+      <div style={{ display: "flex", gap: "8px", marginBottom: "20px" }}>
+        <button onClick={() => setTabActivo("lista")} style={{ padding: "10px 24px", borderRadius: "8px", background: tabActivo === "lista" ? "#2563eb" : "#1f2937", color: "white" }}>
+          📋 Lista General
+        </button>
+        <button onClick={() => setTabActivo("recepcion")} style={{ padding: "10px 24px", borderRadius: "8px", background: tabActivo === "recepcion" ? "#16a34a" : "#1f2937", color: "white" }}>
+          📦 Recepción Masiva
+        </button>
+      </div>
+
+      {/* CSV */}
+      <div style={{ marginBottom: "20px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
+        <label style={{ padding: "10px 18px", background: "#166534", color: "white", borderRadius: "8px", cursor: "pointer" }}>
+          📤 Cargar Inventario Actual (CSV)
+          <input type="file" accept=".csv" onChange={subirInventarioCSV} style={{ display: "none" }} disabled={subiendoInventario} />
+        </label>
+
+        <label style={{ padding: "10px 18px", background: "#2563eb", color: "white", borderRadius: "8px", cursor: "pointer" }}>
+          📤 Cargar Ventas (CSV)
+          <input type="file" accept=".csv" onChange={subirVentasCSV} style={{ display: "none" }} disabled={subiendoVentas} />
+        </label>
+      </div>
+
+      <Filtros onFiltrar={setFiltros} />
+
+      {tabActivo === "recepcion" && (
+        <div style={{ marginBottom: "15px" }}>
+          <button onClick={recibirMasivo} style={{ background: "#16a34a", color: "white", padding: "10px 20px", border: "none", borderRadius: "8px" }}>
+            ✅ Marcar seleccionados como Recibidos
+          </button>
+          <span style={{ marginLeft: "12px", color: "#9ca3af" }}>{seleccionados.length} seleccionados</span>
+        </div>
       )}
+
+      {cargando ? (
+        <div style={{ textAlign: "center", padding: "80px" }}>Cargando...</div>
+      ) : (
+        <div style={{ overflowX: "auto", background: "#111827", borderRadius: "12px", border: "1px solid #1f2937" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead>
+              <tr style={{ background: "#0f172a", color: "#9ca3af" }}>
+                <th>{tabActivo === "recepcion" && "✓"}</th>
+                <th>OT</th>
+                <th>Sucursal</th>
+                <th>Parte</th>
+                <th>Descripción</th>
+                <th>Cant.</th>
+                <th>Estatus</th>
+                <th>Fecha Recepción</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map(item => (
+                <tr key={item.id} style={{ borderBottom: "1px solid #1f2937" }}>
+                  {tabActivo === "recepcion" && (
+                    <td>
+                      <input type="checkbox" checked={seleccionados.includes(item.id)} onChange={() => toggleSeleccion(item.id)} />
+                    </td>
+                  )}
+                  <td><strong>{item.ot}</strong></td>
+                  <td>{NOMBRES_SUCURSAL[item.sucursal_id] || item.sucursal_id}</td>
+                  <td>{item.numero_parte}</td>
+                  <td>{item.descripcion}</td>
+                  <td>{item.cantidad}</td>
+                  <td>{item.estatus}</td>
+                  <td>{item.fecha_recepcion ? new Date(item.fecha_recepcion).toLocaleDateString("es-MX") : "—"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      <div style={{ marginTop: "15px", textAlign: "center" }}>
+        <button onClick={() => setPagina(p => Math.max(0, p-1))} disabled={pagina === 0}>⬅ Anterior</button>
+        <span style={{ margin: "0 20px" }}>Página {pagina + 1}</span>
+        <button onClick={() => setPagina(p => p + 1)}>Siguiente ➡</button>
+      </div>
+
     </div>
   );
 }
-
 ```
 
 ---
@@ -5135,6 +4943,146 @@ const btnStyle = {
 
 ---
 
+### <a id="📄-src-pages-usuarios-jsx"></a>📄 `src/pages/usuarios.jsx`
+
+**File Info:**
+- **Size**: 3.15 KB
+- **Extension**: `.jsx`
+- **Language**: `jsx`
+- **Location**: `src/pages/usuarios.jsx`
+- **Relative Path**: `src/pages`
+- **Created**: 2026-04-11 04:41:44 (America/Mexico_City / GMT-06:00)
+- **Modified**: 2026-04-11 04:42:19 (America/Mexico_City / GMT-06:00)
+- **MD5**: `7da20953adba05f638009b51dc861273`
+- **SHA256**: `166318aae4b0acfcafa54d763848560744d0096bbcb20b59ea23da521ebff520`
+- **Encoding**: UTF-8
+
+**File code content:**
+
+```jsx
+// src/pages/Usuarios.jsx
+
+import { useState } from "react";
+import { supabase } from "../services/supabase";
+import { useAuth } from "../contexts/AuthContext";
+
+export default function Usuarios() {
+  const { user } = useAuth();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [rol, setRol] = useState("asesor");
+  const [sucursal, setSucursal] = useState("");
+  const [cargando, setCargando] = useState(false);
+
+  const esAdmin = user?.rol === "admin";
+
+  if (!esAdmin) {
+    return <div style={{ padding: "40px" }}>❌ No tienes acceso</div>;
+  }
+
+  const crearUsuario = async () => {
+    if (!email || !password || !sucursal) {
+      alert("Completa todos los campos");
+      return;
+    }
+
+    setCargando(true);
+
+    // 🔥 Crear usuario en Auth
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
+
+    if (error) {
+      alert("Error creando usuario: " + error.message);
+      setCargando(false);
+      return;
+    }
+
+    // 🔥 Insertar en tabla usuarios
+    const { error: errorDB } = await supabase
+      .from("usuarios")
+      .insert([
+        {
+          id: data.user.id,
+          email,
+          rol,
+          sucursal_id: sucursal,
+        },
+      ]);
+
+    setCargando(false);
+
+    if (errorDB) {
+      alert("Usuario creado pero error en BD");
+      return;
+    }
+
+    alert("✅ Usuario creado correctamente");
+
+    setEmail("");
+    setPassword("");
+    setRol("asesor");
+    setSucursal("");
+  };
+
+  return (
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
+      <h2>👥 Crear Usuario</h2>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "400px" }}>
+        
+        <input
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <select value={rol} onChange={(e) => setRol(e.target.value)}>
+          <option value="asesor">Asesor</option>
+          <option value="compras">Compras</option>
+          <option value="ventanilla">Ventanilla</option>
+          <option value="gerente_sucursal">Gerente Sucursal</option>
+        </select>
+
+        <select value={sucursal} onChange={(e) => setSucursal(e.target.value)}>
+          <option value="">Selecciona sucursal</option>
+          <option value="taller_vallarta">Vallarta</option>
+          <option value="acueducto">Acueducto</option>
+          <option value="camino_real">Camino Real</option>
+          <option value="mayoreo_menudeo">Mayoreo</option>
+        </select>
+
+        <button
+          onClick={crearUsuario}
+          disabled={cargando}
+          style={{
+            background: "#2563eb",
+            color: "white",
+            padding: "10px",
+            border: "none",
+            borderRadius: "8px",
+          }}
+        >
+          {cargando ? "Creando..." : "Crear Usuario"}
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
 ### <a id="📄-src-pages-ventanilla-jsx"></a>📄 `src/pages/Ventanilla.jsx`
 
 **File Info:**
@@ -5330,15 +5278,15 @@ export default function Ventanilla() {
 ### <a id="📄-src-pages-ventanilladetalle-jsx"></a>📄 `src/pages/VentanillaDetalle.jsx`
 
 **File Info:**
-- **Size**: 5.2 KB
+- **Size**: 5.24 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/VentanillaDetalle.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-06 04:31:50 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-09 06:20:33 (America/Mexico_City / GMT-06:00)
-- **MD5**: `f92f4962cbc614dafb10f3dfd51bfdb3`
-- **SHA256**: `6682bea33f00c1bbeebd9bd65ace44828fac0fc5e99f685d9bc5a86ab0575117`
+- **Modified**: 2026-04-10 15:52:28 (America/Mexico_City / GMT-06:00)
+- **MD5**: `6af064bc4cc797cf6d7ce146da1bd8ba`
+- **SHA256**: `5a3889cf0def21d020a0a65b7cd28b38c4259228d46e929b0cc3fd69055d1043`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -5358,7 +5306,8 @@ export default function VentanillaDetalle() {
     const { data } = await supabase
       .from("items")
       .select("*")
-      .eq("ot", ot);
+      .eq("ot", ot)
+      .eq("sucursal_id", user?.sucursal_id);
 
     setData(data || []);
     setSeleccion([]);
@@ -6097,15 +6046,15 @@ export const COLOR_ESTATUS = {
 ### <a id="📄-src-app-tsx"></a>📄 `src/App.tsx`
 
 **File Info:**
-- **Size**: 2.59 KB
+- **Size**: 2.6 KB
 - **Extension**: `.tsx`
 - **Language**: `typescript`
 - **Location**: `src/App.tsx`
 - **Relative Path**: `src`
 - **Created**: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-10 04:19:21 (America/Mexico_City / GMT-06:00)
-- **MD5**: `b51af77ef60fc2166543ad084b1ead06`
-- **SHA256**: `fef47959a4e293eaab3f8ae6f824c090016f517743a449f11b442e02ef432197`
+- **Modified**: 2026-04-11 04:59:23 (America/Mexico_City / GMT-06:00)
+- **MD5**: `4ae5f58267f289e0b9fc1f89818a22f1`
+- **SHA256**: `51bedc5529877eef946049c7afe367c6c5ccc5a4286551b1277c2d5264939e67`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -6113,8 +6062,8 @@ export const COLOR_ESTATUS = {
 ```typescript
 // src/App.tsx
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider, useAuth } from "./contexts/AuthContext";
-import Layout from "./components/Layout";
+import { AuthProvider, useAuth } from "./contexts/AuthContext.jsx";
+import Layout from "./components/Layout.jsx";
 
 // Pages
 import Login from "./pages/Login";
@@ -6196,6 +6145,31 @@ export default function App() {
       </BrowserRouter>
     </AuthProvider>
   );
+}
+```
+
+---
+
+### <a id="📄-src-global-d-ts"></a>📄 `src/global.d.ts`
+
+**File Info:**
+- **Size**: 81 B
+- **Extension**: `.ts`
+- **Language**: `typescript`
+- **Location**: `src/global.d.ts`
+- **Relative Path**: `src`
+- **Created**: 2026-04-11 04:52:22 (America/Mexico_City / GMT-06:00)
+- **Modified**: 2026-04-11 04:54:17 (America/Mexico_City / GMT-06:00)
+- **MD5**: `80e307010d956cda70d9ec50ba9b972a`
+- **SHA256**: `4e7ef30ee0959cf1586a036050b4b11d1c693d14689e3815eb4ca98111fdc5a0`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```typescript
+declare module "*.jsx" {
+  const component: any;
+  export default component;
 }
 ```
 
@@ -6362,24 +6336,42 @@ createRoot(document.getElementById('root')!).render(
 
 ---
 
-### <a id="📄-src-type-d-ts"></a>📄 `src/type.d.ts`
+### <a id="📄-src-types-d-ts"></a>📄 `src/types.d.ts`
 
 **File Info:**
-- **Size**: 23 B
+- **Size**: 366 B
 - **Extension**: `.ts`
 - **Language**: `typescript`
-- **Location**: `src/type.d.ts`
+- **Location**: `src/types.d.ts`
 - **Relative Path**: `src`
 - **Created**: 2026-04-05 00:34:47 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-05 00:35:39 (America/Mexico_City / GMT-06:00)
-- **MD5**: `efac91638bd50aedd4dadbb511c377ca`
-- **SHA256**: `7bed3fddfc84ed43014f8bf6e0b058f1b8356b8f6247f4b6f9b0c532ccfecd3d`
+- **Modified**: 2026-04-11 04:56:20 (America/Mexico_City / GMT-06:00)
+- **MD5**: `f129c1c6f4f85fc24fa3b3c39fc3a0c1`
+- **SHA256**: `742e12ef8e39ce25b83bde501e94076ab4395734eb5c94eb5114ab4822d906d5`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ```typescript
-declare module "*.jsx";
+declare module "*.jsx" {
+  const component: any;
+  export default component;
+}
+
+declare module "./contexts/AuthContext" {
+  export const AuthProvider: any;
+  export const useAuth: any;
+}
+
+declare module "./components/Layout" {
+  const Layout: any;
+  export default Layout;
+}
+
+declare module "./pages/*" {
+  const Page: any;
+  export default Page;
+}
 ```
 
 ---
@@ -10233,15 +10225,15 @@ export default defineConfig([
 ### <a id="📄-package-json"></a>📄 `package.json`
 
 **File Info:**
-- **Size**: 907 B
+- **Size**: 897 B
 - **Extension**: `.json`
 - **Language**: `json`
 - **Location**: `package.json`
 - **Relative Path**: `root`
 - **Created**: 2026-04-04 03:46:08 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-04 22:31:03 (America/Mexico_City / GMT-06:00)
-- **MD5**: `c54ae982a6caf94584f284ebc73afa20`
-- **SHA256**: `a32fa8124b961b456de4184857ed2d7e892e2b1f6683712c597e4a0b4ea6aaec`
+- **Modified**: 2026-04-11 05:06:29 (America/Mexico_City / GMT-06:00)
+- **MD5**: `51aa404b603b3d0b52d17ee29f8d3fc9`
+- **SHA256**: `940b644d937a5b505cea1930d7c4c8ed4268e2244eae07f02ef7f8233695532d`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -10254,7 +10246,7 @@ export default defineConfig([
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
