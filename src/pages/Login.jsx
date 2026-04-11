@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { supabase } from "../services/supabase";
+import { useNavigate } from "react-router-dom"; // ✅ FIX
 
 export default function Login() {
+  const navigate = useNavigate(); // ✅ FIX
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,14 +31,11 @@ export default function Login() {
     if (error) {
       setMensaje("Credenciales incorrectas. Verifica tu correo y contraseña.");
     } else {
-      // Recargar para que AuthContext detecte el usuario
-     import { useNavigate } from "react-router-dom";
+      // ✅ SIN reload
+      navigate("/captura");
+    }
 
-     const navigate = useNavigate();
-
-     // después del login exitoso
-     navigate("/captura"); 
-         setLoading(false);
+    setLoading(false);
   };
 
   // ====================== RESET PASSWORD ======================
@@ -63,6 +63,7 @@ export default function Login() {
         setMensaje("");
       }, 4500);
     }
+
     setLoading(false);
   };
 

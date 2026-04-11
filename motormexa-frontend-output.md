@@ -3,7 +3,7 @@
 ## 📊 Project Information
 
 - **Project Name**: `motormexa-frontend`
-- **Generated On**: 2026-04-11 05:48:39 (America/Mexico_City / GMT-06:00)
+- **Generated On**: 2026-04-11 16:00:42 (America/Mexico_City / GMT-06:00)
 - **Total Files Processed**: 60
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
@@ -52,7 +52,7 @@
 │   │   ├── 📄 Chatbot.jsx (13.4 KB)
 │   │   ├── 📄 Compras.jsx (9.6 KB)
 │   │   ├── 📄 ConsultaOT.jsx (11.86 KB)
-│   │   ├── 📄 Login.jsx (6.65 KB)
+│   │   ├── 📄 Login.jsx (6.6 KB)
 │   │   ├── 📄 MisCotizaciones.jsx (5.8 KB)
 │   │   ├── 📄 PanelAsesor.jsx (8.25 KB)
 │   │   ├── 📄 PanelGerencial.jsx (10.2 KB)
@@ -157,7 +157,7 @@
 | Total Directories | 9 |
 | Text Files | 51 |
 | Binary Files | 9 |
-| Total Size | 389.01 KB |
+| Total Size | 388.96 KB |
 
 ### 📄 File Types Distribution
 
@@ -3385,15 +3385,15 @@ const btnCopiar = {
 ### <a id="📄-src-pages-login-jsx"></a>📄 `src/pages/Login.jsx`
 
 **File Info:**
-- **Size**: 6.65 KB
+- **Size**: 6.6 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/Login.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-04 07:56:23 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-11 05:48:38 (America/Mexico_City / GMT-06:00)
-- **MD5**: `587ac3dd452fa792870e6bbb640cdb55`
-- **SHA256**: `21c1353468083de471548cb5daa1b1ff583f2dcd9c1e46dd6969eea3a5b569fc`
+- **Modified**: 2026-04-11 16:00:42 (America/Mexico_City / GMT-06:00)
+- **MD5**: `9392b76d936550772542272ad9718ef5`
+- **SHA256**: `e2a26120318dfabd719936389a608652d68d0d539486a79c9d97aa57c62475f5`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -3401,8 +3401,11 @@ const btnCopiar = {
 ```jsx
 import { useState } from "react";
 import { supabase } from "../services/supabase";
+import { useNavigate } from "react-router-dom"; // ✅ FIX
 
 export default function Login() {
+  const navigate = useNavigate(); // ✅ FIX
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -3429,14 +3432,11 @@ export default function Login() {
     if (error) {
       setMensaje("Credenciales incorrectas. Verifica tu correo y contraseña.");
     } else {
-      // Recargar para que AuthContext detecte el usuario
-     import { useNavigate } from "react-router-dom";
+      // ✅ SIN reload
+      navigate("/captura");
+    }
 
-     const navigate = useNavigate();
-
-     // después del login exitoso
-     navigate("/captura"); 
-         setLoading(false);
+    setLoading(false);
   };
 
   // ====================== RESET PASSWORD ======================
@@ -3464,6 +3464,7 @@ export default function Login() {
         setMensaje("");
       }, 4500);
     }
+
     setLoading(false);
   };
 
