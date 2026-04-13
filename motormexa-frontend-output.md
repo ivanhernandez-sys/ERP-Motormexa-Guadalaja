@@ -3,7 +3,7 @@
 ## 📊 Project Information
 
 - **Project Name**: `motormexa-frontend`
-- **Generated On**: 2026-04-11 16:52:49 (America/Mexico_City / GMT-06:00)
+- **Generated On**: 2026-04-11 17:06:00 (America/Mexico_City / GMT-06:00)
 - **Total Files Processed**: 60
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
@@ -52,7 +52,7 @@
 │   │   ├── 📄 Chatbot.jsx (13.4 KB)
 │   │   ├── 📄 Compras.jsx (9.6 KB)
 │   │   ├── 📄 ConsultaOT.jsx (11.86 KB)
-│   │   ├── 📄 Login.jsx (6.6 KB)
+│   │   ├── 📄 Login.jsx (6.61 KB)
 │   │   ├── 📄 MisCotizaciones.jsx (5.8 KB)
 │   │   ├── 📄 PanelAsesor.jsx (8.25 KB)
 │   │   ├── 📄 PanelGerencial.jsx (10.2 KB)
@@ -71,7 +71,7 @@
 │   ├── 📁 utils/
 │   │   └── 📄 catalogos.js (5.28 KB)
 │   ├── 📄 App.css (2.82 KB)
-│   ├── 📄 App.tsx (2.6 KB)
+│   ├── 📄 App.tsx (2.79 KB)
 │   ├── 📄 global.d.ts (81 B)
 │   ├── 📄 index.css (2.03 KB)
 │   ├── 📄 main.tsx (230 B)
@@ -157,7 +157,7 @@
 | Total Directories | 9 |
 | Text Files | 51 |
 | Binary Files | 9 |
-| Total Size | 388.68 KB |
+| Total Size | 388.88 KB |
 
 ### 📄 File Types Distribution
 
@@ -3373,15 +3373,15 @@ const btnCopiar = {
 ### <a id="📄-src-pages-login-jsx"></a>📄 `src/pages/Login.jsx`
 
 **File Info:**
-- **Size**: 6.6 KB
+- **Size**: 6.61 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/Login.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-04 07:56:23 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-11 16:45:37 (America/Mexico_City / GMT-06:00)
-- **MD5**: `9392b76d936550772542272ad9718ef5`
-- **SHA256**: `e2a26120318dfabd719936389a608652d68d0d539486a79c9d97aa57c62475f5`
+- **Modified**: 2026-04-11 17:05:59 (America/Mexico_City / GMT-06:00)
+- **MD5**: `774dd4af0b785b886595f6f206b7e53b`
+- **SHA256**: `b45c3acb558188a39dc089cfa185941f1b4b3a650c06b5065464b4f178b3c0f2`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -3418,14 +3418,14 @@ export default function Login() {
     });
 
     if (error) {
-      setMensaje("Credenciales incorrectas. Verifica tu correo y contraseña.");
-    } else {
-      // ✅ SIN reload
-      navigate("/captura");
-    }
+    setMensaje("Credenciales incorrectas. Verifica tu correo y contraseña.");
+  } else {
+    setMensaje("Ingresando...");
 
-    setLoading(false);
-  };
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 300);
+  }
 
   // ====================== RESET PASSWORD ======================
   const handleResetPassword = async (e) => {
@@ -6041,15 +6041,15 @@ export const COLOR_ESTATUS = {
 ### <a id="📄-src-app-tsx"></a>📄 `src/App.tsx`
 
 **File Info:**
-- **Size**: 2.6 KB
+- **Size**: 2.79 KB
 - **Extension**: `.tsx`
 - **Language**: `typescript`
 - **Location**: `src/App.tsx`
 - **Relative Path**: `src`
 - **Created**: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-11 04:59:23 (America/Mexico_City / GMT-06:00)
-- **MD5**: `4ae5f58267f289e0b9fc1f89818a22f1`
-- **SHA256**: `51bedc5529877eef946049c7afe367c6c5ccc5a4286551b1277c2d5264939e67`
+- **Modified**: 2026-04-11 16:59:56 (America/Mexico_City / GMT-06:00)
+- **MD5**: `1530942a5382413779a51e0c64460fd1`
+- **SHA256**: `df02575e62770b37698b6be1e0cc4a1ca6b1934a8d1878463627b754d5dc7668`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -6125,8 +6125,20 @@ function RutasProtegidas() {
 function LoginGuard() {
   const { user, cargando } = useAuth();
   if (cargando) return null;
-  if (user) return <Navigate to="/" replace />;
-  return <Login />;
+  if (cargando) {
+  return (
+    <div style={{
+      height: "100vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "#0f172a",
+      color: "#9ca3af"
+    }}>
+      Cargando sistema...
+    </div>
+  );
+  }
 }
 
 export default function App() {

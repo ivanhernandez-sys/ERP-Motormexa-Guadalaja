@@ -29,14 +29,14 @@ export default function Login() {
     });
 
     if (error) {
-      setMensaje("Credenciales incorrectas. Verifica tu correo y contraseña.");
-    } else {
-      // ✅ SIN reload
-      navigate("/captura");
-    }
+    setMensaje("Credenciales incorrectas. Verifica tu correo y contraseña.");
+  } else {
+    setMensaje("Ingresando...");
 
-    setLoading(false);
-  };
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 300);
+  }
 
   // ====================== RESET PASSWORD ======================
   const handleResetPassword = async (e) => {

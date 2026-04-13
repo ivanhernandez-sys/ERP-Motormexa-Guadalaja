@@ -1,3 +1,4 @@
+// src/pages/Chatbot.jsx — Actualizado: coordinador (antes "asesor"), nuevo asesor_op
 import { useState, useRef, useEffect } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
@@ -35,12 +36,23 @@ function detectarIntencion(texto) {
 }
 
 async function ejecutar(intencion, user) {
+  // 🔐 Roles con restricción de alcance
+  // coordinador (antes "asesor") y asesor_op → solo sus órdenes
+  const esRestringidoPorAsesor = user?.rol === "coordinador" || user?.rol === "asesor_op";
+  const esRestringidoPorSucursal = user?.rol === "ventanilla" || user?.rol === "gerente_sucursal";
+
   switch (intencion.tipo) {
 
     case "consulta_ot": {
-      const { data } = await supabase.from("items").select("*")
+      let q = supabase.from("items").select("*")
         .or(`ot.eq.${intencion.ot},folio_cotizacion.eq.${intencion.ot}`)
         .order("created_at");
+
+      // asesor_op y coordinador solo ven sus órdenes
+      if (esRestringidoPorAsesor) q = q.eq("asesor_id", user.id);
+      if (esRestringidoPorSucursal) q = q.eq("sucursal_id", user.sucursal_id);
+
+      const { data } = await q;
       if (!data || data.length === 0)
         return `❌ No encontré refacciones para **${intencion.ot}**.`;
 
@@ -55,13 +67,14 @@ async function ejecutar(intencion, user) {
     }
 
     case "listar_estatus": {
-      let q = supabase.from("items").select("ot, descripcion, ubicacion, estatus, eta, created_at, fabricante")
+      let q = supabase.from("items")
+        .select("ot, descripcion, ubicacion, estatus, eta, created_at, fabricante")
         .eq("estatus", intencion.estatus)
         .order("created_at", { ascending: false })
         .limit(10);
-      if (user?.rol === "asesor") q = q.eq("asesor_id", user.id);
-      if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
-        q = q.eq("sucursal_id", user.sucursal_id);
+
+      if (esRestringidoPorAsesor)   q = q.eq("asesor_id", user.id);
+      if (esRestringidoPorSucursal) q = q.eq("sucursal_id", user.sucursal_id);
 
       const { data } = await q;
       if (!data || data.length === 0)
@@ -74,8 +87,8 @@ async function ejecutar(intencion, user) {
 
     case "resumen": {
       let q = supabase.from("items").select("estatus, fabricante");
-      if (user?.rol === "asesor") q = q.eq("asesor_id", user.id);
-      if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal") q = q.eq("sucursal_id", user.sucursal_id);
+      if (esRestringidoPorAsesor)   q = q.eq("asesor_id", user.id);
+      if (esRestringidoPorSucursal) q = q.eq("sucursal_id", user.sucursal_id);
 
       const { data } = await q;
       if (!data) return "No pude obtener el resumen.";
@@ -149,8 +162,11 @@ Ejemplo: Si compras hoy ${new Date().toLocaleDateString("es-MX")}, una pieza MX 
 
     case "alertas": {
       const hace3dias = new Date(Date.now() - 3 * 86400000).toISOString();
-      const { data } = await supabase.from("items").select("ot, descripcion, created_at, fabricante")
+      let q = supabase.from("items").select("ot, descripcion, created_at, fabricante")
         .eq("estatus", "Pendiente").lt("created_at", hace3dias).order("created_at").limit(10);
+      if (esRestringidoPorAsesor)   q = q.eq("asesor_id", user.id);
+      if (esRestringidoPorSucursal) q = q.eq("sucursal_id", user.sucursal_id);
+      const { data } = await q;
       if (!data || data.length === 0) return "✅ Sin alertas de retraso activas.";
       return `🚨 **Pendientes con más de 3 días** (${data.length})\n\n` +
         data.map(r => {
@@ -160,8 +176,11 @@ Ejemplo: Si compras hoy ${new Date().toLocaleDateString("es-MX")}, una pieza MX 
     }
 
     case "buscar_parte": {
-      const { data } = await supabase.from("items").select("ot, estatus, descripcion, ubicacion")
+      let q = supabase.from("items").select("ot, estatus, descripcion, ubicacion")
         .ilike("numero_parte", `%${intencion.numero_parte}%`).limit(10);
+      if (esRestringidoPorAsesor)   q = q.eq("asesor_id", user.id);
+      if (esRestringidoPorSucursal) q = q.eq("sucursal_id", user.sucursal_id);
+      const { data } = await q;
       if (!data || data.length === 0) return `❌ Sin resultados para **${intencion.numero_parte}**.`;
       return `🔍 **${intencion.numero_parte}**\n\n` +
         data.map(r => `• OT ${r.ot} — ${r.estatus} — ${r.descripcion || ""} [${r.ubicacion}]`).join("\n");

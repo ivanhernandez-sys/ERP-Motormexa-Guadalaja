@@ -1,3 +1,4 @@
+// src/pages/PanelGerencial.jsx — Actualizado: coordinador (antes "asesor")
 import { useEffect, useState, useCallback } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
@@ -50,8 +51,11 @@ export default function PanelGerencial() {
     }
     if (filtroSucursal) q = q.eq("sucursal_id", filtroSucursal);
 
-    // Filtrar por rol
-    if (user?.rol === "asesor") q = q.eq("asesor_id", user.id);
+    // 🔐 Filtrar por rol
+    // "coordinador" es el nuevo nombre del antiguo "asesor"
+    // "asesor_op" también solo ve sus propias órdenes
+    if (user?.rol === "coordinador" || user?.rol === "asesor_op")
+      q = q.eq("asesor_id", user.id);
     if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
       q = q.eq("sucursal_id", user.sucursal_id);
 
@@ -79,11 +83,9 @@ export default function PanelGerencial() {
     });
     const tiempoPromedio = cntTiempo ? (sumTiempo / cntTiempo).toFixed(1) : "—";
 
-    // Cumplimiento
     const cumplimiento = recibidas + entregadas > 0
       ? ((entregadas / (recibidas + entregadas)) * 100).toFixed(1) : 0;
 
-    // Alertas: pendientes > 3 días sin comprar
     const alertasPendientes = rows
       .filter(r => r.estatus === "Pendiente" && diasTranscurridos(r.created_at) > 3)
       .sort((a, b) => diasTranscurridos(b.created_at) - diasTranscurridos(a.created_at))
@@ -101,10 +103,10 @@ export default function PanelGerencial() {
       .map(([n, v]) => ({ nombre: n, ...v }))
       .sort((a, b) => b.entregadas - a.entregadas);
 
-    // Ranking por asesor
+    // Ranking por coordinador (antes "asesor")
     const asesorMap = {};
     rows.forEach(r => {
-      const a = r.asesor?.nombre || r.asesor_id || "Sin asesor";
+      const a = r.asesor?.nombre || r.asesor_id || "Sin coordinador";
       if (!asesorMap[a]) asesorMap[a] = { total: 0, entregadas: 0 };
       asesorMap[a].total++;
       if (r.estatus === "Entregada") asesorMap[a].entregadas++;
@@ -178,22 +180,23 @@ export default function PanelGerencial() {
         <KPICard title="Tiempo prom. captura→compra" value={`${datos.tiempoPromedio} días`} color="#60a5fa" />
         <KPICard title="% Cumplimiento entrega" value={`${datos.cumplimiento}%`} color="#4ade80" />
         <KPICard title="OTs completas" value={datos.otCompletas} color="#22c55e" />
-        <KPICard title="OTs parciales" value={datos.otParciales} color="#facc15" />
+        <KPICard title="OTs parciales/pendientes" value={datos.otParciales} color="#facc15" />
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginTop: "20px" }}>
+      {/* Rankings y alertas */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "16px", marginTop: "20px" }}>
 
-        {/* Ranking sucursales */}
+        {/* Ranking por sucursal */}
         <div style={card}>
-          <h3 style={cardTitle}>🏢 Sucursales</h3>
-          {datos.rankingSucursales.map(s => (
-            <BarraProgreso key={s.nombre} label={s.nombre} valor={s.entregadas} total={s.total} color="#2563eb" />
+          <h3 style={cardTitle}>🏢 Por Sucursal</h3>
+          {datos.rankingSucursales.map((s, i) => (
+            <BarraProgreso key={s.nombre} label={`#${i + 1} ${s.nombre}`} valor={s.entregadas} total={s.total} color="#2563eb" />
           ))}
         </div>
 
-        {/* Ranking asesores */}
+        {/* Ranking por coordinador */}
         <div style={card}>
-          <h3 style={cardTitle}>👤 Top Asesores</h3>
+          <h3 style={cardTitle}>👤 Por Coordinador</h3>
           {datos.rankingAsesores.map((a, i) => (
             <BarraProgreso key={a.nombre} label={`#${i + 1} ${a.nombre}`} valor={a.entregadas} total={a.total} color="#16a34a" />
           ))}
