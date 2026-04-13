@@ -6,26 +6,26 @@ import BusquedaGlobal from "./BusquedaGlobal";
 import logo from "../assets/logo.png";
 
 const NOMBRES_SUCURSAL = {
-  taller_vallarta: "Taller Vallarta",
-  acueducto: "Acueducto",
-  camino_real: "Camino Real",
-  mayoreo_menudeo: "Mayoreo"
+  taller_vallarta:    "Taller Vallarta",
+  taller_acueducto:   "Taller Acueducto",
+  taller_country:     "Taller Country",
+  taller_camino_real: "Taller Camino Real",
+  bodyshop:           "BodyShop",
+  mayoreo_menudeo:    "Mayoreo/Menudeo",
 };
 
-// 🔥 Etiquetas legibles por rol (para mostrar en el sidebar)
 const LABEL_ROL = {
-  coordinador: "Coordinador",
-  asesor_op: "Asesor Op.",
-  comprador: "Comprador",
-  almacen: "Almacén",
-  ventanilla: "Ventanilla",
-  gerente: "Gerente",
+  coordinador:      "Coordinador",
+  asesor_op:        "Asesor Op.",
+  comprador:        "Comprador",
+  almacen:          "Almacén",
+  ventanilla:       "Ventanilla",
+  gerente:          "Gerente",
   gerente_sucursal: "Gerente Sucursal",
-  admin: "Admin",
+  admin:            "Admin",
 };
 
 const MENU_POR_ROL = {
-  // ── COORDINADOR (antes "asesor") — acceso completo operativo ──────────────
   coordinador: [
     { path: "/captura",          label: "📦 Captura" },
     { path: "/mi-panel",         label: "👤 Mi Panel" },
@@ -34,25 +34,21 @@ const MENU_POR_ROL = {
     { path: "/stock-solicitud",  label: "📋 Solicitar Stock" },
     { path: "/chat",             label: "🤖 Asistente" },
   ],
-
-  // ── ASESOR OP. — solo lectura, solo sus órdenes ───────────────────────────
   asesor_op: [
     { path: "/mi-consulta", label: "👁️ Mis Órdenes" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
     { path: "/chat",        label: "🤖 Asistente" },
   ],
-
-  // ── Resto de roles (sin cambios) ──────────────────────────────────────────
   comprador: [
     { path: "/compras",     label: "🛒 Compras" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
     { path: "/chat",        label: "🤖 Asistente" },
   ],
   almacen: [
-    { path: "/almacen",      label: "🏭 Almacén / Recepción" },
+    { path: "/almacen",       label: "🏭 Almacén / Recepción" },
     { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot",  label: "🔍 Consulta OT" },
-    { path: "/chat",         label: "🤖 Asistente" },
+    { path: "/consulta-ot",   label: "🔍 Consulta OT" },
+    { path: "/chat",          label: "🤖 Asistente" },
   ],
   ventanilla: [
     { path: "/ventanilla",  label: "🪟 Ventanilla" },
@@ -94,6 +90,15 @@ const MENU_POR_ROL = {
   ],
 };
 
+// 🔥 Menú especial para coordinador de Mayoreo/Menudeo
+const MENU_MAYOREO = [
+  { path: "/captura",          label: "📋 Nueva Cotización" },
+  { path: "/mis-cotizaciones", label: "📊 Mis Cotizaciones" },
+  { path: "/mi-panel",         label: "👤 Mis Órdenes" },
+  { path: "/consulta-ot",      label: "🔍 Consulta" },
+  { path: "/chat",             label: "🤖 Asistente" },
+];
+
 const MENU_DEFAULT = [
   { path: "/captura",     label: "📦 Captura" },
   { path: "/consulta-ot", label: "🔍 Consulta OT" },
@@ -104,37 +109,32 @@ export default function Layout({ children }) {
   const location = useLocation();
   const { user, logout } = useAuth();
 
-  const menu = MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
-
-  // Badge especial para asesor_op
+  const esMayoreo  = user?.sucursal_id === "mayoreo_menudeo";
   const esAsesorOp = user?.rol === "asesor_op";
+
+  const menu = (user?.rol === "coordinador" && esMayoreo)
+    ? MENU_MAYOREO
+    : MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
 
   return (
     <div style={{ display: "flex", height: "100vh", background: "#0f172a" }}>
 
-      {/* SIDEBAR */}
       <aside style={{
-        width: "215px",
-        background: "#020617",
-        padding: "16px 10px",
-        borderRight: "1px solid #1f2937",
-        display: "flex",
-        flexDirection: "column",
+        width: "215px", background: "#020617",
+        padding: "16px 10px", borderRight: "1px solid #1f2937",
+        display: "flex", flexDirection: "column",
       }}>
 
-        {/* LOGO */}
         <div style={{ textAlign: "center", marginBottom: "20px" }}>
           <img src={logo} alt="logo" style={{ width: "110px", marginBottom: "8px" }} />
-          <div style={{ color: "#4b5563", fontSize: "16px" }}>
-            Sistema de Refacciones
-          </div>
+          <div style={{ color: "#4b5563", fontSize: "16px" }}>Sistema de Refacciones</div>
         </div>
 
-        {/* SUCURSAL */}
         {user?.sucursal_id && (
           <div style={{
-            background: "#0f172a", border: "1px solid #1f2937", borderRadius: "6px",
-            padding: "6px 10px", marginBottom: "14px", textAlign: "center"
+            background: "#0f172a", border: "1px solid #1f2937",
+            borderRadius: "6px", padding: "6px 10px",
+            marginBottom: "14px", textAlign: "center"
           }}>
             <div style={{ color: "#60a5fa", fontSize: "11px", fontWeight: 600 }}>
               {user.sucursal_nombre || NOMBRES_SUCURSAL[user.sucursal_id] || user.sucursal_id}
@@ -142,42 +142,43 @@ export default function Layout({ children }) {
           </div>
         )}
 
-        {/* Badge solo lectura para asesor_op */}
         {esAsesorOp && (
           <div style={{
-            background: "#1e2f1e", border: "1px solid #166534", borderRadius: "6px",
-            padding: "5px 10px", marginBottom: "12px", textAlign: "center",
-            color: "#86efac", fontSize: "11px", fontWeight: 600,
+            background: "#1e2f1e", border: "1px solid #166534",
+            borderRadius: "6px", padding: "5px 10px", marginBottom: "12px",
+            textAlign: "center", color: "#86efac", fontSize: "11px", fontWeight: 600,
           }}>
             🔒 Modo Solo Lectura
           </div>
         )}
 
-        {/* MENU */}
+        {esMayoreo && user?.rol === "coordinador" && (
+          <div style={{
+            background: "#1e3a5f", border: "1px solid #2563eb",
+            borderRadius: "6px", padding: "5px 10px", marginBottom: "12px",
+            textAlign: "center", color: "#93c5fd", fontSize: "11px", fontWeight: 600,
+          }}>
+            🏪 Mayoreo / Menudeo
+          </div>
+        )}
+
         <nav style={{ display: "flex", flexDirection: "column", gap: "3px", flex: 1 }}>
           {menu.map(m => {
             const activo = location.pathname === m.path || location.pathname.startsWith(m.path + "/");
             return (
-              <Link
-                key={m.path}
-                to={m.path}
-                style={{
-                  padding: "9px 10px",
-                  borderRadius: "8px",
-                  textDecoration: "none",
-                  fontSize: "13px",
-                  color: activo ? "#fff" : "#9ca3af",
-                  background: activo ? "#1d4ed8" : "transparent",
-                  fontWeight: activo ? 600 : 400,
-                }}
-              >
+              <Link key={m.path} to={m.path} style={{
+                padding: "9px 10px", borderRadius: "8px", textDecoration: "none",
+                fontSize: "13px",
+                color: activo ? "#fff" : "#9ca3af",
+                background: activo ? "#1d4ed8" : "transparent",
+                fontWeight: activo ? 600 : 400,
+              }}>
                 {m.label}
               </Link>
             );
           })}
         </nav>
 
-        {/* USUARIO */}
         {user && (
           <div style={{ borderTop: "1px solid #1f2937", paddingTop: "12px" }}>
             <div style={{ color: "#e5e7eb", fontSize: "12px", fontWeight: 600 }}>
@@ -186,15 +187,11 @@ export default function Layout({ children }) {
             <div style={{ color: "#4b5563", fontSize: "10px" }}>
               {LABEL_ROL[user.rol] || user.rol}
             </div>
-
-            <button
-              onClick={logout}
-              style={{
-                width: "100%", marginTop: "8px", background: "transparent",
-                border: "1px solid #1f2937", color: "#6b7280", padding: "6px",
-                borderRadius: "6px", cursor: "pointer", fontSize: "11px"
-              }}
-            >
+            <button onClick={logout} style={{
+              width: "100%", marginTop: "8px", background: "transparent",
+              border: "1px solid #1f2937", color: "#6b7280",
+              padding: "6px", borderRadius: "6px", cursor: "pointer", fontSize: "11px"
+            }}>
               Cerrar sesión
             </button>
           </div>
@@ -202,7 +199,6 @@ export default function Layout({ children }) {
 
       </aside>
 
-      {/* CONTENIDO */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <header style={{
           height: "52px", background: "#020617", borderBottom: "1px solid #1f2937",
@@ -213,10 +209,7 @@ export default function Layout({ children }) {
           </span>
           <BusquedaGlobal />
         </header>
-
-        <main style={{ flex: 1, overflowY: "auto" }}>
-          {children}
-        </main>
+        <main style={{ flex: 1, overflowY: "auto" }}>{children}</main>
       </div>
     </div>
   );
