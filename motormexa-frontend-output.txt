@@ -5,8 +5,8 @@ PROJECT EXPORT FOR LLMs
 PROJECT INFORMATION:
 --------------------------------------------------
 Project Name: motormexa-frontend
-Generated On: 2026-04-11 17:06:00 (America/Mexico_City / GMT-06:00)
-Total Files Processed: 60
+Generated On: 2026-04-14 00:18:49 (America/Mexico_City / GMT-06:00)
+Total Files Processed: 62
 Export Tool: Easy Whole Project to Single Text File for LLMs v1.1.0
 Tool Author: Jota / José Guilherme Pandolfi
 
@@ -40,7 +40,7 @@ PROJECT STRUCTURE
 │   │   ├── 📄 Filtros.jsx (1.51 KB)
 │   │   ├── 📄 GraficaEstados.jsx (704 B)
 │   │   ├── 📄 KPI.jsx (419 B)
-│   │   ├── 📄 Layout.jsx (6.76 KB)
+│   │   ├── 📄 Layout.jsx (8.26 KB)
 │   │   ├── 📄 Ranking.jsx (1.76 KB)
 │   │   ├── 📄 SolicitarStockModal.jsx (4.84 KB)
 │   │   ├── 📄 Sucursales.jsx (1.36 KB)
@@ -50,22 +50,24 @@ PROJECT STRUCTURE
 │   │   └── 📄 AuthContext.jsx (1.34 KB)
 │   ├── 📁 pages/
 │   │   ├── 📄 Almacen.jsx (11.02 KB)
-│   │   ├── 📄 Captura.jsx (13.83 KB)
-│   │   ├── 📄 Chatbot.jsx (13.4 KB)
+│   │   ├── 📄 Captura.jsx (19.69 KB)
+│   │   ├── 📄 Chatbot.jsx (14.25 KB)
 │   │   ├── 📄 Compras.jsx (9.6 KB)
 │   │   ├── 📄 ConsultaOT.jsx (11.86 KB)
 │   │   ├── 📄 Login.jsx (6.61 KB)
-│   │   ├── 📄 MisCotizaciones.jsx (5.8 KB)
+│   │   ├── 📄 MisCotizaciones.jsx (23.95 KB)
 │   │   ├── 📄 PanelAsesor.jsx (8.25 KB)
-│   │   ├── 📄 PanelGerencial.jsx (10.2 KB)
+│   │   ├── 📄 PanelAsesorOp.jsx (8.2 KB)
+│   │   ├── 📄 PanelGerencial.jsx (10.5 KB)
 │   │   ├── 📄 RecepcionMasiva.jsx (14.08 KB)
 │   │   ├── 📄 StockPedidos.jsx (6.82 KB)
 │   │   ├── 📄 StockSolicitud.jsx (1.93 KB)
-│   │   ├── 📄 usuarios.jsx (3.15 KB)
+│   │   ├── 📄 usuarios.jsx (4.43 KB)
 │   │   ├── 📄 Ventanilla.jsx (6.2 KB)
 │   │   └── 📄 VentanillaDetalle.jsx (5.24 KB)
 │   ├── 📁 services/
 │   │   ├── 📄 auth.js (326 B)
+│   │   ├── 📄 catalogos.js (5.46 KB)
 │   │   ├── 📄 Notificaciones.js (428 B)
 │   │   └── 📄 supabase.js (355 B)
 │   ├── 📁 styles/
@@ -73,7 +75,7 @@ PROJECT STRUCTURE
 │   ├── 📁 utils/
 │   │   └── 📄 catalogos.js (5.28 KB)
 │   ├── 📄 App.css (2.82 KB)
-│   ├── 📄 App.tsx (2.79 KB)
+│   ├── 📄 App.tsx (4.2 KB)
 │   ├── 📄 global.d.ts (81 B)
 │   ├── 📄 index.css (2.03 KB)
 │   ├── 📄 main.tsx (230 B)
@@ -95,17 +97,17 @@ PROJECT STRUCTURE
 ================================================================================
 PROJECT STATISTICS
 ================================================================================
-Total Files: 60
+Total Files: 62
 Total Directories: 9
-Text Files: 51
+Text Files: 53
 Binary Files: 9
-Total Size: 388.88 KB
+Total Size: 431.9 KB
 
 FILE TYPES DISTRIBUTION:
 ------------------------------
-.jsx            : 29
+.jsx            : 30
+.js             : 6
 .json           : 6
-.js             : 5
 .svg            : 4
 .css            : 3
 .ts             : 3
@@ -860,21 +862,19 @@ FILE: src/components/Layout.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 6.76 KB
+Size: 8.26 KB
 Extension: .jsx
 Language: jsx
 Location: src/components/Layout.jsx
 Relative Path: src/components
-Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-11 04:47:27 (America/Mexico_City / GMT-06:00)
-MD5: ab49c42a466d4ab6bbf04803cb17762e
-SHA256: 41f66d23b28945b35239d8de10e1380605fa5ad58f7d1fe728a20e901ee3bf45
+Created: 2026-04-14 05:36:40 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-14 00:18:49 (America/Mexico_City / GMT-06:00)
+MD5: 363f1ef48e8c6ff04f7b85cf24fc8bcc
+SHA256: 1dfa220c9737f0eff2716ce52a62707ad136750d88b709d70c470860cc7056cb
 Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
-// src/components/Layout.jsx
-
 // src/components/Layout.jsx
 
 import { Link, useLocation } from "react-router-dom";
@@ -882,175 +882,192 @@ import { useAuth } from "../contexts/AuthContext";
 import BusquedaGlobal from "./BusquedaGlobal";
 import logo from "../assets/logo.png";
 
-// 🔥 MAPEO RÁPIDO (NO ROMPE NADA)
 const NOMBRES_SUCURSAL = {
-  taller_vallarta: "Taller Vallarta",
-  acueducto: "Acueducto",
-  camino_real: "Camino Real",
-  mayoreo_menudeo: "Mayoreo"
+  taller_vallarta:    "Taller Vallarta",
+  taller_acueducto:   "Taller Acueducto",
+  taller_country:     "Taller Country",
+  taller_camino_real: "Taller Camino Real",
+  bodyshop:           "BodyShop",
+  mayoreo_menudeo:    "Mayoreo/Menudeo",
+};
+
+const LABEL_ROL = {
+  coordinador:      "Coordinador",
+  asesor_op:        "Asesor Op.",
+  comprador:        "Comprador",
+  almacen:          "Almacén",
+  ventanilla:       "Ventanilla",
+  gerente:          "Gerente",
+  gerente_sucursal: "Gerente Sucursal",
+  admin:            "Admin",
 };
 
 const MENU_POR_ROL = {
-  asesor: [
-    { path: "/captura", label: "📦 Captura" },
-    { path: "/mi-panel", label: "👤 Mi Panel" },
+  coordinador: [
+    { path: "/captura",          label: "📦 Captura" },
+    { path: "/mi-panel",         label: "👤 Mi Panel" },
     { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
+    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
+    { path: "/chat",             label: "🤖 Asistente" },
+  ],
+  asesor_op: [
+    { path: "/mi-consulta", label: "👁️ Mis Órdenes" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
-    { path: "/stock-solicitud", label: "📋 Solicitar Stock" },
-    { path: "/chat", label: "🤖 Asistente" },
+    { path: "/chat",        label: "🤖 Asistente" },
   ],
   comprador: [
-    { path: "/compras", label: "🛒 Compras" },
+    { path: "/compras",     label: "🛒 Compras" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
-    { path: "/chat", label: "🤖 Asistente" },
+    { path: "/chat",        label: "🤖 Asistente" },
   ],
   almacen: [
-    { path: "/almacen", label: "🏭 Almacén / Recepción" },
+    { path: "/almacen",       label: "🏭 Almacén / Recepción" },
     { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot", label: "🔍 Consulta OT" },
-    { path: "/chat", label: "🤖 Asistente" },
+    { path: "/consulta-ot",   label: "🔍 Consulta OT" },
+    { path: "/chat",          label: "🤖 Asistente" },
   ],
   ventanilla: [
-    { path: "/ventanilla", label: "🪟 Ventanilla" },
+    { path: "/ventanilla",  label: "🪟 Ventanilla" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
-    { path: "/chat", label: "🤖 Asistente" },
+    { path: "/chat",        label: "🤖 Asistente" },
   ],
   gerente: [
-    { path: "/gerencial", label: "📊 Panel Gerencial" },
-    { path: "/captura", label: "📦 Captura" },
-    { path: "/compras", label: "🛒 Compras" },
-    { path: "/ventanilla", label: "🪟 Ventanilla" },
-    { path: "/almacen", label: "🏭 Almacén / Recepción" },
-    { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot", label: "🔍 Consulta OT" },
+    { path: "/gerencial",        label: "📊 Panel Gerencial" },
+    { path: "/captura",          label: "📦 Captura" },
+    { path: "/compras",          label: "🛒 Compras" },
+    { path: "/ventanilla",       label: "🪟 Ventanilla" },
+    { path: "/almacen",          label: "🏭 Almacén / Recepción" },
+    { path: "/stock-pedidos",    label: "📋 Stock Pedidos" },
+    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
-    { path: "/chat", label: "🤖 Asistente" },
+    { path: "/chat",             label: "🤖 Asistente" },
   ],
   gerente_sucursal: [
-    { path: "/gerencial", label: "📊 Mi Sucursal" },
-    { path: "/captura", label: "📦 Captura" },
-    { path: "/ventanilla", label: "🪟 Ventanilla" },
-    { path: "/almacen", label: "🏭 Almacén / Recepción" },
-    { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot", label: "🔍 Consulta OT" },
+    { path: "/gerencial",        label: "📊 Mi Sucursal" },
+    { path: "/captura",          label: "📦 Captura" },
+    { path: "/ventanilla",       label: "🪟 Ventanilla" },
+    { path: "/almacen",          label: "🏭 Almacén / Recepción" },
+    { path: "/stock-pedidos",    label: "📋 Stock Pedidos" },
+    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
-    { path: "/chat", label: "🤖 Asistente" },
+    { path: "/chat",             label: "🤖 Asistente" },
   ],
   admin: [
-    { path: "/gerencial", label: "📊 Panel Gerencial" },
-    { path: "/captura", label: "📦 Captura" },
-    { path: "/compras", label: "🛒 Compras" },
-    { path: "/ventanilla", label: "🪟 Ventanilla" },
-    { path: "/almacen", label: "🏭 Almacén / Recepción" },
-    { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot", label: "🔍 Consulta OT" },
+    { path: "/gerencial",        label: "📊 Panel Gerencial" },
+    { path: "/captura",          label: "📦 Captura" },
+    { path: "/compras",          label: "🛒 Compras" },
+    { path: "/ventanilla",       label: "🪟 Ventanilla" },
+    { path: "/almacen",          label: "🏭 Almacén / Recepción" },
+    { path: "/stock-pedidos",    label: "📋 Stock Pedidos" },
+    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
-    { path: "/chat", label: "🤖 Asistente" },
+    { path: "/usuarios",         label: "👥 Usuarios" },
+    { path: "/chat",             label: "🤖 Asistente" },
   ],
 };
 
+// 🔥 Menú especial para coordinador de Mayoreo/Menudeo
+const MENU_MAYOREO = [
+  { path: "/captura",          label: "📋 Nueva Cotización" },
+  { path: "/mis-cotizaciones", label: "📊 Mis Cotizaciones" },
+  { path: "/mi-panel",         label: "👤 Mis Órdenes" },
+  { path: "/consulta-ot",      label: "🔍 Consulta" },
+  { path: "/chat",             label: "🤖 Asistente" },
+];
+
 const MENU_DEFAULT = [
-  { path: "/captura", label: "📦 Captura" },
+  { path: "/captura",     label: "📦 Captura" },
   { path: "/consulta-ot", label: "🔍 Consulta OT" },
-  { path: "/chat", label: "🤖 Asistente" },
+  { path: "/chat",        label: "🤖 Asistente" },
 ];
 
 export default function Layout({ children }) {
   const location = useLocation();
   const { user, logout } = useAuth();
 
-  const menu = MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
+  const esMayoreo  = user?.sucursal_id === "mayoreo_menudeo";
+  const esAsesorOp = user?.rol === "asesor_op";
+
+  const menu = (user?.rol === "coordinador" && esMayoreo)
+    ? MENU_MAYOREO
+    : MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
 
   return (
     <div style={{ display: "flex", height: "100vh", background: "#0f172a" }}>
-      
-      {/* SIDEBAR */}
+
       <aside style={{
-        width: "215px",
-        background: "#020617",
-        padding: "16px 10px",
-        borderRight: "1px solid #1f2937",
-        display: "flex",
-        flexDirection: "column",
+        width: "215px", background: "#020617",
+        padding: "16px 10px", borderRight: "1px solid #1f2937",
+        display: "flex", flexDirection: "column",
       }}>
 
-        {/* 🔥 LOGO */}
         <div style={{ textAlign: "center", marginBottom: "20px" }}>
-          <img 
-            src={logo}
-            alt="logo"
-            style={{ width: "110px", marginBottom: "8px" }}
-
-          />
-          <div style={{ color: "#4b5563", fontSize: "16px" }}>
-            Sistema de Refacciones
-          </div>
+          <img src={logo} alt="logo" style={{ width: "110px", marginBottom: "8px" }} />
+          <div style={{ color: "#4b5563", fontSize: "16px" }}>Sistema de Refacciones</div>
         </div>
 
-        {/* 🔥 SUCURSAL BONITA */}
         {user?.sucursal_id && (
           <div style={{
-            background: "#0f172a",
-            border: "1px solid #1f2937",
-            borderRadius: "6px",
-            padding: "6px 10px",
-            marginBottom: "14px",
-            textAlign: "center"
+            background: "#0f172a", border: "1px solid #1f2937",
+            borderRadius: "6px", padding: "6px 10px",
+            marginBottom: "14px", textAlign: "center"
           }}>
             <div style={{ color: "#60a5fa", fontSize: "11px", fontWeight: 600 }}>
-              {user.sucursal_nombre || user.sucursal_id}
+              {user.sucursal_nombre || NOMBRES_SUCURSAL[user.sucursal_id] || user.sucursal_id}
             </div>
           </div>
         )}
 
-        {/* MENU */}
+        {esAsesorOp && (
+          <div style={{
+            background: "#1e2f1e", border: "1px solid #166534",
+            borderRadius: "6px", padding: "5px 10px", marginBottom: "12px",
+            textAlign: "center", color: "#86efac", fontSize: "11px", fontWeight: 600,
+          }}>
+            🔒 Modo Solo Lectura
+          </div>
+        )}
+
+        {esMayoreo && user?.rol === "coordinador" && (
+          <div style={{
+            background: "#1e3a5f", border: "1px solid #2563eb",
+            borderRadius: "6px", padding: "5px 10px", marginBottom: "12px",
+            textAlign: "center", color: "#93c5fd", fontSize: "11px", fontWeight: 600,
+          }}>
+            🏪 Mayoreo / Menudeo
+          </div>
+        )}
+
         <nav style={{ display: "flex", flexDirection: "column", gap: "3px", flex: 1 }}>
           {menu.map(m => {
-            const activo = location.pathname === m.path || location.pathname.startsWith(m.path);
+            const activo = location.pathname === m.path || location.pathname.startsWith(m.path + "/");
             return (
-              <Link
-                key={m.path}
-                to={m.path}
-                style={{
-                  padding: "9px 10px",
-                  borderRadius: "8px",
-                  textDecoration: "none",
-                  fontSize: "13px",
-                  color: activo ? "#fff" : "#9ca3af",
-                  background: activo ? "#1d4ed8" : "transparent",
-                  fontWeight: activo ? 600 : 400,
-                }}
-              >
+              <Link key={m.path} to={m.path} style={{
+                padding: "9px 10px", borderRadius: "8px", textDecoration: "none",
+                fontSize: "13px",
+                color: activo ? "#fff" : "#9ca3af",
+                background: activo ? "#1d4ed8" : "transparent",
+                fontWeight: activo ? 600 : 400,
+              }}>
                 {m.label}
               </Link>
             );
           })}
         </nav>
 
-        {/* USUARIO */}
         {user && (
           <div style={{ borderTop: "1px solid #1f2937", paddingTop: "12px" }}>
             <div style={{ color: "#e5e7eb", fontSize: "12px", fontWeight: 600 }}>
               {user.nombre || user.email}
             </div>
             <div style={{ color: "#4b5563", fontSize: "10px" }}>
-              {user.rol}
+              {LABEL_ROL[user.rol] || user.rol}
             </div>
-
-            <button
-              onClick={logout}
-              style={{
-                width: "100%",
-                marginTop: "8px",
-                background: "transparent",
-                border: "1px solid #1f2937",
-                color: "#6b7280",
-                padding: "6px",
-                borderRadius: "6px",
-                cursor: "pointer",
-                fontSize: "11px"
-              }}
-            >
+            <button onClick={logout} style={{
+              width: "100%", marginTop: "8px", background: "transparent",
+              border: "1px solid #1f2937", color: "#6b7280",
+              padding: "6px", borderRadius: "6px", cursor: "pointer", fontSize: "11px"
+            }}>
               Cerrar sesión
             </button>
           </div>
@@ -1058,30 +1075,22 @@ export default function Layout({ children }) {
 
       </aside>
 
-      {/* CONTENIDO */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <header style={{
-          height: "52px",
-          background: "#020617",
-          borderBottom: "1px solid #1f2937",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 20px"
+          height: "52px", background: "#020617", borderBottom: "1px solid #1f2937",
+          display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px"
         }}>
           <span style={{ color: "#4b5563", fontSize: "12px" }}>
             {menu.find(m => location.pathname.startsWith(m.path))?.label || ""}
           </span>
           <BusquedaGlobal />
         </header>
-
-        <main style={{ flex: 1, overflowY: "auto" }}>
-          {children}
-        </main>
+        <main style={{ flex: 1, overflowY: "auto" }}>{children}</main>
       </div>
     </div>
   );
 }
+
 ================================================================================
 
 
@@ -1960,19 +1969,20 @@ FILE: src/pages/Captura.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 13.83 KB
+Size: 19.69 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/Captura.jsx
 Relative Path: src/pages
-Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-10 04:07:03 (America/Mexico_City / GMT-06:00)
-MD5: 41b5ca21467a2df23b9f7eebe1c9a469
-SHA256: f3cda637830db5596b75830fb0559af3eb032cd73f3807fa4715f8984c8bff1b
-Encoding: ASCII
+Created: 2026-04-14 05:36:40 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-13 23:44:38 (America/Mexico_City / GMT-06:00)
+MD5: 0c50fa9b45bffa092194cf987a7dd511
+SHA256: f2b9b65a02fe94dddeaffabdc1b427a785ec15d341034cc457b560af27b51f92
+Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
+// src/pages/Captura.jsx
 import { useState, useEffect } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
@@ -1983,15 +1993,18 @@ import {
 
 const ANIOS = Array.from({ length: 12 }, (_, i) => 2025 - i);
 
+// ── Prefijo de folio según tipo de cotización ──────────────────────────────
+const PREFIJO_FOLIO = {
+  Mayoreo:     "MYR",
+  Menudeo:     "MEN",
+  Aseguradora: "ASE",
+};
+
 function FilaRefaccion({ index, fila, onChange, onRemove, permitEUA, fabricante }) {
   const ubicacionesDisponibles = UBICACIONES.filter(u => {
     if (u === "EUA" && (!permitEUA || fabricante !== "Stellantis")) return false;
     return true;
   });
-
-  const eta = fila.ubicacion && fila.fecha_compra_est
-    ? formatFecha(calcularETA(fila.ubicacion, fabricante))
-    : null;
 
   return (
     <tr style={{ borderBottom: "1px solid #1f2937" }}>
@@ -2037,90 +2050,126 @@ function FilaRefaccion({ index, fila, onChange, onRemove, permitEUA, fabricante 
 
 export default function Captura() {
   const { user } = useAuth();
-  const sucursalId = user?.sucursal_id;
+  const sucursalId  = user?.sucursal_id;
   const sucursalCfg = SUCURSALES[sucursalId] || SUCURSALES["taller_vallarta"];
-  const esMayoreo = sucursalId === "mayoreo_menudeo";
+  const esMayoreo   = sucursalId === "mayoreo_menudeo";
 
-  // ── Encabezado ──
-  const [ot, setOt] = useState("");
-  const [tipoOrden, setTipoOrden] = useState("Público");
-  const [marca, setMarca] = useState("");
-  const [modelo, setModelo] = useState("");
-  const [modeloOtro, setModeloOtro] = useState("");
-  const [anio, setAnio] = useState("");
-  const [vin, setVin] = useState("");
-  const [km, setKm] = useState("");
+  // ── Encabezado ──────────────────────────────────────────────────────────
+  const [ot, setOt]                           = useState("");
+  const [tipoOrden, setTipoOrden]             = useState("Público");
+  const [marca, setMarca]                     = useState("");
+  const [modelo, setModelo]                   = useState("");
+  const [modeloOtro, setModeloOtro]           = useState("");
+  const [anio, setAnio]                       = useState("");
+  const [vin, setVin]                         = useState("");
+  const [km, setKm]                           = useState("");
   const [vehiculoEstatus, setVehiculoEstatus] = useState("En taller");
-  // Mayoreo extra
-  const [tipoCotizacion, setTipoCotizacion] = useState("Menudeo");
-  const [folioCotizacion, setFolioCotizacion] = useState("");
-  const [siniestro, setSiniestro] = useState("");
+
+  // ── Campos exclusivos Mayoreo ────────────────────────────────────────────
+  const [tipoCotizacion, setTipoCotizacion]         = useState("Menudeo");
+  const [folioCotizacion, setFolioCotizacion]       = useState("");
+  const [cargandoFolio, setCargandoFolio]           = useState(false);
+  const [siniestro, setSiniestro]                   = useState("");
+  const [ordenCompra, setOrdenCompra]               = useState("");   // 🆕 OC opcional Aseguradoras
   const [clienteAseguradora, setClienteAseguradora] = useState("");
 
-  // ── Filas refacciones ──
-  const [filas, setFilas] = useState([{ ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
+  // ── Filas refacciones ────────────────────────────────────────────────────
+  const [filas, setFilas]     = useState([{ ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
   const [guardando, setGuardando] = useState(false);
-  const [exito, setExito] = useState(false);
+  const [exito, setExito]     = useState(false);
 
-  const fabricante = FABRICANTE_POR_MARCA[marca] || "";
+  const fabricante         = FABRICANTE_POR_MARCA[marca] || "";
   const modelosDisponibles = marca ? MODELOS_POR_MARCA[marca] || [] : [];
-
-  // Marcas disponibles según sucursal
-  const marcasDisponibles = sucursalCfg.fabricantes
+  const marcasDisponibles  = sucursalCfg.fabricantes
     .flatMap(f => Object.entries(FABRICANTE_POR_MARCA)
       .filter(([, fab]) => fab === f)
       .map(([m]) => m));
-
   const corte = HORARIOS_CORTE[fabricante];
 
-  const handleFila = (i, campo, val) => {
-    setFilas(prev => prev.map((f, idx) => idx === i ? { ...f, [campo]: val } : f));
+  // ── Generar folio automático al cambiar tipo de cotización ───────────────
+  const generarFolio = async (tipo) => {
+    setCargandoFolio(true);
+    const prefijo = PREFIJO_FOLIO[tipo] || "MYR";
+    const { data, error } = await supabase.rpc("siguiente_folio", { p_tipo: prefijo });
+    if (!error && data) {
+      setFolioCotizacion(data);
+    } else {
+      console.error("Error generando folio:", error);
+    }
+    setCargandoFolio(false);
   };
 
-  const agregarFila = () => {
-    setFilas(prev => [...prev, { ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
+  // Generar folio al montar si es Mayoreo
+  useEffect(() => {
+    if (esMayoreo) {
+      generarFolio(tipoCotizacion);
+    }
+  }, []); // eslint-disable-line
+
+  // Regenerar folio al cambiar tipo de cotización
+  const handleTipoCotizacion = async (nuevoTipo) => {
+    setTipoCotizacion(nuevoTipo);
+    setSiniestro("");
+    setOrdenCompra("");
+    await generarFolio(nuevoTipo);
   };
 
-  const quitarFila = (i) => {
-    setFilas(prev => prev.filter((_, idx) => idx !== i));
-  };
+  const handleFila    = (i, campo, val) => setFilas(prev => prev.map((f, idx) => idx === i ? { ...f, [campo]: val } : f));
+  const agregarFila   = () => setFilas(prev => [...prev, { ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
+  const quitarFila    = (i) => setFilas(prev => prev.filter((_, idx) => idx !== i));
 
   const guardar = async () => {
-    if (!ot) { alert("La OT es obligatoria"); return; }
-    if (!marca) { alert("Selecciona una marca"); return; }
+    // ── Validaciones ────────────────────────────────────────────────────
+    if (!esMayoreo && !ot)           { alert("La OT es obligatoria"); return; }
+    if (!marca)                      { alert("Selecciona una marca"); return; }
     if (filas.some(f => !f.descripcion && !f.numero_parte)) {
       alert("Todas las filas deben tener descripción o número de parte");
       return;
     }
-    if (esMayoreo && !folioCotizacion) { alert("El folio de cotización es obligatorio"); return; }
+    if (esMayoreo && !folioCotizacion)  { alert("El folio de cotización es obligatorio"); return; }
+    if (esMayoreo && tipoCotizacion === "Aseguradora" && !siniestro) {
+      alert("El número de siniestro es obligatorio para Aseguradoras");
+      return;
+    }
 
     setGuardando(true);
 
     const modeloFinal = modelo === "Otro" ? modeloOtro : modelo;
-    const ref = generarReferencia(sucursalId, ot, user?.nombre);
+    const ref         = generarReferencia(sucursalId, esMayoreo ? folioCotizacion : ot, user?.nombre);
+
+    // Para Mayoreo: la OT interna es el folio de cotización
+    const otFinal = esMayoreo ? folioCotizacion : ot;
 
     const items = filas.map(f => ({
-      ot,
-      tipo_orden: esMayoreo ? tipoCotizacion : tipoOrden,
+      ot:                  otFinal,
+      tipo_orden:          esMayoreo ? tipoCotizacion : tipoOrden,
       fabricante,
       marca,
-      modelo: modeloFinal,
-      anio: anio || null,
-      vin: vin || null,
-      km: km || null,
-      vehiculo_estatus: vehiculoEstatus,
-      ubicacion: f.ubicacion,
-      descripcion: f.descripcion,
-      numero_parte: f.numero_parte || null,
-      cantidad: f.cantidad,
-      estatus: "Pendiente",
-      asesor_id: user?.id,
-      sucursal_id: sucursalId,
-      referencia: ref,
-      folio_cotizacion: esMayoreo ? folioCotizacion : null,
-      tipo_cotizacion: esMayoreo ? tipoCotizacion : null,
-      siniestro: esMayoreo && tipoCotizacion === "Aseguradora" ? siniestro : null,
+      modelo:              modeloFinal,
+      anio:                anio || null,
+      vin:                 vin  || null,
+      km:                  km   || null,
+      vehiculo_estatus:    vehiculoEstatus,
+      ubicacion:           f.ubicacion,
+      descripcion:         f.descripcion,
+      numero_parte:        f.numero_parte || null,
+      cantidad:            f.cantidad,
+
+      // 🔑 Mayoreo nace como "Cotizada", taller como "Pendiente"
+      estatus:             esMayoreo ? "Cotizada" : "Pendiente",
+
+      asesor_id:           user?.id,
+      sucursal_id:         sucursalId,
+      referencia:          ref,
+
+      // Campos Mayoreo
+      folio_cotizacion:    esMayoreo ? folioCotizacion : null,
+      tipo_cotizacion:     esMayoreo ? tipoCotizacion  : null,
+      es_cotizacion:       esMayoreo ? true             : false,
+      siniestro:           esMayoreo && tipoCotizacion === "Aseguradora" ? siniestro    : null,
+      orden_compra:        esMayoreo && tipoCotizacion === "Aseguradora" ? ordenCompra  : null, // 🆕
       cliente_aseguradora: esMayoreo ? clienteAseguradora : null,
+
       eta: calcularETA(f.ubicacion, fabricante)?.toISOString() || null,
     }));
 
@@ -2135,10 +2184,18 @@ export default function Captura() {
     }
 
     setExito(true);
-    // Reset
-    setOt(""); setMarca(""); setModelo(""); setModeloOtro(""); setAnio(""); setVin(""); setKm("");
-    setFolioCotizacion(""); setSiniestro(""); setClienteAseguradora("");
+
+    // ── Reset ──────────────────────────────────────────────────────────
+    setOt(""); setMarca(""); setModelo(""); setModeloOtro("");
+    setAnio(""); setVin(""); setKm("");
+    setSiniestro(""); setOrdenCompra(""); setClienteAseguradora("");
     setFilas([{ ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
+
+    // Generar nuevo folio para la siguiente captura (solo Mayoreo)
+    if (esMayoreo) {
+      await generarFolio(tipoCotizacion);
+    }
+
     setTimeout(() => setExito(false), 3000);
   };
 
@@ -2146,42 +2203,87 @@ export default function Captura() {
     <div style={{ padding: "20px", color: "#e5e7eb", maxWidth: "1000px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
         <div>
-          <h2 style={{ margin: 0 }}>📦 Captura de Refacciones</h2>
+          <h2 style={{ margin: 0 }}>
+            {esMayoreo ? "📋 Captura de Cotización" : "📦 Captura de Refacciones"}
+          </h2>
           <p style={{ color: "#9ca3af", margin: "4px 0 0", fontSize: "13px" }}>
             {sucursalCfg.nombre}
             {fabricante && <span style={{ marginLeft: "10px", color: "#60a5fa" }}>· {fabricante}</span>}
-            {corte && <span style={{ marginLeft: "10px", color: "#facc15" }}>· Corte {corte}</span>}
+            {corte      && <span style={{ marginLeft: "10px", color: "#facc15" }}>· Corte {corte}</span>}
           </p>
         </div>
         {exito && (
           <div style={{ background: "#166534", color: "#bbf7d0", padding: "10px 16px", borderRadius: "8px" }}>
-            ✅ Guardado correctamente
+            ✅ {esMayoreo ? "Cotización guardada" : "Guardado correctamente"}
           </div>
         )}
       </div>
 
-      {/* ── ENCABEZADO ── */}
+      {/* ── ENCABEZADO ─────────────────────────────────────────────────────── */}
       <div style={seccionStyle}>
         <h3 style={seccionTitle}>Encabezado</h3>
 
         <div style={gridDos}>
           {esMayoreo ? (
             <>
-              <Campo label="Folio Cotización *">
-                <input value={folioCotizacion} onChange={e => setFolioCotizacion(e.target.value)} style={inputStyle} placeholder="FOL-001" />
-              </Campo>
+              {/* Tipo de Cotización — va primero para que el folio se genere según el tipo */}
               <Campo label="Tipo de Cotización *">
-                <select value={tipoCotizacion} onChange={e => setTipoCotizacion(e.target.value)} style={inputStyle}>
-                  {["Aseguradora", "Mayoreo", "Menudeo"].map(t => <option key={t}>{t}</option>)}
+                <select
+                  value={tipoCotizacion}
+                  onChange={e => handleTipoCotizacion(e.target.value)}
+                  style={inputStyle}
+                >
+                  {["Mayoreo", "Menudeo", "Aseguradora"].map(t => <option key={t}>{t}</option>)}
                 </select>
               </Campo>
+
+              {/* Folio automático — solo lectura */}
+              <Campo label="Folio Cotización">
+                <div style={{
+                  ...inputStyle,
+                  background: "#0f172a",
+                  color: cargandoFolio ? "#6b7280" : "#60a5fa",
+                  fontWeight: 700,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}>
+                  {cargandoFolio ? "Generando..." : folioCotizacion || "—"}
+                  <span style={{ color: "#374151", fontSize: "11px", fontWeight: 400 }}>
+                    (automático)
+                  </span>
+                </div>
+              </Campo>
+
+              {/* Campos específicos de Aseguradora */}
               {tipoCotizacion === "Aseguradora" && (
-                <Campo label="N° Siniestro *">
-                  <input value={siniestro} onChange={e => setSiniestro(e.target.value)} style={inputStyle} />
-                </Campo>
+                <>
+                  <Campo label="N° Siniestro *">
+                    <input
+                      value={siniestro}
+                      onChange={e => setSiniestro(e.target.value)}
+                      style={inputStyle}
+                      placeholder="Ej: SIN-2024-00123"
+                    />
+                  </Campo>
+                  <Campo label="Orden de Compra (opcional)">
+                    <input
+                      value={ordenCompra}
+                      onChange={e => setOrdenCompra(e.target.value)}
+                      style={inputStyle}
+                      placeholder="Ej: OC-456789"
+                    />
+                  </Campo>
+                </>
               )}
+
               <Campo label="Cliente / Aseguradora">
-                <input value={clienteAseguradora} onChange={e => setClienteAseguradora(e.target.value)} style={inputStyle} />
+                <input
+                  value={clienteAseguradora}
+                  onChange={e => setClienteAseguradora(e.target.value)}
+                  style={inputStyle}
+                  placeholder="Nombre del cliente o aseguradora"
+                />
               </Campo>
             </>
           ) : (
@@ -2197,6 +2299,7 @@ export default function Captura() {
             </>
           )}
 
+          {/* Campos comunes */}
           <Campo label="Marca *">
             <select value={marca} onChange={e => { setMarca(e.target.value); setModelo(""); }} style={inputStyle}>
               <option value="">Selecciona...</option>
@@ -2220,6 +2323,7 @@ export default function Captura() {
             </Campo>
           )}
 
+          {/* Año, VIN, KM, Estatus vehículo — solo en taller */}
           {!esMayoreo && (
             <>
               <Campo label="Año">
@@ -2229,7 +2333,13 @@ export default function Captura() {
                 </select>
               </Campo>
               <Campo label="VIN">
-                <input value={vin} onChange={e => setVin(e.target.value.toUpperCase())} style={inputStyle} maxLength={17} placeholder="17 caracteres" />
+                <input
+                  value={vin}
+                  onChange={e => setVin(e.target.value.toUpperCase())}
+                  style={inputStyle}
+                  maxLength={17}
+                  placeholder="17 caracteres"
+                />
               </Campo>
               <Campo label="KM">
                 <input type="number" value={km} onChange={e => setKm(e.target.value)} style={inputStyle} />
@@ -2245,10 +2355,12 @@ export default function Captura() {
         </div>
       </div>
 
-      {/* ── TABLA DE REFACCIONES ── */}
+      {/* ── TABLA DE REFACCIONES ────────────────────────────────────────────── */}
       <div style={seccionStyle}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-          <h3 style={{ ...seccionTitle, margin: 0 }}>Lista de Refacciones</h3>
+          <h3 style={{ ...seccionTitle, margin: 0 }}>
+            {esMayoreo ? "Piezas a Cotizar" : "Lista de Refacciones"}
+          </h3>
           <button onClick={agregarFila} style={btnPrimary}>+ Agregar fila</button>
         </div>
 
@@ -2281,11 +2393,23 @@ export default function Captura() {
           <span style={{ color: "#9ca3af", fontSize: "13px", alignSelf: "center" }}>
             {filas.length} ítem{filas.length !== 1 ? "s" : ""}
           </span>
-          <button onClick={guardar} disabled={guardando} style={btnGuardar}>
-            {guardando ? "Guardando..." : "💾 Guardar orden"}
+          <button onClick={guardar} disabled={guardando || cargandoFolio} style={btnGuardar}>
+            {guardando ? "Guardando..." : esMayoreo ? "💾 Guardar cotización" : "💾 Guardar orden"}
           </button>
         </div>
       </div>
+
+      {/* Aviso informativo para Mayoreo */}
+      {esMayoreo && (
+        <div style={{
+          background: "#1e3a5f", border: "1px solid #2563eb",
+          borderRadius: "8px", padding: "12px 16px",
+          color: "#93c5fd", fontSize: "13px",
+        }}>
+          💡 Las piezas se guardan como <strong>Cotizadas</strong>. Cuando el cliente aprueba,
+          ve a <strong>Mis Cotizaciones</strong> para seleccionar las piezas aprobadas y enviarlas a Compras.
+        </div>
+      )}
     </div>
   );
 }
@@ -2299,20 +2423,20 @@ function Campo({ label, children }) {
   );
 }
 
-// ── Estilos ──
+// ── Estilos ──────────────────────────────────────────────────────────────────
 const seccionStyle = {
   background: "#111827", border: "1px solid #1f2937",
   borderRadius: "12px", padding: "20px", marginBottom: "20px",
 };
-const seccionTitle = { color: "#e5e7eb", fontSize: "14px", fontWeight: 700, marginBottom: "16px", marginTop: 0 };
-const gridDos = { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "14px" };
-const inputStyle = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 10px", borderRadius: "8px", width: "100%", boxSizing: "border-box", fontSize: "13px" };
-const inputSmall = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "6px 8px", borderRadius: "6px", fontSize: "13px" };
-const thStyle = { padding: "8px 10px", textAlign: "left", fontWeight: 600, borderBottom: "1px solid #1f2937" };
-const tdStyle = { padding: "8px 6px" };
-const btnPrimary = { background: "#2563eb", color: "#fff", border: "none", padding: "8px 16px", borderRadius: "8px", cursor: "pointer", fontSize: "13px", fontWeight: 600 };
-const btnDanger = { background: "#7f1d1d", color: "#fca5a5", border: "none", padding: "4px 8px", borderRadius: "6px", cursor: "pointer" };
-const btnGuardar = { background: "#16a34a", color: "#fff", border: "none", padding: "10px 24px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px" };
+const seccionTitle  = { color: "#e5e7eb", fontSize: "14px", fontWeight: 700, marginBottom: "16px", marginTop: 0 };
+const gridDos       = { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "14px" };
+const inputStyle    = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 10px", borderRadius: "8px", width: "100%", boxSizing: "border-box", fontSize: "13px" };
+const inputSmall    = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "6px 8px", borderRadius: "6px", fontSize: "13px" };
+const thStyle       = { padding: "8px 10px", textAlign: "left", fontWeight: 600, borderBottom: "1px solid #1f2937" };
+const tdStyle       = { padding: "8px 6px" };
+const btnPrimary    = { background: "#2563eb", color: "#fff", border: "none", padding: "8px 16px", borderRadius: "8px", cursor: "pointer", fontSize: "13px", fontWeight: 600 };
+const btnDanger     = { background: "#7f1d1d", color: "#fca5a5", border: "none", padding: "4px 8px", borderRadius: "6px", cursor: "pointer" };
+const btnGuardar    = { background: "#16a34a", color: "#fff", border: "none", padding: "10px 24px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px" };
 
 ================================================================================
 
@@ -2323,19 +2447,20 @@ FILE: src/pages/Chatbot.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 13.4 KB
+Size: 14.25 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/Chatbot.jsx
 Relative Path: src/pages
-Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-06 00:06:29 (America/Mexico_City / GMT-06:00)
-MD5: c85280d3c5d8850f3d90bf3b13c689fb
-SHA256: 1c96b05fec602428d3f96a64ff7bdd5ea2e9040511e76682916927c5353e6140
-Encoding: ASCII
+Created: 2026-04-13 10:11:20 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-13 04:15:43 (America/Mexico_City / GMT-06:00)
+MD5: 308f2e75904adbf9452196807d8c8d03
+SHA256: b1cb3c98d41cdaded139d8baa1cbe0605446b6c59c6e1c76fc9992f367d31ad9
+Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
+// src/pages/Chatbot.jsx — Actualizado: coordinador (antes "asesor"), nuevo asesor_op
 import { useState, useRef, useEffect } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
@@ -2373,12 +2498,23 @@ function detectarIntencion(texto) {
 }
 
 async function ejecutar(intencion, user) {
+  // 🔐 Roles con restricción de alcance
+  // coordinador (antes "asesor") y asesor_op → solo sus órdenes
+  const esRestringidoPorAsesor = user?.rol === "coordinador" || user?.rol === "asesor_op";
+  const esRestringidoPorSucursal = user?.rol === "ventanilla" || user?.rol === "gerente_sucursal";
+
   switch (intencion.tipo) {
 
     case "consulta_ot": {
-      const { data } = await supabase.from("items").select("*")
+      let q = supabase.from("items").select("*")
         .or(`ot.eq.${intencion.ot},folio_cotizacion.eq.${intencion.ot}`)
         .order("created_at");
+
+      // asesor_op y coordinador solo ven sus órdenes
+      if (esRestringidoPorAsesor) q = q.eq("asesor_id", user.id);
+      if (esRestringidoPorSucursal) q = q.eq("sucursal_id", user.sucursal_id);
+
+      const { data } = await q;
       if (!data || data.length === 0)
         return `❌ No encontré refacciones para **${intencion.ot}**.`;
 
@@ -2393,13 +2529,14 @@ async function ejecutar(intencion, user) {
     }
 
     case "listar_estatus": {
-      let q = supabase.from("items").select("ot, descripcion, ubicacion, estatus, eta, created_at, fabricante")
+      let q = supabase.from("items")
+        .select("ot, descripcion, ubicacion, estatus, eta, created_at, fabricante")
         .eq("estatus", intencion.estatus)
         .order("created_at", { ascending: false })
         .limit(10);
-      if (user?.rol === "asesor") q = q.eq("asesor_id", user.id);
-      if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
-        q = q.eq("sucursal_id", user.sucursal_id);
+
+      if (esRestringidoPorAsesor)   q = q.eq("asesor_id", user.id);
+      if (esRestringidoPorSucursal) q = q.eq("sucursal_id", user.sucursal_id);
 
       const { data } = await q;
       if (!data || data.length === 0)
@@ -2412,8 +2549,8 @@ async function ejecutar(intencion, user) {
 
     case "resumen": {
       let q = supabase.from("items").select("estatus, fabricante");
-      if (user?.rol === "asesor") q = q.eq("asesor_id", user.id);
-      if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal") q = q.eq("sucursal_id", user.sucursal_id);
+      if (esRestringidoPorAsesor)   q = q.eq("asesor_id", user.id);
+      if (esRestringidoPorSucursal) q = q.eq("sucursal_id", user.sucursal_id);
 
       const { data } = await q;
       if (!data) return "No pude obtener el resumen.";
@@ -2487,8 +2624,11 @@ Ejemplo: Si compras hoy ${new Date().toLocaleDateString("es-MX")}, una pieza MX 
 
     case "alertas": {
       const hace3dias = new Date(Date.now() - 3 * 86400000).toISOString();
-      const { data } = await supabase.from("items").select("ot, descripcion, created_at, fabricante")
+      let q = supabase.from("items").select("ot, descripcion, created_at, fabricante")
         .eq("estatus", "Pendiente").lt("created_at", hace3dias).order("created_at").limit(10);
+      if (esRestringidoPorAsesor)   q = q.eq("asesor_id", user.id);
+      if (esRestringidoPorSucursal) q = q.eq("sucursal_id", user.sucursal_id);
+      const { data } = await q;
       if (!data || data.length === 0) return "✅ Sin alertas de retraso activas.";
       return `🚨 **Pendientes con más de 3 días** (${data.length})\n\n` +
         data.map(r => {
@@ -2498,8 +2638,11 @@ Ejemplo: Si compras hoy ${new Date().toLocaleDateString("es-MX")}, una pieza MX 
     }
 
     case "buscar_parte": {
-      const { data } = await supabase.from("items").select("ot, estatus, descripcion, ubicacion")
+      let q = supabase.from("items").select("ot, estatus, descripcion, ubicacion")
         .ilike("numero_parte", `%${intencion.numero_parte}%`).limit(10);
+      if (esRestringidoPorAsesor)   q = q.eq("asesor_id", user.id);
+      if (esRestringidoPorSucursal) q = q.eq("sucursal_id", user.sucursal_id);
+      const { data } = await q;
       if (!data || data.length === 0) return `❌ Sin resultados para **${intencion.numero_parte}**.`;
       return `🔍 **${intencion.numero_parte}**\n\n` +
         data.map(r => `• OT ${r.ot} — ${r.estatus} — ${r.descripcion || ""} [${r.ubicacion}]`).join("\n");
@@ -3600,74 +3743,478 @@ FILE: src/pages/MisCotizaciones.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 5.8 KB
+Size: 23.95 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/MisCotizaciones.jsx
 Relative Path: src/pages
-Created: 2026-04-10 03:54:59 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-10 04:19:36 (America/Mexico_City / GMT-06:00)
-MD5: 0c8d21dc07b84de19bfa09fa2fe215c4
-SHA256: 79733999eefab3ae93189fcb9c53515a16d2a34a66ddf84aa2c2bf0dc37b4484
+Created: 2026-04-14 05:36:40 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-13 23:52:12 (America/Mexico_City / GMT-06:00)
+MD5: aa26adaf622680a8f88ab4fea304d692
+SHA256: 5607bd83e9eaac367850a2b7a6889d03fd9ace44922395811ed6555768ba0dae
 Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
 // src/pages/MisCotizaciones.jsx
+// Flujo Mayoreo: Cotizaciones → aprobación parcial → Compras
+// Coordinador de taller: igual que antes (liberar pieza a pieza)
+
 import { useEffect, useState } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
+import { COLOR_ESTATUS, formatFecha, diasTranscurridos } from "../utils/catalogos";
 
-export default function MisCotizaciones() {
-  const { user } = useAuth();
-  const [cotizaciones, setCotizaciones] = useState([]);
-  const [cargando, setCargando] = useState(true);
-  const [filtro, setFiltro] = useState("todas"); // todas | pendientes | liberadas
+function Badge({ estatus }) {
+  const c = COLOR_ESTATUS[estatus] || { bg: "#374151", text: "#d1d5db" };
+  return (
+    <span style={{
+      background: c.bg, color: c.text,
+      padding: "3px 10px", borderRadius: "20px",
+      fontSize: "11px", fontWeight: 700,
+    }}>
+      {estatus}
+    </span>
+  );
+}
+
+// ── Vista Mayoreo ────────────────────────────────────────────────────────────
+function MisCotizacionesMayoreo({ user }) {
+  const [tab, setTab]             = useState("cotizaciones"); // "cotizaciones" | "ordenes"
+  const [cotizaciones, setCotiz]  = useState([]);
+  const [ordenes, setOrdenes]     = useState([]);
+  const [cargando, setCargando]   = useState(true);
+  const [seleccion, setSeleccion] = useState({}); // { [folioId]: Set<itemId> }
+  const [liberando, setLiberando] = useState(false);
 
   const cargar = async () => {
     if (!user?.id) return;
-
     setCargando(true);
-    let query = supabase
+
+    // Cotizaciones pendientes de aprobación (estatus = "Cotizada")
+    const { data: dataCotiz } = await supabase
+      .from("items")
+      .select("*")
+      .eq("asesor_id", user.id)
+      .eq("es_cotizacion", true)
+      .eq("estatus", "Cotizada")
+      .order("created_at", { ascending: false });
+
+    // Órdenes ya liberadas a compras (estatus != "Cotizada", es_cotizacion = true)
+    const { data: dataOrd } = await supabase
+      .from("items")
+      .select("*")
+      .eq("asesor_id", user.id)
+      .eq("es_cotizacion", true)
+      .neq("estatus", "Cotizada")
+      .order("created_at", { ascending: false });
+
+    // Agrupar cotizaciones por folio
+    const folioMap = {};
+    (dataCotiz || []).forEach(item => {
+      const f = item.folio_cotizacion || "SIN-FOLIO";
+      if (!folioMap[f]) folioMap[f] = {
+        folio: f,
+        tipo: item.tipo_cotizacion,
+        cliente: item.cliente_aseguradora,
+        siniestro: item.siniestro,
+        orden_compra: item.orden_compra,
+        marca: item.marca,
+        modelo: item.modelo,
+        created_at: item.created_at,
+        items: [],
+      };
+      folioMap[f].items.push(item);
+    });
+
+    // Agrupar órdenes por folio
+    const ordenMap = {};
+    (dataOrd || []).forEach(item => {
+      const f = item.folio_cotizacion || "SIN-FOLIO";
+      if (!ordenMap[f]) ordenMap[f] = {
+        folio: f,
+        tipo: item.tipo_cotizacion,
+        cliente: item.cliente_aseguradora,
+        marca: item.marca,
+        modelo: item.modelo,
+        created_at: item.created_at,
+        items: [],
+      };
+      ordenMap[f].items.push(item);
+    });
+
+    setCotiz(Object.values(folioMap));
+    setOrdenes(Object.values(ordenMap));
+    setCargando(false);
+  };
+
+  useEffect(() => { cargar(); }, [user]);
+
+  // Toggle selección de una pieza dentro de un folio
+  const togglePieza = (folio, itemId) => {
+    setSeleccion(prev => {
+      const set = new Set(prev[folio] || []);
+      if (set.has(itemId)) set.delete(itemId);
+      else set.add(itemId);
+      return { ...prev, [folio]: set };
+    });
+  };
+
+  // Seleccionar/deseleccionar todas las piezas de un folio
+  const toggleTodas = (folio, items) => {
+    setSeleccion(prev => {
+      const set = prev[folio] || new Set();
+      const todasSeleccionadas = items.every(i => set.has(i.id));
+      const nueva = new Set(todasSeleccionadas ? [] : items.map(i => i.id));
+      return { ...prev, [folio]: nueva };
+    });
+  };
+
+  // Liberar piezas seleccionadas a Compras
+  const liberarACompras = async (folio) => {
+    const ids = [...(seleccion[folio] || [])];
+    if (ids.length === 0) { alert("Selecciona al menos una pieza"); return; }
+
+    const total = cotizaciones.find(c => c.folio === folio)?.items.length || 0;
+    const msg = ids.length === total
+      ? `¿Liberar TODAS las ${ids.length} piezas del folio ${folio} a Compras?`
+      : `¿Liberar ${ids.length} de ${total} piezas del folio ${folio} a Compras?\n\nLas piezas NO seleccionadas quedarán como "Cotizadas" (no aprobadas).`;
+
+    if (!confirm(msg)) return;
+
+    setLiberando(true);
+
+    const { error } = await supabase
+      .from("items")
+      .update({
+        estatus:          "Pendiente",
+        es_cotizacion:    true,           // mantiene el vínculo al folio
+        fecha_liberacion: new Date().toISOString(),
+      })
+      .in("id", ids);
+
+    setLiberando(false);
+
+    if (error) {
+      alert("Error al liberar: " + error.message);
+      return;
+    }
+
+    alert(`✅ ${ids.length} pieza(s) liberadas a Compras`);
+    setSeleccion(prev => ({ ...prev, [folio]: new Set() }));
+    cargar();
+  };
+
+  // ── Métricas de efectividad ────────────────────────────────────────────
+  const totalCotizadas = cotizaciones.reduce((s, c) => s + c.items.length, 0);
+  const totalVendidas  = ordenes.reduce((s, o) => s + o.items.filter(i => i.estatus !== "Cotizada").length, 0);
+  const efectividad    = (totalCotizadas + totalVendidas) > 0
+    ? ((totalVendidas / (totalCotizadas + totalVendidas)) * 100).toFixed(1)
+    : 0;
+
+  // Calcular estatus de una orden
+  const calcEstatusOrden = (items) => {
+    if (items.every(i => i.estatus === "Entregada")) return "Completa";
+    if (items.some(i => i.estatus === "Entregada" || i.estatus === "Recibida")) return "Parcial";
+    return "Pendiente";
+  };
+
+  return (
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
+      <h2 style={{ margin: "0 0 4px" }}>📋 Mis Cotizaciones</h2>
+      <p style={{ color: "#9ca3af", fontSize: "13px", margin: "0 0 20px" }}>
+        {user?.nombre} · Mayoreo/Menudeo
+      </p>
+
+      {/* ── Métricas de efectividad ── */}
+      <div style={{ display: "flex", gap: "12px", marginBottom: "20px", flexWrap: "wrap" }}>
+        {[
+          { label: "Piezas cotizadas",    val: totalCotizadas,              color: "#93c5fd" },
+          { label: "Piezas vendidas",     val: totalVendidas,               color: "#4ade80" },
+          { label: "Efectividad",         val: `${efectividad}%`,           color: efectividad >= 50 ? "#22c55e" : "#f87171" },
+          { label: "Folios activos",      val: cotizaciones.length,         color: "#e5e7eb" },
+          { label: "Órdenes en proceso",  val: ordenes.length,              color: "#fbbf24" },
+        ].map(k => (
+          <div key={k.label} style={{
+            background: "#111827", border: "1px solid #1f2937",
+            borderRadius: "8px", padding: "12px 18px", textAlign: "center", minWidth: "100px"
+          }}>
+            <div style={{ color: k.color, fontSize: "20px", fontWeight: 700 }}>{k.val}</div>
+            <div style={{ color: "#9ca3af", fontSize: "11px" }}>{k.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* ── Tabs ── */}
+      <div style={{ display: "flex", gap: "8px", marginBottom: "20px" }}>
+        <button
+          onClick={() => setTab("cotizaciones")}
+          style={{
+            padding: "10px 20px", borderRadius: "8px", border: "none", cursor: "pointer",
+            background: tab === "cotizaciones" ? "#2563eb" : "#1f2937",
+            color: "#fff", fontWeight: tab === "cotizaciones" ? 600 : 400,
+          }}
+        >
+          📋 Cotizaciones ({cotizaciones.length})
+        </button>
+        <button
+          onClick={() => setTab("ordenes")}
+          style={{
+            padding: "10px 20px", borderRadius: "8px", border: "none", cursor: "pointer",
+            background: tab === "ordenes" ? "#2563eb" : "#1f2937",
+            color: "#fff", fontWeight: tab === "ordenes" ? 600 : 400,
+          }}
+        >
+          🛒 Órdenes de Compra ({ordenes.length})
+        </button>
+      </div>
+
+      {cargando ? (
+        <p style={{ color: "#9ca3af" }}>Cargando...</p>
+      ) : (
+        <>
+          {/* ══════════ TAB: COTIZACIONES ══════════ */}
+          {tab === "cotizaciones" && (
+            cotizaciones.length === 0 ? (
+              <p style={{ color: "#9ca3af", textAlign: "center", padding: "60px" }}>
+                No tienes cotizaciones pendientes de aprobación
+              </p>
+            ) : (
+              cotizaciones.map(cot => {
+                const sel = seleccion[cot.folio] || new Set();
+                const todasSel = cot.items.every(i => sel.has(i.id));
+
+                return (
+                  <div key={cot.folio} style={{
+                    background: "#111827", border: "1px solid #1f2937",
+                    borderRadius: "12px", marginBottom: "16px", overflow: "hidden"
+                  }}>
+                    {/* Header del folio */}
+                    <div style={{
+                      padding: "14px 16px", background: "#0f172a",
+                      borderBottom: "1px solid #1f2937",
+                      display: "flex", justifyContent: "space-between", alignItems: "center",
+                      flexWrap: "wrap", gap: "10px"
+                    }}>
+                      <div>
+                        <span style={{ fontWeight: 700, fontSize: "15px", color: "#60a5fa" }}>
+                          {cot.folio}
+                        </span>
+                        <span style={{
+                          marginLeft: "10px", fontSize: "11px", fontWeight: 600,
+                          background: "#1e3a5f", color: "#93c5fd",
+                          padding: "2px 8px", borderRadius: "20px"
+                        }}>
+                          {cot.tipo}
+                        </span>
+                        {cot.cliente && (
+                          <span style={{ marginLeft: "10px", color: "#9ca3af", fontSize: "13px" }}>
+                            {cot.cliente}
+                          </span>
+                        )}
+                        {cot.siniestro && (
+                          <span style={{ marginLeft: "10px", color: "#fbbf24", fontSize: "12px" }}>
+                            Siniestro: {cot.siniestro}
+                          </span>
+                        )}
+                        {cot.orden_compra && (
+                          <span style={{ marginLeft: "10px", color: "#a78bfa", fontSize: "12px" }}>
+                            OC: {cot.orden_compra}
+                          </span>
+                        )}
+                      </div>
+                      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+                        <span style={{ color: "#9ca3af", fontSize: "12px" }}>
+                          {cot.marca} {cot.modelo} · {diasTranscurridos(cot.created_at)}d
+                        </span>
+                        <span style={{ color: "#9ca3af", fontSize: "12px" }}>
+                          {sel.size}/{cot.items.length} seleccionadas
+                        </span>
+                        <button
+                          onClick={() => liberarACompras(cot.folio)}
+                          disabled={liberando || sel.size === 0}
+                          style={{
+                            background: sel.size > 0 ? "#16a34a" : "#1f2937",
+                            color: "#fff", border: "none",
+                            padding: "8px 16px", borderRadius: "6px",
+                            cursor: sel.size > 0 ? "pointer" : "not-allowed",
+                            fontWeight: 600, fontSize: "13px"
+                          }}
+                        >
+                          {liberando ? "..." : "✅ Cliente aprobó → Compras"}
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Tabla de piezas con selección */}
+                    <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
+                      <thead>
+                        <tr style={{ background: "#0a0f1a", color: "#6b7280" }}>
+                          <th style={{ padding: "8px 12px", width: "40px" }}>
+                            <input
+                              type="checkbox"
+                              checked={todasSel}
+                              onChange={() => toggleTodas(cot.folio, cot.items)}
+                              style={{ cursor: "pointer" }}
+                            />
+                          </th>
+                          <th style={{ padding: "8px 12px", textAlign: "left" }}>Descripción</th>
+                          <th style={{ padding: "8px 12px", textAlign: "left" }}>N° Parte</th>
+                          <th style={{ padding: "8px 12px", textAlign: "center" }}>Cant.</th>
+                          <th style={{ padding: "8px 12px", textAlign: "left" }}>Ubicación</th>
+                          <th style={{ padding: "8px 12px", textAlign: "left" }}>ETA</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {cot.items.map(item => (
+                          <tr
+                            key={item.id}
+                            onClick={() => togglePieza(cot.folio, item.id)}
+                            style={{
+                              borderBottom: "1px solid #1f2937",
+                              background: sel.has(item.id) ? "#052e16" : "transparent",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <td style={{ padding: "10px 12px", textAlign: "center" }}>
+                              <input
+                                type="checkbox"
+                                checked={sel.has(item.id)}
+                                onChange={() => togglePieza(cot.folio, item.id)}
+                                onClick={e => e.stopPropagation()}
+                                style={{ cursor: "pointer" }}
+                              />
+                            </td>
+                            <td style={{ padding: "10px 12px" }}>{item.descripcion || "—"}</td>
+                            <td style={{ padding: "10px 12px", color: "#9ca3af" }}>{item.numero_parte || "—"}</td>
+                            <td style={{ padding: "10px 12px", textAlign: "center", fontWeight: 600 }}>{item.cantidad}</td>
+                            <td style={{ padding: "10px 12px", color: "#60a5fa" }}>{item.ubicacion}</td>
+                            <td style={{ padding: "10px 12px", color: "#9ca3af", fontSize: "11px" }}>
+                              {formatFecha(item.eta)}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                );
+              })
+            )
+          )}
+
+          {/* ══════════ TAB: ÓRDENES DE COMPRA ══════════ */}
+          {tab === "ordenes" && (
+            ordenes.length === 0 ? (
+              <p style={{ color: "#9ca3af", textAlign: "center", padding: "60px" }}>
+                No tienes órdenes de compra aún
+              </p>
+            ) : (
+              ordenes.map(ord => {
+                const estatusOrden = calcEstatusOrden(ord.items);
+
+                return (
+                  <div key={ord.folio} style={{
+                    background: "#111827", border: "1px solid #1f2937",
+                    borderRadius: "12px", marginBottom: "12px", overflow: "hidden"
+                  }}>
+                    {/* Header */}
+                    <div style={{
+                      padding: "12px 16px", background: estatusOrden === "Completa" ? "#052e16" : "#0f172a",
+                      borderBottom: "1px solid #1f2937",
+                      display: "flex", justifyContent: "space-between", alignItems: "center",
+                    }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                        <span style={{ fontWeight: 700, fontSize: "15px" }}>{ord.folio}</span>
+                        <span style={{ color: "#9ca3af", fontSize: "12px" }}>{ord.marca} {ord.modelo}</span>
+                        {ord.cliente && (
+                          <span style={{ color: "#9ca3af", fontSize: "12px" }}>{ord.cliente}</span>
+                        )}
+                        <span style={{ color: "#6b7280", fontSize: "11px" }}>
+                          {ord.items.length} pza{ord.items.length !== 1 ? "s" : ""}
+                        </span>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                        <span style={{ color: "#9ca3af", fontSize: "12px" }}>
+                          {diasTranscurridos(ord.created_at)}d
+                        </span>
+                        <span style={{
+                          padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: 700,
+                          background: estatusOrden === "Completa" ? "#166534" : estatusOrden === "Parcial" ? "#1e40af" : "#7f1d1d",
+                          color: "#fff",
+                        }}>
+                          {estatusOrden}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Piezas */}
+                    <div style={{ padding: "4px 0" }}>
+                      {ord.items.map(p => (
+                        <div key={p.id} style={{
+                          display: "flex", alignItems: "center", justifyContent: "space-between",
+                          padding: "8px 16px", borderBottom: "1px solid #0f172a",
+                        }}>
+                          <div style={{ flex: 1 }}>
+                            <span style={{ fontSize: "13px" }}>{p.descripcion || p.numero_parte}</span>
+                            {p.numero_parte && p.descripcion && (
+                              <span style={{ color: "#6b7280", fontSize: "11px", marginLeft: "8px" }}>{p.numero_parte}</span>
+                            )}
+                            <span style={{ color: "#4b5563", fontSize: "11px", marginLeft: "8px" }}>[{p.ubicacion}]</span>
+                          </div>
+                          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                            {p.eta && (
+                              <span style={{ color: "#60a5fa", fontSize: "11px" }}>ETA {formatFecha(p.eta)}</span>
+                            )}
+                            <Badge estatus={p.estatus} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })
+            )
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
+// ── Vista Taller (coordinador) — igual que antes ─────────────────────────────
+function MisCotizacionesTaller({ user }) {
+  const [cotizaciones, setCotizaciones] = useState([]);
+  const [cargando, setCargando]         = useState(true);
+  const [filtro, setFiltro]             = useState("todas");
+
+  const cargar = async () => {
+    if (!user?.id) return;
+    setCargando(true);
+    const { data } = await supabase
       .from("items")
       .select("*")
       .eq("es_cotizacion", true)
       .eq("asesor_id", user.id)
       .order("created_at", { ascending: false });
-
-    const { data } = await query;
     setCotizaciones(data || []);
     setCargando(false);
   };
 
-  useEffect(() => {
-    cargar();
-  }, [user]);
+  useEffect(() => { cargar(); }, [user]);
 
-  const liberarACOmpras = async (id) => {
+  const liberarACompras = async (id) => {
     if (!confirm("¿Liberar esta pieza a Compras?")) return;
-
     const { error } = await supabase
       .from("items")
-      .update({ 
-        estatus: "Pendiente", 
-        es_cotizacion: false,
-        fecha_liberacion: new Date().toISOString()
-      })
+      .update({ estatus: "Pendiente", es_cotizacion: false, fecha_liberacion: new Date().toISOString() })
       .eq("id", id);
-
-    if (!error) {
-      alert("✅ Pieza liberada correctamente a Compras");
-      cargar();
-    } else {
-      alert("Error al liberar la pieza");
-    }
+    if (!error) { alert("✅ Pieza liberada correctamente a Compras"); cargar(); }
+    else alert("Error al liberar la pieza");
   };
 
-  const cotizacionesFiltradas = cotizaciones.filter(c => {
-    if (filtro === "todas") return true;
+  const filtradas = cotizaciones.filter(c => {
     if (filtro === "pendientes") return c.estatus !== "Pendiente";
-    if (filtro === "liberadas") return c.estatus === "Pendiente";
+    if (filtro === "liberadas")  return c.estatus === "Pendiente";
     return true;
   });
 
@@ -3675,17 +4222,10 @@ export default function MisCotizaciones() {
     <div style={{ padding: "20px", color: "#e5e7eb" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
         <h2>📋 Mis Cotizaciones</h2>
-        
-        <select 
-          value={filtro} 
-          onChange={(e) => setFiltro(e.target.value)}
-          style={{
-            padding: "8px 12px",
-            background: "#0f172a",
-            border: "1px solid #1f2937",
-            color: "#e5e7eb",
-            borderRadius: "8px"
-          }}
+        <select
+          value={filtro}
+          onChange={e => setFiltro(e.target.value)}
+          style={{ padding: "8px 12px", background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", borderRadius: "8px" }}
         >
           <option value="todas">Todas</option>
           <option value="pendientes">Pendientes de liberar</option>
@@ -3695,7 +4235,7 @@ export default function MisCotizaciones() {
 
       {cargando ? (
         <p style={{ color: "#9ca3af", textAlign: "center", padding: "60px" }}>Cargando cotizaciones...</p>
-      ) : cotizacionesFiltradas.length === 0 ? (
+      ) : filtradas.length === 0 ? (
         <p style={{ color: "#9ca3af", textAlign: "center", padding: "60px" }}>No tienes cotizaciones registradas</p>
       ) : (
         <div style={{ overflowX: "auto", background: "#111827", borderRadius: "12px", border: "1px solid #1f2937" }}>
@@ -3712,22 +4252,16 @@ export default function MisCotizaciones() {
               </tr>
             </thead>
             <tbody>
-              {cotizacionesFiltradas.map((c) => (
+              {filtradas.map(c => (
                 <tr key={c.id} style={{ borderBottom: "1px solid #1f2937" }}>
                   <td style={{ padding: "14px 12px" }}>{c.folio_cotizacion || "—"}</td>
-                  <td style={{ padding: "14px 12px" }}>
-                    {c.marca} {c.modelo}
-                  </td>
+                  <td style={{ padding: "14px 12px" }}>{c.marca} {c.modelo}</td>
                   <td style={{ padding: "14px 12px" }}>{c.numero_parte}</td>
                   <td style={{ padding: "14px 12px" }}>{c.descripcion}</td>
-                  <td style={{ padding: "14px 12px", textAlign: "center", fontWeight: 600 }}>
-                    {c.cantidad}
-                  </td>
+                  <td style={{ padding: "14px 12px", textAlign: "center", fontWeight: 600 }}>{c.cantidad}</td>
                   <td style={{ padding: "14px 12px", textAlign: "center" }}>
                     <span style={{
-                      padding: "6px 14px",
-                      borderRadius: "20px",
-                      fontSize: "13px",
+                      padding: "6px 14px", borderRadius: "20px", fontSize: "13px",
                       background: c.estatus === "Pendiente" ? "#854d0e" : "#166534",
                       color: c.estatus === "Pendiente" ? "#fcd34d" : "#86efac"
                     }}>
@@ -3735,23 +4269,14 @@ export default function MisCotizaciones() {
                     </span>
                   </td>
                   <td style={{ padding: "14px 12px" }}>
-                    {c.estatus !== "Pendiente" && (
+                    {c.estatus !== "Pendiente" ? (
                       <button
-                        onClick={() => liberarACOmpras(c.id)}
-                        style={{
-                          background: "#2563eb",
-                          color: "white",
-                          border: "none",
-                          padding: "8px 16px",
-                          borderRadius: "6px",
-                          cursor: "pointer",
-                          fontSize: "13px"
-                        }}
+                        onClick={() => liberarACompras(c.id)}
+                        style={{ background: "#2563eb", color: "white", border: "none", padding: "8px 16px", borderRadius: "6px", cursor: "pointer", fontSize: "13px" }}
                       >
                         Liberar a Compras
                       </button>
-                    )}
-                    {c.estatus === "Pendiente" && (
+                    ) : (
                       <span style={{ color: "#9ca3af", fontSize: "13px" }}>Ya liberada</span>
                     )}
                   </td>
@@ -3764,6 +4289,16 @@ export default function MisCotizaciones() {
     </div>
   );
 }
+
+// ── Componente raíz — decide qué vista mostrar ────────────────────────────────
+export default function MisCotizaciones() {
+  const { user } = useAuth();
+  const esMayoreo = user?.sucursal_id === "mayoreo_menudeo";
+
+  if (esMayoreo) return <MisCotizacionesMayoreo user={user} />;
+  return <MisCotizacionesTaller user={user} />;
+}
+
 ================================================================================
 
 
@@ -3985,24 +4520,263 @@ export default function PanelAsesor() {
 
 
 ================================================================================
+FILE: src/pages/PanelAsesorOp.jsx
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 8.2 KB
+Extension: .jsx
+Language: jsx
+Location: src/pages/PanelAsesorOp.jsx
+Relative Path: src/pages
+Created: 2026-04-13 10:11:20 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-13 04:16:19 (America/Mexico_City / GMT-06:00)
+MD5: 069029657f80cd5230bcd65f8df0e347
+SHA256: 6f4f51d032f6628253d8127006b1015dff3ba2bb185d1de02c893a5feddd4438
+Encoding: UTF-8
+
+FILE CONTENT:
+----------------------------------------
+// src/pages/PanelAsesorOp.jsx
+// Rol: asesor_op — Solo lectura, ve únicamente sus propias órdenes
+
+import { useEffect, useState } from "react";
+import { supabase } from "../services/supabase";
+import { useAuth } from "../contexts/AuthContext";
+import { COLOR_ESTATUS, diasTranscurridos, formatFecha } from "../utils/catalogos";
+
+function Badge({ estatus }) {
+  const c = COLOR_ESTATUS[estatus] || { bg: "#374151", text: "#d1d5db" };
+  return (
+    <span style={{ background: c.bg, color: c.text, padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: 700 }}>
+      {estatus}
+    </span>
+  );
+}
+
+export default function PanelAsesorOp() {
+  const { user } = useAuth();
+  const [items, setItems] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [filtroEstatus, setFiltroEstatus] = useState("");
+
+  const cargar = async () => {
+    if (!user) return;
+    setCargando(true);
+
+    // asesor_op solo ve sus propias órdenes (por asesor_id)
+    let q = supabase
+      .from("items")
+      .select("*")
+      .eq("asesor_id", user.id)
+      .order("created_at", { ascending: false });
+
+    if (filtroEstatus) q = q.eq("estatus", filtroEstatus);
+
+    const { data } = await q;
+    setItems(data || []);
+    setCargando(false);
+  };
+
+  useEffect(() => { cargar(); }, [user, filtroEstatus]); // eslint-disable-line
+
+  // Suscripción en tiempo real (solo lectura, sin cambiar datos)
+  useEffect(() => {
+    if (!user) return;
+    const channel = supabase
+      .channel("asesor-op-notifs")
+      .on("postgres_changes", {
+        event: "UPDATE",
+        schema: "public",
+        table: "items",
+        filter: `asesor_id=eq.${user.id}`,
+      }, () => cargar())
+      .subscribe();
+
+    return () => supabase.removeChannel(channel);
+  }, [user]); // eslint-disable-line
+
+  // Agrupar por OT
+  const otMap = {};
+  items.forEach(r => {
+    if (!otMap[r.ot]) otMap[r.ot] = [];
+    otMap[r.ot].push(r);
+  });
+
+  const calcEstatus = (estatuses) => {
+    if (estatuses.every(e => e === "Entregada")) return "Completa";
+    if (estatuses.some(e => e === "Entregada" || e === "Recibida")) return "Parcial";
+    return "Pendiente";
+  };
+
+  const totalItems  = items.length;
+  const recibidas   = items.filter(r => r.estatus === "Recibida").length;
+  const pendientes  = items.filter(r => r.estatus === "Pendiente").length;
+  const entregadas  = items.filter(r => r.estatus === "Entregada").length;
+
+  return (
+    <div style={{ padding: "20px", color: "#e5e7eb" }}>
+
+      {/* Encabezado */}
+      <div style={{ marginBottom: "20px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <h2 style={{ margin: 0 }}>👁️ Mi Consulta (Solo Lectura)</h2>
+          <span style={{
+            background: "#1e3a5f",
+            color: "#60a5fa",
+            fontSize: "11px",
+            padding: "3px 10px",
+            borderRadius: "20px",
+            fontWeight: 600,
+            border: "1px solid #2563eb"
+          }}>
+            Asesor Op.
+          </span>
+        </div>
+        <p style={{ color: "#9ca3af", fontSize: "13px", margin: "4px 0 0" }}>
+          {user?.nombre} · {user?.sucursal_id} · Solo consulta
+        </p>
+      </div>
+
+      {/* KPIs personales */}
+      <div style={{ display: "flex", gap: "12px", marginBottom: "20px", flexWrap: "wrap" }}>
+        {[
+          { label: "Total", val: totalItems, color: "#e5e7eb" },
+          { label: "Pendientes", val: pendientes, color: "#facc15" },
+          { label: "Recibidas", val: recibidas, color: "#4ade80" },
+          { label: "Entregadas", val: entregadas, color: "#22c55e" },
+        ].map(k => (
+          <div key={k.label} style={{
+            background: "#111827", border: "1px solid #1f2937",
+            borderRadius: "8px", padding: "12px 20px", textAlign: "center", minWidth: "90px"
+          }}>
+            <div style={{ color: k.color, fontSize: "22px", fontWeight: 700 }}>{k.val}</div>
+            <div style={{ color: "#9ca3af", fontSize: "11px" }}>{k.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Filtro */}
+      <div style={{ marginBottom: "14px" }}>
+        <select
+          value={filtroEstatus}
+          onChange={e => setFiltroEstatus(e.target.value)}
+          style={{ background: "#111827", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 12px", borderRadius: "8px" }}
+        >
+          <option value="">Todos los estatus</option>
+          {["Pendiente", "Comprada", "Recibida", "Entregada", "Incorrecta", "No comprada", "Vencida"].map(s =>
+            <option key={s}>{s}</option>
+          )}
+        </select>
+      </div>
+
+      {/* Aviso solo lectura */}
+      <div style={{
+        background: "#1e2f1e",
+        border: "1px solid #166534",
+        borderRadius: "8px",
+        padding: "10px 16px",
+        marginBottom: "16px",
+        color: "#86efac",
+        fontSize: "13px"
+      }}>
+        🔒 Modo consulta — No puedes modificar datos. Solo visualizas tus órdenes asignadas.
+      </div>
+
+      {/* OTs agrupadas */}
+      {cargando ? (
+        <p style={{ color: "#9ca3af" }}>Cargando...</p>
+      ) : Object.keys(otMap).length === 0 ? (
+        <p style={{ color: "#9ca3af" }}>No hay refacciones registradas a tu nombre.</p>
+      ) : (
+        Object.entries(otMap).map(([ot, piezas]) => {
+          const estatusOT = calcEstatus(piezas.map(p => p.estatus));
+          const diasAbierta = diasTranscurridos(piezas[0]?.created_at);
+
+          return (
+            <div key={ot} style={{
+              background: "#111827", border: "1px solid #1f2937",
+              borderRadius: "12px", marginBottom: "12px", overflow: "hidden"
+            }}>
+              {/* Header de OT */}
+              <div style={{
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+                padding: "12px 16px",
+                background: estatusOT === "Completa" ? "#052e16" : "#0f172a",
+                borderBottom: "1px solid #1f2937",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                  <span style={{ fontWeight: 700, fontSize: "15px" }}>OT {ot}</span>
+                  <span style={{ color: "#9ca3af", fontSize: "12px" }}>{piezas[0]?.marca} {piezas[0]?.modelo}</span>
+                  <span style={{ color: "#6b7280", fontSize: "11px" }}>{piezas.length} pza{piezas.length !== 1 ? "s" : ""}</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <span style={{ color: diasAbierta > 7 ? "#f87171" : "#9ca3af", fontSize: "12px" }}>{diasAbierta}d</span>
+                  <span style={{
+                    padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: 700,
+                    background: estatusOT === "Completa" ? "#166534" : estatusOT === "Parcial" ? "#1e40af" : "#7f1d1d",
+                    color: "#fff",
+                  }}>{estatusOT}</span>
+                </div>
+              </div>
+
+              {/* Piezas */}
+              <div style={{ padding: "4px 0" }}>
+                {piezas.map(p => (
+                  <div key={p.id} style={{
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    padding: "8px 16px", borderBottom: "1px solid #0f172a",
+                  }}>
+                    <div style={{ flex: 1 }}>
+                      <span style={{ fontSize: "13px" }}>{p.descripcion || p.numero_parte}</span>
+                      {p.numero_parte && p.descripcion && (
+                        <span style={{ color: "#6b7280", fontSize: "11px", marginLeft: "8px" }}>{p.numero_parte}</span>
+                      )}
+                      <span style={{ color: "#4b5563", fontSize: "11px", marginLeft: "8px" }}>[{p.ubicacion}]</span>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      {p.eta && (
+                        <span style={{ color: "#60a5fa", fontSize: "11px" }}>
+                          ETA {formatFecha(p.eta)}
+                        </span>
+                      )}
+                      <Badge estatus={p.estatus} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      )}
+    </div>
+  );
+}
+
+================================================================================
+
+
+================================================================================
 FILE: src/pages/PanelGerencial.jsx
 ================================================================================
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 10.2 KB
+Size: 10.5 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/PanelGerencial.jsx
 Relative Path: src/pages
-Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-06 00:05:50 (America/Mexico_City / GMT-06:00)
-MD5: d50dd91e5de7498eddff99997dee0f4e
-SHA256: 54a34ba93a45443dbfff0ac8129da80c4e13d69fa008331955e7d0c74ce961a5
-Encoding: ASCII
+Created: 2026-04-13 10:11:20 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-13 04:15:52 (America/Mexico_City / GMT-06:00)
+MD5: ae2804f5e0c9f0aa37a5562bce0bac74
+SHA256: c0eb02ecbf195426cdf380481320e32eb1e3a1b78522a943ce16d785958a4754
+Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
+// src/pages/PanelGerencial.jsx — Actualizado: coordinador (antes "asesor")
 import { useEffect, useState, useCallback } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
@@ -4055,8 +4829,11 @@ export default function PanelGerencial() {
     }
     if (filtroSucursal) q = q.eq("sucursal_id", filtroSucursal);
 
-    // Filtrar por rol
-    if (user?.rol === "asesor") q = q.eq("asesor_id", user.id);
+    // 🔐 Filtrar por rol
+    // "coordinador" es el nuevo nombre del antiguo "asesor"
+    // "asesor_op" también solo ve sus propias órdenes
+    if (user?.rol === "coordinador" || user?.rol === "asesor_op")
+      q = q.eq("asesor_id", user.id);
     if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
       q = q.eq("sucursal_id", user.sucursal_id);
 
@@ -4084,11 +4861,9 @@ export default function PanelGerencial() {
     });
     const tiempoPromedio = cntTiempo ? (sumTiempo / cntTiempo).toFixed(1) : "—";
 
-    // Cumplimiento
     const cumplimiento = recibidas + entregadas > 0
       ? ((entregadas / (recibidas + entregadas)) * 100).toFixed(1) : 0;
 
-    // Alertas: pendientes > 3 días sin comprar
     const alertasPendientes = rows
       .filter(r => r.estatus === "Pendiente" && diasTranscurridos(r.created_at) > 3)
       .sort((a, b) => diasTranscurridos(b.created_at) - diasTranscurridos(a.created_at))
@@ -4106,10 +4881,10 @@ export default function PanelGerencial() {
       .map(([n, v]) => ({ nombre: n, ...v }))
       .sort((a, b) => b.entregadas - a.entregadas);
 
-    // Ranking por asesor
+    // Ranking por coordinador (antes "asesor")
     const asesorMap = {};
     rows.forEach(r => {
-      const a = r.asesor?.nombre || r.asesor_id || "Sin asesor";
+      const a = r.asesor?.nombre || r.asesor_id || "Sin coordinador";
       if (!asesorMap[a]) asesorMap[a] = { total: 0, entregadas: 0 };
       asesorMap[a].total++;
       if (r.estatus === "Entregada") asesorMap[a].entregadas++;
@@ -4183,22 +4958,23 @@ export default function PanelGerencial() {
         <KPICard title="Tiempo prom. captura→compra" value={`${datos.tiempoPromedio} días`} color="#60a5fa" />
         <KPICard title="% Cumplimiento entrega" value={`${datos.cumplimiento}%`} color="#4ade80" />
         <KPICard title="OTs completas" value={datos.otCompletas} color="#22c55e" />
-        <KPICard title="OTs parciales" value={datos.otParciales} color="#facc15" />
+        <KPICard title="OTs parciales/pendientes" value={datos.otParciales} color="#facc15" />
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginTop: "20px" }}>
+      {/* Rankings y alertas */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "16px", marginTop: "20px" }}>
 
-        {/* Ranking sucursales */}
+        {/* Ranking por sucursal */}
         <div style={card}>
-          <h3 style={cardTitle}>🏢 Sucursales</h3>
-          {datos.rankingSucursales.map(s => (
-            <BarraProgreso key={s.nombre} label={s.nombre} valor={s.entregadas} total={s.total} color="#2563eb" />
+          <h3 style={cardTitle}>🏢 Por Sucursal</h3>
+          {datos.rankingSucursales.map((s, i) => (
+            <BarraProgreso key={s.nombre} label={`#${i + 1} ${s.nombre}`} valor={s.entregadas} total={s.total} color="#2563eb" />
           ))}
         </div>
 
-        {/* Ranking asesores */}
+        {/* Ranking por coordinador */}
         <div style={card}>
-          <h3 style={cardTitle}>👤 Top Asesores</h3>
+          <h3 style={cardTitle}>👤 Por Coordinador</h3>
           {datos.rankingAsesores.map((a, i) => (
             <BarraProgreso key={a.nombre} label={`#${i + 1} ${a.nombre}`} valor={a.entregadas} total={a.total} color="#16a34a" />
           ))}
@@ -4914,15 +5690,15 @@ FILE: src/pages/usuarios.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 3.15 KB
+Size: 4.43 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/usuarios.jsx
 Relative Path: src/pages
-Created: 2026-04-11 04:41:44 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-11 04:42:19 (America/Mexico_City / GMT-06:00)
-MD5: 7da20953adba05f638009b51dc861273
-SHA256: 166318aae4b0acfcafa54d763848560744d0096bbcb20b59ea23da521ebff520
+Created: 2026-04-13 10:11:20 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-13 04:14:28 (America/Mexico_City / GMT-06:00)
+MD5: b329076c9d48c3c6899b3a8a1cd76b89
+SHA256: 5fcfb48b42af3f9018f6f4851f4b574545567fffdd4a7d3d7282dad25eaead1a
 Encoding: UTF-8
 
 FILE CONTENT:
@@ -4936,9 +5712,9 @@ import { useAuth } from "../contexts/AuthContext";
 export default function Usuarios() {
   const { user } = useAuth();
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail]       = useState("");
   const [password, setPassword] = useState("");
-  const [rol, setRol] = useState("asesor");
+  const [rol, setRol]           = useState("coordinador");
   const [sucursal, setSucursal] = useState("");
   const [cargando, setCargando] = useState(false);
 
@@ -4956,11 +5732,8 @@ export default function Usuarios() {
 
     setCargando(true);
 
-    // 🔥 Crear usuario en Auth
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
+    // Crear usuario en Auth
+    const { data, error } = await supabase.auth.signUp({ email, password });
 
     if (error) {
       alert("Error creando usuario: " + error.message);
@@ -4968,30 +5741,27 @@ export default function Usuarios() {
       return;
     }
 
-    // 🔥 Insertar en tabla usuarios
+    // Insertar en tabla usuarios
     const { error: errorDB } = await supabase
       .from("usuarios")
-      .insert([
-        {
-          id: data.user.id,
-          email,
-          rol,
-          sucursal_id: sucursal,
-        },
-      ]);
+      .insert([{
+        id: data.user.id,
+        email,
+        rol,
+        sucursal_id: sucursal,
+      }]);
 
     setCargando(false);
 
     if (errorDB) {
-      alert("Usuario creado pero error en BD");
+      alert("Usuario creado en Auth pero error en BD: " + errorDB.message);
       return;
     }
 
     alert("✅ Usuario creado correctamente");
-
     setEmail("");
     setPassword("");
-    setRol("asesor");
+    setRol("coordinador");
     setSucursal("");
   };
 
@@ -5000,28 +5770,64 @@ export default function Usuarios() {
       <h2>👥 Crear Usuario</h2>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "400px" }}>
-        
+
         <input
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={e => setEmail(e.target.value)}
+          style={inputStyle}
         />
 
         <input
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={e => setPassword(e.target.value)}
+          style={inputStyle}
         />
 
-        <select value={rol} onChange={(e) => setRol(e.target.value)}>
-          <option value="asesor">Asesor</option>
-          <option value="compras">Compras</option>
+        <select
+          value={rol}
+          onChange={e => setRol(e.target.value)}
+          style={inputStyle}
+        >
+          {/* ── Rol "coordinador" reemplaza al antiguo "asesor" ── */}
+          <option value="coordinador">Coordinador</option>
+
+          {/* ── Nuevo rol de solo consulta ── */}
+          <option value="asesor_op">Asesor Op. (Solo lectura)</option>
+
+          <option value="comprador">Compras</option>
+          <option value="almacen">Almacén</option>
           <option value="ventanilla">Ventanilla</option>
           <option value="gerente_sucursal">Gerente Sucursal</option>
+          <option value="gerente">Gerente</option>
+          <option value="admin">Admin</option>
         </select>
 
-        <select value={sucursal} onChange={(e) => setSucursal(e.target.value)}>
+        {/* Descripción del rol seleccionado */}
+        {rol === "asesor_op" && (
+          <div style={{
+            background: "#1e2f1e", border: "1px solid #166534", borderRadius: "6px",
+            padding: "8px 12px", fontSize: "12px", color: "#86efac"
+          }}>
+            🔒 Solo consulta — Verá únicamente sus órdenes asignadas, sin poder modificar nada.
+          </div>
+        )}
+        {rol === "coordinador" && (
+          <div style={{
+            background: "#1e3a5f", border: "1px solid #2563eb", borderRadius: "6px",
+            padding: "8px 12px", fontSize: "12px", color: "#93c5fd"
+          }}>
+            📦 Puede capturar órdenes, ver su panel y solicitar stock.
+          </div>
+        )}
+
+        <select
+          value={sucursal}
+          onChange={e => setSucursal(e.target.value)}
+          style={inputStyle}
+        >
           <option value="">Selecciona sucursal</option>
           <option value="taller_vallarta">Vallarta</option>
           <option value="acueducto">Acueducto</option>
@@ -5033,11 +5839,8 @@ export default function Usuarios() {
           onClick={crearUsuario}
           disabled={cargando}
           style={{
-            background: "#2563eb",
-            color: "white",
-            padding: "10px",
-            border: "none",
-            borderRadius: "8px",
+            background: "#2563eb", color: "white", padding: "10px",
+            border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: 600
           }}
         >
           {cargando ? "Creando..." : "Crear Usuario"}
@@ -5046,6 +5849,16 @@ export default function Usuarios() {
     </div>
   );
 }
+
+const inputStyle = {
+  background: "#111827",
+  border: "1px solid #1f2937",
+  color: "#e5e7eb",
+  padding: "8px 12px",
+  borderRadius: "8px",
+  fontSize: "14px",
+};
+
 ================================================================================
 
 
@@ -5485,6 +6298,171 @@ export const getUserData = async () => {
 
   return data;
 };
+================================================================================
+
+
+================================================================================
+FILE: src/services/catalogos.js
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 5.46 KB
+Extension: .js
+Language: javascript
+Location: src/services/catalogos.js
+Relative Path: src/services
+Created: 2026-04-14 05:36:40 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-13 23:45:12 (America/Mexico_City / GMT-06:00)
+MD5: 62d8e44a2c5a945c555c6523e0b5d668
+SHA256: 3f642927dcb8eb3015ccc1dcce9cb28b1046e3d6fc0302d8899924c186094887
+Encoding: UTF-8
+
+FILE CONTENT:
+----------------------------------------
+// ─────────────────────────────────────────────────────────────
+// CATÁLOGOS MAESTROS DEL SISTEMA MOTORMEXA
+// ─────────────────────────────────────────────────────────────
+
+export const SUCURSALES = {
+  taller_vallarta:    { nombre: "Taller Vallarta",    fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  taller_acueducto:   { nombre: "Taller Acueducto",   fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  taller_country:     { nombre: "Taller Country",     fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  taller_camino_real: { nombre: "Taller Camino Real", fabricantes: ["Mitsubishi"],                          permitEUA: false },
+  bodyshop:           { nombre: "BodyShop",           fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  mayoreo_menudeo:    { nombre: "Mayoreo/Menudeo",    fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+};
+
+export const FABRICANTE_POR_MARCA = {
+  Ram:        "Stellantis",
+  Jeep:       "Stellantis",
+  Chrysler:   "Stellantis",
+  Dodge:      "Stellantis",
+  Fiat:       "Stellantis",
+  Mitsubishi: "Mitsubishi",
+  Peugeot:    "Peugeot",
+};
+
+export const MARCAS_POR_FABRICANTE = {
+  Stellantis: ["Ram", "Jeep", "Chrysler", "Dodge", "Fiat"],
+  Mitsubishi: ["Mitsubishi"],
+  Peugeot:    ["Peugeot"],
+};
+
+export const MODELOS_POR_MARCA = {
+  Ram:       ["700", "1200", "1500 Mild-Hybrid", "1500 TRX/RHO", "2500", "4000", "Promaster/Rapid", "Otro"],
+  Jeep:      ["Renegade", "Compass", "Cherokee", "Grand Cherokee", "Wrangler JL", "Wrangler JT", "Wagoneer/Grand Wagoneer", "Patriot", "Liberty", "Otro"],
+  Fiat:      ["Mobi", "Uno", "Argo", "Pulse", "Fastback", "500/500L/500x", "Ducato", "Abarth", "Otro"],
+  Dodge:     ["Attitude", "New Attitude", "Neon", "Journey", "New Journey", "Durango", "Charger", "Challenger", "Otro"],
+  Chrysler:  ["Pacifica", "300/300C", "200", "Town & Country", "Otro"],
+  Peugeot:   ["208", "301", "2008", "3008", "5008", "Landtrek", "Partner", "Rifter", "Manager", "Otro"],
+  Mitsubishi:["Mirage", "Xpander/Xpander Cross", "Outlander PHEV", "Outlander Sport", "Outlander", "Montero Sport", "L200 Gasolina", "L200 Diesel", "ASX/Eclipse Cross", "Otro"],
+};
+
+// 🔥 "Cotizada" agregado para flujo Mayoreo/Menudeo/Aseguradoras
+export const ESTATUSES_ITEM = [
+  "Cotizada",       // nuevo — pieza capturada, esperando aprobación del cliente
+  "Pendiente",
+  "Comprada",
+  "No comprada",
+  "Recibida",
+  "Entregada",
+  "Incorrecta",
+  "Vencida",
+];
+
+export const ESTATUSES_OT = ["Completa", "Parcial", "Facturada", "Cancelada"];
+
+export const TIPOS_ORDEN = ["Público", "Garantía", "Interna"];
+
+export const TIPOS_COTIZACION = ["Mayoreo", "Menudeo", "Aseguradora"];
+
+export const UBICACIONES = ["MX", "EUA", "BO"];
+
+export const HORARIOS_CORTE = {
+  Stellantis: "12:00",
+  Mitsubishi:  "11:00",
+  Peugeot:     "12:00",
+};
+
+// Días hábiles en que llega mercancía (0=dom, 1=lun, ... 6=sab)
+const DIAS_LLEGADA = [2, 3, 5, 6]; // martes, miércoles, viernes, sábado
+
+function esDiaLlegada(fecha) {
+  return DIAS_LLEGADA.includes(fecha.getDay());
+}
+
+function siguienteDiaLlegada(desde) {
+  const d = new Date(desde);
+  d.setDate(d.getDate() + 1);
+  while (!esDiaLlegada(d)) {
+    d.setDate(d.getDate() + 1);
+  }
+  return d;
+}
+
+function addDiasHabiles(desde, dias) {
+  let d = new Date(desde);
+  let conteo = 0;
+  while (conteo < dias) {
+    d.setDate(d.getDate() + 1);
+    const dow = d.getDay();
+    if (dow !== 0 && dow !== 1) conteo++;
+  }
+  return d;
+}
+
+export function calcularETA(ubicacion, fabricante, fechaCompra = new Date()) {
+  const base = new Date(fechaCompra);
+
+  if (ubicacion === "MX") {
+    const unDia = addDiasHabiles(base, 1);
+    return esDiaLlegada(unDia) ? unDia : siguienteDiaLlegada(unDia);
+  }
+  if (ubicacion === "EUA") {
+    const catorce = addDiasHabiles(base, 14);
+    return esDiaLlegada(catorce) ? catorce : siguienteDiaLlegada(catorce);
+  }
+  if (ubicacion === "BO") {
+    const cuarentayCinco = addDiasHabiles(base, 45);
+    return esDiaLlegada(cuarentayCinco) ? cuarentayCinco : siguienteDiaLlegada(cuarentayCinco);
+  }
+  return null;
+}
+
+export function formatFecha(fecha) {
+  if (!fecha) return "—";
+  return new Date(fecha).toLocaleDateString("es-MX", {
+    weekday: "short", day: "2-digit", month: "short", year: "numeric",
+  });
+}
+
+export function diasTranscurridos(fecha) {
+  if (!fecha) return 0;
+  return Math.floor((Date.now() - new Date(fecha)) / 86400000);
+}
+
+export function generarReferencia(sucursalId, ot, asesorNombre) {
+  if (sucursalId === "bodyshop") return `BO-${ot}`;
+  if (sucursalId === "mayoreo_menudeo") {
+    const nombre = (asesorNombre || "").replace(/\s+/g, "").substring(0, 8).toUpperCase();
+    return nombre;
+  }
+  return `TA-${ot}`;
+}
+
+// 🔥 "Cotizada" agregado para flujo Mayoreo
+export const COLOR_ESTATUS = {
+  Cotizada:      { bg: "#1e3a5f", text: "#93c5fd" },   // azul oscuro — esperando cliente
+  Pendiente:     { bg: "#854d0e", text: "#fef9c3" },
+  Comprada:      { bg: "#1e40af", text: "#dbeafe" },
+  "No comprada": { bg: "#374151", text: "#d1d5db" },
+  Recibida:      { bg: "#166534", text: "#dcfce7" },
+  Entregada:     { bg: "#14532d", text: "#bbf7d0" },
+  Incorrecta:    { bg: "#7f1d1d", text: "#fee2e2" },
+  Vencida:       { bg: "#581c87", text: "#f3e8ff" },
+};
+
 ================================================================================
 
 
@@ -6023,15 +7001,15 @@ FILE: src/App.tsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 2.79 KB
+Size: 4.2 KB
 Extension: .tsx
 Language: typescript
 Location: src/App.tsx
 Relative Path: src
-Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-11 16:59:56 (America/Mexico_City / GMT-06:00)
-MD5: 1530942a5382413779a51e0c64460fd1
-SHA256: df02575e62770b37698b6be1e0cc4a1ca6b1934a8d1878463627b754d5dc7668
+Created: 2026-04-13 10:11:20 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-13 04:14:10 (America/Mexico_City / GMT-06:00)
+MD5: 61e4dbb48a6a7882541601265414b428
+SHA256: e144fd8924866f2d4f5b436b82c27a1ae37bbcdbd85ffd722ab0b5db918516e8
 Encoding: ASCII
 
 FILE CONTENT:
@@ -6045,7 +7023,8 @@ import Layout from "./components/Layout.jsx";
 import Login from "./pages/Login";
 import Captura from "./pages/Captura";
 import Compras from "./pages/Compras";
-import PanelAsesor from "./pages/PanelAsesor";
+import PanelAsesor from "./pages/PanelAsesor";        // usado por rol "coordinador"
+import PanelAsesorOp from "./pages/PanelAsesorOp";    // nuevo: rol "asesor_op"
 import PanelGerencial from "./pages/PanelGerencial";
 import Ventanilla from "./pages/Ventanilla";
 import VentanillaDetalle from "./pages/VentanillaDetalle";
@@ -6054,6 +7033,7 @@ import StockPedidos from "./pages/StockPedidos";
 import Almacen from "./pages/Almacen";
 import Chatbot from "./pages/Chatbot";
 import MisCotizaciones from "./pages/MisCotizaciones";
+import Usuarios from "./pages/usuarios";
 
 function RutasProtegidas() {
   const { user, cargando } = useAuth();
@@ -6061,13 +7041,8 @@ function RutasProtegidas() {
   if (cargando) {
     return (
       <div style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-        background: "#0f172a",
-        color: "#9ca3af",
-        fontSize: "17px"
+        display: "flex", alignItems: "center", justifyContent: "center",
+        height: "100vh", background: "#0f172a", color: "#9ca3af", fontSize: "17px"
       }}>
         Cargando sistema...
       </div>
@@ -6078,26 +7053,41 @@ function RutasProtegidas() {
     return <Navigate to="/login" replace />;
   }
 
+  // 🔐 Redirigir asesor_op directo a su panel de consulta
+  const rolDefault = user.rol === "asesor_op" ? "/mi-consulta" : "/captura";
+
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<Captura />} />
-        <Route path="/captura" element={<Captura />} />
-        <Route path="/mi-panel" element={<PanelAsesor />} />
-        <Route path="/mis-cotizaciones" element={<MisCotizaciones />} />
-        <Route path="/compras" element={<Compras />} />
-        <Route path="/gerencial" element={<PanelGerencial />} />
-        <Route path="/ventanilla" element={<Ventanilla />} />
-        <Route path="/ventanilla/:ot" element={<VentanillaDetalle />} />
-        <Route path="/consulta-ot" element={<ConsultaOT />} />
-        <Route path="/stock-pedidos" element={<StockPedidos />} />
-        <Route path="/almacen" element={<Almacen />} />
-        <Route path="/chat" element={<Chatbot />} />
+        <Route path="/"                   element={<Navigate to={rolDefault} replace />} />
 
-        {/* Redirecciones por rol (opcional pero recomendado) */}
-        <Route path="/recepcion-masiva" element={<Almacen />} />
+        {/* ── Coordinador (antes "asesor") ─────────────────────────── */}
+        <Route path="/captura"            element={<Captura />} />
+        <Route path="/mi-panel"           element={<PanelAsesor />} />
+        <Route path="/mis-cotizaciones"   element={<MisCotizaciones />} />
 
-        <Route path="*" element={<Navigate to="/" replace />} />
+        {/* ── Asesor Op. (solo lectura) ────────────────────────────── */}
+        <Route path="/mi-consulta"        element={<PanelAsesorOp />} />
+
+        {/* ── Compartidas ──────────────────────────────────────────── */}
+        <Route path="/consulta-ot"        element={<ConsultaOT />} />
+        <Route path="/chat"               element={<Chatbot />} />
+
+        {/* ── Compras / Almacén ────────────────────────────────────── */}
+        <Route path="/compras"            element={<Compras />} />
+        <Route path="/almacen"            element={<Almacen />} />
+        <Route path="/recepcion-masiva"   element={<Almacen />} />
+        <Route path="/stock-pedidos"      element={<StockPedidos />} />
+
+        {/* ── Ventanilla ───────────────────────────────────────────── */}
+        <Route path="/ventanilla"         element={<Ventanilla />} />
+        <Route path="/ventanilla/:ot"     element={<VentanillaDetalle />} />
+
+        {/* ── Gerencial / Admin ────────────────────────────────────── */}
+        <Route path="/gerencial"          element={<PanelGerencial />} />
+        <Route path="/usuarios"           element={<Usuarios />} />
+
+        <Route path="*"                   element={<Navigate to={rolDefault} replace />} />
       </Routes>
     </Layout>
   );
@@ -6105,21 +7095,16 @@ function RutasProtegidas() {
 
 function LoginGuard() {
   const { user, cargando } = useAuth();
-  if (cargando) return null;
-  if (cargando) {
-  return (
+  if (cargando) return (
     <div style={{
-      height: "100vh",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      background: "#0f172a",
-      color: "#9ca3af"
+      height: "100vh", display: "flex", alignItems: "center",
+      justifyContent: "center", background: "#0f172a", color: "#9ca3af"
     }}>
       Cargando sistema...
     </div>
   );
-  }
+  if (user) return <Navigate to="/" replace />;
+  return <Login />;
 }
 
 export default function App() {
@@ -6127,13 +7112,14 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<LoginGuard />} />
-          <Route path="/*" element={<RutasProtegidas />} />
+          <Route path="/login"  element={<LoginGuard />} />
+          <Route path="/*"      element={<RutasProtegidas />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
   );
 }
+
 ================================================================================
 
 

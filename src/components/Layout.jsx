@@ -31,7 +31,6 @@ const MENU_POR_ROL = {
     { path: "/mi-panel",         label: "👤 Mi Panel" },
     { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
     { path: "/consulta-ot",      label: "🔍 Consulta OT" },
-    { path: "/stock-solicitud",  label: "📋 Solicitar Stock" },
     { path: "/chat",             label: "🤖 Asistente" },
   ],
   asesor_op: [
