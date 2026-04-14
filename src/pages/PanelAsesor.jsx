@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+// usado por rol "coordinador" (talleres) y "ventas" (Mayoreo)import { useEffect, useState, useRef } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
 import { COLOR_ESTATUS, diasTranscurridos, formatFecha } from "../utils/catalogos";

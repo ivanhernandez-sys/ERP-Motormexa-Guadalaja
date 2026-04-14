@@ -5,8 +5,8 @@ PROJECT EXPORT FOR LLMs
 PROJECT INFORMATION:
 --------------------------------------------------
 Project Name: motormexa-frontend
-Generated On: 2026-04-14 00:18:49 (America/Mexico_City / GMT-06:00)
-Total Files Processed: 62
+Generated On: 2026-04-14 01:43:30 (America/Mexico_City / GMT-06:00)
+Total Files Processed: 63
 Export Tool: Easy Whole Project to Single Text File for LLMs v1.1.0
 Tool Author: Jota / José Guilherme Pandolfi
 
@@ -40,29 +40,31 @@ PROJECT STRUCTURE
 │   │   ├── 📄 Filtros.jsx (1.51 KB)
 │   │   ├── 📄 GraficaEstados.jsx (704 B)
 │   │   ├── 📄 KPI.jsx (419 B)
-│   │   ├── 📄 Layout.jsx (8.26 KB)
+│   │   ├── 📄 Layout.jsx (10.23 KB)
 │   │   ├── 📄 Ranking.jsx (1.76 KB)
 │   │   ├── 📄 SolicitarStockModal.jsx (4.84 KB)
 │   │   ├── 📄 Sucursales.jsx (1.36 KB)
 │   │   ├── 📄 TablaERP.jsx (1.11 KB)
 │   │   └── 📄 TableroPro.jsx (1.23 KB)
+│   ├── 📁 constants/
+│   │   └── 📄 roles.js (3.86 KB)
 │   ├── 📁 contexts/
 │   │   └── 📄 AuthContext.jsx (1.34 KB)
 │   ├── 📁 pages/
-│   │   ├── 📄 Almacen.jsx (11.02 KB)
+│   │   ├── 📄 Almacen.jsx (10.88 KB)
 │   │   ├── 📄 Captura.jsx (19.69 KB)
-│   │   ├── 📄 Chatbot.jsx (14.25 KB)
+│   │   ├── 📄 Chatbot.jsx (14.29 KB)
 │   │   ├── 📄 Compras.jsx (9.6 KB)
 │   │   ├── 📄 ConsultaOT.jsx (11.86 KB)
 │   │   ├── 📄 Login.jsx (6.61 KB)
 │   │   ├── 📄 MisCotizaciones.jsx (23.95 KB)
-│   │   ├── 📄 PanelAsesor.jsx (8.25 KB)
-│   │   ├── 📄 PanelAsesorOp.jsx (8.2 KB)
+│   │   ├── 📄 PanelAsesor.jsx (8.32 KB)
+│   │   ├── 📄 PanelAsesorOp.jsx (8.26 KB)
 │   │   ├── 📄 PanelGerencial.jsx (10.5 KB)
 │   │   ├── 📄 RecepcionMasiva.jsx (14.08 KB)
 │   │   ├── 📄 StockPedidos.jsx (6.82 KB)
 │   │   ├── 📄 StockSolicitud.jsx (1.93 KB)
-│   │   ├── 📄 usuarios.jsx (4.43 KB)
+│   │   ├── 📄 usuarios.jsx (10.08 KB)
 │   │   ├── 📄 Ventanilla.jsx (6.2 KB)
 │   │   └── 📄 VentanillaDetalle.jsx (5.24 KB)
 │   ├── 📁 services/
@@ -75,7 +77,7 @@ PROJECT STRUCTURE
 │   ├── 📁 utils/
 │   │   └── 📄 catalogos.js (5.28 KB)
 │   ├── 📄 App.css (2.82 KB)
-│   ├── 📄 App.tsx (4.2 KB)
+│   ├── 📄 App.tsx (9.75 KB)
 │   ├── 📄 global.d.ts (81 B)
 │   ├── 📄 index.css (2.03 KB)
 │   ├── 📄 main.tsx (230 B)
@@ -97,16 +99,16 @@ PROJECT STRUCTURE
 ================================================================================
 PROJECT STATISTICS
 ================================================================================
-Total Files: 62
-Total Directories: 9
-Text Files: 53
+Total Files: 63
+Total Directories: 10
+Text Files: 54
 Binary Files: 9
-Total Size: 431.9 KB
+Total Size: 448.95 KB
 
 FILE TYPES DISTRIBUTION:
 ------------------------------
 .jsx            : 30
-.js             : 6
+.js             : 7
 .json           : 6
 .svg            : 4
 .css            : 3
@@ -862,15 +864,15 @@ FILE: src/components/Layout.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 8.26 KB
+Size: 10.23 KB
 Extension: .jsx
 Language: jsx
 Location: src/components/Layout.jsx
 Relative Path: src/components
-Created: 2026-04-14 05:36:40 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-14 00:18:49 (America/Mexico_City / GMT-06:00)
-MD5: 363f1ef48e8c6ff04f7b85cf24fc8bcc
-SHA256: 1dfa220c9737f0eff2716ce52a62707ad136750d88b709d70c470860cc7056cb
+Created: 2026-04-14 06:51:02 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-14 00:58:32 (America/Mexico_City / GMT-06:00)
+MD5: 7ecce9d601b78485516e4e4a3cc2b482
+SHA256: 864a375d767ce537c168dc524ab7a6344b018a53e2c74974087e0db55df9df4d
 Encoding: UTF-8
 
 FILE CONTENT:
@@ -882,18 +884,33 @@ import { useAuth } from "../contexts/AuthContext";
 import BusquedaGlobal from "./BusquedaGlobal";
 import logo from "../assets/logo.png";
 
-const NOMBRES_SUCURSAL = {
-  taller_vallarta:    "Taller Vallarta",
-  taller_acueducto:   "Taller Acueducto",
-  taller_country:     "Taller Country",
-  taller_camino_real: "Taller Camino Real",
-  bodyshop:           "BodyShop",
-  mayoreo_menudeo:    "Mayoreo/Menudeo",
-};
+// ─────────────────────────────────────────────
+// SUCURSALES — IDs canónicos y nombres de display
+// ─────────────────────────────────────────────
+export const SUCURSALES = [
+  { id: "acueducto",      nombre: "Acueducto" },
+  { id: "vallarta",       nombre: "Vallarta" },
+  { id: "country",        nombre: "Country" },
+  { id: "camino_real",    nombre: "Camino Real" },
+  { id: "bodyshop",       nombre: "BodyShop" },
+  { id: "mayoreo_menudeo", nombre: "Mayoreo / Menudeo" },
+];
 
-const LABEL_ROL = {
-  coordinador:      "Coordinador",
-  asesor_op:        "Asesor Op.",
+export const NOMBRES_SUCURSAL = Object.fromEntries(
+  SUCURSALES.map(s => [s.id, s.nombre])
+);
+
+// ─────────────────────────────────────────────
+// ROLES
+// Talleres    → coordinador / asesor_op
+// Mayoreo     → ventas / asesor_op (solo lectura)
+// Operaciones → comprador / almacen / ventanilla
+// Dirección   → gerente_sucursal / gerente / admin
+// ─────────────────────────────────────────────
+export const LABEL_ROL = {
+  coordinador:      "Coordinador",       // captura de talleres
+  ventas:           "Ventas",            // captura de Mayoreo/Menudeo
+  asesor_op:        "Asesor Op.",        // solo lectura (talleres y mayoreo)
   comprador:        "Comprador",
   almacen:          "Almacén",
   ventanilla:       "Ventanilla",
@@ -902,7 +919,11 @@ const LABEL_ROL = {
   admin:            "Admin",
 };
 
+// ─────────────────────────────────────────────
+// MENÚS POR ROL
+// ─────────────────────────────────────────────
 const MENU_POR_ROL = {
+  // Coordinador de taller — captura y seguimiento de sus OTs
   coordinador: [
     { path: "/captura",          label: "📦 Captura" },
     { path: "/mi-panel",         label: "👤 Mi Panel" },
@@ -910,27 +931,46 @@ const MENU_POR_ROL = {
     { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/chat",             label: "🤖 Asistente" },
   ],
+
+  // Ventas — exclusivo Mayoreo/Menudeo (reemplaza "coordinador" en esa sucursal)
+  ventas: [
+    { path: "/captura",          label: "📋 Nueva Cotización" },
+    { path: "/mis-cotizaciones", label: "📊 Mis Cotizaciones" },
+    { path: "/mi-panel",         label: "👤 Mis Órdenes" },
+    { path: "/consulta-ot",      label: "🔍 Consulta" },
+    { path: "/chat",             label: "🤖 Asistente" },
+  ],
+
+  // Asesor Op. — solo lectura, ve únicamente sus órdenes asignadas
   asesor_op: [
     { path: "/mi-consulta", label: "👁️ Mis Órdenes" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
     { path: "/chat",        label: "🤖 Asistente" },
   ],
+
+  // Comprador
   comprador: [
     { path: "/compras",     label: "🛒 Compras" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
     { path: "/chat",        label: "🤖 Asistente" },
   ],
+
+  // Almacén
   almacen: [
     { path: "/almacen",       label: "🏭 Almacén / Recepción" },
     { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
     { path: "/consulta-ot",   label: "🔍 Consulta OT" },
     { path: "/chat",          label: "🤖 Asistente" },
   ],
+
+  // Ventanilla
   ventanilla: [
     { path: "/ventanilla",  label: "🪟 Ventanilla" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
     { path: "/chat",        label: "🤖 Asistente" },
   ],
+
+  // Gerente (acceso completo sin administración de usuarios)
   gerente: [
     { path: "/gerencial",        label: "📊 Panel Gerencial" },
     { path: "/captura",          label: "📦 Captura" },
@@ -938,20 +978,24 @@ const MENU_POR_ROL = {
     { path: "/ventanilla",       label: "🪟 Ventanilla" },
     { path: "/almacen",          label: "🏭 Almacén / Recepción" },
     { path: "/stock-pedidos",    label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
+    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/chat",             label: "🤖 Asistente" },
   ],
+
+  // Gerente de sucursal — visión de su sucursal, sin compras globales
   gerente_sucursal: [
     { path: "/gerencial",        label: "📊 Mi Sucursal" },
     { path: "/captura",          label: "📦 Captura" },
     { path: "/ventanilla",       label: "🪟 Ventanilla" },
     { path: "/almacen",          label: "🏭 Almacén / Recepción" },
     { path: "/stock-pedidos",    label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
+    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/chat",             label: "🤖 Asistente" },
   ],
+
+  // Admin — acceso total incluyendo gestión de usuarios
   admin: [
     { path: "/gerencial",        label: "📊 Panel Gerencial" },
     { path: "/captura",          label: "📦 Captura" },
@@ -959,22 +1003,14 @@ const MENU_POR_ROL = {
     { path: "/ventanilla",       label: "🪟 Ventanilla" },
     { path: "/almacen",          label: "🏭 Almacén / Recepción" },
     { path: "/stock-pedidos",    label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
     { path: "/usuarios",         label: "👥 Usuarios" },
+    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/chat",             label: "🤖 Asistente" },
   ],
 };
 
-// 🔥 Menú especial para coordinador de Mayoreo/Menudeo
-const MENU_MAYOREO = [
-  { path: "/captura",          label: "📋 Nueva Cotización" },
-  { path: "/mis-cotizaciones", label: "📊 Mis Cotizaciones" },
-  { path: "/mi-panel",         label: "👤 Mis Órdenes" },
-  { path: "/consulta-ot",      label: "🔍 Consulta" },
-  { path: "/chat",             label: "🤖 Asistente" },
-];
-
+// Fallback si el rol no está mapeado
 const MENU_DEFAULT = [
   { path: "/captura",     label: "📦 Captura" },
   { path: "/consulta-ot", label: "🔍 Consulta OT" },
@@ -987,10 +1023,9 @@ export default function Layout({ children }) {
 
   const esMayoreo  = user?.sucursal_id === "mayoreo_menudeo";
   const esAsesorOp = user?.rol === "asesor_op";
+  const esVentas   = user?.rol === "ventas";
 
-  const menu = (user?.rol === "coordinador" && esMayoreo)
-    ? MENU_MAYOREO
-    : MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
+  const menu = MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
 
   return (
     <div style={{ display: "flex", height: "100vh", background: "#0f172a" }}>
@@ -1006,6 +1041,7 @@ export default function Layout({ children }) {
           <div style={{ color: "#4b5563", fontSize: "16px" }}>Sistema de Refacciones</div>
         </div>
 
+        {/* Badge de sucursal */}
         {user?.sucursal_id && (
           <div style={{
             background: "#0f172a", border: "1px solid #1f2937",
@@ -1018,6 +1054,7 @@ export default function Layout({ children }) {
           </div>
         )}
 
+        {/* Badge: modo solo lectura */}
         {esAsesorOp && (
           <div style={{
             background: "#1e2f1e", border: "1px solid #166534",
@@ -1028,7 +1065,8 @@ export default function Layout({ children }) {
           </div>
         )}
 
-        {esMayoreo && user?.rol === "coordinador" && (
+        {/* Badge: Mayoreo/Menudeo (ventas o coordinador legacy) */}
+        {esMayoreo && (esVentas || user?.rol === "coordinador") && (
           <div style={{
             background: "#1e3a5f", border: "1px solid #2563eb",
             borderRadius: "6px", padding: "5px 10px", marginBottom: "12px",
@@ -1546,6 +1584,121 @@ export default function TablePro({ data }) {
 
 
 ================================================================================
+FILE: src/constants/roles.js
+================================================================================
+
+FILE INFORMATION:
+----------------------------------------
+Size: 3.86 KB
+Extension: .js
+Language: javascript
+Location: src/constants/roles.js
+Relative Path: src/constants
+Created: 2026-04-14 06:51:02 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-14 01:01:01 (America/Mexico_City / GMT-06:00)
+MD5: deb6c50d5d5937695054166a2e5cad57
+SHA256: ce086c11acc256248716a106e5419d4c9b9ccb8fc3b5808b764a3b97b7afb1a0
+Encoding: UTF-8
+
+FILE CONTENT:
+----------------------------------------
+// src/constants/roles.js
+// ─────────────────────────────────────────────────────────────────────────────
+// Fuente única de verdad para roles y sucursales en toda la aplicación.
+// Importar desde aquí en vez de redefinir en cada archivo.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── SUCURSALES ────────────────────────────────────────────────────────────────
+export const SUCURSALES = [
+  { id: "acueducto",       nombre: "Acueducto" },
+  { id: "vallarta",        nombre: "Vallarta" },
+  { id: "country",         nombre: "Country" },
+  { id: "camino_real",     nombre: "Camino Real" },
+  { id: "bodyshop",        nombre: "BodyShop" },
+  { id: "mayoreo_menudeo", nombre: "Mayoreo / Menudeo" },
+];
+
+/** Mapa rápido id → nombre */
+export const NOMBRES_SUCURSAL = Object.fromEntries(
+  SUCURSALES.map(s => [s.id, s.nombre])
+);
+
+// ── ROLES ─────────────────────────────────────────────────────────────────────
+
+/**
+ * Todos los roles válidos del sistema.
+ * - coordinador   : captura en talleres (ex "asesor")
+ * - ventas        : captura en Mayoreo/Menudeo
+ * - asesor_op     : solo lectura, ve únicamente sus órdenes
+ * - comprador     : módulo de compras
+ * - almacen       : módulo de almacén y recepción
+ * - ventanilla    : entrega al cliente final
+ * - gerente_sucursal : visión de su sucursal
+ * - gerente       : todos los módulos operativos (sin admin de usuarios)
+ * - admin         : acceso total
+ */
+export const ROLES = [
+  "coordinador",
+  "ventas",
+  "asesor_op",
+  "comprador",
+  "almacen",
+  "ventanilla",
+  "gerente_sucursal",
+  "gerente",
+  "admin",
+];
+
+/** Etiqueta legible por rol */
+export const LABEL_ROL = {
+  coordinador:      "Coordinador",
+  ventas:           "Ventas",
+  asesor_op:        "Asesor Op.",
+  comprador:        "Comprador",
+  almacen:          "Almacén",
+  ventanilla:       "Ventanilla",
+  gerente:          "Gerente",
+  gerente_sucursal: "Gerente Sucursal",
+  admin:            "Admin",
+};
+
+/** Ruta de inicio por rol */
+export const ROL_DEFAULT = {
+  coordinador:      "/captura",
+  ventas:           "/captura",
+  asesor_op:        "/mi-consulta",
+  comprador:        "/compras",
+  almacen:          "/almacen",
+  ventanilla:       "/ventanilla",
+  gerente:          "/gerencial",
+  gerente_sucursal: "/gerencial",
+  admin:            "/gerencial",
+};
+
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+
+/** Roles que solo ven sus propias órdenes (filtro por asesor_id) */
+export const ROLES_RESTRINGIDOS_ASESOR = ["coordinador", "ventas", "asesor_op"];
+
+/** Roles que solo ven su sucursal (filtro por sucursal_id) */
+export const ROLES_RESTRINGIDOS_SUCURSAL = ["ventanilla", "gerente_sucursal"];
+
+/** Roles con acceso al módulo de compras */
+export const ROLES_COMPRAS = ["comprador", "gerente", "admin"];
+
+/** Roles con acceso al módulo de almacén */
+export const ROLES_ALMACEN = ["almacen", "gerente", "gerente_sucursal", "admin"];
+
+/** Roles con acceso al panel gerencial */
+export const ROLES_GERENCIAL = ["gerente", "gerente_sucursal", "admin"];
+
+/** Roles con acceso a captura de órdenes */
+export const ROLES_CAPTURA = ["coordinador", "ventas", "gerente", "gerente_sucursal", "admin"];
+
+================================================================================
+
+
+================================================================================
 FILE: src/contexts/AuthContext.jsx
 ================================================================================
 
@@ -1637,15 +1790,15 @@ FILE: src/pages/Almacen.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 11.02 KB
+Size: 10.88 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/Almacen.jsx
 Relative Path: src/pages
 Created: 2026-04-10 11:47:32 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-10 15:43:01 (America/Mexico_City / GMT-06:00)
-MD5: 2147761f110cda6560df7ab7e6a5f9ee
-SHA256: ba1a9bff6f49fea22d61600adaa908916b03c66893953de88f6918343b089a66
+Modified: 2026-04-14 01:11:55 (America/Mexico_City / GMT-06:00)
+MD5: 57879b69d1fa351e865699b1d2576b66
+SHA256: e5e2c94b9218eadf0dc732345a042777da8b55f91fba2023889ad2ce54bf68e1
 Encoding: UTF-8
 
 FILE CONTENT:
@@ -1657,8 +1810,9 @@ import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
 import Filtros from "../components/Filtros";
 import * as XLSX from "xlsx";
+  import { NOMBRES_SUCURSAL } from "../constants/roles";
 
-export default function Almacen() {
+  export default function Almacen() {
   const { user } = useAuth();
   const [tabActivo, setTabActivo] = useState("lista");
   const [data, setData] = useState([]);
@@ -1676,14 +1830,6 @@ export default function Almacen() {
   // 🔥 ROLES
   const rol = user?.rol?.toLowerCase();
   const esAdmin = rol === "admin";
-
-  // 🔥 MAPEO VISUAL (NO ROMPE NADA)
-  const NOMBRES_SUCURSAL = {
-    taller_vallarta: "Vallarta",
-    acueducto: "Acueducto",
-    camino_real: "Camino Real",
-    mayoreo_menudeo: "Mayoreo"
-  };
 
   const cargar = useCallback(async () => {
     setCargando(true);
@@ -2447,15 +2593,15 @@ FILE: src/pages/Chatbot.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 14.25 KB
+Size: 14.29 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/Chatbot.jsx
 Relative Path: src/pages
 Created: 2026-04-13 10:11:20 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-13 04:15:43 (America/Mexico_City / GMT-06:00)
-MD5: 308f2e75904adbf9452196807d8c8d03
-SHA256: b1cb3c98d41cdaded139d8baa1cbe0605446b6c59c6e1c76fc9992f367d31ad9
+Modified: 2026-04-14 01:02:30 (America/Mexico_City / GMT-06:00)
+MD5: 32c080260dac584d5f22b36a5b1c58eb
+SHA256: e895608359c7622a963fc5a8167823a35d946459ffebbaaa1f7ed6d16060c66c
 Encoding: UTF-8
 
 FILE CONTENT:
@@ -2500,7 +2646,10 @@ function detectarIntencion(texto) {
 async function ejecutar(intencion, user) {
   // 🔐 Roles con restricción de alcance
   // coordinador (antes "asesor") y asesor_op → solo sus órdenes
-  const esRestringidoPorAsesor = user?.rol === "coordinador" || user?.rol === "asesor_op";
+  const esRestringidoPorAsesor =
+    user?.rol === "coordinador" ||
+    user?.rol === "ventas"      ||
+    user?.rol === "asesor_op";
   const esRestringidoPorSucursal = user?.rol === "ventanilla" || user?.rol === "gerente_sucursal";
 
   switch (intencion.tipo) {
@@ -4308,20 +4457,20 @@ FILE: src/pages/PanelAsesor.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 8.25 KB
+Size: 8.32 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/PanelAsesor.jsx
 Relative Path: src/pages
 Created: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-06 00:06:07 (America/Mexico_City / GMT-06:00)
-MD5: 536b69a465901516f153d0cf2edfe886
-SHA256: f525775dcdc12f1390a336e28bb49416ae2b8b48e7ef4e444485438567a02b87
+Modified: 2026-04-14 01:40:31 (America/Mexico_City / GMT-06:00)
+MD5: e4a18f4b09c13c470a0faebd332bb004
+SHA256: 785d3bf02c9bfa1a3cbb2ebcc95f89366442fdd26cf5329fe64a2ab26b1f1b70
 Encoding: ASCII
 
 FILE CONTENT:
 ----------------------------------------
-import { useEffect, useState, useRef } from "react";
+// usado por rol "coordinador" (talleres) y "ventas" (Mayoreo)import { useEffect, useState, useRef } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
 import { COLOR_ESTATUS, diasTranscurridos, formatFecha } from "../utils/catalogos";
@@ -4525,21 +4674,22 @@ FILE: src/pages/PanelAsesorOp.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 8.2 KB
+Size: 8.26 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/PanelAsesorOp.jsx
 Relative Path: src/pages
 Created: 2026-04-13 10:11:20 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-13 04:16:19 (America/Mexico_City / GMT-06:00)
-MD5: 069029657f80cd5230bcd65f8df0e347
-SHA256: 6f4f51d032f6628253d8127006b1015dff3ba2bb185d1de02c893a5feddd4438
+Modified: 2026-04-14 01:43:30 (America/Mexico_City / GMT-06:00)
+MD5: 75ff7653ce99bd19123805513a502fb2
+SHA256: 884ff0c63b5ce4b5d6c51e793f816dc2ddfd2ba228c2b3540b0b1b393b67dd14
 Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
 // src/pages/PanelAsesorOp.jsx
 // Rol: asesor_op — Solo lectura, ve únicamente sus propias órdenes
+// usado por rol "coordinador" (talleres) y "ventas" (Mayoreo)
 
 import { useEffect, useState } from "react";
 import { supabase } from "../services/supabase";
@@ -4769,9 +4919,9 @@ Language: jsx
 Location: src/pages/PanelGerencial.jsx
 Relative Path: src/pages
 Created: 2026-04-13 10:11:20 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-13 04:15:52 (America/Mexico_City / GMT-06:00)
-MD5: ae2804f5e0c9f0aa37a5562bce0bac74
-SHA256: c0eb02ecbf195426cdf380481320e32eb1e3a1b78522a943ce16d785958a4754
+Modified: 2026-04-14 01:05:39 (America/Mexico_City / GMT-06:00)
+MD5: 9ad85605cbf735421cf6d911ed10695c
+SHA256: eba666a35a05129f293a837a3d4fa3587aad351e4975634d4d36d9f71b87ecf2
 Encoding: UTF-8
 
 FILE CONTENT:
@@ -4832,8 +4982,8 @@ export default function PanelGerencial() {
     // 🔐 Filtrar por rol
     // "coordinador" es el nuevo nombre del antiguo "asesor"
     // "asesor_op" también solo ve sus propias órdenes
-    if (user?.rol === "coordinador" || user?.rol === "asesor_op")
-      q = q.eq("asesor_id", user.id);
+    if (["coordinador", "ventas", "asesor_op"].includes(user?.rol))
+    q = q.eq("asesor_id", user.id);
     if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
       q = q.eq("sucursal_id", user.sucursal_id);
 
@@ -5690,15 +5840,15 @@ FILE: src/pages/usuarios.jsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 4.43 KB
+Size: 10.08 KB
 Extension: .jsx
 Language: jsx
 Location: src/pages/usuarios.jsx
 Relative Path: src/pages
-Created: 2026-04-13 10:11:20 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-13 04:14:28 (America/Mexico_City / GMT-06:00)
-MD5: b329076c9d48c3c6899b3a8a1cd76b89
-SHA256: 5fcfb48b42af3f9018f6f4851f4b574545567fffdd4a7d3d7282dad25eaead1a
+Created: 2026-04-14 06:51:02 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-14 00:58:10 (America/Mexico_City / GMT-06:00)
+MD5: 665d389c10b3787f8b3a2214ae9430a1
+SHA256: 15d2ea9a294c5486e20e78c18ee913be2f97dad899ddc6b92adbbb31495c0f41
 Encoding: UTF-8
 
 FILE CONTENT:
@@ -5708,45 +5858,139 @@ FILE CONTENT:
 import { useState } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
+import { SUCURSALES } from "../components/Layout";
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Descripción de cada rol (se muestra debajo del select)
+// ─────────────────────────────────────────────────────────────────────────────
+const DESCRIPCION_ROL = {
+  coordinador: {
+    color: "#93c5fd",
+    bg: "#1e3a5f",
+    border: "#2563eb",
+    icono: "📦",
+    texto: "Captura órdenes de taller, gestiona su panel y solicita stock. Exclusivo para talleres.",
+  },
+  ventas: {
+    color: "#fcd34d",
+    bg: "#2d2008",
+    border: "#d97706",
+    icono: "🏪",
+    texto: "Captura cotizaciones y órdenes para Mayoreo/Menudeo. Exclusivo para esa sucursal.",
+  },
+  asesor_op: {
+    color: "#86efac",
+    bg: "#1e2f1e",
+    border: "#166534",
+    icono: "🔒",
+    texto: "Solo consulta — Ve únicamente sus órdenes asignadas, sin poder modificar nada.",
+  },
+  comprador: {
+    color: "#c4b5fd",
+    bg: "#1e1b4b",
+    border: "#7c3aed",
+    icono: "🛒",
+    texto: "Accede al módulo de Compras para gestionar pedidos pendientes.",
+  },
+  almacen: {
+    color: "#6ee7b7",
+    bg: "#0f2b21",
+    border: "#059669",
+    icono: "🏭",
+    texto: "Gestiona recepción de piezas, stock y pedidos en almacén.",
+  },
+  ventanilla: {
+    color: "#fbcfe8",
+    bg: "#2d0f1e",
+    border: "#db2777",
+    icono: "🪟",
+    texto: "Valida piezas entregadas al cliente final desde la ventanilla.",
+  },
+  gerente_sucursal: {
+    color: "#fda4af",
+    bg: "#2d0f14",
+    border: "#e11d48",
+    icono: "📊",
+    texto: "Visión completa de su sucursal: panel, almacén, ventanilla y cotizaciones.",
+  },
+  gerente: {
+    color: "#f9a8d4",
+    bg: "#3b0764",
+    border: "#9333ea",
+    icono: "📈",
+    texto: "Acceso a todos los módulos operativos. No puede administrar usuarios.",
+  },
+  admin: {
+    color: "#fef08a",
+    bg: "#1c1400",
+    border: "#ca8a04",
+    icono: "⚙️",
+    texto: "Acceso total al sistema, incluyendo creación y administración de usuarios.",
+  },
+};
 
 export default function Usuarios() {
   const { user } = useAuth();
 
   const [email, setEmail]       = useState("");
   const [password, setPassword] = useState("");
+  const [nombre, setNombre]     = useState("");
   const [rol, setRol]           = useState("coordinador");
   const [sucursal, setSucursal] = useState("");
   const [cargando, setCargando] = useState(false);
+  const [mensaje, setMensaje]   = useState(null); // { tipo: "ok" | "error", texto }
 
   const esAdmin = user?.rol === "admin";
 
+  // Guard de acceso
   if (!esAdmin) {
-    return <div style={{ padding: "40px" }}>❌ No tienes acceso</div>;
+    return (
+      <div style={{ padding: "40px", color: "#f87171", fontSize: "16px" }}>
+        ❌ No tienes acceso a esta sección.
+      </div>
+    );
   }
 
   const crearUsuario = async () => {
-    if (!email || !password || !sucursal) {
-      alert("Completa todos los campos");
+    setMensaje(null);
+
+    if (!email || !password || !sucursal || !nombre) {
+      setMensaje({ tipo: "error", texto: "Completa todos los campos obligatorios." });
+      return;
+    }
+
+    // Advertencia si rol y sucursal no coinciden lógicamente
+    const esMayoreo  = sucursal === "mayoreo_menudeo";
+    const esTaller   = !esMayoreo;
+
+    if (rol === "ventas" && esTaller) {
+      setMensaje({ tipo: "error", texto: 'El rol "Ventas" es exclusivo de Mayoreo/Menudeo.' });
+      return;
+    }
+    if (rol === "coordinador" && esMayoreo) {
+      setMensaje({ tipo: "error", texto: 'Para Mayoreo/Menudeo usa el rol "Ventas", no "Coordinador".' });
       return;
     }
 
     setCargando(true);
 
-    // Crear usuario en Auth
+    // 1 — Crear usuario en Supabase Auth
     const { data, error } = await supabase.auth.signUp({ email, password });
 
     if (error) {
-      alert("Error creando usuario: " + error.message);
+      setMensaje({ tipo: "error", texto: "Error al crear en Auth: " + error.message });
       setCargando(false);
       return;
     }
 
-    // Insertar en tabla usuarios
+    // 2 — Insertar registro en tabla usuarios
     const { error: errorDB } = await supabase
       .from("usuarios")
       .insert([{
-        id: data.user.id,
+        id:          data.user.id,
+        auth_id:     data.user.id,
         email,
+        nombre,
         rol,
         sucursal_id: sucursal,
       }]);
@@ -5754,109 +5998,189 @@ export default function Usuarios() {
     setCargando(false);
 
     if (errorDB) {
-      alert("Usuario creado en Auth pero error en BD: " + errorDB.message);
+      setMensaje({
+        tipo: "error",
+        texto: "Usuario creado en Auth pero error en BD: " + errorDB.message,
+      });
       return;
     }
 
-    alert("✅ Usuario creado correctamente");
+    setMensaje({ tipo: "ok", texto: `✅ Usuario "${nombre}" creado correctamente.` });
     setEmail("");
     setPassword("");
+    setNombre("");
     setRol("coordinador");
     setSucursal("");
   };
 
+  const desc = DESCRIPCION_ROL[rol];
+
   return (
-    <div style={{ padding: "20px", color: "#e5e7eb" }}>
-      <h2>👥 Crear Usuario</h2>
+    <div style={{ padding: "28px 24px", color: "#e5e7eb", maxWidth: "480px" }}>
+      <h2 style={{ marginBottom: "24px", fontSize: "20px", fontWeight: 700 }}>
+        👥 Crear Usuario
+      </h2>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "400px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
 
-        <input
-          placeholder="Email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          style={inputStyle}
-        />
+        {/* Nombre */}
+        <div>
+          <label style={labelStyle}>Nombre completo *</label>
+          <input
+            placeholder="Ej: María López"
+            value={nombre}
+            onChange={e => setNombre(e.target.value)}
+            style={inputStyle}
+          />
+        </div>
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          style={inputStyle}
-        />
+        {/* Email */}
+        <div>
+          <label style={labelStyle}>Correo electrónico *</label>
+          <input
+            type="email"
+            placeholder="usuario@motormexa.com"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            style={inputStyle}
+          />
+        </div>
 
-        <select
-          value={rol}
-          onChange={e => setRol(e.target.value)}
-          style={inputStyle}
-        >
-          {/* ── Rol "coordinador" reemplaza al antiguo "asesor" ── */}
-          <option value="coordinador">Coordinador</option>
+        {/* Contraseña */}
+        <div>
+          <label style={labelStyle}>Contraseña inicial *</label>
+          <input
+            type="password"
+            placeholder="Mínimo 8 caracteres"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            style={inputStyle}
+          />
+        </div>
 
-          {/* ── Nuevo rol de solo consulta ── */}
-          <option value="asesor_op">Asesor Op. (Solo lectura)</option>
+        {/* Sucursal — se muestra antes del rol para guiar la selección */}
+        <div>
+          <label style={labelStyle}>Sucursal *</label>
+          <select
+            value={sucursal}
+            onChange={e => {
+              setSucursal(e.target.value);
+              // Auto-sugerir rol según sucursal
+              if (e.target.value === "mayoreo_menudeo" && rol === "coordinador") setRol("ventas");
+              if (e.target.value !== "mayoreo_menudeo" && rol === "ventas") setRol("coordinador");
+            }}
+            style={inputStyle}
+          >
+            <option value="">— Selecciona sucursal —</option>
+            {SUCURSALES.map(s => (
+              <option key={s.id} value={s.id}>{s.nombre}</option>
+            ))}
+          </select>
+        </div>
 
-          <option value="comprador">Compras</option>
-          <option value="almacen">Almacén</option>
-          <option value="ventanilla">Ventanilla</option>
-          <option value="gerente_sucursal">Gerente Sucursal</option>
-          <option value="gerente">Gerente</option>
-          <option value="admin">Admin</option>
-        </select>
+        {/* Rol */}
+        <div>
+          <label style={labelStyle}>Rol *</label>
+          <select
+            value={rol}
+            onChange={e => setRol(e.target.value)}
+            style={inputStyle}
+          >
+            {/* ── Captura / Operativos ── */}
+            <optgroup label="Captura">
+              <option value="coordinador">Coordinador  (talleres)</option>
+              <option value="ventas">Ventas  (Mayoreo/Menudeo)</option>
+              <option value="asesor_op">Asesor Op.  (solo lectura)</option>
+            </optgroup>
+
+            {/* ── Operaciones ── */}
+            <optgroup label="Operaciones">
+              <option value="comprador">Comprador</option>
+              <option value="almacen">Almacén</option>
+              <option value="ventanilla">Ventanilla</option>
+            </optgroup>
+
+            {/* ── Dirección ── */}
+            <optgroup label="Dirección">
+              <option value="gerente_sucursal">Gerente Sucursal</option>
+              <option value="gerente">Gerente</option>
+              <option value="admin">Admin</option>
+            </optgroup>
+          </select>
+        </div>
 
         {/* Descripción del rol seleccionado */}
-        {rol === "asesor_op" && (
+        {desc && (
           <div style={{
-            background: "#1e2f1e", border: "1px solid #166534", borderRadius: "6px",
-            padding: "8px 12px", fontSize: "12px", color: "#86efac"
+            background: desc.bg,
+            border: `1px solid ${desc.border}`,
+            borderRadius: "8px",
+            padding: "10px 14px",
+            fontSize: "12px",
+            color: desc.color,
+            lineHeight: "1.5",
           }}>
-            🔒 Solo consulta — Verá únicamente sus órdenes asignadas, sin poder modificar nada.
-          </div>
-        )}
-        {rol === "coordinador" && (
-          <div style={{
-            background: "#1e3a5f", border: "1px solid #2563eb", borderRadius: "6px",
-            padding: "8px 12px", fontSize: "12px", color: "#93c5fd"
-          }}>
-            📦 Puede capturar órdenes, ver su panel y solicitar stock.
+            {desc.icono} <strong>{rol === "asesor_op" ? "Asesor Op." : rol.charAt(0).toUpperCase() + rol.slice(1)}</strong>
+            {" — "}{desc.texto}
           </div>
         )}
 
-        <select
-          value={sucursal}
-          onChange={e => setSucursal(e.target.value)}
-          style={inputStyle}
-        >
-          <option value="">Selecciona sucursal</option>
-          <option value="taller_vallarta">Vallarta</option>
-          <option value="acueducto">Acueducto</option>
-          <option value="camino_real">Camino Real</option>
-          <option value="mayoreo_menudeo">Mayoreo</option>
-        </select>
+        {/* Feedback */}
+        {mensaje && (
+          <div style={{
+            padding: "10px 14px",
+            borderRadius: "8px",
+            fontSize: "13px",
+            background: mensaje.tipo === "ok" ? "#052e16" : "#3b0000",
+            border: `1px solid ${mensaje.tipo === "ok" ? "#166534" : "#991b1b"}`,
+            color: mensaje.tipo === "ok" ? "#86efac" : "#fca5a5",
+          }}>
+            {mensaje.texto}
+          </div>
+        )}
 
         <button
           onClick={crearUsuario}
           disabled={cargando}
           style={{
-            background: "#2563eb", color: "white", padding: "10px",
-            border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: 600
+            background: cargando ? "#1e3a5f" : "#2563eb",
+            color: "white",
+            padding: "11px",
+            border: "none",
+            borderRadius: "8px",
+            cursor: cargando ? "not-allowed" : "pointer",
+            fontWeight: 600,
+            fontSize: "14px",
+            marginTop: "4px",
+            transition: "background 0.2s",
           }}
         >
-          {cargando ? "Creando..." : "Crear Usuario"}
+          {cargando ? "Creando usuario..." : "Crear Usuario"}
         </button>
+
       </div>
     </div>
   );
 }
 
-const inputStyle = {
+// ─── Estilos locales ───────────────────────────────────────────────────────
+const labelStyle: React.CSSProperties = {
+  display: "block",
+  marginBottom: "5px",
+  fontSize: "12px",
+  color: "#9ca3af",
+  fontWeight: 500,
+};
+
+const inputStyle: React.CSSProperties = {
+  width: "100%",
   background: "#111827",
   border: "1px solid #1f2937",
   color: "#e5e7eb",
   padding: "8px 12px",
   borderRadius: "8px",
   fontSize: "14px",
+  boxSizing: "border-box",
 };
 
 ================================================================================
@@ -7001,20 +7325,21 @@ FILE: src/App.tsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 4.2 KB
+Size: 9.75 KB
 Extension: .tsx
 Language: typescript
 Location: src/App.tsx
 Relative Path: src
-Created: 2026-04-13 10:11:20 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-13 04:14:10 (America/Mexico_City / GMT-06:00)
-MD5: 61e4dbb48a6a7882541601265414b428
-SHA256: e144fd8924866f2d4f5b436b82c27a1ae37bbcdbd85ffd722ab0b5db918516e8
-Encoding: ASCII
+Created: 2026-04-14 06:51:02 (America/Mexico_City / GMT-06:00)
+Modified: 2026-04-14 01:01:12 (America/Mexico_City / GMT-06:00)
+MD5: 024a8f8944ec36c8141a3b1f15bc1f75
+SHA256: 41763ebcbda8619ce23fb32875ae85f315eb42e7805f9fefd7157df4314cfc3a
+Encoding: UTF-8
 
 FILE CONTENT:
 ----------------------------------------
 // src/App.tsx
+
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext.jsx";
 import Layout from "./components/Layout.jsx";
@@ -7023,8 +7348,8 @@ import Layout from "./components/Layout.jsx";
 import Login from "./pages/Login";
 import Captura from "./pages/Captura";
 import Compras from "./pages/Compras";
-import PanelAsesor from "./pages/PanelAsesor";        // usado por rol "coordinador"
-import PanelAsesorOp from "./pages/PanelAsesorOp";    // nuevo: rol "asesor_op"
+import PanelAsesor from "./pages/PanelAsesor";        // coordinador y ventas
+import PanelAsesorOp from "./pages/PanelAsesorOp";    // asesor_op (solo lectura)
 import PanelGerencial from "./pages/PanelGerencial";
 import Ventanilla from "./pages/Ventanilla";
 import VentanillaDetalle from "./pages/VentanillaDetalle";
@@ -7035,6 +7360,39 @@ import Chatbot from "./pages/Chatbot";
 import MisCotizaciones from "./pages/MisCotizaciones";
 import Usuarios from "./pages/usuarios";
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Ruta de inicio por rol
+// ─────────────────────────────────────────────────────────────────────────────
+const ROL_DEFAULT: Record<string, string> = {
+  coordinador:      "/captura",
+  ventas:           "/captura",         // Mayoreo — misma página, distinto menú
+  asesor_op:        "/mi-consulta",
+  comprador:        "/compras",
+  almacen:          "/almacen",
+  ventanilla:       "/ventanilla",
+  gerente:          "/gerencial",
+  gerente_sucursal: "/gerencial",
+  admin:            "/gerencial",
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Guard de ruta por rol
+// Uso: <RutaProtegida roles={["admin"]}> ... </RutaProtegida>
+// Si el usuario no tiene el rol necesario, redirige a su ruta por defecto.
+// ─────────────────────────────────────────────────────────────────────────────
+function RutaProtegida({ roles, children }: { roles: string[]; children: JSX.Element }) {
+  const { user } = useAuth();
+  const destino = ROL_DEFAULT[user?.rol ?? ""] ?? "/captura";
+
+  if (!user || !roles.includes(user.rol)) {
+    return <Navigate to={destino} replace />;
+  }
+  return children;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Rutas protegidas (usuario autenticado)
+// ─────────────────────────────────────────────────────────────────────────────
 function RutasProtegidas() {
   const { user, cargando } = useAuth();
 
@@ -7053,46 +7411,139 @@ function RutasProtegidas() {
     return <Navigate to="/login" replace />;
   }
 
-  // 🔐 Redirigir asesor_op directo a su panel de consulta
-  const rolDefault = user.rol === "asesor_op" ? "/mi-consulta" : "/captura";
+  const rolDefault = ROL_DEFAULT[user.rol] ?? "/captura";
 
   return (
     <Layout>
       <Routes>
-        <Route path="/"                   element={<Navigate to={rolDefault} replace />} />
+        {/* Redirect raíz → ruta de inicio del rol */}
+        <Route path="/" element={<Navigate to={rolDefault} replace />} />
 
-        {/* ── Coordinador (antes "asesor") ─────────────────────────── */}
-        <Route path="/captura"            element={<Captura />} />
-        <Route path="/mi-panel"           element={<PanelAsesor />} />
-        <Route path="/mis-cotizaciones"   element={<MisCotizaciones />} />
+        {/* ── Coordinador (talleres) ─────────────────────────────────── */}
+        {/* ── Ventas (Mayoreo/Menudeo) ──────────────────────────────── */}
+        <Route
+          path="/captura"
+          element={
+            <RutaProtegida roles={["coordinador", "ventas", "gerente", "gerente_sucursal", "admin"]}>
+              <Captura />
+            </RutaProtegida>
+          }
+        />
+        <Route
+          path="/mi-panel"
+          element={
+            <RutaProtegida roles={["coordinador", "ventas", "gerente", "admin"]}>
+              <PanelAsesor />
+            </RutaProtegida>
+          }
+        />
+        <Route
+          path="/mis-cotizaciones"
+          element={
+            <RutaProtegida roles={["coordinador", "ventas", "gerente", "gerente_sucursal", "admin"]}>
+              <MisCotizaciones />
+            </RutaProtegida>
+          }
+        />
 
-        {/* ── Asesor Op. (solo lectura) ────────────────────────────── */}
-        <Route path="/mi-consulta"        element={<PanelAsesorOp />} />
+        {/* ── Asesor Op. (solo lectura) ──────────────────────────────── */}
+        <Route
+          path="/mi-consulta"
+          element={
+            <RutaProtegida roles={["asesor_op"]}>
+              <PanelAsesorOp />
+            </RutaProtegida>
+          }
+        />
 
-        {/* ── Compartidas ──────────────────────────────────────────── */}
-        <Route path="/consulta-ot"        element={<ConsultaOT />} />
-        <Route path="/chat"               element={<Chatbot />} />
+        {/* ── Compartidas (todos los roles autenticados) ──────────────── */}
+        <Route path="/consulta-ot" element={<ConsultaOT />} />
+        <Route path="/chat"        element={<Chatbot />} />
 
-        {/* ── Compras / Almacén ────────────────────────────────────── */}
-        <Route path="/compras"            element={<Compras />} />
-        <Route path="/almacen"            element={<Almacen />} />
-        <Route path="/recepcion-masiva"   element={<Almacen />} />
-        <Route path="/stock-pedidos"      element={<StockPedidos />} />
+        {/* ── Compras ────────────────────────────────────────────────── */}
+        <Route
+          path="/compras"
+          element={
+            <RutaProtegida roles={["comprador", "gerente", "admin"]}>
+              <Compras />
+            </RutaProtegida>
+          }
+        />
 
-        {/* ── Ventanilla ───────────────────────────────────────────── */}
-        <Route path="/ventanilla"         element={<Ventanilla />} />
-        <Route path="/ventanilla/:ot"     element={<VentanillaDetalle />} />
+        {/* ── Almacén ────────────────────────────────────────────────── */}
+        <Route
+          path="/almacen"
+          element={
+            <RutaProtegida roles={["almacen", "gerente", "gerente_sucursal", "admin"]}>
+              <Almacen />
+            </RutaProtegida>
+          }
+        />
+        <Route
+          path="/recepcion-masiva"
+          element={
+            <RutaProtegida roles={["almacen", "gerente", "gerente_sucursal", "admin"]}>
+              <Almacen />
+            </RutaProtegida>
+          }
+        />
+        <Route
+          path="/stock-pedidos"
+          element={
+            <RutaProtegida roles={["almacen", "gerente", "gerente_sucursal", "admin"]}>
+              <StockPedidos />
+            </RutaProtegida>
+          }
+        />
 
-        {/* ── Gerencial / Admin ────────────────────────────────────── */}
-        <Route path="/gerencial"          element={<PanelGerencial />} />
-        <Route path="/usuarios"           element={<Usuarios />} />
+        {/* ── Ventanilla ─────────────────────────────────────────────── */}
+        <Route
+          path="/ventanilla"
+          element={
+            <RutaProtegida roles={["ventanilla", "gerente", "gerente_sucursal", "admin"]}>
+              <Ventanilla />
+            </RutaProtegida>
+          }
+        />
+        <Route
+          path="/ventanilla/:ot"
+          element={
+            <RutaProtegida roles={["ventanilla", "gerente", "gerente_sucursal", "admin"]}>
+              <VentanillaDetalle />
+            </RutaProtegida>
+          }
+        />
 
-        <Route path="*"                   element={<Navigate to={rolDefault} replace />} />
+        {/* ── Gerencial ──────────────────────────────────────────────── */}
+        <Route
+          path="/gerencial"
+          element={
+            <RutaProtegida roles={["gerente", "gerente_sucursal", "admin"]}>
+              <PanelGerencial />
+            </RutaProtegida>
+          }
+        />
+
+        {/* ── Administración de usuarios (solo admin) ─────────────────── */}
+        <Route
+          path="/usuarios"
+          element={
+            <RutaProtegida roles={["admin"]}>
+              <Usuarios />
+            </RutaProtegida>
+          }
+        />
+
+        {/* Catch-all → ruta por defecto del rol */}
+        <Route path="*" element={<Navigate to={rolDefault} replace />} />
       </Routes>
     </Layout>
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Guard del Login (redirige a inicio si ya hay sesión)
+// ─────────────────────────────────────────────────────────────────────────────
 function LoginGuard() {
   const { user, cargando } = useAuth();
   if (cargando) return (
@@ -7107,13 +7558,16 @@ function LoginGuard() {
   return <Login />;
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// App root
+// ─────────────────────────────────────────────────────────────────────────────
 export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/login"  element={<LoginGuard />} />
-          <Route path="/*"      element={<RutasProtegidas />} />
+          <Route path="/login" element={<LoginGuard />} />
+          <Route path="/*"     element={<RutasProtegidas />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

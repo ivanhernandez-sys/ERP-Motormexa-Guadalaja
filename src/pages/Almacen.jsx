@@ -5,8 +5,9 @@ import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
 import Filtros from "../components/Filtros";
 import * as XLSX from "xlsx";
+  import { NOMBRES_SUCURSAL } from "../constants/roles";
 
-export default function Almacen() {
+  export default function Almacen() {
   const { user } = useAuth();
   const [tabActivo, setTabActivo] = useState("lista");
   const [data, setData] = useState([]);
@@ -24,14 +25,6 @@ export default function Almacen() {
   // 🔥 ROLES
   const rol = user?.rol?.toLowerCase();
   const esAdmin = rol === "admin";
-
-  // 🔥 MAPEO VISUAL (NO ROMPE NADA)
-  const NOMBRES_SUCURSAL = {
-    taller_vallarta: "Vallarta",
-    acueducto: "Acueducto",
-    camino_real: "Camino Real",
-    mayoreo_menudeo: "Mayoreo"
-  };
 
   const cargar = useCallback(async () => {
     setCargando(true);

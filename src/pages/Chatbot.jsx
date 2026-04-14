@@ -38,7 +38,10 @@ function detectarIntencion(texto) {
 async function ejecutar(intencion, user) {
   // 🔐 Roles con restricción de alcance
   // coordinador (antes "asesor") y asesor_op → solo sus órdenes
-  const esRestringidoPorAsesor = user?.rol === "coordinador" || user?.rol === "asesor_op";
+  const esRestringidoPorAsesor =
+    user?.rol === "coordinador" ||
+    user?.rol === "ventas"      ||
+    user?.rol === "asesor_op";
   const esRestringidoPorSucursal = user?.rol === "ventanilla" || user?.rol === "gerente_sucursal";
 
   switch (intencion.tipo) {

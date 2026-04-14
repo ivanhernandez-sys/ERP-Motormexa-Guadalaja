@@ -1,5 +1,6 @@
 // src/pages/PanelAsesorOp.jsx
 // Rol: asesor_op — Solo lectura, ve únicamente sus propias órdenes
+// usado por rol "coordinador" (talleres) y "ventas" (Mayoreo)
 
 import { useEffect, useState } from "react";
 import { supabase } from "../services/supabase";

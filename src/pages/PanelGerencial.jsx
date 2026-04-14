@@ -54,8 +54,8 @@ export default function PanelGerencial() {
     // 🔐 Filtrar por rol
     // "coordinador" es el nuevo nombre del antiguo "asesor"
     // "asesor_op" también solo ve sus propias órdenes
-    if (user?.rol === "coordinador" || user?.rol === "asesor_op")
-      q = q.eq("asesor_id", user.id);
+    if (["coordinador", "ventas", "asesor_op"].includes(user?.rol))
+    q = q.eq("asesor_id", user.id);
     if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
       q = q.eq("sucursal_id", user.sucursal_id);
 

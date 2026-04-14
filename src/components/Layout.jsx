@@ -5,18 +5,33 @@ import { useAuth } from "../contexts/AuthContext";
 import BusquedaGlobal from "./BusquedaGlobal";
 import logo from "../assets/logo.png";
 
-const NOMBRES_SUCURSAL = {
-  taller_vallarta:    "Taller Vallarta",
-  taller_acueducto:   "Taller Acueducto",
-  taller_country:     "Taller Country",
-  taller_camino_real: "Taller Camino Real",
-  bodyshop:           "BodyShop",
-  mayoreo_menudeo:    "Mayoreo/Menudeo",
-};
+// ─────────────────────────────────────────────
+// SUCURSALES — IDs canónicos y nombres de display
+// ─────────────────────────────────────────────
+export const SUCURSALES = [
+  { id: "acueducto",      nombre: "Acueducto" },
+  { id: "vallarta",       nombre: "Vallarta" },
+  { id: "country",        nombre: "Country" },
+  { id: "camino_real",    nombre: "Camino Real" },
+  { id: "bodyshop",       nombre: "BodyShop" },
+  { id: "mayoreo_menudeo", nombre: "Mayoreo / Menudeo" },
+];
 
-const LABEL_ROL = {
-  coordinador:      "Coordinador",
-  asesor_op:        "Asesor Op.",
+export const NOMBRES_SUCURSAL = Object.fromEntries(
+  SUCURSALES.map(s => [s.id, s.nombre])
+);
+
+// ─────────────────────────────────────────────
+// ROLES
+// Talleres    → coordinador / asesor_op
+// Mayoreo     → ventas / asesor_op (solo lectura)
+// Operaciones → comprador / almacen / ventanilla
+// Dirección   → gerente_sucursal / gerente / admin
+// ─────────────────────────────────────────────
+export const LABEL_ROL = {
+  coordinador:      "Coordinador",       // captura de talleres
+  ventas:           "Ventas",            // captura de Mayoreo/Menudeo
+  asesor_op:        "Asesor Op.",        // solo lectura (talleres y mayoreo)
   comprador:        "Comprador",
   almacen:          "Almacén",
   ventanilla:       "Ventanilla",
@@ -25,7 +40,11 @@ const LABEL_ROL = {
   admin:            "Admin",
 };
 
+// ─────────────────────────────────────────────
+// MENÚS POR ROL
+// ─────────────────────────────────────────────
 const MENU_POR_ROL = {
+  // Coordinador de taller — captura y seguimiento de sus OTs
   coordinador: [
     { path: "/captura",          label: "📦 Captura" },
     { path: "/mi-panel",         label: "👤 Mi Panel" },
@@ -33,27 +52,46 @@ const MENU_POR_ROL = {
     { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/chat",             label: "🤖 Asistente" },
   ],
+
+  // Ventas — exclusivo Mayoreo/Menudeo (reemplaza "coordinador" en esa sucursal)
+  ventas: [
+    { path: "/captura",          label: "📋 Nueva Cotización" },
+    { path: "/mis-cotizaciones", label: "📊 Mis Cotizaciones" },
+    { path: "/mi-panel",         label: "👤 Mis Órdenes" },
+    { path: "/consulta-ot",      label: "🔍 Consulta" },
+    { path: "/chat",             label: "🤖 Asistente" },
+  ],
+
+  // Asesor Op. — solo lectura, ve únicamente sus órdenes asignadas
   asesor_op: [
     { path: "/mi-consulta", label: "👁️ Mis Órdenes" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
     { path: "/chat",        label: "🤖 Asistente" },
   ],
+
+  // Comprador
   comprador: [
     { path: "/compras",     label: "🛒 Compras" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
     { path: "/chat",        label: "🤖 Asistente" },
   ],
+
+  // Almacén
   almacen: [
     { path: "/almacen",       label: "🏭 Almacén / Recepción" },
     { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
     { path: "/consulta-ot",   label: "🔍 Consulta OT" },
     { path: "/chat",          label: "🤖 Asistente" },
   ],
+
+  // Ventanilla
   ventanilla: [
     { path: "/ventanilla",  label: "🪟 Ventanilla" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
     { path: "/chat",        label: "🤖 Asistente" },
   ],
+
+  // Gerente (acceso completo sin administración de usuarios)
   gerente: [
     { path: "/gerencial",        label: "📊 Panel Gerencial" },
     { path: "/captura",          label: "📦 Captura" },
@@ -61,20 +99,24 @@ const MENU_POR_ROL = {
     { path: "/ventanilla",       label: "🪟 Ventanilla" },
     { path: "/almacen",          label: "🏭 Almacén / Recepción" },
     { path: "/stock-pedidos",    label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
+    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/chat",             label: "🤖 Asistente" },
   ],
+
+  // Gerente de sucursal — visión de su sucursal, sin compras globales
   gerente_sucursal: [
     { path: "/gerencial",        label: "📊 Mi Sucursal" },
     { path: "/captura",          label: "📦 Captura" },
     { path: "/ventanilla",       label: "🪟 Ventanilla" },
     { path: "/almacen",          label: "🏭 Almacén / Recepción" },
     { path: "/stock-pedidos",    label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
+    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/chat",             label: "🤖 Asistente" },
   ],
+
+  // Admin — acceso total incluyendo gestión de usuarios
   admin: [
     { path: "/gerencial",        label: "📊 Panel Gerencial" },
     { path: "/captura",          label: "📦 Captura" },
@@ -82,22 +124,14 @@ const MENU_POR_ROL = {
     { path: "/ventanilla",       label: "🪟 Ventanilla" },
     { path: "/almacen",          label: "🏭 Almacén / Recepción" },
     { path: "/stock-pedidos",    label: "📋 Stock Pedidos" },
-    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/mis-cotizaciones", label: "📋 Mis Cotizaciones" },
     { path: "/usuarios",         label: "👥 Usuarios" },
+    { path: "/consulta-ot",      label: "🔍 Consulta OT" },
     { path: "/chat",             label: "🤖 Asistente" },
   ],
 };
 
-// 🔥 Menú especial para coordinador de Mayoreo/Menudeo
-const MENU_MAYOREO = [
-  { path: "/captura",          label: "📋 Nueva Cotización" },
-  { path: "/mis-cotizaciones", label: "📊 Mis Cotizaciones" },
-  { path: "/mi-panel",         label: "👤 Mis Órdenes" },
-  { path: "/consulta-ot",      label: "🔍 Consulta" },
-  { path: "/chat",             label: "🤖 Asistente" },
-];
-
+// Fallback si el rol no está mapeado
 const MENU_DEFAULT = [
   { path: "/captura",     label: "📦 Captura" },
   { path: "/consulta-ot", label: "🔍 Consulta OT" },
@@ -110,10 +144,9 @@ export default function Layout({ children }) {
 
   const esMayoreo  = user?.sucursal_id === "mayoreo_menudeo";
   const esAsesorOp = user?.rol === "asesor_op";
+  const esVentas   = user?.rol === "ventas";
 
-  const menu = (user?.rol === "coordinador" && esMayoreo)
-    ? MENU_MAYOREO
-    : MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
+  const menu = MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
 
   return (
     <div style={{ display: "flex", height: "100vh", background: "#0f172a" }}>
@@ -129,6 +162,7 @@ export default function Layout({ children }) {
           <div style={{ color: "#4b5563", fontSize: "16px" }}>Sistema de Refacciones</div>
         </div>
 
+        {/* Badge de sucursal */}
         {user?.sucursal_id && (
           <div style={{
             background: "#0f172a", border: "1px solid #1f2937",
@@ -141,6 +175,7 @@ export default function Layout({ children }) {
           </div>
         )}
 
+        {/* Badge: modo solo lectura */}
         {esAsesorOp && (
           <div style={{
             background: "#1e2f1e", border: "1px solid #166534",
@@ -151,7 +186,8 @@ export default function Layout({ children }) {
           </div>
         )}
 
-        {esMayoreo && user?.rol === "coordinador" && (
+        {/* Badge: Mayoreo/Menudeo (ventas o coordinador legacy) */}
+        {esMayoreo && (esVentas || user?.rol === "coordinador") && (
           <div style={{
             background: "#1e3a5f", border: "1px solid #2563eb",
             borderRadius: "6px", padding: "5px 10px", marginBottom: "12px",
