@@ -69,6 +69,7 @@ export default function Captura() {
   const sucursalId  = user?.sucursal_id;
   const sucursalCfg = SUCURSALES[sucursalId] || SUCURSALES["mayoreo_menudeo"];
   const esMayoreo   = sucursalId === "mayoreo_menudeo";
+  console.log("DEBUG sucursalId:", sucursalId, "esMayoreo:", esMayoreo);
 
   // ── Encabezado ──────────────────────────────────────────────────────────
   const [ot, setOt]                           = useState("");
