@@ -3,7 +3,7 @@
 ## 📊 Project Information
 
 - **Project Name**: `motormexa-frontend`
-- **Generated On**: 2026-04-14 01:43:30 (America/Mexico_City / GMT-06:00)
+- **Generated On**: 2026-04-14 02:03:14 (America/Mexico_City / GMT-06:00)
 - **Total Files Processed**: 63
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
@@ -75,7 +75,7 @@
 │   ├── 📁 utils/
 │   │   └── 📄 catalogos.js (5.28 KB)
 │   ├── 📄 App.css (2.82 KB)
-│   ├── 📄 App.tsx (9.75 KB)
+│   ├── 📄 App.tsx (9.73 KB)
 │   ├── 📄 global.d.ts (81 B)
 │   ├── 📄 index.css (2.03 KB)
 │   ├── 📄 main.tsx (230 B)
@@ -164,7 +164,7 @@
 | Total Directories | 10 |
 | Text Files | 54 |
 | Binary Files | 9 |
-| Total Size | 448.95 KB |
+| Total Size | 448.93 KB |
 
 ### 📄 File Types Distribution
 
@@ -7343,22 +7343,20 @@ export const COLOR_ESTATUS = {
 ### <a id="📄-src-app-tsx"></a>📄 `src/App.tsx`
 
 **File Info:**
-- **Size**: 9.75 KB
+- **Size**: 9.73 KB
 - **Extension**: `.tsx`
 - **Language**: `typescript`
 - **Location**: `src/App.tsx`
 - **Relative Path**: `src`
 - **Created**: 2026-04-14 06:51:02 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-14 01:01:12 (America/Mexico_City / GMT-06:00)
-- **MD5**: `024a8f8944ec36c8141a3b1f15bc1f75`
-- **SHA256**: `41763ebcbda8619ce23fb32875ae85f315eb42e7805f9fefd7157df4314cfc3a`
+- **Modified**: 2026-04-14 02:03:14 (America/Mexico_City / GMT-06:00)
+- **MD5**: `77bcaf6fac3cc3d75abf850f21fce3ef`
+- **SHA256**: `613d24e49a9092d7bd5d9172ab70f8cc9919ebc42548a73db6c788e6f04fae9b`
 - **Encoding**: UTF-8
 
 **File code content:**
 
 ```typescript
-// src/App.tsx
-
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext.jsx";
 import Layout from "./components/Layout.jsx";
