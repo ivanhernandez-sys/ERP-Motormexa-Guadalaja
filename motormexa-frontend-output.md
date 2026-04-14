@@ -3,7 +3,7 @@
 ## 📊 Project Information
 
 - **Project Name**: `motormexa-frontend`
-- **Generated On**: 2026-04-14 03:07:56 (America/Mexico_City / GMT-06:00)
+- **Generated On**: 2026-04-14 03:28:22 (America/Mexico_City / GMT-06:00)
 - **Total Files Processed**: 63
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
@@ -62,7 +62,7 @@
 │   │   ├── 📄 RecepcionMasiva.jsx (14.08 KB)
 │   │   ├── 📄 StockPedidos.jsx (6.82 KB)
 │   │   ├── 📄 StockSolicitud.jsx (1.93 KB)
-│   │   ├── 📄 usuarios.jsx (10.08 KB)
+│   │   ├── 📄 usuarios.jsx (10.04 KB)
 │   │   ├── 📄 Ventanilla.jsx (6.2 KB)
 │   │   └── 📄 VentanillaDetalle.jsx (5.24 KB)
 │   ├── 📁 services/
@@ -164,7 +164,7 @@
 | Total Directories | 10 |
 | Text Files | 54 |
 | Binary Files | 9 |
-| Total Size | 448.93 KB |
+| Total Size | 448.89 KB |
 
 ### 📄 File Types Distribution
 
@@ -5868,15 +5868,15 @@ const btnStyle = {
 ### <a id="📄-src-pages-usuarios-jsx"></a>📄 `src/pages/usuarios.jsx`
 
 **File Info:**
-- **Size**: 10.08 KB
+- **Size**: 10.04 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/usuarios.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-14 06:51:02 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-14 00:58:10 (America/Mexico_City / GMT-06:00)
-- **MD5**: `665d389c10b3787f8b3a2214ae9430a1`
-- **SHA256**: `15d2ea9a294c5486e20e78c18ee913be2f97dad899ddc6b92adbbb31495c0f41`
+- **Modified**: 2026-04-14 03:28:21 (America/Mexico_City / GMT-06:00)
+- **MD5**: `30894f1b95047c55a9c093e49faa73b7`
+- **SHA256**: `6a4927693f41777f92dfb022a6a4dd32a63cb5cf67422225af76ee05f79d1c66`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -6193,7 +6193,7 @@ export default function Usuarios() {
 }
 
 // ─── Estilos locales ───────────────────────────────────────────────────────
-const labelStyle: React.CSSProperties = {
+const labelStyle = {
   display: "block",
   marginBottom: "5px",
   fontSize: "12px",
@@ -6201,7 +6201,7 @@ const labelStyle: React.CSSProperties = {
   fontWeight: 500,
 };
 
-const inputStyle: React.CSSProperties = {
+const inputStyle = {
   width: "100%",
   background: "#111827",
   border: "1px solid #1f2937",

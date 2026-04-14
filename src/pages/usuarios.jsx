@@ -309,7 +309,7 @@ export default function Usuarios() {
 }
 
 // ─── Estilos locales ───────────────────────────────────────────────────────
-const labelStyle: React.CSSProperties = {
+const labelStyle = {
   display: "block",
   marginBottom: "5px",
   fontSize: "12px",
@@ -317,7 +317,7 @@ const labelStyle: React.CSSProperties = {
   fontWeight: 500,
 };
 
-const inputStyle: React.CSSProperties = {
+const inputStyle = {
   width: "100%",
   background: "#111827",
   border: "1px solid #1f2937",
