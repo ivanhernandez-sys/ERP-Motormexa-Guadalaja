@@ -67,7 +67,7 @@ function FilaRefaccion({ index, fila, onChange, onRemove, permitEUA, fabricante 
 export default function Captura() {
   const { user } = useAuth();
   const sucursalId  = user?.sucursal_id;
-  const sucursalCfg = SUCURSALES[sucursalId] || SUCURSALES["taller_vallarta"];
+  const sucursalCfg = SUCURSALES[sucursalId] || SUCURSALES["mayoreo_menudeo"];
   const esMayoreo   = sucursalId === "mayoreo_menudeo";
 
   // ── Encabezado ──────────────────────────────────────────────────────────

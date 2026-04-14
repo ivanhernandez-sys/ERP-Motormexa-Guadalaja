@@ -5,7 +5,7 @@ PROJECT EXPORT FOR LLMs
 PROJECT INFORMATION:
 --------------------------------------------------
 Project Name: motormexa-frontend
-Generated On: 2026-04-14 02:03:14 (America/Mexico_City / GMT-06:00)
+Generated On: 2026-04-14 03:02:01 (America/Mexico_City / GMT-06:00)
 Total Files Processed: 63
 Export Tool: Easy Whole Project to Single Text File for LLMs v1.1.0
 Tool Author: Jota / José Guilherme Pandolfi
@@ -2121,9 +2121,9 @@ Language: jsx
 Location: src/pages/Captura.jsx
 Relative Path: src/pages
 Created: 2026-04-14 05:36:40 (America/Mexico_City / GMT-06:00)
-Modified: 2026-04-13 23:44:38 (America/Mexico_City / GMT-06:00)
-MD5: 0c50fa9b45bffa092194cf987a7dd511
-SHA256: f2b9b65a02fe94dddeaffabdc1b427a785ec15d341034cc457b560af27b51f92
+Modified: 2026-04-14 03:02:00 (America/Mexico_City / GMT-06:00)
+MD5: 866b44a7a028383a98c4a6bb6000ba07
+SHA256: 47b3eb18eca16145e242dd734225e058ad762a4e7868e4327c0a6f657782d667
 Encoding: UTF-8
 
 FILE CONTENT:
@@ -2197,7 +2197,7 @@ function FilaRefaccion({ index, fila, onChange, onRemove, permitEUA, fabricante 
 export default function Captura() {
   const { user } = useAuth();
   const sucursalId  = user?.sucursal_id;
-  const sucursalCfg = SUCURSALES[sucursalId] || SUCURSALES["taller_vallarta"];
+  const sucursalCfg = SUCURSALES[sucursalId] || SUCURSALES["mayoreo_menudeo"];
   const esMayoreo   = sucursalId === "mayoreo_menudeo";
 
   // ── Encabezado ──────────────────────────────────────────────────────────
