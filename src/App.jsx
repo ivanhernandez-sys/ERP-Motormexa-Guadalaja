@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import Layout from "./components/Layout.jsx";
 
-// Pages (sin cambios)
+// Pages
 import Login from "./pages/Login";
 import Captura from "./pages/Captura";
 import Compras from "./pages/Compras";
@@ -19,8 +19,9 @@ import MisCotizaciones from "./pages/MisCotizaciones";
 import Usuarios from "./pages/usuarios";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Ruta de inicio por rol (sin cambios)
-const ROL_DEFAULT: Record<string, string> = {
+// Ruta de inicio por rol
+// ─────────────────────────────────────────────────────────────────────────────
+const ROL_DEFAULT = {
   coordinador:      "/captura",
   ventas:           "/captura",
   asesor_op:        "/mi-consulta",
@@ -33,10 +34,11 @@ const ROL_DEFAULT: Record<string, string> = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Guard de ruta por rol (sin cambios)
-function RutaProtegida({ roles, children }: { roles: string[]; children: JSX.Element }) {
+// Guard de ruta por rol
+// ─────────────────────────────────────────────────────────────────────────────
+function RutaProtegida({ roles, children }) {
   const { user } = useAuth();
-  const destino = ROL_DEFAULT[user?.rol ?? ""] ?? "/captura";
+  const destino = ROL_DEFAULT[user?.rol] ?? "/captura";
 
   if (!user || !roles.includes(user.rol)) {
     return <Navigate to={destino} replace />;
@@ -45,7 +47,8 @@ function RutaProtegida({ roles, children }: { roles: string[]; children: JSX.Ele
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Componente Layout con Outlet (¡ESTO ES LA CORRECCIÓN PRINCIPAL!)
+// Layout con Outlet
+// ─────────────────────────────────────────────────────────────────────────────
 function LayoutConOutlet() {
   return (
     <Layout>
@@ -56,14 +59,20 @@ function LayoutConOutlet() {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Rutas protegidas
+// ─────────────────────────────────────────────────────────────────────────────
 function RutasProtegidas() {
   const { user, cargando } = useAuth();
 
   if (cargando) {
     return (
       <div style={{
-        display: "flex", alignItems: "center", justifyContent: "center",
-        height: "100vh", background: "#0f172a", color: "#9ca3af", fontSize: "17px"
+        display: "flex", 
+        alignItems: "center", 
+        justifyContent: "center",
+        height: "100vh", 
+        background: "#0f172a", 
+        color: "#9ca3af", 
+        fontSize: "17px"
       }}>
         Cargando sistema...
       </div>
@@ -78,13 +87,12 @@ function RutasProtegidas() {
 
   return (
     <Routes>
-      {/* Redirect raíz → ruta de inicio del rol */}
+      {/* Redirect raíz */}
       <Route path="/" element={<Navigate to={rolDefault} replace />} />
 
-      {/* Layout principal con Outlet */}
+      {/* Layout principal */}
       <Route element={<LayoutConOutlet />}>
-
-        {/* ── Coordinador y Ventas ─────────────────────────────────── */}
+        {/* Captura - Coordinador y Ventas */}
         <Route
           path="/captura"
           element={
@@ -93,6 +101,8 @@ function RutasProtegidas() {
             </RutaProtegida>
           }
         />
+
+        {/* Mi Panel / Mis Órdenes */}
         <Route
           path="/mi-panel"
           element={
@@ -101,6 +111,7 @@ function RutasProtegidas() {
             </RutaProtegida>
           }
         />
+
         <Route
           path="/mis-cotizaciones"
           element={
@@ -110,7 +121,7 @@ function RutasProtegidas() {
           }
         />
 
-        {/* ── Asesor Op. ──────────────────────────────── */}
+        {/* Asesor Op */}
         <Route
           path="/mi-consulta"
           element={
@@ -120,11 +131,11 @@ function RutasProtegidas() {
           }
         />
 
-        {/* ── Compartidas ──────────────── */}
+        {/* Rutas compartidas */}
         <Route path="/consulta-ot" element={<ConsultaOT />} />
         <Route path="/chat"        element={<Chatbot />} />
 
-        {/* ── Compras ────────────────────────────────────────────────── */}
+        {/* Compras */}
         <Route
           path="/compras"
           element={
@@ -134,7 +145,7 @@ function RutasProtegidas() {
           }
         />
 
-        {/* ── Almacén ────────────────────────────────────────────────── */}
+        {/* Almacén */}
         <Route
           path="/almacen"
           element={
@@ -160,7 +171,7 @@ function RutasProtegidas() {
           }
         />
 
-        {/* ── Ventanilla ─────────────────────────────────────────────── */}
+        {/* Ventanilla */}
         <Route
           path="/ventanilla"
           element={
@@ -178,7 +189,7 @@ function RutasProtegidas() {
           }
         />
 
-        {/* ── Gerencial (Admin, Gerente, Gerente Sucursal) ───────────── */}
+        {/* Panel Gerencial */}
         <Route
           path="/gerencial"
           element={
@@ -188,7 +199,7 @@ function RutasProtegidas() {
           }
         />
 
-        {/* ── Administración de usuarios ─────────────────── */}
+        {/* Usuarios (solo admin) */}
         <Route
           path="/usuarios"
           element={
@@ -198,7 +209,7 @@ function RutasProtegidas() {
           }
         />
 
-        {/* Catch-all → ruta por defecto del rol */}
+        {/* Catch-all */}
         <Route path="*" element={<Navigate to={rolDefault} replace />} />
       </Route>
     </Routes>
@@ -206,23 +217,33 @@ function RutasProtegidas() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Guard del Login (sin cambios)
+// Guard del Login
+// ─────────────────────────────────────────────────────────────────────────────
 function LoginGuard() {
   const { user, cargando } = useAuth();
-  if (cargando) return (
-    <div style={{
-      height: "100vh", display: "flex", alignItems: "center",
-      justifyContent: "center", background: "#0f172a", color: "#9ca3af"
-    }}>
-      Cargando sistema...
-    </div>
-  );
+
+  if (cargando) {
+    return (
+      <div style={{
+        height: "100vh", 
+        display: "flex", 
+        alignItems: "center",
+        justifyContent: "center", 
+        background: "#0f172a", 
+        color: "#9ca3af"
+      }}>
+        Cargando sistema...
+      </div>
+    );
+  }
+
   if (user) return <Navigate to="/" replace />;
   return <Login />;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// App root (sin cambios importantes)
+// App Root
+// ─────────────────────────────────────────────────────────────────────────────
 export default function App() {
   return (
     <AuthProvider>

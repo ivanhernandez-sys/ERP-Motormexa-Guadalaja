@@ -37,6 +37,7 @@ export default function Login() {
       window.location.href = "/";
     }, 300);
   }
+  };
 
   // ====================== RESET PASSWORD ======================
   const handleResetPassword = async (e) => {
@@ -234,6 +235,6 @@ const btnPrimary = {
   transition: "background-color 0.2s",
 };
 
-btnPrimary[':hover'] = {
+  btnPrimary[':hover'] = {
   backgroundColor: "#1d4ed8"
 };

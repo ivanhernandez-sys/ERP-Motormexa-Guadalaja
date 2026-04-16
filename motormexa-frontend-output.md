@@ -3,8 +3,8 @@
 ## 📊 Project Information
 
 - **Project Name**: `motormexa-frontend`
-- **Generated On**: 2026-04-14 03:28:22 (America/Mexico_City / GMT-06:00)
-- **Total Files Processed**: 63
+- **Generated On**: 2026-04-16 02:45:50 (America/Mexico_City / GMT-06:00)
+- **Total Files Processed**: 58
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
 
@@ -38,7 +38,7 @@
 │   │   ├── 📄 Filtros.jsx (1.51 KB)
 │   │   ├── 📄 GraficaEstados.jsx (704 B)
 │   │   ├── 📄 KPI.jsx (419 B)
-│   │   ├── 📄 Layout.jsx (10.23 KB)
+│   │   ├── 📄 Layout.jsx (10.21 KB)
 │   │   ├── 📄 Ranking.jsx (1.76 KB)
 │   │   ├── 📄 SolicitarStockModal.jsx (4.84 KB)
 │   │   ├── 📄 Sucursales.jsx (1.36 KB)
@@ -50,11 +50,11 @@
 │   │   └── 📄 AuthContext.jsx (1.34 KB)
 │   ├── 📁 pages/
 │   │   ├── 📄 Almacen.jsx (10.88 KB)
-│   │   ├── 📄 Captura.jsx (19.69 KB)
+│   │   ├── 📄 Captura.jsx (19.76 KB)
 │   │   ├── 📄 Chatbot.jsx (14.29 KB)
 │   │   ├── 📄 Compras.jsx (9.6 KB)
 │   │   ├── 📄 ConsultaOT.jsx (11.86 KB)
-│   │   ├── 📄 Login.jsx (6.61 KB)
+│   │   ├── 📄 Login.jsx (6.62 KB)
 │   │   ├── 📄 MisCotizaciones.jsx (23.95 KB)
 │   │   ├── 📄 PanelAsesor.jsx (8.32 KB)
 │   │   ├── 📄 PanelAsesorOp.jsx (8.26 KB)
@@ -75,11 +75,10 @@
 │   ├── 📁 utils/
 │   │   └── 📄 catalogos.js (5.28 KB)
 │   ├── 📄 App.css (2.82 KB)
-│   ├── 📄 App.tsx (9.73 KB)
-│   ├── 📄 global.d.ts (81 B)
+│   ├── 📄 App.jsx (8.95 KB)
+│   ├── 📄 App.tsx (8.55 KB)
 │   ├── 📄 index.css (2.03 KB)
-│   ├── 📄 main.tsx (230 B)
-│   └── 📄 types.d.ts (366 B)
+│   └── 📄 main.jsx (250 B)
 ├── 📄 .env (291 B)
 ├── 📄 .env.example (90 B)
 ├── 📄 .gitignore (268 B)
@@ -88,11 +87,7 @@
 ├── 📄 package-lock.json (129.02 KB)
 ├── 📄 package.json (897 B)
 ├── 📄 README.md (2.37 KB)
-├── 📄 tsconfig.app.json (732 B)
-├── 📄 tsconfig.json (119 B)
-├── 📄 tsconfig.node.json (653 B)
-├── 📄 vercel.json (102 B)
-└── 📄 vite.config.ts (161 B)
+└── 📄 vercel.json (102 B)
 ```
 
 ## 📑 Table of Contents
@@ -138,21 +133,16 @@
 - [📄 src/styles/theme.css](#📄-src-styles-theme-css)
 - [📄 src/utils/catalogos.js](#📄-src-utils-catalogos-js)
 - [📄 src/App.css](#📄-src-app-css)
+- [📄 src/App.jsx](#📄-src-app-jsx)
 - [📄 src/App.tsx](#📄-src-app-tsx)
-- [📄 src/global.d.ts](#📄-src-global-d-ts)
 - [📄 src/index.css](#📄-src-index-css)
-- [📄 src/main.tsx](#📄-src-main-tsx)
-- [📄 src/types.d.ts](#📄-src-types-d-ts)
+- [📄 src/main.jsx](#📄-src-main-jsx)
 - [📄 eslint.config.js](#📄-eslint-config-js)
 - [📄 index.html](#📄-index-html)
 - [📄 package-lock.json](#📄-package-lock-json)
 - [📄 package.json](#📄-package-json)
 - [📄 README.md](#📄-readme-md)
-- [📄 tsconfig.app.json](#📄-tsconfig-app-json)
-- [📄 tsconfig.json](#📄-tsconfig-json)
-- [📄 tsconfig.node.json](#📄-tsconfig-node-json)
 - [📄 vercel.json](#📄-vercel-json)
-- [📄 vite.config.ts](#📄-vite-config-ts)
 
 ---
 
@@ -160,26 +150,25 @@
 
 | Metric | Count |
 |--------|-------|
-| Total Files | 63 |
+| Total Files | 58 |
 | Total Directories | 10 |
-| Text Files | 54 |
+| Text Files | 49 |
 | Binary Files | 9 |
-| Total Size | 448.89 KB |
+| Total Size | 454.68 KB |
 
 ### 📄 File Types Distribution
 
 | Extension | Count |
 |-----------|-------|
-| `.jsx` | 30 |
+| `.jsx` | 32 |
 | `.js` | 7 |
-| `.json` | 6 |
 | `.svg` | 4 |
 | `.css` | 3 |
-| `.ts` | 3 |
+| `.json` | 3 |
 | `.png` | 2 |
-| `.tsx` | 2 |
 | `no extension` | 2 |
 | `.ini` | 1 |
+| `.tsx` | 1 |
 | `.example` | 1 |
 | `.html` | 1 |
 | `.md` | 1 |
@@ -913,23 +902,22 @@ export default function KPI({ title, value, color }) {
 ### <a id="📄-src-components-layout-jsx"></a>📄 `src/components/Layout.jsx`
 
 **File Info:**
-- **Size**: 10.23 KB
+- **Size**: 10.21 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/components/Layout.jsx`
 - **Relative Path**: `src/components`
 - **Created**: 2026-04-14 06:51:02 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-14 03:07:55 (America/Mexico_City / GMT-06:00)
-- **MD5**: `7ecce9d601b78485516e4e4a3cc2b482`
-- **SHA256**: `864a375d767ce537c168dc524ab7a6344b018a53e2c74974087e0db55df9df4d`
+- **Modified**: 2026-04-16 02:40:30 (America/Mexico_City / GMT-06:00)
+- **MD5**: `0257d561946fa327545592e3d26bd90b`
+- **SHA256**: `aaf496999eb91d538f560f3d8feed55b8203e68eee4ab7ef48098118024f6cb6`
 - **Encoding**: UTF-8
 
 **File code content:**
 
 ```jsx
 // src/components/Layout.jsx
-
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, Outlet } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import BusquedaGlobal from "./BusquedaGlobal";
 import logo from "../assets/logo.png";
@@ -951,16 +939,12 @@ export const NOMBRES_SUCURSAL = Object.fromEntries(
 );
 
 // ─────────────────────────────────────────────
-// ROLES
-// Talleres    → coordinador / asesor_op
-// Mayoreo     → ventas / asesor_op (solo lectura)
-// Operaciones → comprador / almacen / ventanilla
-// Dirección   → gerente_sucursal / gerente / admin
+// LABEL ROLES
 // ─────────────────────────────────────────────
 export const LABEL_ROL = {
-  coordinador:      "Coordinador",       // captura de talleres
-  ventas:           "Ventas",            // captura de Mayoreo/Menudeo
-  asesor_op:        "Asesor Op.",        // solo lectura (talleres y mayoreo)
+  coordinador:      "Coordinador",
+  ventas:           "Ventas",
+  asesor_op:        "Asesor Op.",
   comprador:        "Comprador",
   almacen:          "Almacén",
   ventanilla:       "Ventanilla",
@@ -973,7 +957,6 @@ export const LABEL_ROL = {
 // MENÚS POR ROL
 // ─────────────────────────────────────────────
 const MENU_POR_ROL = {
-  // Coordinador de taller — captura y seguimiento de sus OTs
   coordinador: [
     { path: "/captura",          label: "📦 Captura" },
     { path: "/mi-panel",         label: "👤 Mi Panel" },
@@ -982,7 +965,7 @@ const MENU_POR_ROL = {
     { path: "/chat",             label: "🤖 Asistente" },
   ],
 
-  // Ventas — exclusivo Mayoreo/Menudeo (reemplaza "coordinador" en esa sucursal)
+  // Ventas - Mayoreo / Menudeo
   ventas: [
     { path: "/captura",          label: "📋 Nueva Cotización" },
     { path: "/mis-cotizaciones", label: "📊 Mis Cotizaciones" },
@@ -991,21 +974,18 @@ const MENU_POR_ROL = {
     { path: "/chat",             label: "🤖 Asistente" },
   ],
 
-  // Asesor Op. — solo lectura, ve únicamente sus órdenes asignadas
   asesor_op: [
     { path: "/mi-consulta", label: "👁️ Mis Órdenes" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
     { path: "/chat",        label: "🤖 Asistente" },
   ],
 
-  // Comprador
   comprador: [
     { path: "/compras",     label: "🛒 Compras" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
     { path: "/chat",        label: "🤖 Asistente" },
   ],
 
-  // Almacén
   almacen: [
     { path: "/almacen",       label: "🏭 Almacén / Recepción" },
     { path: "/stock-pedidos", label: "📋 Stock Pedidos" },
@@ -1013,14 +993,12 @@ const MENU_POR_ROL = {
     { path: "/chat",          label: "🤖 Asistente" },
   ],
 
-  // Ventanilla
   ventanilla: [
     { path: "/ventanilla",  label: "🪟 Ventanilla" },
     { path: "/consulta-ot", label: "🔍 Consulta OT" },
     { path: "/chat",        label: "🤖 Asistente" },
   ],
 
-  // Gerente (acceso completo sin administración de usuarios)
   gerente: [
     { path: "/gerencial",        label: "📊 Panel Gerencial" },
     { path: "/captura",          label: "📦 Captura" },
@@ -1033,7 +1011,6 @@ const MENU_POR_ROL = {
     { path: "/chat",             label: "🤖 Asistente" },
   ],
 
-  // Gerente de sucursal — visión de su sucursal, sin compras globales
   gerente_sucursal: [
     { path: "/gerencial",        label: "📊 Mi Sucursal" },
     { path: "/captura",          label: "📦 Captura" },
@@ -1045,7 +1022,6 @@ const MENU_POR_ROL = {
     { path: "/chat",             label: "🤖 Asistente" },
   ],
 
-  // Admin — acceso total incluyendo gestión de usuarios
   admin: [
     { path: "/gerencial",        label: "📊 Panel Gerencial" },
     { path: "/captura",          label: "📦 Captura" },
@@ -1060,7 +1036,7 @@ const MENU_POR_ROL = {
   ],
 };
 
-// Fallback si el rol no está mapeado
+// Fallback
 const MENU_DEFAULT = [
   { path: "/captura",     label: "📦 Captura" },
   { path: "/consulta-ot", label: "🔍 Consulta OT" },
@@ -1080,10 +1056,14 @@ export default function Layout({ children }) {
   return (
     <div style={{ display: "flex", height: "100vh", background: "#0f172a" }}>
 
+      {/* Sidebar */}
       <aside style={{
-        width: "215px", background: "#020617",
-        padding: "16px 10px", borderRight: "1px solid #1f2937",
-        display: "flex", flexDirection: "column",
+        width: "215px", 
+        background: "#020617",
+        padding: "16px 10px", 
+        borderRight: "1px solid #1f2937",
+        display: "flex", 
+        flexDirection: "column",
       }}>
 
         <div style={{ textAlign: "center", marginBottom: "20px" }}>
@@ -1091,12 +1071,15 @@ export default function Layout({ children }) {
           <div style={{ color: "#4b5563", fontSize: "16px" }}>Sistema de Refacciones</div>
         </div>
 
-        {/* Badge de sucursal */}
+        {/* Badge Sucursal */}
         {user?.sucursal_id && (
           <div style={{
-            background: "#0f172a", border: "1px solid #1f2937",
-            borderRadius: "6px", padding: "6px 10px",
-            marginBottom: "14px", textAlign: "center"
+            background: "#0f172a", 
+            border: "1px solid #1f2937",
+            borderRadius: "6px", 
+            padding: "6px 10px",
+            marginBottom: "14px", 
+            textAlign: "center"
           }}>
             <div style={{ color: "#60a5fa", fontSize: "11px", fontWeight: 600 }}>
               {user.sucursal_nombre || NOMBRES_SUCURSAL[user.sucursal_id] || user.sucursal_id}
@@ -1104,45 +1087,66 @@ export default function Layout({ children }) {
           </div>
         )}
 
-        {/* Badge: modo solo lectura */}
+        {/* Badge Solo Lectura */}
         {esAsesorOp && (
           <div style={{
-            background: "#1e2f1e", border: "1px solid #166534",
-            borderRadius: "6px", padding: "5px 10px", marginBottom: "12px",
-            textAlign: "center", color: "#86efac", fontSize: "11px", fontWeight: 600,
+            background: "#1e2f1e", 
+            border: "1px solid #166534",
+            borderRadius: "6px", 
+            padding: "5px 10px", 
+            marginBottom: "12px",
+            textAlign: "center", 
+            color: "#86efac", 
+            fontSize: "11px", 
+            fontWeight: 600,
           }}>
             🔒 Modo Solo Lectura
           </div>
         )}
 
-        {/* Badge: Mayoreo/Menudeo (ventas o coordinador legacy) */}
+        {/* Badge Mayoreo / Menudeo */}
         {esMayoreo && (esVentas || user?.rol === "coordinador") && (
           <div style={{
-            background: "#1e3a5f", border: "1px solid #2563eb",
-            borderRadius: "6px", padding: "5px 10px", marginBottom: "12px",
-            textAlign: "center", color: "#93c5fd", fontSize: "11px", fontWeight: 600,
+            background: "#1e3a5f", 
+            border: "1px solid #2563eb",
+            borderRadius: "6px", 
+            padding: "5px 10px", 
+            marginBottom: "12px",
+            textAlign: "center", 
+            color: "#93c5fd", 
+            fontSize: "11px", 
+            fontWeight: 600,
           }}>
             🏪 Mayoreo / Menudeo
           </div>
         )}
 
+        {/* Menú */}
         <nav style={{ display: "flex", flexDirection: "column", gap: "3px", flex: 1 }}>
           {menu.map(m => {
-            const activo = location.pathname === m.path || location.pathname.startsWith(m.path + "/");
+            const activo = location.pathname === m.path || 
+                          location.pathname.startsWith(m.path + "/");
             return (
-              <Link key={m.path} to={m.path} style={{
-                padding: "9px 10px", borderRadius: "8px", textDecoration: "none",
-                fontSize: "13px",
-                color: activo ? "#fff" : "#9ca3af",
-                background: activo ? "#1d4ed8" : "transparent",
-                fontWeight: activo ? 600 : 400,
-              }}>
+              <Link 
+                key={m.path} 
+                to={m.path} 
+                style={{
+                  padding: "9px 10px", 
+                  borderRadius: "8px", 
+                  textDecoration: "none",
+                  fontSize: "13px",
+                  color: activo ? "#fff" : "#9ca3af",
+                  background: activo ? "#1d4ed8" : "transparent",
+                  fontWeight: activo ? 600 : 400,
+                }}
+              >
                 {m.label}
               </Link>
             );
           })}
         </nav>
 
+        {/* Usuario y Logout */}
         {user && (
           <div style={{ borderTop: "1px solid #1f2937", paddingTop: "12px" }}>
             <div style={{ color: "#e5e7eb", fontSize: "12px", fontWeight: 600 }}>
@@ -1151,11 +1155,20 @@ export default function Layout({ children }) {
             <div style={{ color: "#4b5563", fontSize: "10px" }}>
               {LABEL_ROL[user.rol] || user.rol}
             </div>
-            <button onClick={logout} style={{
-              width: "100%", marginTop: "8px", background: "transparent",
-              border: "1px solid #1f2937", color: "#6b7280",
-              padding: "6px", borderRadius: "6px", cursor: "pointer", fontSize: "11px"
-            }}>
+            <button 
+              onClick={logout} 
+              style={{
+                width: "100%", 
+                marginTop: "8px", 
+                background: "transparent",
+                border: "1px solid #1f2937", 
+                color: "#6b7280",
+                padding: "6px", 
+                borderRadius: "6px", 
+                cursor: "pointer", 
+                fontSize: "11px"
+              }}
+            >
               Cerrar sesión
             </button>
           </div>
@@ -1163,22 +1176,31 @@ export default function Layout({ children }) {
 
       </aside>
 
+      {/* Contenido Principal */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <header style={{
-          height: "52px", background: "#020617", borderBottom: "1px solid #1f2937",
-          display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px"
+          height: "52px", 
+          background: "#020617", 
+          borderBottom: "1px solid #1f2937",
+          display: "flex", 
+          alignItems: "center", 
+          justifyContent: "space-between", 
+          padding: "0 20px"
         }}>
           <span style={{ color: "#4b5563", fontSize: "12px" }}>
             {menu.find(m => location.pathname.startsWith(m.path))?.label || ""}
           </span>
           <BusquedaGlobal />
         </header>
-        <main style={{ flex: 1, overflowY: "auto" }}>{children}</main>
+
+        {/* Aquí se renderiza el contenido de las páginas */}
+        <main style={{ flex: 1, overflowY: "auto" }}>
+          {children || <Outlet />}
+        </main>
       </div>
     </div>
   );
 }
-
 ```
 
 ---
@@ -2155,15 +2177,15 @@ import * as XLSX from "xlsx";
 ### <a id="📄-src-pages-captura-jsx"></a>📄 `src/pages/Captura.jsx`
 
 **File Info:**
-- **Size**: 19.69 KB
+- **Size**: 19.76 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/Captura.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-14 05:36:40 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-14 03:02:00 (America/Mexico_City / GMT-06:00)
-- **MD5**: `866b44a7a028383a98c4a6bb6000ba07`
-- **SHA256**: `47b3eb18eca16145e242dd734225e058ad762a4e7868e4327c0a6f657782d667`
+- **Modified**: 2026-04-16 01:26:06 (America/Mexico_City / GMT-06:00)
+- **MD5**: `14538c9bef7713d70997f85a9c6db21f`
+- **SHA256**: `0472da832a72787cd44f03e7dca47c248399ab989dda15bf1d5cbdd9825220b5`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -2240,6 +2262,7 @@ export default function Captura() {
   const sucursalId  = user?.sucursal_id;
   const sucursalCfg = SUCURSALES[sucursalId] || SUCURSALES["mayoreo_menudeo"];
   const esMayoreo   = sucursalId === "mayoreo_menudeo";
+  console.log("DEBUG sucursalId:", sucursalId, "esMayoreo:", esMayoreo);
 
   // ── Encabezado ──────────────────────────────────────────────────────────
   const [ot, setOt]                           = useState("");
@@ -3667,15 +3690,15 @@ const btnCopiar = {
 ### <a id="📄-src-pages-login-jsx"></a>📄 `src/pages/Login.jsx`
 
 **File Info:**
-- **Size**: 6.61 KB
+- **Size**: 6.62 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/Login.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-04 07:56:23 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-11 17:05:59 (America/Mexico_City / GMT-06:00)
-- **MD5**: `774dd4af0b785b886595f6f206b7e53b`
-- **SHA256**: `b45c3acb558188a39dc089cfa185941f1b4b3a650c06b5065464b4f178b3c0f2`
+- **Modified**: 2026-04-16 01:26:06 (America/Mexico_City / GMT-06:00)
+- **MD5**: `7fedb80a74347c6e0be17b29e74a6ad6`
+- **SHA256**: `07bb47b79bac1c152d1e4e8f04c26f77737d8106d3be01ece1f17c316693316e`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -3720,6 +3743,7 @@ export default function Login() {
       window.location.href = "/";
     }, 300);
   }
+  };
 
   // ====================== RESET PASSWORD ======================
   const handleResetPassword = async (e) => {
@@ -3917,7 +3941,7 @@ const btnPrimary = {
   transition: "background-color 0.2s",
 };
 
-btnPrimary[':hover'] = {
+  btnPrimary[':hover'] = {
   backgroundColor: "#1d4ed8"
 };
 ```
@@ -7340,33 +7364,33 @@ export const COLOR_ESTATUS = {
 
 ---
 
-### <a id="📄-src-app-tsx"></a>📄 `src/App.tsx`
+### <a id="📄-src-app-jsx"></a>📄 `src/App.jsx`
 
 **File Info:**
-- **Size**: 9.73 KB
-- **Extension**: `.tsx`
-- **Language**: `typescript`
-- **Location**: `src/App.tsx`
+- **Size**: 8.95 KB
+- **Extension**: `.jsx`
+- **Language**: `jsx`
+- **Location**: `src/App.jsx`
 - **Relative Path**: `src`
 - **Created**: 2026-04-14 06:51:02 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-14 02:03:14 (America/Mexico_City / GMT-06:00)
-- **MD5**: `77bcaf6fac3cc3d75abf850f21fce3ef`
-- **SHA256**: `613d24e49a9092d7bd5d9172ab70f8cc9919ebc42548a73db6c788e6f04fae9b`
+- **Modified**: 2026-04-16 02:32:46 (America/Mexico_City / GMT-06:00)
+- **MD5**: `f1e81dda262b3a06541181b4120183a0`
+- **SHA256**: `77628a93076c5aa6d61d39f664aa6ed69f8a1f12e99b5af254b1956c9d8c6923`
 - **Encoding**: UTF-8
 
 **File code content:**
 
-```typescript
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider, useAuth } from "./contexts/AuthContext.jsx";
+```jsx
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import Layout from "./components/Layout.jsx";
 
 // Pages
 import Login from "./pages/Login";
 import Captura from "./pages/Captura";
 import Compras from "./pages/Compras";
-import PanelAsesor from "./pages/PanelAsesor";        // coordinador y ventas
-import PanelAsesorOp from "./pages/PanelAsesorOp";    // asesor_op (solo lectura)
+import PanelAsesor from "./pages/PanelAsesor";
+import PanelAsesorOp from "./pages/PanelAsesorOp";
 import PanelGerencial from "./pages/PanelGerencial";
 import Ventanilla from "./pages/Ventanilla";
 import VentanillaDetalle from "./pages/VentanillaDetalle";
@@ -7380,9 +7404,9 @@ import Usuarios from "./pages/usuarios";
 // ─────────────────────────────────────────────────────────────────────────────
 // Ruta de inicio por rol
 // ─────────────────────────────────────────────────────────────────────────────
-const ROL_DEFAULT: Record<string, string> = {
+const ROL_DEFAULT = {
   coordinador:      "/captura",
-  ventas:           "/captura",         // Mayoreo — misma página, distinto menú
+  ventas:           "/captura",
   asesor_op:        "/mi-consulta",
   comprador:        "/compras",
   almacen:          "/almacen",
@@ -7394,9 +7418,284 @@ const ROL_DEFAULT: Record<string, string> = {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Guard de ruta por rol
-// Uso: <RutaProtegida roles={["admin"]}> ... </RutaProtegida>
-// Si el usuario no tiene el rol necesario, redirige a su ruta por defecto.
 // ─────────────────────────────────────────────────────────────────────────────
+function RutaProtegida({ roles, children }) {
+  const { user } = useAuth();
+  const destino = ROL_DEFAULT[user?.rol] ?? "/captura";
+
+  if (!user || !roles.includes(user.rol)) {
+    return <Navigate to={destino} replace />;
+  }
+  return children;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Layout con Outlet
+// ─────────────────────────────────────────────────────────────────────────────
+function LayoutConOutlet() {
+  return (
+    <Layout>
+      <Outlet />
+    </Layout>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Rutas protegidas
+// ─────────────────────────────────────────────────────────────────────────────
+function RutasProtegidas() {
+  const { user, cargando } = useAuth();
+
+  if (cargando) {
+    return (
+      <div style={{
+        display: "flex", 
+        alignItems: "center", 
+        justifyContent: "center",
+        height: "100vh", 
+        background: "#0f172a", 
+        color: "#9ca3af", 
+        fontSize: "17px"
+      }}>
+        Cargando sistema...
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  const rolDefault = ROL_DEFAULT[user.rol] ?? "/captura";
+
+  return (
+    <Routes>
+      {/* Redirect raíz */}
+      <Route path="/" element={<Navigate to={rolDefault} replace />} />
+
+      {/* Layout principal */}
+      <Route element={<LayoutConOutlet />}>
+        {/* Captura - Coordinador y Ventas */}
+        <Route
+          path="/captura"
+          element={
+            <RutaProtegida roles={["coordinador", "ventas", "gerente", "gerente_sucursal", "admin"]}>
+              <Captura />
+            </RutaProtegida>
+          }
+        />
+
+        {/* Mi Panel / Mis Órdenes */}
+        <Route
+          path="/mi-panel"
+          element={
+            <RutaProtegida roles={["coordinador", "ventas", "gerente", "admin"]}>
+              <PanelAsesor />
+            </RutaProtegida>
+          }
+        />
+
+        <Route
+          path="/mis-cotizaciones"
+          element={
+            <RutaProtegida roles={["coordinador", "ventas", "gerente", "gerente_sucursal", "admin"]}>
+              <MisCotizaciones />
+            </RutaProtegida>
+          }
+        />
+
+        {/* Asesor Op */}
+        <Route
+          path="/mi-consulta"
+          element={
+            <RutaProtegida roles={["asesor_op"]}>
+              <PanelAsesorOp />
+            </RutaProtegida>
+          }
+        />
+
+        {/* Rutas compartidas */}
+        <Route path="/consulta-ot" element={<ConsultaOT />} />
+        <Route path="/chat"        element={<Chatbot />} />
+
+        {/* Compras */}
+        <Route
+          path="/compras"
+          element={
+            <RutaProtegida roles={["comprador", "gerente", "admin"]}>
+              <Compras />
+            </RutaProtegida>
+          }
+        />
+
+        {/* Almacén */}
+        <Route
+          path="/almacen"
+          element={
+            <RutaProtegida roles={["almacen", "gerente", "gerente_sucursal", "admin"]}>
+              <Almacen />
+            </RutaProtegida>
+          }
+        />
+        <Route
+          path="/recepcion-masiva"
+          element={
+            <RutaProtegida roles={["almacen", "gerente", "gerente_sucursal", "admin"]}>
+              <Almacen />
+            </RutaProtegida>
+          }
+        />
+        <Route
+          path="/stock-pedidos"
+          element={
+            <RutaProtegida roles={["almacen", "gerente", "gerente_sucursal", "admin"]}>
+              <StockPedidos />
+            </RutaProtegida>
+          }
+        />
+
+        {/* Ventanilla */}
+        <Route
+          path="/ventanilla"
+          element={
+            <RutaProtegida roles={["ventanilla", "gerente", "gerente_sucursal", "admin"]}>
+              <Ventanilla />
+            </RutaProtegida>
+          }
+        />
+        <Route
+          path="/ventanilla/:ot"
+          element={
+            <RutaProtegida roles={["ventanilla", "gerente", "gerente_sucursal", "admin"]}>
+              <VentanillaDetalle />
+            </RutaProtegida>
+          }
+        />
+
+        {/* Panel Gerencial */}
+        <Route
+          path="/gerencial"
+          element={
+            <RutaProtegida roles={["gerente", "gerente_sucursal", "admin"]}>
+              <PanelGerencial />
+            </RutaProtegida>
+          }
+        />
+
+        {/* Usuarios (solo admin) */}
+        <Route
+          path="/usuarios"
+          element={
+            <RutaProtegida roles={["admin"]}>
+              <Usuarios />
+            </RutaProtegida>
+          }
+        />
+
+        {/* Catch-all */}
+        <Route path="*" element={<Navigate to={rolDefault} replace />} />
+      </Route>
+    </Routes>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Guard del Login
+// ─────────────────────────────────────────────────────────────────────────────
+function LoginGuard() {
+  const { user, cargando } = useAuth();
+
+  if (cargando) {
+    return (
+      <div style={{
+        height: "100vh", 
+        display: "flex", 
+        alignItems: "center",
+        justifyContent: "center", 
+        background: "#0f172a", 
+        color: "#9ca3af"
+      }}>
+        Cargando sistema...
+      </div>
+    );
+  }
+
+  if (user) return <Navigate to="/" replace />;
+  return <Login />;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// App Root
+// ─────────────────────────────────────────────────────────────────────────────
+export default function App() {
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginGuard />} />
+          <Route path="/*"     element={<RutasProtegidas />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
+  );
+}
+```
+
+---
+
+### <a id="📄-src-app-tsx"></a>📄 `src/App.tsx`
+
+**File Info:**
+- **Size**: 8.55 KB
+- **Extension**: `.tsx`
+- **Language**: `typescript`
+- **Location**: `src/App.tsx`
+- **Relative Path**: `src`
+- **Created**: 2026-04-16 02:32:46 (America/Mexico_City / GMT-06:00)
+- **Modified**: 2026-04-16 02:32:46 (America/Mexico_City / GMT-06:00)
+- **MD5**: `7fa63f7115f192ead059cbf154aa7c40`
+- **SHA256**: `b0316b7af084e41887d4f192ab79a732692a7f6d75b618efc1716f633f57da4f`
+- **Encoding**: UTF-8
+
+**File code content:**
+
+```typescript
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import Layout from "./components/Layout.jsx";
+
+// Pages (sin cambios)
+import Login from "./pages/Login";
+import Captura from "./pages/Captura";
+import Compras from "./pages/Compras";
+import PanelAsesor from "./pages/PanelAsesor";
+import PanelAsesorOp from "./pages/PanelAsesorOp";
+import PanelGerencial from "./pages/PanelGerencial";
+import Ventanilla from "./pages/Ventanilla";
+import VentanillaDetalle from "./pages/VentanillaDetalle";
+import ConsultaOT from "./pages/ConsultaOT";
+import StockPedidos from "./pages/StockPedidos";
+import Almacen from "./pages/Almacen";
+import Chatbot from "./pages/Chatbot";
+import MisCotizaciones from "./pages/MisCotizaciones";
+import Usuarios from "./pages/usuarios";
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Ruta de inicio por rol (sin cambios)
+const ROL_DEFAULT: Record<string, string> = {
+  coordinador:      "/captura",
+  ventas:           "/captura",
+  asesor_op:        "/mi-consulta",
+  comprador:        "/compras",
+  almacen:          "/almacen",
+  ventanilla:       "/ventanilla",
+  gerente:          "/gerencial",
+  gerente_sucursal: "/gerencial",
+  admin:            "/gerencial",
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Guard de ruta por rol (sin cambios)
 function RutaProtegida({ roles, children }: { roles: string[]; children: JSX.Element }) {
   const { user } = useAuth();
   const destino = ROL_DEFAULT[user?.rol ?? ""] ?? "/captura";
@@ -7408,8 +7707,17 @@ function RutaProtegida({ roles, children }: { roles: string[]; children: JSX.Ele
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Rutas protegidas (usuario autenticado)
+// Componente Layout con Outlet (¡ESTO ES LA CORRECCIÓN PRINCIPAL!)
+function LayoutConOutlet() {
+  return (
+    <Layout>
+      <Outlet />
+    </Layout>
+  );
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
+// Rutas protegidas
 function RutasProtegidas() {
   const { user, cargando } = useAuth();
 
@@ -7431,13 +7739,14 @@ function RutasProtegidas() {
   const rolDefault = ROL_DEFAULT[user.rol] ?? "/captura";
 
   return (
-    <Layout>
-      <Routes>
-        {/* Redirect raíz → ruta de inicio del rol */}
-        <Route path="/" element={<Navigate to={rolDefault} replace />} />
+    <Routes>
+      {/* Redirect raíz → ruta de inicio del rol */}
+      <Route path="/" element={<Navigate to={rolDefault} replace />} />
 
-        {/* ── Coordinador (talleres) ─────────────────────────────────── */}
-        {/* ── Ventas (Mayoreo/Menudeo) ──────────────────────────────── */}
+      {/* Layout principal con Outlet */}
+      <Route element={<LayoutConOutlet />}>
+
+        {/* ── Coordinador y Ventas ─────────────────────────────────── */}
         <Route
           path="/captura"
           element={
@@ -7463,7 +7772,7 @@ function RutasProtegidas() {
           }
         />
 
-        {/* ── Asesor Op. (solo lectura) ──────────────────────────────── */}
+        {/* ── Asesor Op. ──────────────────────────────── */}
         <Route
           path="/mi-consulta"
           element={
@@ -7473,7 +7782,7 @@ function RutasProtegidas() {
           }
         />
 
-        {/* ── Compartidas (todos los roles autenticados) ──────────────── */}
+        {/* ── Compartidas ──────────────── */}
         <Route path="/consulta-ot" element={<ConsultaOT />} />
         <Route path="/chat"        element={<Chatbot />} />
 
@@ -7531,7 +7840,7 @@ function RutasProtegidas() {
           }
         />
 
-        {/* ── Gerencial ──────────────────────────────────────────────── */}
+        {/* ── Gerencial (Admin, Gerente, Gerente Sucursal) ───────────── */}
         <Route
           path="/gerencial"
           element={
@@ -7541,7 +7850,7 @@ function RutasProtegidas() {
           }
         />
 
-        {/* ── Administración de usuarios (solo admin) ─────────────────── */}
+        {/* ── Administración de usuarios ─────────────────── */}
         <Route
           path="/usuarios"
           element={
@@ -7553,14 +7862,13 @@ function RutasProtegidas() {
 
         {/* Catch-all → ruta por defecto del rol */}
         <Route path="*" element={<Navigate to={rolDefault} replace />} />
-      </Routes>
-    </Layout>
+      </Route>
+    </Routes>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Guard del Login (redirige a inicio si ya hay sesión)
-// ─────────────────────────────────────────────────────────────────────────────
+// Guard del Login (sin cambios)
 function LoginGuard() {
   const { user, cargando } = useAuth();
   if (cargando) return (
@@ -7576,8 +7884,7 @@ function LoginGuard() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// App root
-// ─────────────────────────────────────────────────────────────────────────────
+// App root (sin cambios importantes)
 export default function App() {
   return (
     <AuthProvider>
@@ -7589,32 +7896,6 @@ export default function App() {
       </BrowserRouter>
     </AuthProvider>
   );
-}
-
-```
-
----
-
-### <a id="📄-src-global-d-ts"></a>📄 `src/global.d.ts`
-
-**File Info:**
-- **Size**: 81 B
-- **Extension**: `.ts`
-- **Language**: `typescript`
-- **Location**: `src/global.d.ts`
-- **Relative Path**: `src`
-- **Created**: 2026-04-11 04:52:22 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-11 04:54:17 (America/Mexico_City / GMT-06:00)
-- **MD5**: `80e307010d956cda70d9ec50ba9b972a`
-- **SHA256**: `4e7ef30ee0959cf1586a036050b4b11d1c693d14689e3815eb4ca98111fdc5a0`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```typescript
-declare module "*.jsx" {
-  const component: any;
-  export default component;
 }
 ```
 
@@ -7749,74 +8030,34 @@ code {
 
 ---
 
-### <a id="📄-src-main-tsx"></a>📄 `src/main.tsx`
+### <a id="📄-src-main-jsx"></a>📄 `src/main.jsx`
 
 **File Info:**
-- **Size**: 230 B
-- **Extension**: `.tsx`
-- **Language**: `typescript`
-- **Location**: `src/main.tsx`
+- **Size**: 250 B
+- **Extension**: `.jsx`
+- **Language**: `jsx`
+- **Location**: `src/main.jsx`
 - **Relative Path**: `src`
 - **Created**: 2026-04-04 03:46:08 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-01 03:37:03 (America/Mexico_City / GMT-06:00)
-- **MD5**: `787e5a07efeb2bf6209d5937195f2f68`
-- **SHA256**: `6e9e5807fcbd48b75a96db5cbef36c996262196be42e6d4760dc86babbe61ad2`
+- **Modified**: 2026-04-16 02:42:47 (America/Mexico_City / GMT-06:00)
+- **MD5**: `76fa99d6ad1c51b6b515ef83dac27984`
+- **SHA256**: `1fe7ae652bc4e7f078f9aaf5ad7206f10d4182c4cab5b0621518ef031a4d4e03`
 - **Encoding**: ASCII
 
 **File code content:**
 
-```typescript
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+```jsx
+// src/main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
 import './index.css'
-import App from './App.tsx'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
     <App />
-  </StrictMode>,
+  </React.StrictMode>,
 )
-
-```
-
----
-
-### <a id="📄-src-types-d-ts"></a>📄 `src/types.d.ts`
-
-**File Info:**
-- **Size**: 366 B
-- **Extension**: `.ts`
-- **Language**: `typescript`
-- **Location**: `src/types.d.ts`
-- **Relative Path**: `src`
-- **Created**: 2026-04-05 00:34:47 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-11 04:56:20 (America/Mexico_City / GMT-06:00)
-- **MD5**: `f129c1c6f4f85fc24fa3b3c39fc3a0c1`
-- **SHA256**: `742e12ef8e39ce25b83bde501e94076ab4395734eb5c94eb5114ab4822d906d5`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```typescript
-declare module "*.jsx" {
-  const component: any;
-  export default component;
-}
-
-declare module "./contexts/AuthContext" {
-  export const AuthProvider: any;
-  export const useAuth: any;
-}
-
-declare module "./components/Layout" {
-  const Layout: any;
-  export default Layout;
-}
-
-declare module "./pages/*" {
-  const Page: any;
-  export default Page;
-}
 ```
 
 ---
@@ -7875,9 +8116,9 @@ export default defineConfig([
 - **Location**: `index.html`
 - **Relative Path**: `root`
 - **Created**: 2026-04-04 03:46:08 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-04 03:46:08 (America/Mexico_City / GMT-06:00)
-- **MD5**: `0aa1ff12f2fb7a15605a964a358e9328`
-- **SHA256**: `2cae15e837017f70b7413c9d39af1912687dae6fce16335c616056546b2d7bb7`
+- **Modified**: 2026-04-16 02:45:49 (America/Mexico_City / GMT-06:00)
+- **MD5**: `eb5dda2b1fbd920bf86b8bc40c06dc49`
+- **SHA256**: `0de33ba548e2db4ec6ba7901d8c7dca47ee6c09fd66919f2281f0b846400e2cb`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -7893,7 +8134,7 @@ export default defineConfig([
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
 
@@ -11820,133 +12061,6 @@ export default defineConfig([
 
 ---
 
-### <a id="📄-tsconfig-app-json"></a>📄 `tsconfig.app.json`
-
-**File Info:**
-- **Size**: 732 B
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `tsconfig.app.json`
-- **Relative Path**: `root`
-- **Created**: 2026-04-04 03:46:08 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-01 03:37:03 (America/Mexico_City / GMT-06:00)
-- **MD5**: `1079e34c0d979ff4e9c96e544b296d8f`
-- **SHA256**: `aa9e68711a716c499b5730aa6664cab7e6a2cb65e9924252cefe2135a4724112`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-{
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2023",
-    "useDefineForClassFields": true,
-    "lib": ["ES2023", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "types": ["vite/client"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["src"]
-}
-
-```
-
----
-
-### <a id="📄-tsconfig-json"></a>📄 `tsconfig.json`
-
-**File Info:**
-- **Size**: 119 B
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `tsconfig.json`
-- **Relative Path**: `root`
-- **Created**: 2026-04-04 03:46:08 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-01 03:37:03 (America/Mexico_City / GMT-06:00)
-- **MD5**: `a3d39fa780ebff65444de257f291ce6c`
-- **SHA256**: `770b4140bbb581e2dfd9ea9946ffc9c75a1d86ba7d2db5f77c83e37cbdf9d808`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-{
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
-}
-
-```
-
----
-
-### <a id="📄-tsconfig-node-json"></a>📄 `tsconfig.node.json`
-
-**File Info:**
-- **Size**: 653 B
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `tsconfig.node.json`
-- **Relative Path**: `root`
-- **Created**: 2026-04-04 03:46:08 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-01 03:37:03 (America/Mexico_City / GMT-06:00)
-- **MD5**: `eec85c9d7c6b599801557f1afd86672c`
-- **SHA256**: `c3dd0fb522feba3596713f51b95bd53d781d845d24aedbfa2ac093d8b39c5120`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-{
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "types": ["node"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["vite.config.ts"]
-}
-
-```
-
----
-
 ### <a id="📄-vercel-json"></a>📄 `vercel.json`
 
 **File Info:**
@@ -11972,35 +12086,6 @@ export default defineConfig([
     }
   ]
 }
-```
-
----
-
-### <a id="📄-vite-config-ts"></a>📄 `vite.config.ts`
-
-**File Info:**
-- **Size**: 161 B
-- **Extension**: `.ts`
-- **Language**: `typescript`
-- **Location**: `vite.config.ts`
-- **Relative Path**: `root`
-- **Created**: 2026-04-04 03:46:08 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-01 03:37:03 (America/Mexico_City / GMT-06:00)
-- **MD5**: `88439104b3c207f17d33ef3160e3b080`
-- **SHA256**: `4d36db3522a7b2dd10e0936e1004373c7ee65f10f7cd7920cd76410459c15a45`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```typescript
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react()],
-})
-
 ```
 
 ---
