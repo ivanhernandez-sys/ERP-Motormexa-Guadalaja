@@ -30,7 +30,7 @@ export default function Compras() {
 
     let q = supabase
       .from("items")
-      .select("*, sucursal_id, sucursal_nombre, verificado_ventanilla, comentario_almacen")
+      .select("*")
       .order("created_at", { ascending: true });
 
     if (!esAdmin && user?.sucursal_id) {

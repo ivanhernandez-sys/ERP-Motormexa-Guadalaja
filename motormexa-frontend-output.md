@@ -3,7 +3,7 @@
 ## 📊 Project Information
 
 - **Project Name**: `motormexa-frontend`
-- **Generated On**: 2026-04-21 03:19:45 (America/Mexico_City / GMT-06:00)
+- **Generated On**: 2026-04-21 22:37:07 (America/Mexico_City / GMT-06:00)
 - **Total Files Processed**: 57
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
@@ -52,7 +52,7 @@
 │   │   ├── 📄 Almacen.jsx (10.88 KB)
 │   │   ├── 📄 Captura.jsx (15.81 KB)
 │   │   ├── 📄 Chatbot.jsx (35.41 KB)
-│   │   ├── 📄 Compras.jsx (9.6 KB)
+│   │   ├── 📄 Compras.jsx (9.53 KB)
 │   │   ├── 📄 ConsultaOT.jsx (11.86 KB)
 │   │   ├── 📄 Login.jsx (6.62 KB)
 │   │   ├── 📄 MisCotizaciones.jsx (23.95 KB)
@@ -152,7 +152,7 @@
 | Total Directories | 10 |
 | Text Files | 48 |
 | Binary Files | 9 |
-| Total Size | 463.19 KB |
+| Total Size | 463.12 KB |
 
 ### 📄 File Types Distribution
 
@@ -3235,15 +3235,15 @@ export default function Chatbot() {
 ### <a id="📄-src-pages-compras-jsx"></a>📄 `src/pages/Compras.jsx`
 
 **File Info:**
-- **Size**: 9.6 KB
+- **Size**: 9.53 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/Compras.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-10 04:27:23 (America/Mexico_City / GMT-06:00)
-- **MD5**: `bb01de1d697dbc8c7aca7aea9a0fbbd7`
-- **SHA256**: `7f3b5701f3a76566ec212e0f4771bc2b4ac9d63998d63bedb23e2d48d5e29a59`
+- **Modified**: 2026-04-21 22:37:06 (America/Mexico_City / GMT-06:00)
+- **MD5**: `28b73e5b5abf29f0e415e9be79f5c0ec`
+- **SHA256**: `2ee68e4e5459c35ecdce7523e9c1e8e7a943d9835ee2e0642f769bfa9a763bce`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -3281,7 +3281,7 @@ export default function Compras() {
 
     let q = supabase
       .from("items")
-      .select("*, sucursal_id, sucursal_nombre, verificado_ventanilla, comentario_almacen")
+      .select("*")
       .order("created_at", { ascending: true });
 
     if (!esAdmin && user?.sucursal_id) {
