@@ -1,8 +1,8 @@
-// src/pages/PanelGerencial.jsx — Actualizado: coordinador (antes "asesor")
+// src/pages/PanelGerencial.jsx
 import { useEffect, useState, useCallback } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
-import { COLOR_ESTATUS, diasTranscurridos, formatFecha } from "../utils/catalogos";
+import { diasTranscurridos } from "../utils/catalogos";
 
 function KPICard({ title, value, sub, color = "#e5e7eb" }) {
   return (
@@ -51,16 +51,29 @@ export default function PanelGerencial() {
     }
     if (filtroSucursal) q = q.eq("sucursal_id", filtroSucursal);
 
-    // 🔐 Filtrar por rol
-    // "coordinador" es el nuevo nombre del antiguo "asesor"
-    // "asesor_op" también solo ve sus propias órdenes
-    if (["coordinador", "ventas", "asesor_op"].includes(user?.rol))
-    q = q.eq("asesor_id", user.id);
-    if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
-      q = q.eq("sucursal_id", user.sucursal_id);
+    // CORRECCIÓN: Admin y Gerente ven todo
+    if (!["admin", "gerente"].includes(user?.rol)) {
+      if (["coordinador", "ventas", "asesor_op"].includes(user?.rol))
+        q = q.eq("asesor_id", user.id);
+      if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
+        q = q.eq("sucursal_id", user.sucursal_id);
+    }
 
-    const { data: rows } = await q;
-    if (!rows) { setCargando(false); return; }
+    const { data: rowsData } = await q;   // ← Cambiado de "rows" a "rowsData"
+
+    if (!rowsData || rowsData.length === 0) {
+      setDatos({
+        total: 0, entregadas: 0, recibidas: 0, pendientes: 0,
+        compradas: 0, incorrectas: 0, noCompradas: 0, vencidas: 0,
+        tiempoPromedio: "—", cumplimiento: 0,
+        alertasPendientes: [], rankingSucursales: [], rankingAsesores: [],
+        fabMap: {}, otCompletas: 0, otParciales: 0
+      });
+      setCargando(false);
+      return;
+    }
+
+    const rows = rowsData; // ← Renombrado para mantener tu lógica original
 
     // Conteos base
     const contar = (e) => rows.filter(r => r.estatus === e).length;
@@ -73,7 +86,7 @@ export default function PanelGerencial() {
     const noCompradas = contar("No comprada");
     const vencidas = contar("Vencida");
 
-    // Tiempo promedio captura → compra
+    // Tiempo promedio
     let sumTiempo = 0, cntTiempo = 0;
     rows.forEach(r => {
       if (r.fecha_compra && r.created_at) {
@@ -103,7 +116,7 @@ export default function PanelGerencial() {
       .map(([n, v]) => ({ nombre: n, ...v }))
       .sort((a, b) => b.entregadas - a.entregadas);
 
-    // Ranking por coordinador (antes "asesor")
+    // Ranking por coordinador
     const asesorMap = {};
     rows.forEach(r => {
       const a = r.asesor?.nombre || r.asesor_id || "Sin coordinador";
@@ -123,7 +136,7 @@ export default function PanelGerencial() {
       else fabMap.Otro++;
     });
 
-    // OTs con estatus
+    // OTs completas / parciales
     const otMap = {};
     rows.forEach(r => {
       if (!otMap[r.ot]) otMap[r.ot] = [];
@@ -149,21 +162,19 @@ export default function PanelGerencial() {
 
   useEffect(() => { calcular(); }, [calcular]);
 
-  if (cargando) return <div style={{ padding: "40px", color: "#9ca3af", textAlign: "center" }}>Cargando panel...</div>;
-  if (!datos) return null;
+  if (cargando) return <div style={{ padding: "40px", color: "#9ca3af", textAlign: "center" }}>Cargando panel gerencial...</div>;
+  if (!datos) return <div style={{ padding: "40px", color: "#9ca3af", textAlign: "center" }}>No hay datos disponibles</div>;
 
   return (
     <div style={{ padding: "20px", color: "#e5e7eb" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px", marginBottom: "20px" }}>
         <h2 style={{ margin: 0 }}>📊 Panel Gerencial</h2>
         <div style={{ display: "flex", gap: "10px" }}>
-          <input type="month" value={filtroMes} onChange={e => setFiltroMes(e.target.value)}
-            style={inputF} title="Filtrar por mes" />
+          <input type="month" value={filtroMes} onChange={e => setFiltroMes(e.target.value)} style={inputF} />
           <button onClick={calcular} style={btnRef}>🔄</button>
         </div>
       </div>
 
-      {/* KPIs Principales */}
       <div style={grid4}>
         <KPICard title="Total ítems" value={datos.total} />
         <KPICard title="Pendientes" value={datos.pendientes} color="#facc15" />
@@ -175,18 +186,14 @@ export default function PanelGerencial() {
         <KPICard title="Vencidas" value={datos.vencidas} color="#c084fc" />
       </div>
 
-      {/* Métricas */}
       <div style={{ ...grid4, marginTop: "16px" }}>
         <KPICard title="Tiempo prom. captura→compra" value={`${datos.tiempoPromedio} días`} color="#60a5fa" />
         <KPICard title="% Cumplimiento entrega" value={`${datos.cumplimiento}%`} color="#4ade80" />
         <KPICard title="OTs completas" value={datos.otCompletas} color="#22c55e" />
-        <KPICard title="OTs parciales/pendientes" value={datos.otParciales} color="#facc15" />
+        <KPICard title="OTs parciales" value={datos.otParciales} color="#facc15" />
       </div>
 
-      {/* Rankings y alertas */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "16px", marginTop: "20px" }}>
-
-        {/* Ranking por sucursal */}
         <div style={card}>
           <h3 style={cardTitle}>🏢 Por Sucursal</h3>
           {datos.rankingSucursales.map((s, i) => (
@@ -194,7 +201,6 @@ export default function PanelGerencial() {
           ))}
         </div>
 
-        {/* Ranking por coordinador */}
         <div style={card}>
           <h3 style={cardTitle}>👤 Por Coordinador</h3>
           {datos.rankingAsesores.map((a, i) => (
@@ -202,7 +208,6 @@ export default function PanelGerencial() {
           ))}
         </div>
 
-        {/* Por fabricante */}
         <div style={card}>
           <h3 style={cardTitle}>🏭 Por Fabricante</h3>
           {Object.entries(datos.fabMap).map(([fab, cnt]) => (
@@ -210,25 +215,15 @@ export default function PanelGerencial() {
           ))}
         </div>
 
-        {/* Alertas de retraso */}
         <div style={card}>
           <h3 style={{ ...cardTitle, color: "#f87171" }}>🚨 Pendientes con retraso (+3 días)</h3>
-          {datos.alertasPendientes.length === 0 && (
-            <p style={{ color: "#9ca3af", fontSize: "13px" }}>Sin alertas activas ✅</p>
-          )}
+          {datos.alertasPendientes.length === 0 && <p style={{ color: "#9ca3af" }}>Sin alertas activas ✅</p>}
           {datos.alertasPendientes.map(r => (
-            <div key={r.id} style={{
-              display: "flex", justifyContent: "space-between", alignItems: "center",
-              padding: "8px 10px", background: "#1a0a00", borderRadius: "8px",
-              marginBottom: "6px", border: "1px solid #7f1d1d",
-            }}>
+            <div key={r.id} style={{ display: "flex", justifyContent: "space-between", padding: "8px 10px", background: "#1a0a00", borderRadius: "8px", marginBottom: "6px", border: "1px solid #7f1d1d" }}>
               <div>
-                <span style={{ fontWeight: 700, color: "#fca5a5", fontSize: "13px" }}>OT {r.ot}</span>
-                <span style={{ color: "#9ca3af", fontSize: "11px", marginLeft: "8px" }}>{r.descripcion?.substring(0, 30)}</span>
+                <span style={{ fontWeight: 700, color: "#fca5a5" }}>OT {r.ot}</span>
               </div>
-              <span style={{ color: "#f87171", fontSize: "12px", fontWeight: 700 }}>
-                {diasTranscurridos(r.created_at)}d
-              </span>
+              <span style={{ color: "#f87171", fontWeight: 700 }}>{diasTranscurridos(r.created_at)}d</span>
             </div>
           ))}
         </div>

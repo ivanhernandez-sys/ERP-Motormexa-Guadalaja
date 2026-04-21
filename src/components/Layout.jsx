@@ -4,9 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import BusquedaGlobal from "./BusquedaGlobal";
 import logo from "../assets/logo.png";
 
-// ─────────────────────────────────────────────
-// SUCURSALES — IDs canónicos y nombres de display
-// ─────────────────────────────────────────────
+// SUCURSALES y LABEL_ROL (sin cambios)
 export const SUCURSALES = [
   { id: "acueducto",      nombre: "Acueducto" },
   { id: "vallarta",       nombre: "Vallarta" },
@@ -20,9 +18,6 @@ export const NOMBRES_SUCURSAL = Object.fromEntries(
   SUCURSALES.map(s => [s.id, s.nombre])
 );
 
-// ─────────────────────────────────────────────
-// LABEL ROLES
-// ─────────────────────────────────────────────
 export const LABEL_ROL = {
   coordinador:      "Coordinador",
   ventas:           "Ventas",
@@ -35,9 +30,7 @@ export const LABEL_ROL = {
   admin:            "Admin",
 };
 
-// ─────────────────────────────────────────────
 // MENÚS POR ROL
-// ─────────────────────────────────────────────
 const MENU_POR_ROL = {
   coordinador: [
     { path: "/captura",          label: "📦 Captura" },
@@ -47,7 +40,6 @@ const MENU_POR_ROL = {
     { path: "/chat",             label: "🤖 Asistente" },
   ],
 
-  // Ventas - Mayoreo / Menudeo
   ventas: [
     { path: "/captura",          label: "📋 Nueva Cotización" },
     { path: "/mis-cotizaciones", label: "📊 Mis Cotizaciones" },
@@ -133,7 +125,17 @@ export default function Layout({ children }) {
   const esAsesorOp = user?.rol === "asesor_op";
   const esVentas   = user?.rol === "ventas";
 
-  const menu = MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
+  let menu = MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
+
+  // ─────────────────────────────────────────────
+  // CORRECCIÓN AÑADIDA (sin borrar nada del original):
+  // Para usuario "ventas" ocultamos /mi-panel porque las cotizaciones
+  // se convierten en compras → solo mostramos Mis Cotizaciones.
+  // Esto evita la página en blanco.
+  // ─────────────────────────────────────────────
+  if (user?.rol === "ventas") {
+    menu = menu.filter(item => item.path !== "/mi-panel");
+  }
 
   return (
     <div style={{ display: "flex", height: "100vh", background: "#0f172a" }}>

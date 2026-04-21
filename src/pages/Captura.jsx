@@ -9,7 +9,6 @@ import {
 
 const ANIOS = Array.from({ length: 12 }, (_, i) => 2025 - i);
 
-// ── Prefijo de folio según tipo de cotización ──────────────────────────────
 const PREFIJO_FOLIO = {
   Mayoreo:     "MYR",
   Menudeo:     "MEN",
@@ -69,9 +68,8 @@ export default function Captura() {
   const sucursalId  = user?.sucursal_id;
   const sucursalCfg = SUCURSALES[sucursalId] || SUCURSALES["mayoreo_menudeo"];
   const esMayoreo   = sucursalId === "mayoreo_menudeo";
-  console.log("DEBUG sucursalId:", sucursalId, "esMayoreo:", esMayoreo);
 
-  // ── Encabezado ──────────────────────────────────────────────────────────
+  // Estados
   const [ot, setOt]                           = useState("");
   const [tipoOrden, setTipoOrden]             = useState("Público");
   const [marca, setMarca]                     = useState("");
@@ -82,15 +80,13 @@ export default function Captura() {
   const [km, setKm]                           = useState("");
   const [vehiculoEstatus, setVehiculoEstatus] = useState("En taller");
 
-  // ── Campos exclusivos Mayoreo ────────────────────────────────────────────
   const [tipoCotizacion, setTipoCotizacion]         = useState("Menudeo");
   const [folioCotizacion, setFolioCotizacion]       = useState("");
   const [cargandoFolio, setCargandoFolio]           = useState(false);
   const [siniestro, setSiniestro]                   = useState("");
-  const [ordenCompra, setOrdenCompra]               = useState("");   // 🆕 OC opcional Aseguradoras
+  const [ordenCompra, setOrdenCompra]               = useState("");
   const [clienteAseguradora, setClienteAseguradora] = useState("");
 
-  // ── Filas refacciones ────────────────────────────────────────────────────
   const [filas, setFilas]     = useState([{ ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
   const [guardando, setGuardando] = useState(false);
   const [exito, setExito]     = useState(false);
@@ -103,27 +99,18 @@ export default function Captura() {
       .map(([m]) => m));
   const corte = HORARIOS_CORTE[fabricante];
 
-  // ── Generar folio automático al cambiar tipo de cotización ───────────────
   const generarFolio = async (tipo) => {
     setCargandoFolio(true);
     const prefijo = PREFIJO_FOLIO[tipo] || "MYR";
     const { data, error } = await supabase.rpc("siguiente_folio", { p_tipo: prefijo });
-    if (!error && data) {
-      setFolioCotizacion(data);
-    } else {
-      console.error("Error generando folio:", error);
-    }
+    if (!error && data) setFolioCotizacion(data);
     setCargandoFolio(false);
   };
 
-  // Generar folio al montar si es Mayoreo
   useEffect(() => {
-    if (esMayoreo) {
-      generarFolio(tipoCotizacion);
-    }
-  }, []); // eslint-disable-line
+    if (esMayoreo) generarFolio(tipoCotizacion);
+  }, [esMayoreo]);
 
-  // Regenerar folio al cambiar tipo de cotización
   const handleTipoCotizacion = async (nuevoTipo) => {
     setTipoCotizacion(nuevoTipo);
     setSiniestro("");
@@ -131,89 +118,69 @@ export default function Captura() {
     await generarFolio(nuevoTipo);
   };
 
-  const handleFila    = (i, campo, val) => setFilas(prev => prev.map((f, idx) => idx === i ? { ...f, [campo]: val } : f));
-  const agregarFila   = () => setFilas(prev => [...prev, { ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
-  const quitarFila    = (i) => setFilas(prev => prev.filter((_, idx) => idx !== i));
+  const handleFila  = (i, campo, val) => setFilas(prev => prev.map((f, idx) => idx === i ? { ...f, [campo]: val } : f));
+  const agregarFila = () => setFilas(prev => [...prev, { ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
+  const quitarFila  = (i) => setFilas(prev => prev.filter((_, idx) => idx !== i));
 
   const guardar = async () => {
-    // ── Validaciones ────────────────────────────────────────────────────
-    if (!esMayoreo && !ot)           { alert("La OT es obligatoria"); return; }
-    if (!marca)                      { alert("Selecciona una marca"); return; }
+    if (!esMayoreo && !ot) { alert("La OT es obligatoria"); return; }
+    if (!marca) { alert("Selecciona una marca"); return; }
     if (filas.some(f => !f.descripcion && !f.numero_parte)) {
       alert("Todas las filas deben tener descripción o número de parte");
       return;
     }
-    if (esMayoreo && !folioCotizacion)  { alert("El folio de cotización es obligatorio"); return; }
-    if (esMayoreo && tipoCotizacion === "Aseguradora" && !siniestro) {
-      alert("El número de siniestro es obligatorio para Aseguradoras");
-      return;
-    }
+    if (esMayoreo && !folioCotizacion) { alert("El folio de cotización es obligatorio"); return; }
 
     setGuardando(true);
 
     const modeloFinal = modelo === "Otro" ? modeloOtro : modelo;
-    const ref         = generarReferencia(sucursalId, esMayoreo ? folioCotizacion : ot, user?.nombre);
-
-    // Para Mayoreo: la OT interna es el folio de cotización
     const otFinal = esMayoreo ? folioCotizacion : ot;
 
     const items = filas.map(f => ({
-      ot:                  otFinal,
-      tipo_orden:          esMayoreo ? tipoCotizacion : tipoOrden,
+      ot: otFinal,
+      tipo_orden: esMayoreo ? tipoCotizacion : tipoOrden,
       fabricante,
       marca,
-      modelo:              modeloFinal,
-      anio:                anio || null,
-      vin:                 vin  || null,
-      km:                  km   || null,
-      vehiculo_estatus:    vehiculoEstatus,
-      ubicacion:           f.ubicacion,
-      descripcion:         f.descripcion,
-      numero_parte:        f.numero_parte || null,
-      cantidad:            f.cantidad,
-
-      // 🔑 Mayoreo nace como "Cotizada", taller como "Pendiente"
-      estatus:             esMayoreo ? "Cotizada" : "Pendiente",
-
-      asesor_id:           user?.id,
-      sucursal_id:         sucursalId,
-      referencia:          ref,
-
-      // Campos Mayoreo
-      folio_cotizacion:    esMayoreo ? folioCotizacion : null,
-      tipo_cotizacion:     esMayoreo ? tipoCotizacion  : null,
-      es_cotizacion:       esMayoreo ? true             : false,
-      siniestro:           esMayoreo && tipoCotizacion === "Aseguradora" ? siniestro    : null,
-      orden_compra:        esMayoreo && tipoCotizacion === "Aseguradora" ? ordenCompra  : null, // 🆕
+      modelo: modeloFinal,
+      anio: anio || null,
+      vin: vin || null,
+      km: km || null,
+      vehiculo_estatus: vehiculoEstatus,
+      ubicacion: f.ubicacion,
+      descripcion: f.descripcion,
+      numero_parte: f.numero_parte || null,
+      cantidad: f.cantidad,
+      estatus: esMayoreo ? "Cotizada" : "Pendiente",
+      asesor_id: user?.id,
+      sucursal_id: sucursalId,
+      referencia: generarReferencia(sucursalId, esMayoreo ? folioCotizacion : ot, user?.nombre),
+      folio_cotizacion: esMayoreo ? folioCotizacion : null,
+      tipo_cotizacion: esMayoreo ? tipoCotizacion : null,
+      es_cotizacion: esMayoreo,
+      siniestro: esMayoreo && tipoCotizacion === "Aseguradora" ? siniestro : null,
+      orden_compra: esMayoreo && tipoCotizacion === "Aseguradora" ? ordenCompra : null,
       cliente_aseguradora: esMayoreo ? clienteAseguradora : null,
-
       eta: calcularETA(f.ubicacion, fabricante)?.toISOString() || null,
     }));
 
     const { error } = await supabase.from("items").insert(items);
 
     setGuardando(false);
-
     if (error) {
-      console.error(error);
-      alert("Error al guardar. Revisa la consola.");
+      alert("Error al guardar: " + error.message);
       return;
     }
 
     setExito(true);
+    setTimeout(() => setExito(false), 3000);
 
-    // ── Reset ──────────────────────────────────────────────────────────
+    // Reset
     setOt(""); setMarca(""); setModelo(""); setModeloOtro("");
     setAnio(""); setVin(""); setKm("");
     setSiniestro(""); setOrdenCompra(""); setClienteAseguradora("");
     setFilas([{ ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
 
-    // Generar nuevo folio para la siguiente captura (solo Mayoreo)
-    if (esMayoreo) {
-      await generarFolio(tipoCotizacion);
-    }
-
-    setTimeout(() => setExito(false), 3000);
+    if (esMayoreo) await generarFolio(tipoCotizacion);
   };
 
   return (
@@ -221,86 +188,48 @@ export default function Captura() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
         <div>
           <h2 style={{ margin: 0 }}>
-            {esMayoreo ? "📋 Captura de Cotización" : "📦 Captura de Refacciones"}
+            {esMayoreo ? "📋 Nueva Cotización" : "📦 Captura de Refacciones"}
           </h2>
           <p style={{ color: "#9ca3af", margin: "4px 0 0", fontSize: "13px" }}>
             {sucursalCfg.nombre}
             {fabricante && <span style={{ marginLeft: "10px", color: "#60a5fa" }}>· {fabricante}</span>}
-            {corte      && <span style={{ marginLeft: "10px", color: "#facc15" }}>· Corte {corte}</span>}
+            {corte && <span style={{ marginLeft: "10px", color: "#facc15" }}>· Corte {corte}</span>}
           </p>
         </div>
         {exito && (
           <div style={{ background: "#166534", color: "#bbf7d0", padding: "10px 16px", borderRadius: "8px" }}>
-            ✅ {esMayoreo ? "Cotización guardada" : "Guardado correctamente"}
+            ✅ {esMayoreo ? "Cotización guardada correctamente" : "Orden guardada correctamente"}
           </div>
         )}
       </div>
 
-      {/* ── ENCABEZADO ─────────────────────────────────────────────────────── */}
       <div style={seccionStyle}>
         <h3 style={seccionTitle}>Encabezado</h3>
-
         <div style={gridDos}>
           {esMayoreo ? (
             <>
-              {/* Tipo de Cotización — va primero para que el folio se genere según el tipo */}
               <Campo label="Tipo de Cotización *">
-                <select
-                  value={tipoCotizacion}
-                  onChange={e => handleTipoCotizacion(e.target.value)}
-                  style={inputStyle}
-                >
+                <select value={tipoCotizacion} onChange={e => handleTipoCotizacion(e.target.value)} style={inputStyle}>
                   {["Mayoreo", "Menudeo", "Aseguradora"].map(t => <option key={t}>{t}</option>)}
                 </select>
               </Campo>
-
-              {/* Folio automático — solo lectura */}
               <Campo label="Folio Cotización">
-                <div style={{
-                  ...inputStyle,
-                  background: "#0f172a",
-                  color: cargandoFolio ? "#6b7280" : "#60a5fa",
-                  fontWeight: 700,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                }}>
+                <div style={{ ...inputStyle, background: "#0f172a", color: "#60a5fa", fontWeight: 700 }}>
                   {cargandoFolio ? "Generando..." : folioCotizacion || "—"}
-                  <span style={{ color: "#374151", fontSize: "11px", fontWeight: 400 }}>
-                    (automático)
-                  </span>
                 </div>
               </Campo>
-
-              {/* Campos específicos de Aseguradora */}
               {tipoCotizacion === "Aseguradora" && (
                 <>
                   <Campo label="N° Siniestro *">
-                    <input
-                      value={siniestro}
-                      onChange={e => setSiniestro(e.target.value)}
-                      style={inputStyle}
-                      placeholder="Ej: SIN-2024-00123"
-                    />
+                    <input value={siniestro} onChange={e => setSiniestro(e.target.value)} style={inputStyle} placeholder="Ej: SIN-2024-00123" />
                   </Campo>
                   <Campo label="Orden de Compra (opcional)">
-                    <input
-                      value={ordenCompra}
-                      onChange={e => setOrdenCompra(e.target.value)}
-                      style={inputStyle}
-                      placeholder="Ej: OC-456789"
-                    />
+                    <input value={ordenCompra} onChange={e => setOrdenCompra(e.target.value)} style={inputStyle} />
                   </Campo>
                 </>
               )}
-
               <Campo label="Cliente / Aseguradora">
-                <input
-                  value={clienteAseguradora}
-                  onChange={e => setClienteAseguradora(e.target.value)}
-                  style={inputStyle}
-                  placeholder="Nombre del cliente o aseguradora"
-                />
+                <input value={clienteAseguradora} onChange={e => setClienteAseguradora(e.target.value)} style={inputStyle} />
               </Campo>
             </>
           ) : (
@@ -316,7 +245,6 @@ export default function Captura() {
             </>
           )}
 
-          {/* Campos comunes */}
           <Campo label="Marca *">
             <select value={marca} onChange={e => { setMarca(e.target.value); setModelo(""); }} style={inputStyle}>
               <option value="">Selecciona...</option>
@@ -340,7 +268,6 @@ export default function Captura() {
             </Campo>
           )}
 
-          {/* Año, VIN, KM, Estatus vehículo — solo en taller */}
           {!esMayoreo && (
             <>
               <Campo label="Año">
@@ -350,13 +277,7 @@ export default function Captura() {
                 </select>
               </Campo>
               <Campo label="VIN">
-                <input
-                  value={vin}
-                  onChange={e => setVin(e.target.value.toUpperCase())}
-                  style={inputStyle}
-                  maxLength={17}
-                  placeholder="17 caracteres"
-                />
+                <input value={vin} onChange={e => setVin(e.target.value.toUpperCase())} style={inputStyle} maxLength={17} placeholder="17 caracteres" />
               </Campo>
               <Campo label="KM">
                 <input type="number" value={km} onChange={e => setKm(e.target.value)} style={inputStyle} />
@@ -372,7 +293,6 @@ export default function Captura() {
         </div>
       </div>
 
-      {/* ── TABLA DE REFACCIONES ────────────────────────────────────────────── */}
       <div style={seccionStyle}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
           <h3 style={{ ...seccionTitle, margin: 0 }}>
@@ -395,12 +315,7 @@ export default function Captura() {
             </thead>
             <tbody>
               {filas.map((f, i) => (
-                <FilaRefaccion
-                  key={i} index={i} fila={f}
-                  onChange={handleFila} onRemove={quitarFila}
-                  permitEUA={sucursalCfg.permitEUA}
-                  fabricante={fabricante}
-                />
+                <FilaRefaccion key={i} index={i} fila={f} onChange={handleFila} onRemove={quitarFila} permitEUA={sucursalCfg.permitEUA} fabricante={fabricante} />
               ))}
             </tbody>
           </table>
@@ -416,15 +331,9 @@ export default function Captura() {
         </div>
       </div>
 
-      {/* Aviso informativo para Mayoreo */}
       {esMayoreo && (
-        <div style={{
-          background: "#1e3a5f", border: "1px solid #2563eb",
-          borderRadius: "8px", padding: "12px 16px",
-          color: "#93c5fd", fontSize: "13px",
-        }}>
-          💡 Las piezas se guardan como <strong>Cotizadas</strong>. Cuando el cliente aprueba,
-          ve a <strong>Mis Cotizaciones</strong> para seleccionar las piezas aprobadas y enviarlas a Compras.
+        <div style={{ background: "#1e3a5f", border: "1px solid #2563eb", borderRadius: "8px", padding: "12px 16px", color: "#93c5fd", fontSize: "13px" }}>
+          💡 Las piezas se guardan como <strong>Cotizadas</strong>. Cuando el cliente apruebe, ve a <strong>Mis Cotizaciones</strong>.
         </div>
       )}
     </div>
@@ -440,17 +349,14 @@ function Campo({ label, children }) {
   );
 }
 
-// ── Estilos ──────────────────────────────────────────────────────────────────
-const seccionStyle = {
-  background: "#111827", border: "1px solid #1f2937",
-  borderRadius: "12px", padding: "20px", marginBottom: "20px",
-};
-const seccionTitle  = { color: "#e5e7eb", fontSize: "14px", fontWeight: 700, marginBottom: "16px", marginTop: 0 };
-const gridDos       = { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "14px" };
-const inputStyle    = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 10px", borderRadius: "8px", width: "100%", boxSizing: "border-box", fontSize: "13px" };
-const inputSmall    = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "6px 8px", borderRadius: "6px", fontSize: "13px" };
-const thStyle       = { padding: "8px 10px", textAlign: "left", fontWeight: 600, borderBottom: "1px solid #1f2937" };
-const tdStyle       = { padding: "8px 6px" };
-const btnPrimary    = { background: "#2563eb", color: "#fff", border: "none", padding: "8px 16px", borderRadius: "8px", cursor: "pointer", fontSize: "13px", fontWeight: 600 };
-const btnDanger     = { background: "#7f1d1d", color: "#fca5a5", border: "none", padding: "4px 8px", borderRadius: "6px", cursor: "pointer" };
-const btnGuardar    = { background: "#16a34a", color: "#fff", border: "none", padding: "10px 24px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px" };
+// ==================== ESTILOS ====================
+const seccionStyle = { background: "#111827", border: "1px solid #1f2937", borderRadius: "12px", padding: "20px", marginBottom: "20px" };
+const seccionTitle = { color: "#e5e7eb", fontSize: "14px", fontWeight: 700, marginBottom: "16px", marginTop: 0 };
+const gridDos = { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "14px" };
+const inputStyle = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 10px", borderRadius: "8px", width: "100%", boxSizing: "border-box", fontSize: "13px" };
+const inputSmall = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "6px 8px", borderRadius: "6px", fontSize: "13px" };
+const thStyle = { padding: "8px 10px", textAlign: "left", fontWeight: 600, borderBottom: "1px solid #1f2937" };
+const tdStyle = { padding: "8px 6px" };
+const btnPrimary = { background: "#2563eb", color: "#fff", border: "none", padding: "8px 16px", borderRadius: "8px", cursor: "pointer", fontSize: "13px", fontWeight: 600 };
+const btnDanger = { background: "#7f1d1d", color: "#fca5a5", border: "none", padding: "4px 8px", borderRadius: "6px", cursor: "pointer" };
+const btnGuardar = { background: "#16a34a", color: "#fff", border: "none", padding: "10px 24px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px" };

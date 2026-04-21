@@ -3,8 +3,8 @@
 ## 📊 Project Information
 
 - **Project Name**: `motormexa-frontend`
-- **Generated On**: 2026-04-16 02:45:50 (America/Mexico_City / GMT-06:00)
-- **Total Files Processed**: 58
+- **Generated On**: 2026-04-16 04:01:16 (America/Mexico_City / GMT-06:00)
+- **Total Files Processed**: 57
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
 
@@ -38,7 +38,7 @@
 │   │   ├── 📄 Filtros.jsx (1.51 KB)
 │   │   ├── 📄 GraficaEstados.jsx (704 B)
 │   │   ├── 📄 KPI.jsx (419 B)
-│   │   ├── 📄 Layout.jsx (10.21 KB)
+│   │   ├── 📄 Layout.jsx (9.93 KB)
 │   │   ├── 📄 Ranking.jsx (1.76 KB)
 │   │   ├── 📄 SolicitarStockModal.jsx (4.84 KB)
 │   │   ├── 📄 Sucursales.jsx (1.36 KB)
@@ -50,15 +50,15 @@
 │   │   └── 📄 AuthContext.jsx (1.34 KB)
 │   ├── 📁 pages/
 │   │   ├── 📄 Almacen.jsx (10.88 KB)
-│   │   ├── 📄 Captura.jsx (19.76 KB)
+│   │   ├── 📄 Captura.jsx (15.57 KB)
 │   │   ├── 📄 Chatbot.jsx (14.29 KB)
 │   │   ├── 📄 Compras.jsx (9.6 KB)
 │   │   ├── 📄 ConsultaOT.jsx (11.86 KB)
 │   │   ├── 📄 Login.jsx (6.62 KB)
 │   │   ├── 📄 MisCotizaciones.jsx (23.95 KB)
-│   │   ├── 📄 PanelAsesor.jsx (8.32 KB)
+│   │   ├── 📄 PanelAsesor.jsx (8.66 KB)
 │   │   ├── 📄 PanelAsesorOp.jsx (8.26 KB)
-│   │   ├── 📄 PanelGerencial.jsx (10.5 KB)
+│   │   ├── 📄 PanelGerencial.jsx (10.38 KB)
 │   │   ├── 📄 RecepcionMasiva.jsx (14.08 KB)
 │   │   ├── 📄 StockPedidos.jsx (6.82 KB)
 │   │   ├── 📄 StockSolicitud.jsx (1.93 KB)
@@ -76,7 +76,6 @@
 │   │   └── 📄 catalogos.js (5.28 KB)
 │   ├── 📄 App.css (2.82 KB)
 │   ├── 📄 App.jsx (8.95 KB)
-│   ├── 📄 App.tsx (8.55 KB)
 │   ├── 📄 index.css (2.03 KB)
 │   └── 📄 main.jsx (250 B)
 ├── 📄 .env (291 B)
@@ -134,7 +133,6 @@
 - [📄 src/utils/catalogos.js](#📄-src-utils-catalogos-js)
 - [📄 src/App.css](#📄-src-app-css)
 - [📄 src/App.jsx](#📄-src-app-jsx)
-- [📄 src/App.tsx](#📄-src-app-tsx)
 - [📄 src/index.css](#📄-src-index-css)
 - [📄 src/main.jsx](#📄-src-main-jsx)
 - [📄 eslint.config.js](#📄-eslint-config-js)
@@ -150,11 +148,11 @@
 
 | Metric | Count |
 |--------|-------|
-| Total Files | 58 |
+| Total Files | 57 |
 | Total Directories | 10 |
-| Text Files | 49 |
+| Text Files | 48 |
 | Binary Files | 9 |
-| Total Size | 454.68 KB |
+| Total Size | 441.89 KB |
 
 ### 📄 File Types Distribution
 
@@ -168,7 +166,6 @@
 | `.png` | 2 |
 | `no extension` | 2 |
 | `.ini` | 1 |
-| `.tsx` | 1 |
 | `.example` | 1 |
 | `.html` | 1 |
 | `.md` | 1 |
@@ -902,15 +899,15 @@ export default function KPI({ title, value, color }) {
 ### <a id="📄-src-components-layout-jsx"></a>📄 `src/components/Layout.jsx`
 
 **File Info:**
-- **Size**: 10.21 KB
+- **Size**: 9.93 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/components/Layout.jsx`
 - **Relative Path**: `src/components`
 - **Created**: 2026-04-14 06:51:02 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-16 02:40:30 (America/Mexico_City / GMT-06:00)
-- **MD5**: `0257d561946fa327545592e3d26bd90b`
-- **SHA256**: `aaf496999eb91d538f560f3d8feed55b8203e68eee4ab7ef48098118024f6cb6`
+- **Modified**: 2026-04-16 03:41:27 (America/Mexico_City / GMT-06:00)
+- **MD5**: `1677728282d842115ad6780eac31910e`
+- **SHA256**: `4e7d87ab82756214fca1b02a2c58529be65f8141eb20a5a6a811831532696e58`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -922,9 +919,7 @@ import { useAuth } from "../contexts/AuthContext";
 import BusquedaGlobal from "./BusquedaGlobal";
 import logo from "../assets/logo.png";
 
-// ─────────────────────────────────────────────
-// SUCURSALES — IDs canónicos y nombres de display
-// ─────────────────────────────────────────────
+// SUCURSALES y LABEL_ROL (sin cambios)
 export const SUCURSALES = [
   { id: "acueducto",      nombre: "Acueducto" },
   { id: "vallarta",       nombre: "Vallarta" },
@@ -938,9 +933,6 @@ export const NOMBRES_SUCURSAL = Object.fromEntries(
   SUCURSALES.map(s => [s.id, s.nombre])
 );
 
-// ─────────────────────────────────────────────
-// LABEL ROLES
-// ─────────────────────────────────────────────
 export const LABEL_ROL = {
   coordinador:      "Coordinador",
   ventas:           "Ventas",
@@ -953,9 +945,7 @@ export const LABEL_ROL = {
   admin:            "Admin",
 };
 
-// ─────────────────────────────────────────────
 // MENÚS POR ROL
-// ─────────────────────────────────────────────
 const MENU_POR_ROL = {
   coordinador: [
     { path: "/captura",          label: "📦 Captura" },
@@ -965,7 +955,6 @@ const MENU_POR_ROL = {
     { path: "/chat",             label: "🤖 Asistente" },
   ],
 
-  // Ventas - Mayoreo / Menudeo
   ventas: [
     { path: "/captura",          label: "📋 Nueva Cotización" },
     { path: "/mis-cotizaciones", label: "📊 Mis Cotizaciones" },
@@ -1051,7 +1040,17 @@ export default function Layout({ children }) {
   const esAsesorOp = user?.rol === "asesor_op";
   const esVentas   = user?.rol === "ventas";
 
-  const menu = MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
+  let menu = MENU_POR_ROL[user?.rol] || MENU_DEFAULT;
+
+  // ─────────────────────────────────────────────
+  // CORRECCIÓN AÑADIDA (sin borrar nada del original):
+  // Para usuario "ventas" ocultamos /mi-panel porque las cotizaciones
+  // se convierten en compras → solo mostramos Mis Cotizaciones.
+  // Esto evita la página en blanco.
+  // ─────────────────────────────────────────────
+  if (user?.rol === "ventas") {
+    menu = menu.filter(item => item.path !== "/mi-panel");
+  }
 
   return (
     <div style={{ display: "flex", height: "100vh", background: "#0f172a" }}>
@@ -2177,16 +2176,16 @@ import * as XLSX from "xlsx";
 ### <a id="📄-src-pages-captura-jsx"></a>📄 `src/pages/Captura.jsx`
 
 **File Info:**
-- **Size**: 19.76 KB
+- **Size**: 15.57 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/Captura.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-14 05:36:40 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-16 01:26:06 (America/Mexico_City / GMT-06:00)
-- **MD5**: `14538c9bef7713d70997f85a9c6db21f`
-- **SHA256**: `0472da832a72787cd44f03e7dca47c248399ab989dda15bf1d5cbdd9825220b5`
-- **Encoding**: UTF-8
+- **Modified**: 2026-04-16 04:01:15 (America/Mexico_City / GMT-06:00)
+- **MD5**: `d31adb08b399e4c8bb50f5f067683df4`
+- **SHA256**: `f2cf485ac79fc3685cc764a18678afd27c5e92a3a5569f31a2f2b5ab2d6b6032`
+- **Encoding**: ASCII
 
 **File code content:**
 
@@ -2202,7 +2201,6 @@ import {
 
 const ANIOS = Array.from({ length: 12 }, (_, i) => 2025 - i);
 
-// ── Prefijo de folio según tipo de cotización ──────────────────────────────
 const PREFIJO_FOLIO = {
   Mayoreo:     "MYR",
   Menudeo:     "MEN",
@@ -2262,9 +2260,8 @@ export default function Captura() {
   const sucursalId  = user?.sucursal_id;
   const sucursalCfg = SUCURSALES[sucursalId] || SUCURSALES["mayoreo_menudeo"];
   const esMayoreo   = sucursalId === "mayoreo_menudeo";
-  console.log("DEBUG sucursalId:", sucursalId, "esMayoreo:", esMayoreo);
 
-  // ── Encabezado ──────────────────────────────────────────────────────────
+  // Estados
   const [ot, setOt]                           = useState("");
   const [tipoOrden, setTipoOrden]             = useState("Público");
   const [marca, setMarca]                     = useState("");
@@ -2275,15 +2272,13 @@ export default function Captura() {
   const [km, setKm]                           = useState("");
   const [vehiculoEstatus, setVehiculoEstatus] = useState("En taller");
 
-  // ── Campos exclusivos Mayoreo ────────────────────────────────────────────
   const [tipoCotizacion, setTipoCotizacion]         = useState("Menudeo");
   const [folioCotizacion, setFolioCotizacion]       = useState("");
   const [cargandoFolio, setCargandoFolio]           = useState(false);
   const [siniestro, setSiniestro]                   = useState("");
-  const [ordenCompra, setOrdenCompra]               = useState("");   // 🆕 OC opcional Aseguradoras
+  const [ordenCompra, setOrdenCompra]               = useState("");
   const [clienteAseguradora, setClienteAseguradora] = useState("");
 
-  // ── Filas refacciones ────────────────────────────────────────────────────
   const [filas, setFilas]     = useState([{ ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
   const [guardando, setGuardando] = useState(false);
   const [exito, setExito]     = useState(false);
@@ -2296,27 +2291,18 @@ export default function Captura() {
       .map(([m]) => m));
   const corte = HORARIOS_CORTE[fabricante];
 
-  // ── Generar folio automático al cambiar tipo de cotización ───────────────
   const generarFolio = async (tipo) => {
     setCargandoFolio(true);
     const prefijo = PREFIJO_FOLIO[tipo] || "MYR";
     const { data, error } = await supabase.rpc("siguiente_folio", { p_tipo: prefijo });
-    if (!error && data) {
-      setFolioCotizacion(data);
-    } else {
-      console.error("Error generando folio:", error);
-    }
+    if (!error && data) setFolioCotizacion(data);
     setCargandoFolio(false);
   };
 
-  // Generar folio al montar si es Mayoreo
   useEffect(() => {
-    if (esMayoreo) {
-      generarFolio(tipoCotizacion);
-    }
-  }, []); // eslint-disable-line
+    if (esMayoreo) generarFolio(tipoCotizacion);
+  }, [esMayoreo]);
 
-  // Regenerar folio al cambiar tipo de cotización
   const handleTipoCotizacion = async (nuevoTipo) => {
     setTipoCotizacion(nuevoTipo);
     setSiniestro("");
@@ -2324,89 +2310,69 @@ export default function Captura() {
     await generarFolio(nuevoTipo);
   };
 
-  const handleFila    = (i, campo, val) => setFilas(prev => prev.map((f, idx) => idx === i ? { ...f, [campo]: val } : f));
-  const agregarFila   = () => setFilas(prev => [...prev, { ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
-  const quitarFila    = (i) => setFilas(prev => prev.filter((_, idx) => idx !== i));
+  const handleFila  = (i, campo, val) => setFilas(prev => prev.map((f, idx) => idx === i ? { ...f, [campo]: val } : f));
+  const agregarFila = () => setFilas(prev => [...prev, { ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
+  const quitarFila  = (i) => setFilas(prev => prev.filter((_, idx) => idx !== i));
 
   const guardar = async () => {
-    // ── Validaciones ────────────────────────────────────────────────────
-    if (!esMayoreo && !ot)           { alert("La OT es obligatoria"); return; }
-    if (!marca)                      { alert("Selecciona una marca"); return; }
+    if (!esMayoreo && !ot) { alert("La OT es obligatoria"); return; }
+    if (!marca) { alert("Selecciona una marca"); return; }
     if (filas.some(f => !f.descripcion && !f.numero_parte)) {
       alert("Todas las filas deben tener descripción o número de parte");
       return;
     }
-    if (esMayoreo && !folioCotizacion)  { alert("El folio de cotización es obligatorio"); return; }
-    if (esMayoreo && tipoCotizacion === "Aseguradora" && !siniestro) {
-      alert("El número de siniestro es obligatorio para Aseguradoras");
-      return;
-    }
+    if (esMayoreo && !folioCotizacion) { alert("El folio de cotización es obligatorio"); return; }
 
     setGuardando(true);
 
     const modeloFinal = modelo === "Otro" ? modeloOtro : modelo;
-    const ref         = generarReferencia(sucursalId, esMayoreo ? folioCotizacion : ot, user?.nombre);
-
-    // Para Mayoreo: la OT interna es el folio de cotización
     const otFinal = esMayoreo ? folioCotizacion : ot;
 
     const items = filas.map(f => ({
-      ot:                  otFinal,
-      tipo_orden:          esMayoreo ? tipoCotizacion : tipoOrden,
+      ot: otFinal,
+      tipo_orden: esMayoreo ? tipoCotizacion : tipoOrden,
       fabricante,
       marca,
-      modelo:              modeloFinal,
-      anio:                anio || null,
-      vin:                 vin  || null,
-      km:                  km   || null,
-      vehiculo_estatus:    vehiculoEstatus,
-      ubicacion:           f.ubicacion,
-      descripcion:         f.descripcion,
-      numero_parte:        f.numero_parte || null,
-      cantidad:            f.cantidad,
-
-      // 🔑 Mayoreo nace como "Cotizada", taller como "Pendiente"
-      estatus:             esMayoreo ? "Cotizada" : "Pendiente",
-
-      asesor_id:           user?.id,
-      sucursal_id:         sucursalId,
-      referencia:          ref,
-
-      // Campos Mayoreo
-      folio_cotizacion:    esMayoreo ? folioCotizacion : null,
-      tipo_cotizacion:     esMayoreo ? tipoCotizacion  : null,
-      es_cotizacion:       esMayoreo ? true             : false,
-      siniestro:           esMayoreo && tipoCotizacion === "Aseguradora" ? siniestro    : null,
-      orden_compra:        esMayoreo && tipoCotizacion === "Aseguradora" ? ordenCompra  : null, // 🆕
+      modelo: modeloFinal,
+      anio: anio || null,
+      vin: vin || null,
+      km: km || null,
+      vehiculo_estatus: vehiculoEstatus,
+      ubicacion: f.ubicacion,
+      descripcion: f.descripcion,
+      numero_parte: f.numero_parte || null,
+      cantidad: f.cantidad,
+      estatus: esMayoreo ? "Cotizada" : "Pendiente",
+      asesor_id: user?.id,
+      sucursal_id: sucursalId,
+      referencia: generarReferencia(sucursalId, esMayoreo ? folioCotizacion : ot, user?.nombre),
+      folio_cotizacion: esMayoreo ? folioCotizacion : null,
+      tipo_cotizacion: esMayoreo ? tipoCotizacion : null,
+      es_cotizacion: esMayoreo,
+      siniestro: esMayoreo && tipoCotizacion === "Aseguradora" ? siniestro : null,
+      orden_compra: esMayoreo && tipoCotizacion === "Aseguradora" ? ordenCompra : null,
       cliente_aseguradora: esMayoreo ? clienteAseguradora : null,
-
       eta: calcularETA(f.ubicacion, fabricante)?.toISOString() || null,
     }));
 
     const { error } = await supabase.from("items").insert(items);
 
     setGuardando(false);
-
     if (error) {
-      console.error(error);
-      alert("Error al guardar. Revisa la consola.");
+      alert("Error al guardar: " + error.message);
       return;
     }
 
     setExito(true);
+    setTimeout(() => setExito(false), 3000);
 
-    // ── Reset ──────────────────────────────────────────────────────────
+    // Reset
     setOt(""); setMarca(""); setModelo(""); setModeloOtro("");
     setAnio(""); setVin(""); setKm("");
     setSiniestro(""); setOrdenCompra(""); setClienteAseguradora("");
     setFilas([{ ubicacion: "MX", descripcion: "", numero_parte: "", cantidad: 1 }]);
 
-    // Generar nuevo folio para la siguiente captura (solo Mayoreo)
-    if (esMayoreo) {
-      await generarFolio(tipoCotizacion);
-    }
-
-    setTimeout(() => setExito(false), 3000);
+    if (esMayoreo) await generarFolio(tipoCotizacion);
   };
 
   return (
@@ -2414,86 +2380,48 @@ export default function Captura() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
         <div>
           <h2 style={{ margin: 0 }}>
-            {esMayoreo ? "📋 Captura de Cotización" : "📦 Captura de Refacciones"}
+            {esMayoreo ? "📋 Nueva Cotización" : "📦 Captura de Refacciones"}
           </h2>
           <p style={{ color: "#9ca3af", margin: "4px 0 0", fontSize: "13px" }}>
             {sucursalCfg.nombre}
             {fabricante && <span style={{ marginLeft: "10px", color: "#60a5fa" }}>· {fabricante}</span>}
-            {corte      && <span style={{ marginLeft: "10px", color: "#facc15" }}>· Corte {corte}</span>}
+            {corte && <span style={{ marginLeft: "10px", color: "#facc15" }}>· Corte {corte}</span>}
           </p>
         </div>
         {exito && (
           <div style={{ background: "#166534", color: "#bbf7d0", padding: "10px 16px", borderRadius: "8px" }}>
-            ✅ {esMayoreo ? "Cotización guardada" : "Guardado correctamente"}
+            ✅ {esMayoreo ? "Cotización guardada correctamente" : "Orden guardada correctamente"}
           </div>
         )}
       </div>
 
-      {/* ── ENCABEZADO ─────────────────────────────────────────────────────── */}
       <div style={seccionStyle}>
         <h3 style={seccionTitle}>Encabezado</h3>
-
         <div style={gridDos}>
           {esMayoreo ? (
             <>
-              {/* Tipo de Cotización — va primero para que el folio se genere según el tipo */}
               <Campo label="Tipo de Cotización *">
-                <select
-                  value={tipoCotizacion}
-                  onChange={e => handleTipoCotizacion(e.target.value)}
-                  style={inputStyle}
-                >
+                <select value={tipoCotizacion} onChange={e => handleTipoCotizacion(e.target.value)} style={inputStyle}>
                   {["Mayoreo", "Menudeo", "Aseguradora"].map(t => <option key={t}>{t}</option>)}
                 </select>
               </Campo>
-
-              {/* Folio automático — solo lectura */}
               <Campo label="Folio Cotización">
-                <div style={{
-                  ...inputStyle,
-                  background: "#0f172a",
-                  color: cargandoFolio ? "#6b7280" : "#60a5fa",
-                  fontWeight: 700,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                }}>
+                <div style={{ ...inputStyle, background: "#0f172a", color: "#60a5fa", fontWeight: 700 }}>
                   {cargandoFolio ? "Generando..." : folioCotizacion || "—"}
-                  <span style={{ color: "#374151", fontSize: "11px", fontWeight: 400 }}>
-                    (automático)
-                  </span>
                 </div>
               </Campo>
-
-              {/* Campos específicos de Aseguradora */}
               {tipoCotizacion === "Aseguradora" && (
                 <>
                   <Campo label="N° Siniestro *">
-                    <input
-                      value={siniestro}
-                      onChange={e => setSiniestro(e.target.value)}
-                      style={inputStyle}
-                      placeholder="Ej: SIN-2024-00123"
-                    />
+                    <input value={siniestro} onChange={e => setSiniestro(e.target.value)} style={inputStyle} placeholder="Ej: SIN-2024-00123" />
                   </Campo>
                   <Campo label="Orden de Compra (opcional)">
-                    <input
-                      value={ordenCompra}
-                      onChange={e => setOrdenCompra(e.target.value)}
-                      style={inputStyle}
-                      placeholder="Ej: OC-456789"
-                    />
+                    <input value={ordenCompra} onChange={e => setOrdenCompra(e.target.value)} style={inputStyle} />
                   </Campo>
                 </>
               )}
-
               <Campo label="Cliente / Aseguradora">
-                <input
-                  value={clienteAseguradora}
-                  onChange={e => setClienteAseguradora(e.target.value)}
-                  style={inputStyle}
-                  placeholder="Nombre del cliente o aseguradora"
-                />
+                <input value={clienteAseguradora} onChange={e => setClienteAseguradora(e.target.value)} style={inputStyle} />
               </Campo>
             </>
           ) : (
@@ -2509,7 +2437,6 @@ export default function Captura() {
             </>
           )}
 
-          {/* Campos comunes */}
           <Campo label="Marca *">
             <select value={marca} onChange={e => { setMarca(e.target.value); setModelo(""); }} style={inputStyle}>
               <option value="">Selecciona...</option>
@@ -2533,7 +2460,6 @@ export default function Captura() {
             </Campo>
           )}
 
-          {/* Año, VIN, KM, Estatus vehículo — solo en taller */}
           {!esMayoreo && (
             <>
               <Campo label="Año">
@@ -2543,13 +2469,7 @@ export default function Captura() {
                 </select>
               </Campo>
               <Campo label="VIN">
-                <input
-                  value={vin}
-                  onChange={e => setVin(e.target.value.toUpperCase())}
-                  style={inputStyle}
-                  maxLength={17}
-                  placeholder="17 caracteres"
-                />
+                <input value={vin} onChange={e => setVin(e.target.value.toUpperCase())} style={inputStyle} maxLength={17} placeholder="17 caracteres" />
               </Campo>
               <Campo label="KM">
                 <input type="number" value={km} onChange={e => setKm(e.target.value)} style={inputStyle} />
@@ -2565,7 +2485,6 @@ export default function Captura() {
         </div>
       </div>
 
-      {/* ── TABLA DE REFACCIONES ────────────────────────────────────────────── */}
       <div style={seccionStyle}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
           <h3 style={{ ...seccionTitle, margin: 0 }}>
@@ -2588,12 +2507,7 @@ export default function Captura() {
             </thead>
             <tbody>
               {filas.map((f, i) => (
-                <FilaRefaccion
-                  key={i} index={i} fila={f}
-                  onChange={handleFila} onRemove={quitarFila}
-                  permitEUA={sucursalCfg.permitEUA}
-                  fabricante={fabricante}
-                />
+                <FilaRefaccion key={i} index={i} fila={f} onChange={handleFila} onRemove={quitarFila} permitEUA={sucursalCfg.permitEUA} fabricante={fabricante} />
               ))}
             </tbody>
           </table>
@@ -2609,15 +2523,9 @@ export default function Captura() {
         </div>
       </div>
 
-      {/* Aviso informativo para Mayoreo */}
       {esMayoreo && (
-        <div style={{
-          background: "#1e3a5f", border: "1px solid #2563eb",
-          borderRadius: "8px", padding: "12px 16px",
-          color: "#93c5fd", fontSize: "13px",
-        }}>
-          💡 Las piezas se guardan como <strong>Cotizadas</strong>. Cuando el cliente aprueba,
-          ve a <strong>Mis Cotizaciones</strong> para seleccionar las piezas aprobadas y enviarlas a Compras.
+        <div style={{ background: "#1e3a5f", border: "1px solid #2563eb", borderRadius: "8px", padding: "12px 16px", color: "#93c5fd", fontSize: "13px" }}>
+          💡 Las piezas se guardan como <strong>Cotizadas</strong>. Cuando el cliente apruebe, ve a <strong>Mis Cotizaciones</strong>.
         </div>
       )}
     </div>
@@ -2633,21 +2541,17 @@ function Campo({ label, children }) {
   );
 }
 
-// ── Estilos ──────────────────────────────────────────────────────────────────
-const seccionStyle = {
-  background: "#111827", border: "1px solid #1f2937",
-  borderRadius: "12px", padding: "20px", marginBottom: "20px",
-};
-const seccionTitle  = { color: "#e5e7eb", fontSize: "14px", fontWeight: 700, marginBottom: "16px", marginTop: 0 };
-const gridDos       = { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "14px" };
-const inputStyle    = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 10px", borderRadius: "8px", width: "100%", boxSizing: "border-box", fontSize: "13px" };
-const inputSmall    = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "6px 8px", borderRadius: "6px", fontSize: "13px" };
-const thStyle       = { padding: "8px 10px", textAlign: "left", fontWeight: 600, borderBottom: "1px solid #1f2937" };
-const tdStyle       = { padding: "8px 6px" };
-const btnPrimary    = { background: "#2563eb", color: "#fff", border: "none", padding: "8px 16px", borderRadius: "8px", cursor: "pointer", fontSize: "13px", fontWeight: 600 };
-const btnDanger     = { background: "#7f1d1d", color: "#fca5a5", border: "none", padding: "4px 8px", borderRadius: "6px", cursor: "pointer" };
-const btnGuardar    = { background: "#16a34a", color: "#fff", border: "none", padding: "10px 24px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px" };
-
+// ==================== ESTILOS ====================
+const seccionStyle = { background: "#111827", border: "1px solid #1f2937", borderRadius: "12px", padding: "20px", marginBottom: "20px" };
+const seccionTitle = { color: "#e5e7eb", fontSize: "14px", fontWeight: 700, marginBottom: "16px", marginTop: 0 };
+const gridDos = { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "14px" };
+const inputStyle = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 10px", borderRadius: "8px", width: "100%", boxSizing: "border-box", fontSize: "13px" };
+const inputSmall = { background: "#0f172a", border: "1px solid #1f2937", color: "#e5e7eb", padding: "6px 8px", borderRadius: "6px", fontSize: "13px" };
+const thStyle = { padding: "8px 10px", textAlign: "left", fontWeight: 600, borderBottom: "1px solid #1f2937" };
+const tdStyle = { padding: "8px 6px" };
+const btnPrimary = { background: "#2563eb", color: "#fff", border: "none", padding: "8px 16px", borderRadius: "8px", cursor: "pointer", fontSize: "13px", fontWeight: 600 };
+const btnDanger = { background: "#7f1d1d", color: "#fca5a5", border: "none", padding: "4px 8px", borderRadius: "6px", cursor: "pointer" };
+const btnGuardar = { background: "#16a34a", color: "#fff", border: "none", padding: "10px 24px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px" };
 ```
 
 ---
@@ -4515,21 +4419,22 @@ export default function MisCotizaciones() {
 ### <a id="📄-src-pages-panelasesor-jsx"></a>📄 `src/pages/PanelAsesor.jsx`
 
 **File Info:**
-- **Size**: 8.32 KB
+- **Size**: 8.66 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/PanelAsesor.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-06 05:14:28 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-14 01:40:31 (America/Mexico_City / GMT-06:00)
-- **MD5**: `e4a18f4b09c13c470a0faebd332bb004`
-- **SHA256**: `785d3bf02c9bfa1a3cbb2ebcc95f89366442fdd26cf5329fe64a2ab26b1f1b70`
+- **Modified**: 2026-04-16 03:49:19 (America/Mexico_City / GMT-06:00)
+- **MD5**: `e3436d040c4bdc00e742e0de2fd53a46`
+- **SHA256**: `efff942b14fe5f254efb797a646d13699fbb169c395da832555684de2f887bae`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ```jsx
-// usado por rol "coordinador" (talleres) y "ventas" (Mayoreo)import { useEffect, useState, useRef } from "react";
+// src/pages/PanelAsesor.jsx
+import { useEffect, useState, useRef } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
 import { COLOR_ESTATUS, diasTranscurridos, formatFecha } from "../utils/catalogos";
@@ -4562,9 +4467,9 @@ export default function PanelAsesor() {
     setCargando(false);
   };
 
-  useEffect(() => { cargar(); }, [user, filtroEstatus]); // eslint-disable-line
+  useEffect(() => { cargar(); }, [user, filtroEstatus]);
 
-  // Realtime: notificación cuando llega una pieza del asesor
+  // Realtime: notificaciones importantes
   useEffect(() => {
     if (!user) return;
     const channel = supabase.channel("asesor-notifs")
@@ -4573,25 +4478,30 @@ export default function PanelAsesor() {
         filter: `asesor_id=eq.${user.id}`,
       }, (payload) => {
         const nuevo = payload.new;
+        
+        let msg = "";
         if (nuevo.estatus === "Recibida") {
-          const msg = `📦 Llegó: ${nuevo.descripcion || nuevo.numero_parte} (OT ${nuevo.ot})`;
-          setNotificaciones(prev => [msg, ...prev.slice(0, 4)]);
-          // Intentar notificación del browser
+          msg = `📦 Llegó a almacén: ${nuevo.descripcion || nuevo.numero_parte} (OT ${nuevo.ot})`;
+        } else if (nuevo.estatus === "Comprada") {
+          msg = `🛒 Fue comprada: ${nuevo.descripcion || nuevo.numero_parte} (OT ${nuevo.ot})`;
+        } else if (nuevo.estatus === "Entregada") {
+          msg = `✅ Entregada al cliente: ${nuevo.descripcion || nuevo.numero_parte}`;
+        }
+
+        if (msg) {
+          setNotificaciones(prev => [msg, ...prev.slice(0, 5)]);
           if (Notification.permission === "granted") {
-            new Notification("Motormexa — Refacción recibida", { body: msg });
+            new Notification("Motormexa", { body: msg });
           }
         }
         cargar();
       })
       .subscribe();
 
-    // Solicitar permiso de notificaciones
-    if (Notification.permission === "default") {
-      Notification.requestPermission();
-    }
+    if (Notification.permission === "default") Notification.requestPermission();
 
     return () => supabase.removeChannel(channel);
-  }, [user]); // eslint-disable-line
+  }, [user]);
 
   // Agrupar por OT
   const otMap = {};
@@ -4603,18 +4513,23 @@ export default function PanelAsesor() {
   const calcEstatus = (estatuses) => {
     if (estatuses.every(e => e === "Entregada")) return "Completa";
     if (estatuses.some(e => e === "Entregada" || e === "Recibida")) return "Parcial";
+    if (estatuses.some(e => e === "Comprada")) return "En Compras";
+    if (estatuses.some(e => e === "Cotizada")) return "Cotizada";
     return "Pendiente";
   };
 
   const totalItems = items.length;
+  const cotizadas = items.filter(r => r.estatus === "Cotizada").length;
+  const compradas = items.filter(r => r.estatus === "Comprada").length;
   const recibidas = items.filter(r => r.estatus === "Recibida").length;
-  const pendientes = items.filter(r => r.estatus === "Pendiente").length;
   const entregadas = items.filter(r => r.estatus === "Entregada").length;
 
   return (
     <div style={{ padding: "20px", color: "#e5e7eb" }}>
       <div style={{ marginBottom: "20px" }}>
-        <h2 style={{ margin: 0 }}>👤 Mi Panel</h2>
+        <h2 style={{ margin: 0 }}>
+          {esVentas ? "📊 Mis Cotizaciones y Pedidos" : "👤 Mi Panel"}
+        </h2>
         <p style={{ color: "#9ca3af", fontSize: "13px", margin: "4px 0 0" }}>
           {user?.nombre} · {user?.sucursal_id}
         </p>
@@ -4631,22 +4546,22 @@ export default function PanelAsesor() {
               {n}
             </div>
           ))}
-          <button onClick={() => setNotificaciones([])}
-            style={{ background: "none", border: "none", color: "#6b7280", cursor: "pointer", fontSize: "11px" }}>
+          <button onClick={() => setNotificaciones([])} style={{ background: "none", border: "none", color: "#6b7280", cursor: "pointer", fontSize: "11px" }}>
             Limpiar notificaciones
           </button>
         </div>
       )}
 
-      {/* KPIs personales */}
+      {/* KPIs */}
       <div style={{ display: "flex", gap: "12px", marginBottom: "20px", flexWrap: "wrap" }}>
         {[
           { label: "Total", val: totalItems, color: "#e5e7eb" },
-          { label: "Pendientes", val: pendientes, color: "#facc15" },
-          { label: "Recibidas", val: recibidas, color: "#4ade80" },
+          { label: esVentas ? "Cotizadas" : "Pendientes", val: esVentas ? cotizadas : items.filter(r => r.estatus === "Pendiente").length, color: "#facc15" },
+          { label: "En Compras", val: compradas, color: "#60a5fa" },
+          { label: "Recibidas en Almacén", val: recibidas, color: "#4ade80" },
           { label: "Entregadas", val: entregadas, color: "#22c55e" },
         ].map(k => (
-          <div key={k.label} style={{ background: "#111827", border: "1px solid #1f2937", borderRadius: "8px", padding: "12px 20px", textAlign: "center", minWidth: "90px" }}>
+          <div key={k.label} style={{ background: "#111827", border: "1px solid #1f2937", borderRadius: "8px", padding: "12px 20px", textAlign: "center", minWidth: "110px" }}>
             <div style={{ color: k.color, fontSize: "22px", fontWeight: 700 }}>{k.val}</div>
             <div style={{ color: "#9ca3af", fontSize: "11px" }}>{k.label}</div>
           </div>
@@ -4658,21 +4573,22 @@ export default function PanelAsesor() {
         <select value={filtroEstatus} onChange={e => setFiltroEstatus(e.target.value)}
           style={{ background: "#111827", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 12px", borderRadius: "8px" }}>
           <option value="">Todos los estatus</option>
-          {["Pendiente", "Comprada", "Recibida", "Entregada", "Incorrecta", "No comprada", "Vencida"].map(s =>
+          {["Cotizada", "Pendiente", "Comprada", "Recibida", "Entregada", "Incorrecta"].map(s =>
             <option key={s}>{s}</option>
           )}
         </select>
       </div>
 
-      {/* OTs agrupadas */}
+      {/* Lista de OTs */}
       {cargando ? (
         <p style={{ color: "#9ca3af" }}>Cargando...</p>
       ) : Object.keys(otMap).length === 0 ? (
-        <p style={{ color: "#9ca3af" }}>No hay refacciones registradas.</p>
+        <p style={{ color: "#9ca3af" }}>No tienes cotizaciones ni pedidos aún.</p>
       ) : (
         Object.entries(otMap).map(([ot, piezas]) => {
           const estatusOT = calcEstatus(piezas.map(p => p.estatus));
           const diasAbierta = diasTranscurridos(piezas[0]?.created_at);
+
           return (
             <div key={ot} style={{ background: "#111827", border: "1px solid #1f2937", borderRadius: "12px", marginBottom: "12px", overflow: "hidden" }}>
               <div style={{
@@ -4684,13 +4600,12 @@ export default function PanelAsesor() {
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                   <span style={{ fontWeight: 700, fontSize: "15px" }}>OT {ot}</span>
                   <span style={{ color: "#9ca3af", fontSize: "12px" }}>{piezas[0]?.marca} {piezas[0]?.modelo}</span>
-                  <span style={{ color: "#6b7280", fontSize: "11px" }}>{piezas.length} pza{piezas.length !== 1 ? "s" : ""}</span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                   <span style={{ color: diasAbierta > 7 ? "#f87171" : "#9ca3af", fontSize: "12px" }}>{diasAbierta}d</span>
                   <span style={{
                     padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: 700,
-                    background: estatusOT === "Completa" ? "#166534" : estatusOT === "Parcial" ? "#1e40af" : "#7f1d1d",
+                    background: estatusOT === "Completa" ? "#166534" : estatusOT === "En Compras" ? "#1e40af" : "#7f1d1d",
                     color: "#fff",
                   }}>{estatusOT}</span>
                 </div>
@@ -4704,9 +4619,7 @@ export default function PanelAsesor() {
                   }}>
                     <div style={{ flex: 1 }}>
                       <span style={{ fontSize: "13px" }}>{p.descripcion || p.numero_parte}</span>
-                      {p.numero_parte && p.descripcion && (
-                        <span style={{ color: "#6b7280", fontSize: "11px", marginLeft: "8px" }}>{p.numero_parte}</span>
-                      )}
+                      {p.numero_parte && <span style={{ color: "#6b7280", fontSize: "11px", marginLeft: "8px" }}>{p.numero_parte}</span>}
                       <span style={{ color: "#4b5563", fontSize: "11px", marginLeft: "8px" }}>[{p.ubicacion}]</span>
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -4723,7 +4636,6 @@ export default function PanelAsesor() {
     </div>
   );
 }
-
 ```
 
 ---
@@ -4969,25 +4881,25 @@ export default function PanelAsesorOp() {
 ### <a id="📄-src-pages-panelgerencial-jsx"></a>📄 `src/pages/PanelGerencial.jsx`
 
 **File Info:**
-- **Size**: 10.5 KB
+- **Size**: 10.38 KB
 - **Extension**: `.jsx`
 - **Language**: `jsx`
 - **Location**: `src/pages/PanelGerencial.jsx`
 - **Relative Path**: `src/pages`
 - **Created**: 2026-04-13 10:11:20 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-14 01:05:39 (America/Mexico_City / GMT-06:00)
-- **MD5**: `9ad85605cbf735421cf6d911ed10695c`
-- **SHA256**: `eba666a35a05129f293a837a3d4fa3587aad351e4975634d4d36d9f71b87ecf2`
-- **Encoding**: UTF-8
+- **Modified**: 2026-04-16 03:57:10 (America/Mexico_City / GMT-06:00)
+- **MD5**: `b939cc3b0d123f51390c1c92f25362f6`
+- **SHA256**: `be77a5bbb0de6767c8e856a73dd5d28642ad061a580b305becfc96158222c05d`
+- **Encoding**: ASCII
 
 **File code content:**
 
 ```jsx
-// src/pages/PanelGerencial.jsx — Actualizado: coordinador (antes "asesor")
+// src/pages/PanelGerencial.jsx
 import { useEffect, useState, useCallback } from "react";
 import { supabase } from "../services/supabase";
 import { useAuth } from "../contexts/AuthContext";
-import { COLOR_ESTATUS, diasTranscurridos, formatFecha } from "../utils/catalogos";
+import { diasTranscurridos } from "../utils/catalogos";
 
 function KPICard({ title, value, sub, color = "#e5e7eb" }) {
   return (
@@ -5036,16 +4948,29 @@ export default function PanelGerencial() {
     }
     if (filtroSucursal) q = q.eq("sucursal_id", filtroSucursal);
 
-    // 🔐 Filtrar por rol
-    // "coordinador" es el nuevo nombre del antiguo "asesor"
-    // "asesor_op" también solo ve sus propias órdenes
-    if (["coordinador", "ventas", "asesor_op"].includes(user?.rol))
-    q = q.eq("asesor_id", user.id);
-    if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
-      q = q.eq("sucursal_id", user.sucursal_id);
+    // CORRECCIÓN: Admin y Gerente ven todo
+    if (!["admin", "gerente"].includes(user?.rol)) {
+      if (["coordinador", "ventas", "asesor_op"].includes(user?.rol))
+        q = q.eq("asesor_id", user.id);
+      if (user?.rol === "ventanilla" || user?.rol === "gerente_sucursal")
+        q = q.eq("sucursal_id", user.sucursal_id);
+    }
 
-    const { data: rows } = await q;
-    if (!rows) { setCargando(false); return; }
+    const { data: rowsData } = await q;   // ← Cambiado de "rows" a "rowsData"
+
+    if (!rowsData || rowsData.length === 0) {
+      setDatos({
+        total: 0, entregadas: 0, recibidas: 0, pendientes: 0,
+        compradas: 0, incorrectas: 0, noCompradas: 0, vencidas: 0,
+        tiempoPromedio: "—", cumplimiento: 0,
+        alertasPendientes: [], rankingSucursales: [], rankingAsesores: [],
+        fabMap: {}, otCompletas: 0, otParciales: 0
+      });
+      setCargando(false);
+      return;
+    }
+
+    const rows = rowsData; // ← Renombrado para mantener tu lógica original
 
     // Conteos base
     const contar = (e) => rows.filter(r => r.estatus === e).length;
@@ -5058,7 +4983,7 @@ export default function PanelGerencial() {
     const noCompradas = contar("No comprada");
     const vencidas = contar("Vencida");
 
-    // Tiempo promedio captura → compra
+    // Tiempo promedio
     let sumTiempo = 0, cntTiempo = 0;
     rows.forEach(r => {
       if (r.fecha_compra && r.created_at) {
@@ -5088,7 +5013,7 @@ export default function PanelGerencial() {
       .map(([n, v]) => ({ nombre: n, ...v }))
       .sort((a, b) => b.entregadas - a.entregadas);
 
-    // Ranking por coordinador (antes "asesor")
+    // Ranking por coordinador
     const asesorMap = {};
     rows.forEach(r => {
       const a = r.asesor?.nombre || r.asesor_id || "Sin coordinador";
@@ -5108,7 +5033,7 @@ export default function PanelGerencial() {
       else fabMap.Otro++;
     });
 
-    // OTs con estatus
+    // OTs completas / parciales
     const otMap = {};
     rows.forEach(r => {
       if (!otMap[r.ot]) otMap[r.ot] = [];
@@ -5134,21 +5059,19 @@ export default function PanelGerencial() {
 
   useEffect(() => { calcular(); }, [calcular]);
 
-  if (cargando) return <div style={{ padding: "40px", color: "#9ca3af", textAlign: "center" }}>Cargando panel...</div>;
-  if (!datos) return null;
+  if (cargando) return <div style={{ padding: "40px", color: "#9ca3af", textAlign: "center" }}>Cargando panel gerencial...</div>;
+  if (!datos) return <div style={{ padding: "40px", color: "#9ca3af", textAlign: "center" }}>No hay datos disponibles</div>;
 
   return (
     <div style={{ padding: "20px", color: "#e5e7eb" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px", marginBottom: "20px" }}>
         <h2 style={{ margin: 0 }}>📊 Panel Gerencial</h2>
         <div style={{ display: "flex", gap: "10px" }}>
-          <input type="month" value={filtroMes} onChange={e => setFiltroMes(e.target.value)}
-            style={inputF} title="Filtrar por mes" />
+          <input type="month" value={filtroMes} onChange={e => setFiltroMes(e.target.value)} style={inputF} />
           <button onClick={calcular} style={btnRef}>🔄</button>
         </div>
       </div>
 
-      {/* KPIs Principales */}
       <div style={grid4}>
         <KPICard title="Total ítems" value={datos.total} />
         <KPICard title="Pendientes" value={datos.pendientes} color="#facc15" />
@@ -5160,18 +5083,14 @@ export default function PanelGerencial() {
         <KPICard title="Vencidas" value={datos.vencidas} color="#c084fc" />
       </div>
 
-      {/* Métricas */}
       <div style={{ ...grid4, marginTop: "16px" }}>
         <KPICard title="Tiempo prom. captura→compra" value={`${datos.tiempoPromedio} días`} color="#60a5fa" />
         <KPICard title="% Cumplimiento entrega" value={`${datos.cumplimiento}%`} color="#4ade80" />
         <KPICard title="OTs completas" value={datos.otCompletas} color="#22c55e" />
-        <KPICard title="OTs parciales/pendientes" value={datos.otParciales} color="#facc15" />
+        <KPICard title="OTs parciales" value={datos.otParciales} color="#facc15" />
       </div>
 
-      {/* Rankings y alertas */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "16px", marginTop: "20px" }}>
-
-        {/* Ranking por sucursal */}
         <div style={card}>
           <h3 style={cardTitle}>🏢 Por Sucursal</h3>
           {datos.rankingSucursales.map((s, i) => (
@@ -5179,7 +5098,6 @@ export default function PanelGerencial() {
           ))}
         </div>
 
-        {/* Ranking por coordinador */}
         <div style={card}>
           <h3 style={cardTitle}>👤 Por Coordinador</h3>
           {datos.rankingAsesores.map((a, i) => (
@@ -5187,7 +5105,6 @@ export default function PanelGerencial() {
           ))}
         </div>
 
-        {/* Por fabricante */}
         <div style={card}>
           <h3 style={cardTitle}>🏭 Por Fabricante</h3>
           {Object.entries(datos.fabMap).map(([fab, cnt]) => (
@@ -5195,25 +5112,15 @@ export default function PanelGerencial() {
           ))}
         </div>
 
-        {/* Alertas de retraso */}
         <div style={card}>
           <h3 style={{ ...cardTitle, color: "#f87171" }}>🚨 Pendientes con retraso (+3 días)</h3>
-          {datos.alertasPendientes.length === 0 && (
-            <p style={{ color: "#9ca3af", fontSize: "13px" }}>Sin alertas activas ✅</p>
-          )}
+          {datos.alertasPendientes.length === 0 && <p style={{ color: "#9ca3af" }}>Sin alertas activas ✅</p>}
           {datos.alertasPendientes.map(r => (
-            <div key={r.id} style={{
-              display: "flex", justifyContent: "space-between", alignItems: "center",
-              padding: "8px 10px", background: "#1a0a00", borderRadius: "8px",
-              marginBottom: "6px", border: "1px solid #7f1d1d",
-            }}>
+            <div key={r.id} style={{ display: "flex", justifyContent: "space-between", padding: "8px 10px", background: "#1a0a00", borderRadius: "8px", marginBottom: "6px", border: "1px solid #7f1d1d" }}>
               <div>
-                <span style={{ fontWeight: 700, color: "#fca5a5", fontSize: "13px" }}>OT {r.ot}</span>
-                <span style={{ color: "#9ca3af", fontSize: "11px", marginLeft: "8px" }}>{r.descripcion?.substring(0, 30)}</span>
+                <span style={{ fontWeight: 700, color: "#fca5a5" }}>OT {r.ot}</span>
               </div>
-              <span style={{ color: "#f87171", fontSize: "12px", fontWeight: 700 }}>
-                {diasTranscurridos(r.created_at)}d
-              </span>
+              <span style={{ color: "#f87171", fontWeight: 700 }}>{diasTranscurridos(r.created_at)}d</span>
             </div>
           ))}
         </div>
@@ -5227,7 +5134,6 @@ const card = { background: "#111827", border: "1px solid #1f2937", borderRadius:
 const cardTitle = { color: "#e5e7eb", fontSize: "14px", fontWeight: 700, marginTop: 0, marginBottom: "16px" };
 const inputF = { background: "#111827", border: "1px solid #1f2937", color: "#e5e7eb", padding: "8px 12px", borderRadius: "8px", fontSize: "13px" };
 const btnRef = { background: "#111827", color: "#9ca3af", border: "1px solid #1f2937", padding: "8px 12px", borderRadius: "8px", cursor: "pointer" };
-
 ```
 
 ---
@@ -7627,264 +7533,6 @@ function LoginGuard() {
 // ─────────────────────────────────────────────────────────────────────────────
 // App Root
 // ─────────────────────────────────────────────────────────────────────────────
-export default function App() {
-  return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<LoginGuard />} />
-          <Route path="/*"     element={<RutasProtegidas />} />
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
-  );
-}
-```
-
----
-
-### <a id="📄-src-app-tsx"></a>📄 `src/App.tsx`
-
-**File Info:**
-- **Size**: 8.55 KB
-- **Extension**: `.tsx`
-- **Language**: `typescript`
-- **Location**: `src/App.tsx`
-- **Relative Path**: `src`
-- **Created**: 2026-04-16 02:32:46 (America/Mexico_City / GMT-06:00)
-- **Modified**: 2026-04-16 02:32:46 (America/Mexico_City / GMT-06:00)
-- **MD5**: `7fa63f7115f192ead059cbf154aa7c40`
-- **SHA256**: `b0316b7af084e41887d4f192ab79a732692a7f6d75b618efc1716f633f57da4f`
-- **Encoding**: UTF-8
-
-**File code content:**
-
-```typescript
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
-import { AuthProvider, useAuth } from "./contexts/AuthContext";
-import Layout from "./components/Layout.jsx";
-
-// Pages (sin cambios)
-import Login from "./pages/Login";
-import Captura from "./pages/Captura";
-import Compras from "./pages/Compras";
-import PanelAsesor from "./pages/PanelAsesor";
-import PanelAsesorOp from "./pages/PanelAsesorOp";
-import PanelGerencial from "./pages/PanelGerencial";
-import Ventanilla from "./pages/Ventanilla";
-import VentanillaDetalle from "./pages/VentanillaDetalle";
-import ConsultaOT from "./pages/ConsultaOT";
-import StockPedidos from "./pages/StockPedidos";
-import Almacen from "./pages/Almacen";
-import Chatbot from "./pages/Chatbot";
-import MisCotizaciones from "./pages/MisCotizaciones";
-import Usuarios from "./pages/usuarios";
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Ruta de inicio por rol (sin cambios)
-const ROL_DEFAULT: Record<string, string> = {
-  coordinador:      "/captura",
-  ventas:           "/captura",
-  asesor_op:        "/mi-consulta",
-  comprador:        "/compras",
-  almacen:          "/almacen",
-  ventanilla:       "/ventanilla",
-  gerente:          "/gerencial",
-  gerente_sucursal: "/gerencial",
-  admin:            "/gerencial",
-};
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Guard de ruta por rol (sin cambios)
-function RutaProtegida({ roles, children }: { roles: string[]; children: JSX.Element }) {
-  const { user } = useAuth();
-  const destino = ROL_DEFAULT[user?.rol ?? ""] ?? "/captura";
-
-  if (!user || !roles.includes(user.rol)) {
-    return <Navigate to={destino} replace />;
-  }
-  return children;
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Componente Layout con Outlet (¡ESTO ES LA CORRECCIÓN PRINCIPAL!)
-function LayoutConOutlet() {
-  return (
-    <Layout>
-      <Outlet />
-    </Layout>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Rutas protegidas
-function RutasProtegidas() {
-  const { user, cargando } = useAuth();
-
-  if (cargando) {
-    return (
-      <div style={{
-        display: "flex", alignItems: "center", justifyContent: "center",
-        height: "100vh", background: "#0f172a", color: "#9ca3af", fontSize: "17px"
-      }}>
-        Cargando sistema...
-      </div>
-    );
-  }
-
-  if (!user) {
-    return <Navigate to="/login" replace />;
-  }
-
-  const rolDefault = ROL_DEFAULT[user.rol] ?? "/captura";
-
-  return (
-    <Routes>
-      {/* Redirect raíz → ruta de inicio del rol */}
-      <Route path="/" element={<Navigate to={rolDefault} replace />} />
-
-      {/* Layout principal con Outlet */}
-      <Route element={<LayoutConOutlet />}>
-
-        {/* ── Coordinador y Ventas ─────────────────────────────────── */}
-        <Route
-          path="/captura"
-          element={
-            <RutaProtegida roles={["coordinador", "ventas", "gerente", "gerente_sucursal", "admin"]}>
-              <Captura />
-            </RutaProtegida>
-          }
-        />
-        <Route
-          path="/mi-panel"
-          element={
-            <RutaProtegida roles={["coordinador", "ventas", "gerente", "admin"]}>
-              <PanelAsesor />
-            </RutaProtegida>
-          }
-        />
-        <Route
-          path="/mis-cotizaciones"
-          element={
-            <RutaProtegida roles={["coordinador", "ventas", "gerente", "gerente_sucursal", "admin"]}>
-              <MisCotizaciones />
-            </RutaProtegida>
-          }
-        />
-
-        {/* ── Asesor Op. ──────────────────────────────── */}
-        <Route
-          path="/mi-consulta"
-          element={
-            <RutaProtegida roles={["asesor_op"]}>
-              <PanelAsesorOp />
-            </RutaProtegida>
-          }
-        />
-
-        {/* ── Compartidas ──────────────── */}
-        <Route path="/consulta-ot" element={<ConsultaOT />} />
-        <Route path="/chat"        element={<Chatbot />} />
-
-        {/* ── Compras ────────────────────────────────────────────────── */}
-        <Route
-          path="/compras"
-          element={
-            <RutaProtegida roles={["comprador", "gerente", "admin"]}>
-              <Compras />
-            </RutaProtegida>
-          }
-        />
-
-        {/* ── Almacén ────────────────────────────────────────────────── */}
-        <Route
-          path="/almacen"
-          element={
-            <RutaProtegida roles={["almacen", "gerente", "gerente_sucursal", "admin"]}>
-              <Almacen />
-            </RutaProtegida>
-          }
-        />
-        <Route
-          path="/recepcion-masiva"
-          element={
-            <RutaProtegida roles={["almacen", "gerente", "gerente_sucursal", "admin"]}>
-              <Almacen />
-            </RutaProtegida>
-          }
-        />
-        <Route
-          path="/stock-pedidos"
-          element={
-            <RutaProtegida roles={["almacen", "gerente", "gerente_sucursal", "admin"]}>
-              <StockPedidos />
-            </RutaProtegida>
-          }
-        />
-
-        {/* ── Ventanilla ─────────────────────────────────────────────── */}
-        <Route
-          path="/ventanilla"
-          element={
-            <RutaProtegida roles={["ventanilla", "gerente", "gerente_sucursal", "admin"]}>
-              <Ventanilla />
-            </RutaProtegida>
-          }
-        />
-        <Route
-          path="/ventanilla/:ot"
-          element={
-            <RutaProtegida roles={["ventanilla", "gerente", "gerente_sucursal", "admin"]}>
-              <VentanillaDetalle />
-            </RutaProtegida>
-          }
-        />
-
-        {/* ── Gerencial (Admin, Gerente, Gerente Sucursal) ───────────── */}
-        <Route
-          path="/gerencial"
-          element={
-            <RutaProtegida roles={["gerente", "gerente_sucursal", "admin"]}>
-              <PanelGerencial />
-            </RutaProtegida>
-          }
-        />
-
-        {/* ── Administración de usuarios ─────────────────── */}
-        <Route
-          path="/usuarios"
-          element={
-            <RutaProtegida roles={["admin"]}>
-              <Usuarios />
-            </RutaProtegida>
-          }
-        />
-
-        {/* Catch-all → ruta por defecto del rol */}
-        <Route path="*" element={<Navigate to={rolDefault} replace />} />
-      </Route>
-    </Routes>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Guard del Login (sin cambios)
-function LoginGuard() {
-  const { user, cargando } = useAuth();
-  if (cargando) return (
-    <div style={{
-      height: "100vh", display: "flex", alignItems: "center",
-      justifyContent: "center", background: "#0f172a", color: "#9ca3af"
-    }}>
-      Cargando sistema...
-    </div>
-  );
-  if (user) return <Navigate to="/" replace />;
-  return <Login />;
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// App root (sin cambios importantes)
 export default function App() {
   return (
     <AuthProvider>
