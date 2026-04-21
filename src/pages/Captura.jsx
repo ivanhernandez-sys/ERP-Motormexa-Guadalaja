@@ -67,7 +67,11 @@ export default function Captura() {
   const { user } = useAuth();
   const sucursalId  = user?.sucursal_id;
   const sucursalCfg = SUCURSALES[sucursalId] || SUCURSALES["mayoreo_menudeo"];
-  const esMayoreo   = sucursalId === "mayoreo_menudeo";
+
+  // FIX: esMayoreo se basa en el rol "ventas" O en el sucursal_id.
+  // Antes solo revisaba sucursal_id, por lo que si el campo llegaba vacío
+  // o no coincidía exactamente, el usuario de ventas veía el encabezado de taller.
+  const esMayoreo = user?.rol === "ventas" || sucursalId === "mayoreo_menudeo";
 
   // Estados
   const [ot, setOt]                           = useState("");
@@ -208,7 +212,7 @@ export default function Captura() {
         <div style={gridDos}>
           {esMayoreo ? (
             <>
-              <Campo label="Tipo de Cotización *">
+              <Campo label="Tipo de Cliente *">
                 <select value={tipoCotizacion} onChange={e => handleTipoCotizacion(e.target.value)} style={inputStyle}>
                   {["Mayoreo", "Menudeo", "Aseguradora"].map(t => <option key={t}>{t}</option>)}
                 </select>
@@ -228,7 +232,7 @@ export default function Captura() {
                   </Campo>
                 </>
               )}
-              <Campo label="Cliente / Aseguradora">
+              <Campo label="Cliente">
                 <input value={clienteAseguradora} onChange={e => setClienteAseguradora(e.target.value)} style={inputStyle} />
               </Campo>
             </>

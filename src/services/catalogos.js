@@ -3,12 +3,14 @@
 // ─────────────────────────────────────────────────────────────
 
 export const SUCURSALES = {
-  taller_vallarta:    { nombre: "Taller Vallarta",    fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
-  taller_acueducto:   { nombre: "Taller Acueducto",   fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
-  taller_country:     { nombre: "Taller Country",     fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
-  taller_camino_real: { nombre: "Taller Camino Real", fabricantes: ["Mitsubishi"],                          permitEUA: false },
-  bodyshop:           { nombre: "BodyShop",           fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
-  mayoreo_menudeo:    { nombre: "Mayoreo/Menudeo",    fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  // IDs unificados con constants/roles.js y la base de datos
+  // (antes: taller_vallarta, taller_acueducto, taller_country, taller_camino_real)
+  acueducto:       { nombre: "Taller Acueducto",   fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  vallarta:        { nombre: "Taller Vallarta",     fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  country:         { nombre: "Taller Country",      fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  camino_real:     { nombre: "Taller Camino Real",  fabricantes: ["Mitsubishi"],                          permitEUA: false },
+  bodyshop:        { nombre: "BodyShop",            fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
+  mayoreo_menudeo: { nombre: "Mayoreo/Menudeo",     fabricantes: ["Stellantis", "Mitsubishi", "Peugeot"], permitEUA: true  },
 };
 
 export const FABRICANTE_POR_MARCA = {
@@ -28,32 +30,22 @@ export const MARCAS_POR_FABRICANTE = {
 };
 
 export const MODELOS_POR_MARCA = {
-  Ram:       ["700", "1200", "1500 Mild-Hybrid", "1500 TRX/RHO", "2500", "4000", "Promaster/Rapid", "Otro"],
-  Jeep:      ["Renegade", "Compass", "Cherokee", "Grand Cherokee", "Wrangler JL", "Wrangler JT", "Wagoneer/Grand Wagoneer", "Patriot", "Liberty", "Otro"],
-  Fiat:      ["Mobi", "Uno", "Argo", "Pulse", "Fastback", "500/500L/500x", "Ducato", "Abarth", "Otro"],
-  Dodge:     ["Attitude", "New Attitude", "Neon", "Journey", "New Journey", "Durango", "Charger", "Challenger", "Otro"],
-  Chrysler:  ["Pacifica", "300/300C", "200", "Town & Country", "Otro"],
-  Peugeot:   ["208", "301", "2008", "3008", "5008", "Landtrek", "Partner", "Rifter", "Manager", "Otro"],
-  Mitsubishi:["Mirage", "Xpander/Xpander Cross", "Outlander PHEV", "Outlander Sport", "Outlander", "Montero Sport", "L200 Gasolina", "L200 Diesel", "ASX/Eclipse Cross", "Otro"],
+  Ram: ["700", "1200", "1500 Mild-Hybrid", "1500 TRX/RHO", "2500", "4000", "Promaster/Rapid", "Otro"],
+  Jeep: ["Renegade", "Compass", "Cherokee", "Grand Cherokee", "Wrangler JL", "Wrangler JT", "Wagoneer/Grand Wagoneer", "Patriot", "Liberty", "Otro"],
+  Fiat: ["Mobi", "Uno", "Argo", "Pulse", "Fastback", "500/500L/500x", "Ducato", "Abarth", "Otro"],
+  Dodge: ["Attitude", "New Attitude", "Neon", "Journey", "New Journey", "Durango", "Charger", "Challenger", "Otro"],
+  Chrysler: ["Pacifica", "300/300C", "200", "Town & Country", "Otro"],
+  Peugeot: ["208", "301", "2008", "3008", "5008", "Landtrek", "Partner", "Rifter", "Manager", "Otro"],
+  Mitsubishi: ["Mirage", "Xpander/Xpander Cross", "Outlander PHEV", "Outlander Sport", "Outlander", "Montero Sport", "L200 Gasolina", "L200 Diesel", "ASX/Eclipse Cross", "Otro"],
 };
 
-// 🔥 "Cotizada" agregado para flujo Mayoreo/Menudeo/Aseguradoras
-export const ESTATUSES_ITEM = [
-  "Cotizada",       // nuevo — pieza capturada, esperando aprobación del cliente
-  "Pendiente",
-  "Comprada",
-  "No comprada",
-  "Recibida",
-  "Entregada",
-  "Incorrecta",
-  "Vencida",
-];
+export const ESTATUSES_ITEM = ["Pendiente", "Comprada", "No comprada", "Recibida", "Entregada", "Incorrecta", "Vencida"];
 
 export const ESTATUSES_OT = ["Completa", "Parcial", "Facturada", "Cancelada"];
 
 export const TIPOS_ORDEN = ["Público", "Garantía", "Interna"];
 
-export const TIPOS_COTIZACION = ["Mayoreo", "Menudeo", "Aseguradora"];
+export const TIPOS_COTIZACION = ["Aseguradora", "Mayoreo", "Menudeo"];
 
 export const UBICACIONES = ["MX", "EUA", "BO"];
 
@@ -85,7 +77,7 @@ function addDiasHabiles(desde, dias) {
   while (conteo < dias) {
     d.setDate(d.getDate() + 1);
     const dow = d.getDay();
-    if (dow !== 0 && dow !== 1) conteo++;
+    if (dow !== 0 && dow !== 1) conteo++; // lunes y domingo no cuentan
   }
   return d;
 }
@@ -94,17 +86,22 @@ export function calcularETA(ubicacion, fabricante, fechaCompra = new Date()) {
   const base = new Date(fechaCompra);
 
   if (ubicacion === "MX") {
+    // 1 día hábil → siguiente día de llegada
     const unDia = addDiasHabiles(base, 1);
+    // si ese día no es de llegada, al siguiente que sí lo sea
     return esDiaLlegada(unDia) ? unDia : siguienteDiaLlegada(unDia);
   }
+
   if (ubicacion === "EUA") {
     const catorce = addDiasHabiles(base, 14);
     return esDiaLlegada(catorce) ? catorce : siguienteDiaLlegada(catorce);
   }
+
   if (ubicacion === "BO") {
     const cuarentayCinco = addDiasHabiles(base, 45);
     return esDiaLlegada(cuarentayCinco) ? cuarentayCinco : siguienteDiaLlegada(cuarentayCinco);
   }
+
   return null;
 }
 
@@ -129,9 +126,7 @@ export function generarReferencia(sucursalId, ot, asesorNombre) {
   return `TA-${ot}`;
 }
 
-// 🔥 "Cotizada" agregado para flujo Mayoreo
 export const COLOR_ESTATUS = {
-  Cotizada:      { bg: "#1e3a5f", text: "#93c5fd" },   // azul oscuro — esperando cliente
   Pendiente:     { bg: "#854d0e", text: "#fef9c3" },
   Comprada:      { bg: "#1e40af", text: "#dbeafe" },
   "No comprada": { bg: "#374151", text: "#d1d5db" },
